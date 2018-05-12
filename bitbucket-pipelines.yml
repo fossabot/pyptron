@@ -1,0 +1,51 @@
+image: node:carbon
+
+pipelines:
+  default:
+    - step:
+        name: Install dependencies
+        caches:
+          - node
+        script:
+          - npm install
+    - parallel:
+        - step:
+            name: Jest test and code coverage
+            caches:
+              - node
+            script:
+              - TZ="America/Bogota" npm run test:ci
+        - step:
+            name: Eslint
+            caches:
+              - node
+            script:
+              - npm run lint
+  branches:
+    master:
+      - step:
+          name: Install dependencies
+          caches:
+            - node
+          script:
+            - npm install
+      - parallel:
+          - step:
+              name: Jest test and code coverage
+              caches:
+                - node
+              script:
+                - TZ="America/Bogota" npm run test:ci
+          - step:
+              name: Eslint
+              caches:
+                - node
+              script:
+                - npm run lint
+      - step:
+          name: Deploy to production
+          caches:
+            - node
+          deployment: production
+          script:
+            - npm run deploy

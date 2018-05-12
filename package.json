@@ -1,0 +1,102 @@
+{
+  "name": "pyptron",
+  "version": "0.0.0-development",
+  "description": "Librería para el pico y placa en Colombia",
+  "private": true,
+  "main": "dist/api",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:archemiro/pyptron.git"
+  },
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/archemiro/pyptron/src",
+  "scripts": {
+    "start": "node dist/api",
+    "start:dev": "pm2 --watch src --ignore-watch __test__/**/* --interpreter babel-node start src/api",
+    "lint": "eslint 'src/**/*.js'",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:circleci": "exec < /dev/tty;circleci config validate -c .circleci/config.yml",
+    "test:ci": "jest --ci --coverage --testResultsProcessor=jest-junit",
+    "prebuild": "npm run clean",
+    "build": "babel --out-dir dist --ignore __tests__ src",
+    "deploy:setup": "pm2 deploy production setup",
+    "deploy": "pm2 deploy production"
+  },
+  "engines": {
+    "node": "8.11.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run test:circleci && npm run lint && npm run test:coverage"
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "8.11.1"
+          }
+        }
+      ]
+    ]
+  },
+  "jest-junit": {
+    "output": "test-results/jest/results.xml"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+      "jest": true
+    }
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "__tests__/**/*"
+    ],
+    "watch": "src"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/archemiro/pyptron/issues",
+    "email": "pyptron@pyphoy.com"
+  },
+  "keywords": [
+    "Colombia",
+    "Pico y placa"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "author": "Mauricio Robayo <archemiro@gmail.com> (https://www.archemiro.com)",
+  "dependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "colhol": "3.1.2",
+    "debug": "3.1.0",
+    "express": "4.16.3",
+    "moment": "2.22.1",
+    "morgan": "1.9.0",
+    "rimraf": "2.6.2",
+    "slugify": "1.2.9"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "husky": "1.0.0-rc.4",
+    "jest": "22.4.3",
+    "jest-junit": "3.7.0",
+    "pm2": "2.10.3",
+    "prettier": "1.12.1",
+    "pretty-quick": "1.4.1",
+    "supertest": "3.0.0"
+  }
+}
