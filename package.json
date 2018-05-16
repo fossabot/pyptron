@@ -12,7 +12,7 @@
   "homepage": "https://bitbucket.org/archemiro/pyptron/src",
   "scripts": {
     "start": "node dist/api",
-    "start:dev": "pm2 --watch src --ignore-watch __test__/**/* --interpreter babel-node start src/api",
+    "start:dev": "nodemon --exec babel-node src/api",
     "lint": "eslint 'src/**/*.js'",
     "clean": "rimraf dist",
     "test": "jest",
@@ -94,7 +94,8 @@
     "husky": "1.0.0-rc.4",
     "jest": "22.4.3",
     "jest-junit": "3.7.0",
-    "pm2": "2.10.3",
+    "nodemon": "^1.17.4",
+    "pm2": "^2.10.3",
     "prettier": "1.12.1",
     "pretty-quick": "1.4.1",
     "supertest": "3.0.0"
