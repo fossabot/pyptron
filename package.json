@@ -14,7 +14,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:circleci": "exec < /dev/tty;circleci config validate -c .circleci/config.yml",
-    "test:ci": "jest --ci --coverage --testResultsProcessor=jest-junit",
+    "test:ci": "JEST_JUNIT_OUTPUT=test-results/jest/results.xml jest --ci --coverage --testResultsProcessor=jest-junit",
     "prebuild": "npm run clean",
     "build": "babel --out-dir dist --ignore __tests__ src",
     "deploy:setup": "pm2 deploy production setup",
@@ -27,9 +27,6 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm run test:circleci && npm run lint && npm run test:coverage"
     }
-  },
-  "jest-junit": {
-    "output": "test-results/jest/results.xml"
   },
   "bugs": {
     "url": "https://bitbucket.org/archemiro/pyptron/issues",
