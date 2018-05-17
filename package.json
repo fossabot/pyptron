@@ -28,18 +28,6 @@
       "pre-commit": "pretty-quick --staged && npm run test:circleci && npm run lint && npm run test:coverage"
     }
   },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "8.11.1"
-          }
-        }
-      ]
-    ]
-  },
   "jest-junit": {
     "output": "test-results/jest/results.xml"
   },
