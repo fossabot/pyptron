@@ -13,7 +13,6 @@
     "clean": "rimraf dist",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:circleci": "exec < /dev/tty;circleci config validate -c .circleci/config.yml",
     "test:ci": "JEST_JUNIT_OUTPUT=test-results/jest/results.xml jest --ci --coverage --testResultsProcessor=jest-junit",
     "prebuild": "npm run clean",
     "build": "babel --out-dir dist --ignore __tests__ src",
@@ -22,7 +21,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run test:circleci && npm run lint && npm run test:coverage"
+      "pre-commit": "pretty-quick --staged && npm run lint && npm run test:coverage",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
   "bugs": {
@@ -56,7 +56,7 @@
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.11.0",
     "eslint-plugin-prettier": "2.6.0",
-    "husky": "1.0.0-rc.4",
+    "husky": "^1.0.0-rc.6",
     "jest": "22.4.3",
     "jest-junit": "3.7.0",
     "nodemon": "^1.17.4",
