@@ -20,9 +20,6 @@
     "deploy:setup": "pm2 deploy production setup",
     "deploy": "pm2 deploy production"
   },
-  "engines": {
-    "node": "8.11.1"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm run test:circleci && npm run lint && npm run test:coverage"
