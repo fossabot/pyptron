@@ -4,10 +4,6 @@
   "description": "Librería para el pico y placa en Colombia",
   "private": true,
   "main": "dist/api",
-  "repository": {
-    "type": "git",
-    "url": "git@bitbucket.org:archemiro/pyptron.git"
-  },
   "license": "MIT",
   "homepage": "https://bitbucket.org/archemiro/pyptron/src",
   "scripts": {
@@ -101,5 +97,9 @@
     "prettier": "1.12.1",
     "pretty-quick": "1.4.1",
     "supertest": "3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/archemiro/pyptron.git"
   }
 }
