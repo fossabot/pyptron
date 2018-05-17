@@ -31,15 +31,6 @@
   "jest-junit": {
     "output": "test-results/jest/results.xml"
   },
-  "eslintConfig": {
-    "extends": [
-      "airbnb-base",
-      "plugin:prettier/recommended"
-    ],
-    "env": {
-      "jest": true
-    }
-  },
   "bugs": {
     "url": "https://bitbucket.org/archemiro/pyptron/issues",
     "email": "pyptron@pyphoy.com"
