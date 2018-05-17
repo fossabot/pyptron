@@ -40,12 +40,6 @@
       "jest": true
     }
   },
-  "nodemonConfig": {
-    "ignore": [
-      "__tests__/**/*"
-    ],
-    "watch": "src"
-  },
   "bugs": {
     "url": "https://bitbucket.org/archemiro/pyptron/issues",
     "email": "pyptron@pyphoy.com"

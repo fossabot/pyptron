@@ -1,0 +1,6 @@
+{
+    "ignore": [
+        "__tests__/**/*"
+    ],
+    "watch": "src"
+}
