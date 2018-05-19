@@ -21,6 +21,7 @@ import itagui from "../lib/itagui";
 import ocana from "../lib/ocana";
 import sabaneta from "../lib/sabaneta";
 import laestrella from "../lib/laestrella";
+import ibague from "../lib/ibague";
 
 export const cities = {
   armenia,
@@ -42,7 +43,8 @@ export const cities = {
   quibdo,
   sabaneta,
   santamarta,
-  tunja
+  tunja,
+  ibague
 };
 /**
  * Devuelve un objecto con las categorías correspondientes a una ciudad dada en donde la llave es el
