@@ -1,6 +1,6 @@
 import moment, { locale } from "moment";
 
-import { getHoliday } from "colhol";
+import { getHoliday } from "pascua";
 
 locale("es_CO");
 
