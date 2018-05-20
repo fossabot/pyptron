@@ -56,7 +56,7 @@ module.exports = {
         hours: ["7:00 - 19:00"],
         scheme: "Último dígito del número de la placa según el esquema"
       },
-      name: "Particulares",
+      name: "motos",
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
