@@ -10,26 +10,45 @@ export function pyp(date, na, holidays, specialProcessing) {
   }
   return specialProcessing(date);
 }
-export function daysDiff(startDate, endDate, skip = [0]) {
+export function daysDiff(
+  startDate,
+  endDate,
+  skip = [0],
+  skipHolidays = false,
+  specialDates = []
+) {
   const mCurrentDate = moment(startDate);
   const mEndDate = moment(endDate);
   let daysLapse = 0;
+
   while (mCurrentDate <= mEndDate) {
-    if (skip.length === 0) {
-      daysLapse += 1;
-    } else {
-      for (let i = 0; i < skip.length; i += 1) {
-        if (mCurrentDate.day() !== skip[i]) {
-          daysLapse += 1;
-        }
+    if (specialDates.includes(mCurrentDate.format("YYYY-MM-DD"))) {
+      mCurrentDate.add(1, "days");
+      continue; // eslint-disable-line no-continue
+    }
+
+    if (skipHolidays) {
+      if (getHoliday(mCurrentDate.toDate())) {
+        mCurrentDate.add(1, "days");
+        continue; // eslint-disable-line no-continue
       }
     }
+
+    if (skip.includes(mCurrentDate.day())) {
+      mCurrentDate.add(1, "days");
+      continue; // eslint-disable-line no-continue
+    }
+
+    daysLapse += 1;
     mCurrentDate.add(1, "days");
   }
   return daysLapse;
 }
 export function getIndex(index, arrLen) {
   return (index % arrLen + arrLen) % arrLen;
+}
+export function getMonth(date) {
+  return moment(date).month() + 1;
 }
 export function getWeek(date) {
   return moment(date).week();
