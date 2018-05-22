@@ -158,13 +158,7 @@ export function arrRotate(arr, offset) {
  */
 export function excludeDays(date, days, holidays = true) {
   const mDate = moment(date);
-  if (days.indexOf(mDate.day()) !== -1) {
-    return true;
-  }
-  if (holidays && getHoliday(mDate.toDate())) {
-    return true;
-  }
-  return false;
+  return days.includes(mDate.day()) || (holidays && getHoliday(mDate.toDate()));
 }
 
 /**
