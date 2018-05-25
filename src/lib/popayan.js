@@ -24,11 +24,11 @@ module.exports = {
           const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1;
           const pyp = [
             [
-              "5-6", // 0: lunes
-              "7-8", // 1: martes
-              "9-0", // 2: miércoles
-              "1-2", // 3: jueves
-              "3-4" // 4: viernes
+              "3-4", // 0: lunes
+              "5-6", // 1: martes
+              "7-8", // 2: miércoles
+              "9-0", // 3: jueves
+              "1-2" // 4: viernes
             ],
             [
               "1-2", // 0: lunes
@@ -63,11 +63,11 @@ module.exports = {
           const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1;
           const pyp = [
             [
-              "5-6", // 0: lunes
-              "7-8", // 1: martes
-              "9-0", // 2: miércoles
-              "1-2", // 3: jueves
-              "3-4" // 4: viernes
+              "3-4", // 0: lunes
+              "5-6", // 1: martes
+              "7-8", // 2: miércoles
+              "9-0", // 3: jueves
+              "1-2" // 4: viernes
             ],
             [
               "1-2", // 0: lunes
