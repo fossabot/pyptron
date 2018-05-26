@@ -36,7 +36,9 @@ module.exports = {
     },
     motocarros: {
       info: {
-        vehicleClasses: ["Vehículos de servicio público individual - taxis"],
+        vehicleClasses: [
+          "Restricción de circulación de motocarros, según el color del mismo"
+        ],
         decrees: [
           {
             name: "Decreto 288 de julio de 2017",
