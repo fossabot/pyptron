@@ -23,14 +23,14 @@ module.exports = {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = {
-            1: "1-2", // lunes
-            2: "3-4", // martes
-            3: "5-6", // miércoles
-            4: "7-8", // jueves
-            5: "9-0" // viernes
-          };
-          return pyp[pypFuncs.getDay(date)];
+          const pyp = [
+            "1-2", // lunes
+            "3-4", // martes
+            "5-6", // miércoles
+            "7-8", // jueves
+            "9-0" // viernes
+          ];
+          return pyp[pypFuncs.getDay(date) - 1];
         });
       }
     },
@@ -56,14 +56,14 @@ module.exports = {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = {
-            1: "1-2", // lunes
-            2: "3-4", // martes
-            3: "5-6", // miércoles
-            4: "7-8", // jueves
-            5: "9-0" // viernes
-          };
-          return pyp[pypFuncs.getDay(date)];
+          const pyp = [
+            "1-2", // lunes
+            "3-4", // martes
+            "5-6", // miércoles
+            "7-8", // jueves
+            "9-0" // viernes
+          ];
+          return pyp[pypFuncs.getDay(date) - 1];
         });
       }
     },

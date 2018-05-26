@@ -35,14 +35,14 @@ module.exports = {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = {
-            1: "0-9", // lunes
-            2: "1-8", // martes
-            3: "2-7", // miércoles
-            4: "3-6", // jueves
-            5: "4-5" // viernes
-          };
-          return pyp[pypFuncs.getDay(date)];
+          const pyp = [
+            "0-9", // lunes
+            "1-8", // martes
+            "2-7", // miércoles
+            "3-6", // jueves
+            "4-5" // viernes
+          ];
+          return pyp[pypFuncs.getDay(date) - 1];
         });
       }
     },
@@ -80,14 +80,14 @@ module.exports = {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = {
-            1: "0-9", // lunes
-            2: "1-8", // martes
-            3: "2-7", // miércoles
-            4: "3-6", // jueves
-            5: "4-5" // viernes
-          };
-          return pyp[pypFuncs.getDay(date)];
+          const pyp = [
+            "0-9", // lunes
+            "1-8", // martes
+            "2-7", // miércoles
+            "3-6", // jueves
+            "4-5" // viernes
+          ];
+          return pyp[pypFuncs.getDay(date) - 1];
         });
       }
     },
@@ -118,23 +118,23 @@ module.exports = {
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
           const pyp = [
-            {
-              1: "0", // lunes
-              2: "9", // martes
-              3: "8", // miércoles
-              4: "7", // jueves
-              5: "6" // viernes
-            },
-            {
-              1: "1", // lunes
-              2: "2", // martes
-              3: "3", // miércoles
-              4: "4", // jueves
-              5: "5" // viernes
-            }
+            [
+              "0", // lunes
+              "9", // martes
+              "8", // miércoles
+              "7", // jueves
+              "6" // viernes
+            ],
+            [
+              "1", // lunes
+              "2", // martes
+              "3", // miércoles
+              "4", // jueves
+              "5" // viernes
+            ]
           ];
           const week = pypFuncs.getWeek(date) % 2;
-          return pyp[week][pypFuncs.getDay(date)];
+          return pyp[week][pypFuncs.getDay(date) - 1];
         });
       }
     }

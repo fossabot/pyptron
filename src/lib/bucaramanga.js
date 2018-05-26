@@ -46,14 +46,14 @@ module.exports = {
               true
             );
           }
-          const pyp = {
-            1: "3-4", // lunes
-            2: "5-6", // martes
-            3: "7-8", // miércoles
-            4: "9-0", // jueves
-            5: "1-2" // viernes
-          };
-          return pyp[pypFuncs.getDay(date)];
+          const pyp = [
+            "3-4", // lunes
+            "5-6", // martes
+            "7-8", // miércoles
+            "9-0", // jueves
+            "1-2" // viernes
+          ];
+          return pyp[pypFuncs.getDay(date) - 1];
         });
       }
     },
@@ -99,14 +99,14 @@ module.exports = {
               true
             );
           }
-          const pyp = {
-            1: "3-4", // lunes
-            2: "5-6", // martes
-            3: "7-8", // miércoles
-            4: "9-0", // jueves
-            5: "1-2" // viernes
-          };
-          return pyp[pypFuncs.getDay(date)];
+          const pyp = [
+            "3-4", // lunes
+            "5-6", // martes
+            "7-8", // miércoles
+            "9-0", // jueves
+            "1-2" // viernes
+          ];
+          return pyp[pypFuncs.getDay(date) - 1];
         });
       }
     },

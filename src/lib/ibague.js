@@ -25,11 +25,11 @@ module.exports = {
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
           const pyp = [
-            "0-1", // 0: lunes
-            "2-3", // 1: martes
-            "4-5", // 2: miércoles
-            "6-7", // 3: jueves
-            "8-9" // 4: viernes
+            "0-1", // lunes
+            "2-3", // martes
+            "4-5", // miércoles
+            "6-7", // jueves
+            "8-9" // iernes
           ];
           return pyp[pypFuncs.getDay(date) - 1];
         });

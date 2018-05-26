@@ -24,18 +24,18 @@ module.exports = {
           const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1;
           const pyp = [
             [
-              "3-4", // 0: lunes
-              "5-6", // 1: martes
-              "7-8", // 2: miércoles
-              "9-0", // 3: jueves
-              "1-2" // 4: viernes
+              "3-4", // lunes
+              "5-6", // martes
+              "7-8", // miércoles
+              "9-0", // jueves
+              "1-2" // viernes
             ],
             [
-              "1-2", // 0: lunes
-              "3-4", // 1: martes
-              "5-6", // 2: miércoles
-              "7-8", // 3: jueves
-              "9-0" // 4: viernes
+              "1-2", // lunes
+              "3-4", // martes
+              "5-6", // miércoles
+              "7-8", // jueves
+              "9-0" // viernes
             ]
           ];
           return pyp[semester][pypFuncs.getDay(date) - 1];
@@ -63,18 +63,18 @@ module.exports = {
           const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1;
           const pyp = [
             [
-              "3-4", // 0: lunes
-              "5-6", // 1: martes
-              "7-8", // 2: miércoles
-              "9-0", // 3: jueves
-              "1-2" // 4: viernes
+              "3-4", // lunes
+              "5-6", // martes
+              "7-8", // miércoles
+              "9-0", // jueves
+              "1-2" // viernes
             ],
             [
-              "1-2", // 0: lunes
-              "3-4", // 1: martes
-              "5-6", // 2: miércoles
-              "7-8", // 3: jueves
-              "9-0" // 4: viernes
+              "1-2", // lunes
+              "3-4", // martes
+              "5-6", // miércoles
+              "7-8", // jueves
+              "9-0" // viernes
             ]
           ];
           return pyp[semester][pypFuncs.getDay(date) - 1];
