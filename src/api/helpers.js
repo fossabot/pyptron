@@ -25,6 +25,7 @@ import ibague from "../lib/ibague";
 import popayan from "../lib/popayan";
 import pamplona from "../lib/pamplona";
 import soledad from "../lib/soledad";
+import turbaco from "../lib/turbaco";
 
 export const cities = {
   armenia,
@@ -50,7 +51,8 @@ export const cities = {
   ibague,
   popayan,
   pamplona,
-  soledad
+  soledad,
+  turbaco
 };
 /**
  * Obtiene las categorías correspondientes a una ciudad dada en donde la llave es el slug ordenado
