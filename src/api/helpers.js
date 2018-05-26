@@ -23,6 +23,8 @@ import sabaneta from "../lib/sabaneta";
 import laestrella from "../lib/laestrella";
 import ibague from "../lib/ibague";
 import popayan from "../lib/popayan";
+import pamplona from "../lib/pamplona";
+import soledad from "../lib/soledad";
 
 export const cities = {
   armenia,
@@ -46,7 +48,9 @@ export const cities = {
   santamarta,
   tunja,
   ibague,
-  popayan
+  popayan,
+  pamplona,
+  soledad
 };
 /**
  * Obtiene las categorías correspondientes a una ciudad dada en donde la llave es el slug ordenado
