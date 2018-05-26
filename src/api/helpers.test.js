@@ -1,4 +1,4 @@
-const pyp = require("../controller");
+const pyp = require("./helpers");
 const fs = require("fs");
 
 const dir = "./src/lib";

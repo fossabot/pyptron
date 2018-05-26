@@ -1,7 +1,7 @@
 import request from "supertest";
-import { getCities } from "../api/controller";
-import app from "../app";
-import config from "../config";
+import { getCities } from "./api/helpers";
+import app from "./app";
+import config from "./config";
 
 const appTest = app(config);
 

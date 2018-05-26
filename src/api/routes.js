@@ -2,7 +2,7 @@
 
 import express from "express";
 import debug from "debug";
-import * as pyptron from "./controller";
+import * as pyptron from "./helpers";
 
 const debugRoute = debug("pyptron:route");
 

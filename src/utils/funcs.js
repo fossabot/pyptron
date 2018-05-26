@@ -5,6 +5,19 @@ import { getHoliday } from "pascua";
 locale("es_CO");
 
 /**
+ * Excluye una fecha si corresponde a alguno de los días de exclusión o si es festivo en caso de
+ * que se incluyan los fetivos como motivo de exclusión.
+ * @param {string} date Fecha para la cual se desea determinar si se excluye o no
+ * @param {array} days Días de la semana que se desean excluir. Domingo = 0 y Sábado = 6.
+ * @param {boolean} holidays Si se desea incluir los festivos como motivo de exclusión.
+ * @returns {boolean} Verdadero si la fecha es excluida de lo contrario falso.
+ */
+export function excludeDays(date, days, holidays = true) {
+  const mDate = moment(date);
+  return days.includes(mDate.day()) || (holidays && getHoliday(mDate.toDate()));
+}
+
+/**
  * Envuelve el algoritmo particular para cada caso de pyp permitiendo abstraer patrones globales,
  * como el algoritmo para excluir días, del algoritmo como tal para cada caso.
  * @param {string} date La fecha para la cual se desea saber el pyp.
@@ -14,7 +27,7 @@ locale("es_CO");
  * @returns {string} El valor correspondiente al pyp para el día solicitado.
  */
 export function pyp(date, na, holidays, specialProcessing) {
-  if (this.excludeDays(date, na, holidays)) {
+  if (excludeDays(date, na, holidays)) {
     return "NA";
   }
   return specialProcessing(date);
@@ -149,19 +162,6 @@ export function arrRotate(arr, offset) {
 }
 
 /**
- * Excluye una fecha si corresponde a alguno de los días de exclusión o si es festivo en caso de
- * que se incluyan los fetivos como motivo de exclusión.
- * @param {string} date Fecha para la cual se desea determinar si se excluye o no
- * @param {array} days Días de la semana que se desean excluir. Domingo = 0 y Sábado = 6.
- * @param {boolean} holidays Si se desea incluir los festivos como motivo de exclusión.
- * @returns {boolean} Verdadero si la fecha es excluida de lo contrario falso.
- */
-export function excludeDays(date, days, holidays = true) {
-  const mDate = moment(date);
-  return days.includes(mDate.day()) || (holidays && getHoliday(mDate.toDate()));
-}
-
-/**
  * Rota los elementos de pypNums según la diferencia de días
  * @param {string} date Fecha para la cual se desea saber el valor final tras la rotación.
  * @param {string} startDate Fecha que corresponde con el valor inicial de la rotación.
@@ -174,67 +174,9 @@ export function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
   const mDate = moment(date);
   const mStartDate = moment(startDate);
   // eslint-disable-next-line no-unmodified-loop-condition
-  let daysLapse = this.daysDiff(mStartDate, mDate, skip);
+  let daysLapse = daysDiff(mStartDate, mDate, skip);
   daysLapse += pypNums.indexOf(startNums) - 1;
   return pypNums[daysLapse % pypNums.length];
-}
-
-/**
- * Rota los valores de un array según el número de semana que hayan pasado entre startDate y date.
- * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
- * @param {string} startDate La fecha en que inicia la rotación.
- * @param {string} startNums Los valores iniciales para la rotación.
- * @param {array} pypNums Los valores que se van a rotar.
- * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
- * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
- * @returns {string} El valor de pypNums tras la rotación para la fecha date.
- */
-export function rotateByWeek(
-  date,
-  startDate,
-  startNums,
-  pypNums,
-  reverse = false,
-  interval = 1
-) {
-  return this.rotateBy(
-    date,
-    startDate,
-    startNums,
-    pypNums,
-    "weeks",
-    reverse,
-    interval
-  );
-}
-
-/**
- * Rota los valores de un array según el número de meses que hayan pasado entre startDate y date.
- * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
- * @param {string} startDate La fecha en que inicia la rotación.
- * @param {string} startNums Los valores iniciales para la rotación.
- * @param {array} pypNums Los valores que se van a rotar.
- * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
- * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
- * @returns {string} El valor de pypNums tras la rotación para la fecha date.
- */
-export function rotateByMonth(
-  date,
-  startDate,
-  startNums,
-  pypNums,
-  reverse = false,
-  interval = 1
-) {
-  return this.rotateBy(
-    date,
-    startDate,
-    startNums,
-    pypNums,
-    "months",
-    reverse,
-    interval
-  );
 }
 
 /**
@@ -266,10 +208,68 @@ export function rotateBy(
   } else {
     lapse = Math.ceil(mDate.diff(mStartDate, period) / interval);
   }
-  const pypArray = this.arrRotate(pypNums, lapse - pypOffset);
+  const pypArray = arrRotate(pypNums, lapse - pypOffset);
   // La diferencia entre mDate.day() y mStartDate.day() puede ser negativa por lo tanto calculamos
   // el índice en caso de que sea negativo, en cuyo caso el cálculo se haría de atrás hacia
   // adelante, siendo -1 el último elemento del array.
-  const index = this.getIndex(mDate.day() - mStartDate.day(), pypArray.length);
+  const index = getIndex(mDate.day() - mStartDate.day(), pypArray.length);
   return pypArray[index];
+}
+
+/**
+ * Rota los valores de un array según el número de semana que hayan pasado entre startDate y date.
+ * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
+ * @param {string} startDate La fecha en que inicia la rotación.
+ * @param {string} startNums Los valores iniciales para la rotación.
+ * @param {array} pypNums Los valores que se van a rotar.
+ * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
+ * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
+ * @returns {string} El valor de pypNums tras la rotación para la fecha date.
+ */
+export function rotateByWeek(
+  date,
+  startDate,
+  startNums,
+  pypNums,
+  reverse = false,
+  interval = 1
+) {
+  return rotateBy(
+    date,
+    startDate,
+    startNums,
+    pypNums,
+    "weeks",
+    reverse,
+    interval
+  );
+}
+
+/**
+ * Rota los valores de un array según el número de meses que hayan pasado entre startDate y date.
+ * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
+ * @param {string} startDate La fecha en que inicia la rotación.
+ * @param {string} startNums Los valores iniciales para la rotación.
+ * @param {array} pypNums Los valores que se van a rotar.
+ * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
+ * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
+ * @returns {string} El valor de pypNums tras la rotación para la fecha date.
+ */
+export function rotateByMonth(
+  date,
+  startDate,
+  startNums,
+  pypNums,
+  reverse = false,
+  interval = 1
+) {
+  return rotateBy(
+    date,
+    startDate,
+    startNums,
+    pypNums,
+    "months",
+    reverse,
+    interval
+  );
 }

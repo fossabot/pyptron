@@ -1,4 +1,4 @@
-const pypFuncs = require("../funcs");
+import { arrRotate, rotateByMonth, rotateByWeek } from "./funcs";
 
 describe("Rotate an array", () => {
   it("should rotate an array according to the offset", () => {
@@ -17,7 +17,7 @@ describe("Rotate an array", () => {
       { offset: -arr.length * 2, result: arr }
     ];
     arrCases.forEach(arrCase => {
-      expect(pypFuncs.arrRotate(arr, arrCase.offset)).toEqual(arrCase.result);
+      expect(arrRotate(arr, arrCase.offset)).toEqual(arrCase.result);
     });
   });
 });
@@ -46,7 +46,7 @@ describe("Rotate by", () => {
       }
     ];
     monthCases.forEach(monthCase => {
-      const result = pypFuncs.rotateByMonth(
+      const result = rotateByMonth(
         monthCase.date,
         startDate,
         startNums,
@@ -78,7 +78,7 @@ describe("Rotate by", () => {
       }
     ];
     weekCases.forEach(weekCase => {
-      const result = pypFuncs.rotateByWeek(
+      const result = rotateByWeek(
         weekCase.date,
         startDate,
         startNums,
