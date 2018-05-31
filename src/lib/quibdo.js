@@ -8,9 +8,8 @@ module.exports = {
         vehicleClasses: ["Motocicletas de todo cilindraje"],
         decrees: [
           {
-            name: "Decreto 222",
-            url:
-              "https://twitter.com/rutaqalcaldia/status/772065542064705536?lang=es"
+            name: "Decreto 222 de 2016",
+            url: "https://cdn.pyphoy.com/quibdo/decreto-222-de-2016.pdf"
           }
         ],
         days: [
@@ -40,9 +39,8 @@ module.exports = {
         vehicleClasses: ["Vehículos automotores de servicio particular"],
         decrees: [
           {
-            name: "Decreto 222",
-            url:
-              "https://twitter.com/rutaqalcaldia/status/772065542064705536?lang=es"
+            name: "Decreto 222 de 2016",
+            url: "https://cdn.pyphoy.com/quibdo/decreto-222-de-2016.pdf"
           }
         ],
         days: [

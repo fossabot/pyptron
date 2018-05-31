@@ -8,8 +8,12 @@ module.exports = {
         vehicleClasses: ["Vehículos automotores de servicio particular"],
         decrees: [
           {
-            name: "",
-            url: ""
+            name: "Decreto 349 del 12 de diciembre de 2017",
+            url: "https://cdn.pyphoy.com/santa-marta/decreto-349-de-2017.pdf"
+          },
+          {
+            name: "Decreto 070 del 28 de febrero de 2018",
+            url: "https://cdn.pyphoy.com/santa-marta/decreto-070-de-2018.pdf"
           }
         ],
         days: [
