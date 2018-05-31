@@ -9,7 +9,7 @@ module.exports = {
         decrees: [
           {
             name: "Decreto 083 de 2016",
-            url: "https://www.pyphoy.com/armenia/docs/decreto-083-de-2016.pdf"
+            url: "https://cdn.pyphoy.com/armenia/decreto-083-de-2016.pdf"
           }
         ],
         days: ["Lunes a viernes hábiles"],
@@ -42,7 +42,7 @@ module.exports = {
         decrees: [
           {
             name: "Decreto 083 de 2016",
-            url: "https://www.pyphoy.com/armenia/docs/decreto-083-de-2016.pdf"
+            url: "https://cdn.pyphoy.com/armenia/decreto-083-de-2016.pdf"
           }
         ],
         days: ["Lunes a viernes hábiles"],
@@ -75,7 +75,7 @@ module.exports = {
         decrees: [
           {
             name: "Decreto 083 de 2016",
-            url: "https://www.pyphoy.com/armenia/docs/decreto-083-de-2016.pdf"
+            url: "https://cdn.pyphoy.com/armenia/decreto-083-de-2016.pdf"
           }
         ],
         days: ["Lunes a viernes hábiles"],
