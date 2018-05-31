@@ -8,8 +8,9 @@ module.exports = {
         vehicleClasses: ["Vehículos particulares y oficiales"],
         decrees: [
           {
-            name: "",
-            url: ""
+            name: "Decreto No. 014 del 31 de enero de 2018",
+            url:
+              "http://www.laestrella.gov.co/institucional/Normas/Decreto%20No.%20014%20del%2031%20de%20enero%20de%202018.PDF"
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
@@ -39,8 +40,9 @@ module.exports = {
         vehicleClasses: ["Motos de dos tiempos"],
         decrees: [
           {
-            name: "",
-            url: ""
+            name: "Decreto No. 014 del 31 de enero de 2018",
+            url:
+              "http://www.laestrella.gov.co/institucional/Normas/Decreto%20No.%20014%20del%2031%20de%20enero%20de%202018.PDF"
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
@@ -70,8 +72,9 @@ module.exports = {
         vehicleClasses: ["Transporte público individual - taxis"],
         decrees: [
           {
-            name: "",
-            url: ""
+            name: "Decreto No. 014 del 31 de enero de 2018",
+            url:
+              "http://www.laestrella.gov.co/institucional/Normas/Decreto%20No.%20014%20del%2031%20de%20enero%20de%202018.PDF"
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
