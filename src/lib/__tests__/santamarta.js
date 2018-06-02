@@ -9,7 +9,7 @@ describe("Specific cases", () => {
       pypCases: {
         particulares: "NA",
         motos: "NA",
-        taxis: "0-1"
+        taxis: "NA"
       }
     },
     {
@@ -17,7 +17,7 @@ describe("Specific cases", () => {
       pypCases: {
         particulares: "NA",
         motos: "NA",
-        taxis: "0-1"
+        taxis: "NA"
       }
     },
     {
@@ -34,6 +34,24 @@ describe("Specific cases", () => {
         particulares: "NA",
         motos: "NA",
         taxis: "NA"
+      }
+    },
+    {
+      date: "2018-03-12", // viernes 12 de marzo de 2018
+      pypCases: {
+        taxis: "8-9"
+      }
+    },
+    {
+      date: "2018-04-06", // viernes 6 de abril de 2018
+      pypCases: {
+        taxis: "0-1"
+      }
+    },
+    {
+      date: "2018-08-13", // lunes 13 de agosto de 2018
+      pypCases: {
+        taxis: "4-5"
       }
     },
     {
