@@ -112,7 +112,7 @@ module.exports = {
           }
           // Verificamos la semana para determinar que secuencia vamos a usar. Las semanas impares
           // usamos la primera secuencia, las pares la segunda.
-          const week = 1 - pypFuncs.getWeek(date) % 2;
+          const week = 1 - (pypFuncs.getWeek(date) % 2);
           const weekStartNum = startNums[week];
           const weekPypNums = pypNums[week];
           // Calculamos si estamos en la primera semana y si el primer día del mes corresponde con

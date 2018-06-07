@@ -88,7 +88,7 @@ export function daysDiff(
  * @returns {int} El índice - en caso de ser negativo corresponde al indice de atrás hacia adelante.
  */
 export function getIndex(index, arrLen) {
-  return (index % arrLen + arrLen) % arrLen;
+  return ((index % arrLen) + arrLen) % arrLen;
 }
 
 /**
