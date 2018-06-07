@@ -1,4 +1,4 @@
-const itagui = require("../itagui");
+import itagui from "../itagui";
 
 const times = ["T00:00:00.0000-05:00", "T23:59:59.999-05:00"];
 

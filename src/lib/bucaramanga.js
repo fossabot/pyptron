@@ -1,6 +1,6 @@
-const pypFuncs = require("../utils/funcs");
+import * as pypFuncs from "../utils/funcs";
 
-module.exports = {
+export default {
   name: "Bucaramanga",
   categories: {
     particulares: {

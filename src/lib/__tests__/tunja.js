@@ -1,4 +1,4 @@
-const tunja = require("../tunja");
+import tunja from "../tunja";
 
 const times = ["T00:00:00.0000-05:00", "T23:59:59.999-05:00"];
 
