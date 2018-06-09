@@ -23,7 +23,7 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = ["pares", "impares"];
+          const pyp = ["0-2-4-5-8", "1-3-5-7-9"];
           return pyp[pypFuncs.getDate(date) % 2];
         });
       }

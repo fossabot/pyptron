@@ -8,42 +8,42 @@ describe(`Test cases for ${soledad.name}`, () => {
       date: "2018-01-01", // Año Nuevo
       pypCases: {
         motos: "NA",
-        motocarros: "impares - naranja"
+        motocarros: "1-3-5-7-9- naranja"
       }
     },
     {
       date: "2018-03-19", // lunes festivo: San José
       pypCases: {
         motos: "NA",
-        motocarros: "impares - naranja"
+        motocarros: "1-3-5-7-9- naranja"
       }
     },
     {
       date: "2018-04-07", // sábado 7 de abril de 2018
       pypCases: {
         motos: "NA",
-        motocarros: "impares - naranja"
+        motocarros: "1-3-5-7-9- naranja"
       }
     },
     {
       date: "2018-02-04", // domingo 4 de febrero de 2018
       pypCases: {
         motos: "NA",
-        motocarros: "pares - azul"
+        motocarros: "0-2-4-6-8- azul"
       }
     },
     {
       date: "2018-04-09", // lunes 9 de abril de 2018
       pypCases: {
         motos: "1-2",
-        motocarros: "impares - naranja"
+        motocarros: "1-3-5-7-9- naranja"
       }
     },
     {
       date: "2018-05-16", // miércoles 16 de mayo de 2018
       pypCases: {
         motos: "5-6",
-        motocarros: "pares - azul"
+        motocarros: "0-2-4-6-8- azul"
       }
     }
   ];

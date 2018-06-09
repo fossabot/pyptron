@@ -31,13 +31,13 @@ describe(`Test cases for ${turbaco.name}`, () => {
     {
       date: "2018-04-09", // lunes 9 de abril de 2018
       pypCases: {
-        motos: "impares"
+        motos: "1-3-5-7-9"
       }
     },
     {
       date: "2018-05-16", // miércoles 16 de mayo de 2018
       pypCases: {
-        motos: "pares"
+        motos: "0-2-4-5-8"
       }
     }
   ];
