@@ -15,7 +15,7 @@ export default {
         days: [
           "Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)"
         ],
-        hours: ["6:00 A 00:00"],
+        hours: ["6:00 A 23:59"],
         scheme:
           "toma como referencia la letra que antecede al número lateral de cada uno de los automotores",
         observations: ""
