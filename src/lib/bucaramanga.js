@@ -10,6 +10,11 @@ export default {
         ],
         decrees: [
           {
+            name: "Resolución 108 de 2018",
+            url:
+              "http://transitobucaramanga.gov.co/resolucion/archivos/108-03-2018.pdf"
+          },
+          {
             name: "Resolución 435 de 2017",
             url:
               "http://transitobucaramanga.gov.co/resolucion/archivos/435-08-2017.pdf"
@@ -55,6 +60,11 @@ export default {
       info: {
         vehicleClasses: ["Vehículos tipo motocicletas"],
         decrees: [
+          {
+            name: "Resolución 108 de 2018",
+            url:
+              "http://transitobucaramanga.gov.co/resolucion/archivos/108-03-2018.pdf"
+          },
           {
             name: "Resolución 435 de 2017",
             url:
