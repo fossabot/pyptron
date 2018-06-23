@@ -46,13 +46,7 @@ export default {
               true
             );
           }
-          const pyp = [
-            "3-4", // lunes
-            "5-6", // martes
-            "7-8", // miércoles
-            "9-0", // jueves
-            "1-2" // viernes
-          ];
+          const pyp = ["5-6", "7-8", "9-0", "1-2", "3-4"];
           return pyp[pypFuncs.getDay(date) - 1];
         });
       }
@@ -99,13 +93,7 @@ export default {
               true
             );
           }
-          const pyp = [
-            "3-4", // lunes
-            "5-6", // martes
-            "7-8", // miércoles
-            "9-0", // jueves
-            "1-2" // viernes
-          ];
+          const pyp = ["5-6", "7-8", "9-0", "1-2", "3-4"];
           return pyp[pypFuncs.getDay(date) - 1];
         });
       }
