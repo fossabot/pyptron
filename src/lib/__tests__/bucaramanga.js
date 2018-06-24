@@ -40,14 +40,16 @@ describe("Specific cases", () => {
       date: "2018-03-26", // lunes 26 de marzo de 2018
       pypCases: {
         particulares: "3-4",
-        motos: "3-4"
+        motos: "3-4",
+        taxis: "3-4"
       }
     },
     {
       date: "2018-04-02", // lunes 2 de abirl de 2018
       pypCases: {
         particulares: "5-6",
-        motos: "5-6"
+        motos: "5-6",
+        taxis: "5-6"
       }
     },
     {

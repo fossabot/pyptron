@@ -33,7 +33,8 @@ export default {
         days: ["Lunes a sábado hábiles"],
         hours: ["Lunes a viernes: 6:00 - 20:00", "Sábados: 9:00 - 13:00"],
         scheme: "Según el último dígito del número de la placa",
-        observations: ""
+        observations:
+          "Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera."
       },
       name: "Particulares",
       na: [0],
@@ -94,7 +95,8 @@ export default {
         hours: ["Lunes a viernes: 6:00 - 20:00", "Sábados: 9:00 - 13:00"],
         scheme:
           "Último dígito numérico de la placa según el esquema sin tener en cuenta la letra o letras finales",
-        observations: ""
+        observations:
+          "Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera."
       },
       name: "Motos",
       na: [0],
@@ -131,19 +133,16 @@ export default {
         vehicleClasses: ["Vehículos de servicio público individual - taxis"],
         decrees: [
           {
-            name: "Resolución 435 de 2017",
-            url:
-              "http://transitobucaramanga.gov.co/resolucion/archivos/435-08-2017.pdf"
+            name: "Resolución 277 del 27 de Abril de 2006",
+            url: ""
           },
           {
-            name: "Resolución 782 de 2017",
-            url:
-              "http://transitobucaramanga.gov.co/resolucion/archivos/782-12-2017.pdf"
+            name: "Resolución 475 del 23 de Junio de 2006",
+            url: ""
           },
           {
-            name: "Resolución 783 de 2017",
-            url:
-              "http://transitobucaramanga.gov.co/resolucion/archivos/783-12-2017.pdf"
+            name: "Resolución 487 del 30 de Junio de 2006",
+            url: ""
           }
         ],
         days: ["Lunes a sábado hábiles"],
