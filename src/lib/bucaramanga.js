@@ -51,8 +51,17 @@ export default {
               true
             );
           }
-          const pyp = ["5-6", "7-8", "9-0", "1-2", "3-4"];
-          return pyp[pypFuncs.getDay(date) - 1];
+          const startNums = "3-4";
+          const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+          const startDate = "2018-01-01";
+          return pypFuncs.rotateByMonth(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true,
+            3
+          );
         });
       }
     },
@@ -103,8 +112,17 @@ export default {
               true
             );
           }
-          const pyp = ["5-6", "7-8", "9-0", "1-2", "3-4"];
-          return pyp[pypFuncs.getDay(date) - 1];
+          const startNums = "3-4";
+          const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+          const startDate = "2018-01-01";
+          return pypFuncs.rotateByMonth(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true,
+            3
+          );
         });
       }
     },
