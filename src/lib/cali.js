@@ -86,7 +86,7 @@ export default {
       name: "Transporte Público Colectivo",
       na: [],
       pyp(date) {
-        return pypFuncs.pyp(date, this.na, true, () => {
+        return pypFuncs.pyp(date, this.na, false, () => {
           const startDate = "2018-01-01";
           const startNums = "6-7";
           const pypNums = ["0-1", "2-3", "4-5", "6-7", "8-9"];

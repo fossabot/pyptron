@@ -9,7 +9,7 @@ describe("Specific cases", () => {
       pypCases: {
         particulares: "NA",
         taxis: "7-8",
-        tpc: "NA"
+        tpc: "6-7"
       }
     },
     {
@@ -17,7 +17,7 @@ describe("Specific cases", () => {
       pypCases: {
         particulares: "NA",
         taxis: "1-2",
-        tpc: "NA"
+        tpc: "0-1"
       }
     },
     {
