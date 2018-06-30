@@ -8,7 +8,7 @@ describe("Specific cases", () => {
       date: "2018-01-01", // Año Nuevo
       pypCases: {
         particulares: "NA",
-        taxis: "NA",
+        taxis: "7-8",
         tpc: "NA"
       }
     },
@@ -16,7 +16,7 @@ describe("Specific cases", () => {
       date: "2018-03-19", // lunes festivo: San José
       pypCases: {
         particulares: "NA",
-        taxis: "NA",
+        taxis: "1-2",
         tpc: "NA"
       }
     },
