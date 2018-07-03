@@ -19,6 +19,11 @@ export default {
             name: "Decreto 174 de 2006",
             url:
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330"
+          },
+          {
+            name: "Calendario pico y placa primer semestre 2018 unificado",
+            url:
+              "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf"
           }
         ],
         days: [
@@ -60,6 +65,11 @@ export default {
             name: "Decreto 058 de 2003 y Decreto 051 de 2004",
             url:
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124"
+          },
+          {
+            name: "Calendario pico y placa primer semestre 2018 unificado",
+            url:
+              "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf"
           }
         ],
         days: [
@@ -68,7 +78,8 @@ export default {
         hours: ["5:30 - 21:00"],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
-        observations: ""
+        observations:
+          '<a href="https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf">Calendario pyp taxis primer semestre 2018</a>'
       },
       name: "Taxis",
       na: [0],
@@ -97,6 +108,11 @@ export default {
             name: "Decreto 248 del 14 de junio de 2016",
             url:
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359"
+          },
+          {
+            name: "Calendario pico y placa primer semestre 2018 unificado",
+            url:
+              "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf"
           }
         ],
         days: [
@@ -132,6 +148,11 @@ export default {
             name: "Decreto 444 de 2014",
             url:
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702"
+          },
+          {
+            name: "Calendario pico y placa primer semestre 2018 unificado",
+            url:
+              "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf"
           }
         ],
         days: [
@@ -178,6 +199,11 @@ export default {
             name: "Decreto 159 del 11 de abril de 2014",
             url:
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155"
+          },
+          {
+            name: "Calendario pico y placa primer semestre 2018 unificado",
+            url:
+              "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf"
           }
         ],
         days: ["Lunes a viernes hábiles"],

@@ -109,6 +109,10 @@ Object {
           "name": "Decreto 174 de 2006",
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330",
         },
+        Object {
+          "name": "Calendario pico y placa primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        },
       ],
       "hours": Array [
         "Transporte Público Colectivo: 6:00 - 10:00",
@@ -131,6 +135,10 @@ Object {
         Object {
           "name": "Decreto 248 del 14 de junio de 2016",
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359",
+        },
+        Object {
+          "name": "Calendario pico y placa primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
         },
       ],
       "hours": Array [
@@ -161,6 +169,10 @@ Object {
           "name": "Decreto 159 del 11 de abril de 2014",
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155",
         },
+        Object {
+          "name": "Calendario pico y placa primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        },
       ],
       "hours": Array [
         "6:00 - 8:30",
@@ -187,12 +199,16 @@ Object {
           "name": "Decreto 058 de 2003 y Decreto 051 de 2004",
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124",
         },
+        Object {
+          "name": "Calendario pico y placa primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        },
       ],
       "hours": Array [
         "5:30 - 21:00",
       ],
       "name": "Taxis",
-      "observations": "",
+      "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
       "path": "bogota/taxis",
       "scheme": "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
       "vehicleClasses": Array [
@@ -207,6 +223,10 @@ Object {
         Object {
           "name": "Decreto 444 de 2014",
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702",
+        },
+        Object {
+          "name": "Calendario pico y placa primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
         },
       ],
       "hours": Array [
@@ -272,6 +292,10 @@ Object {
         "name": "Decreto 174 de 2006",
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330",
       },
+      Object {
+        "name": "Calendario pico y placa primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+      },
     ],
     "hours": Array [
       "Transporte Público Colectivo: 6:00 - 10:00",
@@ -294,6 +318,10 @@ Object {
       Object {
         "name": "Decreto 248 del 14 de junio de 2016",
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359",
+      },
+      Object {
+        "name": "Calendario pico y placa primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
       },
     ],
     "hours": Array [
@@ -324,6 +352,10 @@ Object {
         "name": "Decreto 159 del 11 de abril de 2014",
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155",
       },
+      Object {
+        "name": "Calendario pico y placa primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+      },
     ],
     "hours": Array [
       "6:00 - 8:30",
@@ -350,12 +382,16 @@ Object {
         "name": "Decreto 058 de 2003 y Decreto 051 de 2004",
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124",
       },
+      Object {
+        "name": "Calendario pico y placa primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+      },
     ],
     "hours": Array [
       "5:30 - 21:00",
     ],
     "name": "Taxis",
-    "observations": "",
+    "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
     "path": "bogota/taxis",
     "scheme": "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
     "vehicleClasses": Array [
@@ -370,6 +406,10 @@ Object {
       Object {
         "name": "Decreto 444 de 2014",
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702",
+      },
+      Object {
+        "name": "Calendario pico y placa primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
       },
     ],
     "hours": Array [
