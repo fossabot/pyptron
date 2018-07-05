@@ -35,23 +35,31 @@ describe("Test cases for Buenaventura", () => {
         tpc: "NA",
         taxis: "NA"
       }
-    },
-    {
-      date: "2018-04-09", // lunes 9 de abril de 2018
-      pypCases: {
-        particulares: "3-4",
-        tpc: "3-4",
-        taxis: "3-4"
-      }
-    },
-    {
-      date: "2018-05-16", // miércoles 16 de mayo de 2018
-      pypCases: {
-        particulares: "7-8",
-        tpc: "7-8",
-        taxis: "7-8"
-      }
     }
+    // {
+    //   date: "2018-04-09", // lunes 9 de abril de 2018
+    //   pypCases: {
+    //     particulares: "3-4",
+    //     tpc: "3-4",
+    //     taxis: "3-4"
+    //   }
+    // },
+    // {
+    //   date: "2018-05-16", // miércoles 16 de mayo de 2018
+    //   pypCases: {
+    //     particulares: "7-8",
+    //     tpc: "7-8",
+    //     taxis: "7-8"
+    //   }
+    // },
+    // {
+    //   date: "2018-03-12", // miércoles 16 de mayo de 2018
+    //   pypCases: {
+    //     particulares: "3-4"
+    //     // tpc: "3-4",
+    //     // taxis: "3-4"
+    //   }
+    // }
   ];
   // Los tests son un array de objetos que contienen la fecha que se va a evaluar y un objecto con
   // cada caso para cada fecha. Por ello comenzamos recorriendo cada uno de los objetos que vamos en

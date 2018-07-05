@@ -24,13 +24,7 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = [
-            "3-4", // lunes
-            "5-6", // martes
-            "7-8", // miércoles
-            "9-0", // jueves
-            "1-2" // viernes
-          ];
+          const pyp = ["1-2", "3-4", "5-6", "7-8", "9-0"];
           return pyp[pypFuncs.getDay(date) - 1];
         });
       }
@@ -56,13 +50,7 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = [
-            "3-4", // lunes
-            "5-6", // martes
-            "7-8", // miércoles
-            "9-0", // jueves
-            "1-2" // viernes
-          ];
+          const pyp = ["1-2", "3-4", "5-6", "7-8", "9-0"];
           return pyp[pypFuncs.getDay(date) - 1];
         });
       }
@@ -88,13 +76,7 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = [
-            "3-4", // lunes
-            "5-6", // martes
-            "7-8", // miércoles
-            "9-0", // jueves
-            "1-2" // viernes
-          ];
+          const pyp = ["1-2", "3-4", "5-6", "7-8", "9-0"];
           return pyp[pypFuncs.getDay(date) - 1];
         });
       }
