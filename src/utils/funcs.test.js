@@ -1,4 +1,29 @@
-import { arrRotate, rotateByMonth, rotateByWeek } from "./funcs";
+import { arrRotate, rotateByMonth, rotateByWeek, monthsDiff } from "./funcs";
+
+describe("Get months difference between two dates according to an interval", () => {
+  it("should return the number of months between two dates when no interval given", () => {
+    expect(monthsDiff("2018-01-01", "2018-01-01")).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-01-31")).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-02-01")).toBe(1);
+    expect(monthsDiff("2018-01-01", "2019-01-01")).toBe(12);
+    expect(monthsDiff("2018-01-01", "2019-02-01")).toBe(13);
+  });
+  it("should return the number of quarters between two dates when interval is 3", () => {
+    expect(monthsDiff("2018-01-01", "2018-01-01", 3)).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-02-01", 3)).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-03-01", 3)).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-04-01", 3)).toBe(1);
+    expect(monthsDiff("2018-01-01", "2018-07-01", 3)).toBe(2);
+    expect(monthsDiff("2018-01-01", "2018-12-01", 3)).toBe(3);
+  });
+  it("should return the number of semesters between two dates when interval is 6", () => {
+    expect(monthsDiff("2018-01-01", "2018-01-01", 6)).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-06-01", 6)).toBe(0);
+    expect(monthsDiff("2018-01-01", "2018-07-01", 6)).toBe(1);
+    expect(monthsDiff("2018-01-01", "2018-12-01", 6)).toBe(1);
+    expect(monthsDiff("2018-01-01", "2019-01-01", 6)).toBe(2);
+  });
+});
 
 describe("Rotate an array", () => {
   it("should rotate an array according to the offset", () => {

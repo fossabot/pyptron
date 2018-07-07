@@ -79,6 +79,18 @@ export function daysDiff(
 }
 
 /**
+ * Devuelve la cantidad de meses entre dos fechas dadas
+ * @param {string} startDate Fecha inicial.
+ * @param {string} endDate Fecha final.
+ * @param {int} interval Intervalo de meses para calcular la diferencia.
+ * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
+ */
+export function monthsDiff(startDate, endDate, interval = 1) {
+  const mDate = moment(endDate);
+  return Math.floor(mDate.diff(startDate, "months") / interval);
+}
+
+/**
  * Calcula el índice para cuando el valor del índice es mayor al largo del array o en caso de que se
  * tenga un valor negativo para el índice. Si el valor es negativo el valor correspondiente al
  * indice se calcula de atrás hacia adelante. Es decir, -1 equivale al último elemento del array y
