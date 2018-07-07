@@ -24,8 +24,8 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const startDate = "2018-01-01";
-          const pypNums = ["3-4", "5-6", "7-8", "9-0", "1-2"];
+          const startDate = "2017-01-01";
+          const pypNums = ["7-8", "9-0", "1-2", "3-4", "5-6"];
           const lapse = pypFuncs.monthsDiff(startDate, date, 6);
           const newPypNums = pypFuncs.arrRotate(pypNums, lapse);
           return newPypNums[pypFuncs.getDay(date) - 1];
@@ -53,8 +53,8 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const startDate = "2018-01-01";
-          const pypNums = ["3-4", "5-6", "7-8", "9-0", "1-2"];
+          const startDate = "2017-01-01";
+          const pypNums = ["7-8", "9-0", "1-2", "3-4", "5-6"];
           const lapse = pypFuncs.monthsDiff(startDate, date, 6);
           const newPypNums = pypFuncs.arrRotate(pypNums, lapse);
           return newPypNums[pypFuncs.getDay(date) - 1];
@@ -82,8 +82,8 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const startDate = "2018-01-01";
-          const pypNums = ["3-4", "5-6", "7-8", "9-0", "1-2"];
+          const startDate = "2017-01-01";
+          const pypNums = ["7-8", "9-0", "1-2", "3-4", "5-6"];
           const lapse = pypFuncs.monthsDiff(startDate, date, 6);
           const newPypNums = pypFuncs.arrRotate(pypNums, lapse);
           return newPypNums[pypFuncs.getDay(date) - 1];

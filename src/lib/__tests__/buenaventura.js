@@ -5,6 +5,14 @@ const times = ["T00:00:00.0000-05:00", "T23:59:59.999-05:00"];
 describe("Test cases for Buenaventura", () => {
   const dateCases = [
     {
+      date: "2017-01-16", // Año Nuevo
+      pypCases: {
+        particulares: "7-8",
+        tpc: "7-8",
+        taxis: "7-8"
+      }
+    },
+    {
       date: "2018-01-01", // Año Nuevo
       pypCases: {
         particulares: "NA",
