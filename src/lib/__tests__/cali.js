@@ -51,6 +51,38 @@ describe("Specific cases", () => {
         taxis: "7-8",
         tpc: "6-7"
       }
+    },
+    {
+      date: "2018-07-09", // lunes 9 de julio de 2018
+      pypCases: {
+        particulares: "1-2",
+        taxis: "5-6"
+        // tpc: "4-5"
+      }
+    },
+    {
+      date: "2018-08-15", // miércoles 15 de agosto de 2018
+      pypCases: {
+        particulares: "5-6",
+        taxis: "9-0"
+        // tpc: "6-7"
+      }
+    },
+    {
+      date: "2018-10-12", // viernes 12 de octubre de 2018
+      pypCases: {
+        particulares: "9-0",
+        taxis: "5-6"
+        // tpc: "6-7"
+      }
+    },
+    {
+      date: "2018-12-01", // viernes 12 de octubre de 2018
+      pypCases: {
+        particulares: "NA",
+        taxis: "5-6"
+        // tpc: "6-7"
+      }
     }
   ];
   // Los tests son un array de objetos que contienen la fecha que se va a evaluar y un objecto con

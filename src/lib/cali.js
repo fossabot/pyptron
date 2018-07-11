@@ -8,6 +8,11 @@ export default {
         vehicleClasses: ["Vehículos automotores de servicio particular."],
         decrees: [
           {
+            name: "Decreto 4112.010.20.0318-28/06/2018 del 3 de julio de2018",
+            url:
+              "http://www.cali.gov.co/aplicaciones/boletin_publicaciones/imagenes_documentos/documentoId11660.pdf"
+          },
+          {
             name: "Decreto 0001 del 4 de enero de 2018",
             url:
               "http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=25496"
@@ -25,14 +30,11 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = [
-            "3-4", // lunes
-            "5-6", // martes
-            "7-8", // miércoles
-            "9-0", // jueves
-            "1-2" // viernes
-          ];
-          return pyp[pypFuncs.getDay(date) - 1];
+          const startDate = "2018-01-01";
+          const pypNums = ["3-4", "5-6", "7-8", "9-0", "1-2"];
+          const lapse = pypFuncs.monthsDiff(startDate, date, 6);
+          const newPypNums = pypFuncs.arrRotate(pypNums, lapse);
+          return newPypNums[pypFuncs.getDay(date) - 1];
         });
       }
     },
@@ -42,6 +44,11 @@ export default {
           "Vehículos de transporte público individual de pasajeros - Taxis."
         ],
         decrees: [
+          {
+            name: "Decreto 4112.010.20.0318-28/06/2018 del 3 de julio de2018",
+            url:
+              "http://www.cali.gov.co/aplicaciones/boletin_publicaciones/imagenes_documentos/documentoId11660.pdf"
+          },
           {
             name: "Decreto 0001 del 4 de enero de 2018",
             url:
