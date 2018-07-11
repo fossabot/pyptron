@@ -8,7 +8,7 @@ export default {
         vehicleClasses: ["Vehículos automotores de servicio particular."],
         decrees: [
           {
-            name: "Decreto 4112.010.20.0318-28/06/2018 del 3 de julio de2018",
+            name: "Decreto 4112.010.20.0318-28/06/2018 del 28 de junio de 2018",
             url:
               "http://www.cali.gov.co/aplicaciones/boletin_publicaciones/imagenes_documentos/documentoId11660.pdf"
           },
@@ -45,7 +45,7 @@ export default {
         ],
         decrees: [
           {
-            name: "Decreto 4112.010.20.0318-28/06/2018 del 3 de julio de2018",
+            name: "Decreto 4112.010.20.0318-28/06/2018 del 28 de junio de 2018",
             url:
               "http://www.cali.gov.co/aplicaciones/boletin_publicaciones/imagenes_documentos/documentoId11660.pdf"
           },
