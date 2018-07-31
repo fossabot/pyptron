@@ -56,7 +56,7 @@ export default {
       na: [],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, false, () => {
-          const pyp = ["0-2-4-6-8- azul", "1-3-5-7-9- naranja"];
+          const pyp = ["0-2-4-6-8- naranja", "1-3-5-7-9- azul"];
           return pyp[pypFuncs.getDate(date) % 2];
         });
       }
