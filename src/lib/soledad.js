@@ -57,7 +57,22 @@ export default {
       pyp(date) {
         return pypFuncs.pyp(date, this.na, false, () => {
           const pyp = ["0-2-4-6-8- naranja", "1-3-5-7-9- azul"];
-          return pyp[pypFuncs.getDate(date) % 2];
+          switch (pypFuncs.formatDate(date, "MMDD")) {
+            case "0131":
+              return "0-2-4-6-8- naranja";
+            case "0331":
+              return "1-3-5-7-9- azul";
+            case "0731":
+              return "0-2-4-6-8- naranja";
+            case "0831":
+              return "1-3-5-7-9- azul";
+            case "1031":
+              return "0-2-4-6-8- naranja";
+            case "1231":
+              return "1-3-5-7-9- azul";
+            default:
+              return pyp[pypFuncs.getDate(date) % 2];
+          }
         });
       }
     }

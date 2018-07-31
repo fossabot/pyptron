@@ -45,6 +45,48 @@ describe(`Test cases for ${soledad.name}`, () => {
         motos: "5-6",
         motocarros: "0-2-4-6-8- naranja"
       }
+    },
+    {
+      // Excepción según el parágrafo 3 del decreto
+      date: "2018-01-31",
+      pypCases: {
+        motocarros: "0-2-4-6-8- naranja"
+      }
+    },
+    {
+      // Excepción según el parágrafo 3 del decreto
+      date: "2018-03-31",
+      pypCases: {
+        motocarros: "1-3-5-7-9- azul"
+      }
+    },
+    {
+      // Excepción según el parágrafo 3 del decreto
+      date: "2018-07-31",
+      pypCases: {
+        motocarros: "0-2-4-6-8- naranja"
+      }
+    },
+    {
+      // Excepción según el parágrafo 3 del decreto
+      date: "2018-08-31",
+      pypCases: {
+        motocarros: "1-3-5-7-9- azul"
+      }
+    },
+    {
+      // Excepción según el parágrafo 3 del decreto
+      date: "2018-10-31",
+      pypCases: {
+        motocarros: "0-2-4-6-8- naranja"
+      }
+    },
+    {
+      // Excepción según el parágrafo 3 del decreto
+      date: "2018-12-31",
+      pypCases: {
+        motocarros: "1-3-5-7-9- azul"
+      }
     }
   ];
   // Los tests son un array de objetos que contienen la fecha que se va a evaluar y un objecto con
