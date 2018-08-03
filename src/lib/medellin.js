@@ -24,14 +24,17 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = [
+          const startDate = "2018-02-05";
+          const pypNums = [
             "4-5-6-7", // lunes
             "8-9-0-1", // martes
             "2-3-4-5", // miércoles
             "6-7-8-9", // jueves
             "0-1-2-3" // viernes
           ];
-          return pyp[pypFuncs.getDay(date) - 1];
+          const lapse = pypFuncs.monthsDiff(startDate, date, 6);
+          const newPypNums = pypFuncs.arrRotate(pypNums, lapse);
+          return newPypNums[pypFuncs.getDay(date) - 1];
         });
       }
     },
@@ -56,14 +59,17 @@ export default {
       na: [0, 6],
       pyp(date) {
         return pypFuncs.pyp(date, this.na, true, () => {
-          const pyp = [
+          const startDate = "2018-02-05";
+          const pypNums = [
             "8-9", // lunes
             "0-1", // martes
             "2-3", // miércoles
             "4-5", // jueves
             "6-7" // viernes
           ];
-          return pyp[pypFuncs.getDay(date) - 1];
+          const lapse = pypFuncs.monthsDiff(startDate, date, 6);
+          const newPypNums = pypFuncs.arrRotate(pypNums, lapse);
+          return newPypNums[pypFuncs.getDay(date) - 1];
         });
       }
     },
