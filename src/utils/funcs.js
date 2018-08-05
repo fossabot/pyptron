@@ -1,5 +1,4 @@
 import moment, { locale } from "moment";
-
 import { getHoliday } from "pascua";
 
 locale("es_CO");
@@ -15,22 +14,6 @@ locale("es_CO");
 export function excludeDays(date, days, holidays = true) {
   const mDate = moment(date);
   return days.includes(mDate.day()) || (holidays && getHoliday(mDate.toDate()));
-}
-
-/**
- * Envuelve el algoritmo particular para cada caso de pyp permitiendo abstraer patrones globales,
- * como el algoritmo para excluir días, del algoritmo como tal para cada caso.
- * @param {string} date La fecha para la cual se desea saber el pyp.
- * @param {array} na Días de la semana en los que no aplica el pyp.
- * @param {boolean} holidays Si los días festivos aplica el pyp.
- * @param {function} specialProcessing Algoritmo para el pyp.
- * @returns {string} El valor correspondiente al pyp para el día solicitado.
- */
-export function pyp(date, na, holidays, specialProcessing) {
-  if (excludeDays(date, na, holidays)) {
-    return "NA";
-  }
-  return specialProcessing(date);
 }
 
 /**
@@ -88,6 +71,29 @@ export function daysDiff(
 export function monthsDiff(startDate, endDate, interval = 1) {
   const mDate = moment(endDate);
   return Math.floor(mDate.diff(startDate, "months") / interval);
+}
+
+/**
+ * Envuelve el algoritmo particular para cada caso de pyp permitiendo abstraer patrones globales,
+ * como el algoritmo para excluir días, del algoritmo como tal para cada caso.
+ * @param {string} date La fecha para la cual se desea saber el pyp.
+ * @param {array} na Días de la semana en los que no aplica el pyp.
+ * @param {boolean} holidays Si los días festivos aplica el pyp.
+ * @param {function} specialProcessing Algoritmo para el pyp.
+ * @returns {string} El valor correspondiente al pyp para el día solicitado.
+ */
+export function pyp(date, na, holidays, specialProcessing) {
+  const startDate = "2018-01-01";
+  if (daysDiff(startDate, date, []) <= 0) {
+    throw new Error("Date out of range");
+  }
+  if (monthsDiff(moment(), date) >= 12) {
+    throw new Error("Date out of range");
+  }
+  if (excludeDays(date, na, holidays)) {
+    return "NA";
+  }
+  return specialProcessing(date);
 }
 
 /**

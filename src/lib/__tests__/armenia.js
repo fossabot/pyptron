@@ -37,12 +37,6 @@ describe("Test cases for Armenia", () => {
       }
     },
     {
-      date: "2017-12-28",
-      pypCases: {
-        taxis: "1-2"
-      }
-    },
-    {
       date: "2018-02-08",
       pypCases: {
         taxis: "3-4"

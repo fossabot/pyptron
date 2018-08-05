@@ -1,7 +1,7 @@
 /* eslint no-prototype-builtins: 0 */
 
-import express from "express";
 import debug from "debug";
+import express from "express";
 import * as pyptron from "./helpers";
 
 const debugRoute = debug("pyphoy:route");
@@ -12,12 +12,17 @@ const citiesMap = pyptron.getCities();
 
 router.get("/", (req, res) => {
   debugRoute("Query string:", req.query);
-  const date = req.query.date || new Date();
-  const pypData = Object.keys(citiesMap).reduce((result, city) => {
-    // eslint-disable-next-line no-param-reassign
-    result[city] = pyptron.getPypData(citiesMap[city].key, date);
-    return result;
-  }, {});
+  const date = req.query.d || new Date();
+  let pypData = {};
+  try {
+    pypData = Object.keys(citiesMap).reduce((result, city) => {
+      // eslint-disable-next-line no-param-reassign
+      result[city] = pyptron.getPypData(citiesMap[city].key, date);
+      return result;
+    }, {});
+  } catch (error) {
+    pypData = { error: error.message };
+  }
   res.json(pypData);
 });
 
