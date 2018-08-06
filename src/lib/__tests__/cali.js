@@ -7,7 +7,6 @@ describe("Specific cases", () => {
     {
       date: "2018-01-01", // Año Nuevo
       pypCases: {
-        particulares: "NA",
         taxis: "7-8",
         tpc: "6-7"
       }
@@ -15,7 +14,6 @@ describe("Specific cases", () => {
     {
       date: "2018-03-19", // lunes festivo: San José
       pypCases: {
-        particulares: "NA",
         taxis: "1-2",
         tpc: "0-1"
       }
@@ -23,7 +21,6 @@ describe("Specific cases", () => {
     {
       date: "2018-04-07", // sábado 7 de abril de 2018
       pypCases: {
-        particulares: "NA",
         taxis: "9-0",
         tpc: "8-9"
       }
@@ -31,7 +28,6 @@ describe("Specific cases", () => {
     {
       date: "2018-02-04", // domingo 4 de febrero de 2018
       pypCases: {
-        particulares: "NA",
         taxis: "5-6",
         tpc: "4-5"
       }
@@ -79,7 +75,6 @@ describe("Specific cases", () => {
     {
       date: "2018-12-01", // viernes 12 de octubre de 2018
       pypCases: {
-        particulares: "NA",
         taxis: "5-6"
         // tpc: "6-7"
       }

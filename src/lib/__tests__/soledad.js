@@ -7,28 +7,24 @@ describe(`Test cases for ${soledad.name}`, () => {
     {
       date: "2018-01-01", // Año Nuevo
       pypCases: {
-        motos: "NA",
         motocarros: "1-3-5-7-9- azul"
       }
     },
     {
       date: "2018-03-19", // lunes festivo: San José
       pypCases: {
-        motos: "NA",
         motocarros: "1-3-5-7-9- azul"
       }
     },
     {
       date: "2018-04-07", // sábado 7 de abril de 2018
       pypCases: {
-        motos: "NA",
         motocarros: "1-3-5-7-9- azul"
       }
     },
     {
       date: "2018-02-04", // domingo 4 de febrero de 2018
       pypCases: {
-        motos: "NA",
         motocarros: "0-2-4-6-8- naranja"
       }
     },

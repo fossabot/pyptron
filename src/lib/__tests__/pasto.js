@@ -5,34 +5,6 @@ const times = ["T00:00:00.0000-05:00", "T23:59:59.999-05:00"];
 describe("Specific cases", () => {
   const dateCases = [
     {
-      date: "2018-01-01", // Año Nuevo
-      pypCases: {
-        particulares: "NA",
-        motos: "NA"
-      }
-    },
-    {
-      date: "2018-03-19", // lunes festivo: San José
-      pypCases: {
-        particulares: "NA",
-        motos: "NA"
-      }
-    },
-    {
-      date: "2018-04-07", // sábado 7 de abril de 2018
-      pypCases: {
-        particulares: "NA",
-        motos: "NA"
-      }
-    },
-    {
-      date: "2018-02-04", // domingo 4 de febrero de 2018
-      pypCases: {
-        particulares: "NA",
-        motos: "NA"
-      }
-    },
-    {
       date: "2018-04-09", // lunes 9 de abril de 2018
       pypCases: {
         particulares: "6-7",

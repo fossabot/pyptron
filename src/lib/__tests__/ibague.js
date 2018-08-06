@@ -7,7 +7,6 @@ describe(`Specific cases for ${ibague.name}`, () => {
     {
       date: "2018-01-01", // Año Nuevo
       pypCases: {
-        particulares: "NA",
         tpc: "1-2",
         taxis: "3"
       }
@@ -15,7 +14,6 @@ describe(`Specific cases for ${ibague.name}`, () => {
     {
       date: "2018-03-19", // lunes festivo: San José
       pypCases: {
-        particulares: "NA",
         tpc: "4-9",
         taxis: "0"
       }
@@ -23,7 +21,6 @@ describe(`Specific cases for ${ibague.name}`, () => {
     {
       date: "2018-04-07", // sábado 7 de abril de 2018
       pypCases: {
-        particulares: "NA",
         tpc: "0-3",
         taxis: "9"
       }
@@ -31,7 +28,6 @@ describe(`Specific cases for ${ibague.name}`, () => {
     {
       date: "2018-02-04", // domingo 4 de febrero de 2018
       pypCases: {
-        particulares: "NA",
         tpc: "7-8",
         taxis: "7"
       }
