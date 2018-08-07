@@ -22,7 +22,7 @@ export default {
       name: "Motos",
       na: [0, 6],
       pyp(date) {
-        return pypFuncs.pyp(date, this.na, true, () => {
+        return pypFuncs.pyp(date, this.na, false, () => {
           const pyp = [
             "1-2", // lunes
             "3-4", // martes
