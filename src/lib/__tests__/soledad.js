@@ -29,14 +29,14 @@ const dateCases = [
   {
     date: "2018-04-09", // lunes 9 de abril de 2018
     pypCases: {
-      motos: "1-2",
+      motos: "1-3",
       motocarros: "1-3-5-7-9- azul"
     }
   },
   {
     date: "2018-05-16", // miércoles 16 de mayo de 2018
     pypCases: {
-      motos: "5-6",
+      motos: "5-7",
       motocarros: "0-2-4-6-8- naranja"
     }
   },

@@ -24,10 +24,10 @@ export default {
       pyp(date) {
         return pypFuncs.pyp(date, this.na, false, () => {
           const pyp = [
-            "1-2", // lunes
-            "3-4", // martes
-            "5-6", // miércoles
-            "7-8", // jueves
+            "1-3", // lunes
+            "2-4", // martes
+            "5-7", // miércoles
+            "6-8", // jueves
             "9-0" // viernes
           ];
           return pyp[pypFuncs.getDay(date) - 1];
