@@ -10,25 +10,24 @@ const router = express.Router();
 
 const citiesMap = pyptron.getCities();
 
-router.get("/", (req, res) => {
-  debugRoute("Query string:", req.query);
-  const date = req.query.d || new Date();
-  let pypData = {};
-  try {
-    pypData = Object.keys(citiesMap).reduce((result, city) => {
-      // eslint-disable-next-line no-param-reassign
-      result[city] = pyptron.getPypData(citiesMap[city].key, date);
-      return result;
-    }, {});
-  } catch (error) {
-    pypData = { error: error.message };
-  }
-  res.json(pypData);
-});
-
 /* GET cities map. */
 router.get("/cities", (req, res) => {
   res.json(citiesMap);
+});
+
+router.get("/", (req, res) => {
+  const date = req.query.d || new Date();
+  try {
+    res.json(
+      Object.keys(citiesMap).reduce((result, city) => {
+        // eslint-disable-next-line no-param-reassign
+        result[city] = pyptron.getPypData(citiesMap[city].key, date);
+        return result;
+      }, {})
+    );
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 });
 
 /* GET city page. */
@@ -45,8 +44,12 @@ router.get("/:city", (req, res) => {
     return;
   }
   const cityKey = citiesMap[city].key;
-  const pypData = pyptron.getPypData(cityKey, date);
-  res.json(pypData);
+  try {
+    const pypData = pyptron.getPypData(cityKey, date);
+    res.json(pypData);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 });
 
 /* GET category page. */
@@ -73,8 +76,12 @@ router.get("/:city/:category", (req, res) => {
   }
   const cityKey = citiesMap[city].key;
   const categoryKey = citiesMap[city].categories[category].key;
-  const pypData = pyptron.getPypData(cityKey, date, days, [categoryKey]);
-  res.json(pypData);
+  try {
+    const pypData = pyptron.getPypData(cityKey, date, days, [categoryKey]);
+    res.json(pypData);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 });
 
 /* GET number query page. */
@@ -101,8 +108,12 @@ router.get("/:city/:category/:number", (req, res) => {
   }
   const cityKey = citiesMap[city].key;
   const categoryKey = citiesMap[city].categories[category].key;
-  const pypData = pyptron.getPypData(cityKey, date, days, [categoryKey]);
-  res.json(pypData);
+  try {
+    const pypData = pyptron.getPypData(cityKey, date, days, [categoryKey]);
+    res.json(pypData);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 });
 
 export default router;
