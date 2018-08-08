@@ -16,7 +16,7 @@ router.get("/cities", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  const date = req.query.d || new Date();
+  const date = req.query.date || new Date();
   try {
     res.json(
       Object.keys(citiesMap).reduce((result, city) => {
