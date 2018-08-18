@@ -1,11 +1,17 @@
-const pyp = require("./helpers");
-const fs = require("fs");
+import { readdir } from "fs";
+import {
+  getCategories,
+  getCities,
+  getPypData,
+  getPypInfo,
+  getPyp
+} from "./helpers";
 
 const dir = "./src/lib";
 let totalCities = 0;
 
 beforeAll(done => {
-  fs.readdir(dir, (err, files) => {
+  readdir(dir, (err, files) => {
     // la cantidad de ciudades que hay en la librería para verificar más adelante que corresponda
     // con la cantidad de ciudades devueltas por la función. Restamos uno para descontar el dir
     // __test__
@@ -16,7 +22,7 @@ beforeAll(done => {
 
 describe("Generate pyp object maps of global info with the slug and the key", () => {
   it("should return map with all categories for a given city", () => {
-    const categoriesMap = pyp.getCategories("bogota");
+    const categoriesMap = getCategories("bogota");
     const categories = Object.keys(categoriesMap);
     expect(typeof categoriesMap).toBe("object");
     expect(categories.length).toBe(5);
@@ -30,7 +36,7 @@ describe("Generate pyp object maps of global info with the slug and the key", ()
     });
   });
   it("should return map with all cities containing name, key, categories", () => {
-    const citiesMap = pyp.getCities();
+    const citiesMap = getCities();
     const cities = Object.keys(citiesMap);
     expect(typeof citiesMap).toBe("object");
     expect(cities.length).toBe(totalCities);
@@ -50,7 +56,7 @@ describe("Generate pyp data objects", () => {
   it("should return data for three days for all categories", () => {
     const date = "2018-03-06T00:00:02-05:00";
     const days = 3;
-    const result = pyp.getPypData("bogota", date, days);
+    const result = getPypData("bogota", date, days);
     expect(result.data.length).toBe(3);
     expect(result.name).toBe("Bogotá");
     expect(result).toMatchSnapshot();
@@ -59,7 +65,7 @@ describe("Generate pyp data objects", () => {
     const date = "2018-03-06T00:00:02-05:00";
     const days = 3;
     const categories = ["taxis", "ambiental"];
-    const result = pyp.getPypData("bogota", date, days, categories);
+    const result = getPypData("bogota", date, days, categories);
     expect(result.data.length).toBe(3);
     expect(result.name).toBe("Bogotá");
     expect(result.data[0].categories.length).toBe(categories.length);
@@ -68,10 +74,10 @@ describe("Generate pyp data objects", () => {
     expect(Object.keys(result.info).length).toBe(categories.length);
   });
   it("should return pyp meta-info for all categories", () => {
-    expect(pyp.getPypInfo("bogota")).toMatchSnapshot();
+    expect(getPypInfo("bogota")).toMatchSnapshot();
   });
   it("should return pyp data for one date", () => {
     const date = "2018-03-06T00:00:02-05:00";
-    expect(pyp.getPyp("bogota", date)).toMatchSnapshot();
+    expect(getPyp("bogota", date)).toMatchSnapshot();
   });
 });
