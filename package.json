@@ -8,8 +8,8 @@
   "homepage": "https://bitbucket.org/archemiro/pyptron/src",
   "scripts": {
     "start": "node dist/api",
-    "start:dev": "nodemon --exec babel-node src/api",
-    "lint": "eslint 'src/**/*.js'",
+    "start:dev": "cross-env DEBUG=pyptron:* nodemon --exec babel-node src/api",
+    "lint": "eslint src",
     "clean": "rimraf dist",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -22,7 +22,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm run lint && npm run test:coverage",
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "bugs": {
@@ -51,16 +51,17 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-config-prettier": "^2.9.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^1.0.0-rc.8",
-    "jest": "^23.1.0",
+    "jest": "^23.5.0",
     "jest-junit": "^5.0.0",
     "nodemon": "^1.17.5",
-    "pm2": "^2.10.4",
+    "pm2": "^3.0.3",
     "prettier": "^1.13.4",
     "pretty-quick": "^1.6.0",
     "supertest": "^3.1.0"
