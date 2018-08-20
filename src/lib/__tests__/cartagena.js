@@ -92,6 +92,13 @@ const dateCases = [
       taxis: "3-4",
       particulares: "7-8"
     }
+  },
+  {
+    date: "2018-09-03", // lunes 3 de septiembre
+    pypCases: {
+      taxis: "9-0",
+      particulares: "7-8"
+    }
   }
 ];
 testCases(city, dateCases);
