@@ -99,9 +99,6 @@ export default {
             <ul>
               <li>Calle 39, calle 39 A, calle 38, calle 37, calle 35, calle 34, calle 32, calle 31.</li>
               <li>Carrera 11, carrera 10, carrera 9, carrera 8, carrera 7, carrera 6, carrera 4, carrera 3, carrera 2 (vía perimetral de la muralla)</li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           Sector Getsemani:
             <ul>
@@ -112,8 +109,6 @@ export default {
             <li>Carrera 10 y carrera 12</li>
           </ul>
           </li>
-          <li></li>
-          <li></li>
         </ul>`
       },
       name: "Particulares",
