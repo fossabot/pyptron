@@ -37,8 +37,7 @@ export default {
           <li>De la intersección de la calle 17 con Terminal de Transporte hacía el norte hasta la intersección de la calle 17 con carrera 13. Este corredor se excluye de la medida de pico y placa en ambos sentidos.</li>
           <li>De la intersección de la calle 17 con carrera 13 se continúa por la avenida del Ferrocarril hasta el viaducto y la carrera 6a con dirección a la avenida del Río - puente Mosquera. Este corredor se excluye de la medida de pico y placa.</li>
         </ul>`,
-        exceptions: `Se exceptúan de lo dispuesto en el artículo segundo los siguientes vehículos:
-        <ul>
+        exceptions: `<ul>
         <li>Carrozas fúnebres y su cortejo.</li>
         <li>Vehículos pertenecientes a las Fuerzas Militares y de la Policía Nacional.</li>
         <li>Ambulancias.</li>
@@ -107,8 +106,7 @@ export default {
           <li>De la intersección de la calle 17 con Terminal de Transporte hacía el norte hasta la intersección de la calle 17 con carrera 13. Este corredor se excluye de la medida de pico y placa en ambos sentidos.</li>
           <li>De la intersección de la calle 17 con carrera 13 se continúa por la avenida del Ferrocarril hasta el viaducto y la carrera 6a con dirección a la avenida del Río - puente Mosquera. Este corredor se excluye de la medida de pico y placa.</li>
         </ul>`,
-        exceptions: `Se exceptúan de lo dispuesto en el artículo segundo los siguientes vehículos:
-        <ul>
+        exceptions: `<ul>
           <li>Carrozas fúnebres y su cortejo.</li>
           <li>Vehículos pertenecientes a las Fuerzas Militares y de la Policía Nacional.</li>
           <li>Ambulancias.</li>
@@ -124,8 +122,8 @@ export default {
           <li>Vehículos adscritos a medios de comunicación debidamente identificados con el logotipo de la empresa. El comunicador social para el cual se destina el vehículo deberá presentar el documento idóneo que lo acredita como tal.</li>
           <li>Los vehículos que transporten al personal médico, paramédico y asistencial, de las salas de urgencias y cirugías, previa identificación.</li>
           <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
-        </ul>
-        `
+        </ul>`,
+        map: "https://cdn.pyphoy.com/pereira/mapa-pico-y-placa-pereira.jpg"
       },
       name: "Motos",
       na: [0, 6],

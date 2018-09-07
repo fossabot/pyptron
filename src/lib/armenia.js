@@ -18,7 +18,7 @@ export default {
           "Toda la ciudad: 7:30 - 9:30, 11:30 - 14:30 y 17:30 - 19:30"
         ],
         scheme: "Último dígito del número de la placa según el esquema",
-        exceptions: `Se exceptúa de la medida para la restricción vehicular los siguientes vehículos: <ul>
+        exceptions: `<ul>
         <li>Vehículos de asistencia médica de urgencias, domiciliarios adscritos, en propiedad o alquiler de empresas cuyo objeto social sea la prestación de servicio de salud, para lo cual la persona natural o jurídica autorizada deberá tramitar ante el organismo de tránsito de Armenia la inscripción del vehículo autorizado para este servicio, prestando el contrato trabajo respectivo, certificado de existencia y Representación expedido por la Cámara de Comercio (con fecha de expedición no mayor a treinta (30) días) RUT, comprobante de pago de parafiscales y seguridad social del último mes, fotocopia de la cédula de ciudadanía, fotocopia de la licencia de conducción del conductor, fotocopia de la licencia de tránsito del vehículo, seguro obligatorio vigente, revisión técnico mecánica y encontrarse a paz y salvo por infracciones de tránsito.</li>
         <li>Los vehículos pertenecientes a las Fuerzas Armadas, a la Policia Nacional, los agentes y reguladores de Trásito y Transporte en sus respectivos horarios laborales.</li>
         <li>Carrozas fúnebres, más no el cortejo fúnebre.</li>
@@ -70,7 +70,7 @@ export default {
           "Toda la ciudad: 7:30 - 9:30, 11:30 - 14:30 y 17:30 - 19:30"
         ],
         scheme: "Primer dígito del número de la placa según el esquema",
-        exceptions: `Se exceptúa de la medida para la restricción vehicular los siguientes vehículos: <ul>
+        exceptions: `<ul>
         <li>Vehículos de asistencia médica de urgencias, domiciliarios adscritos, en propiedad o alquiler de empresas cuyo objeto social sea la prestación de servicio de salud, para lo cual la persona natural o jurídica autorizada deberá tramitar ante el organismo de tránsito de Armenia la inscripción del vehículo autorizado para este servicio, prestando el contrato trabajo respectivo, certificado de existencia y Representación expedido por la Cámara de Comercio (con fecha de expedición no mayor a treinta (30) días) RUT, comprobante de pago de parafiscales y seguridad social del último mes, fotocopia de la cédula de ciudadanía, fotocopia de la licencia de conducción del conductor, fotocopia de la licencia de tránsito del vehículo, seguro obligatorio vigente, revisión técnico mecánica y encontrarse a paz y salvo por infracciones de tránsito.</li>
         <li>Los vehículos pertenecientes a las Fuerzas Armadas, a la Policia Nacional, los agentes y reguladores de Trásito y Transporte en sus respectivos horarios laborales.</li>
         <li>Carrozas fúnebres, más no el cortejo fúnebre.</li>

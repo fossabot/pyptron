@@ -227,9 +227,7 @@ export default {
           "Día par hábil: placa último dígito par. Día impar hábil: placa último dígito impar.",
         observations:
           "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
-        exceptions: `
-        Se exceptuán de la restricción consagrada en los artículos 1ro y 2do del presente Decreto, las siguientes categorías de vehículos:
-        <ul>
+        exceptions: `<ul>
           <li>Vehículos automotores propulsados exclusivamente por motores eléctricos.</li>
           <li>Caravana presidencial. Grupo de vehículos que hagan parte del esquema de seguridad de la Presidencia de la República y están al servicio de actividades inherentes.</li>
           <li>Vehículos de servicio diplomático o consular. Automotor indentificado con placas especiales asignadas por el Ministerio de Relaciones Exteriores.</li>

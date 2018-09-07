@@ -12,7 +12,7 @@ export default {
           {
             name: "Decreto 1659 de diciembre de 2017",
             url:
-              "http://www.transitocartagena.gov.co/links/Decretos/Decretos_2017/Decreto_1659.PDF"
+              "https://cdn.pyphoy.com/cartagena/decreto-1659-de-diciembre-de-2017.pdf"
           }
         ],
         days: [
@@ -52,7 +52,7 @@ export default {
           {
             name: "Decreto 1550 del 30 de noviembre de 2017",
             url:
-              "http://www.transitocartagena.gov.co/links/Decretos/Decretos_2017/Decreto_1550.PDF"
+              "https://cdn.pyphoy.com/cartagena/decreto-1550-del-30-de-noviembre-de-2017.pdf"
           }
         ],
         days: [

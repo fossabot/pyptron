@@ -190,9 +190,7 @@ Object {
           "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
         },
       ],
-      "exceptions": "
-        Se exceptuán de la restricción consagrada en los artículos 1ro y 2do del presente Decreto, las siguientes categorías de vehículos:
-        <ul>
+      "exceptions": "<ul>
           <li>Vehículos automotores propulsados exclusivamente por motores eléctricos.</li>
           <li>Caravana presidencial. Grupo de vehículos que hagan parte del esquema de seguridad de la Presidencia de la República y están al servicio de actividades inherentes.</li>
           <li>Vehículos de servicio diplomático o consular. Automotor indentificado con placas especiales asignadas por el Ministerio de Relaciones Exteriores.</li>
@@ -412,9 +410,7 @@ Object {
         "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
       },
     ],
-    "exceptions": "
-        Se exceptuán de la restricción consagrada en los artículos 1ro y 2do del presente Decreto, las siguientes categorías de vehículos:
-        <ul>
+    "exceptions": "<ul>
           <li>Vehículos automotores propulsados exclusivamente por motores eléctricos.</li>
           <li>Caravana presidencial. Grupo de vehículos que hagan parte del esquema de seguridad de la Presidencia de la República y están al servicio de actividades inherentes.</li>
           <li>Vehículos de servicio diplomático o consular. Automotor indentificado con placas especiales asignadas por el Ministerio de Relaciones Exteriores.</li>
