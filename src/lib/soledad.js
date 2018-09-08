@@ -17,7 +17,16 @@ export default {
         scheme:
           "Restricción de circulación para Motocicletas, Motociclos, Ciclomotores, Mototriciclos, Tricimotos y Cuatrimotos, conforme al último dígito de la placa",
         observations:
-          "En materia de circulación nocturna de motocicletas, ciclomotores, mototriciclos, tricimotos y cuatrimotos, no podrán circular entre las 10 de la noche y las 5:00 de la mañana del día siguiente, de domingo a sábado. Para los motocarros la restricción rige a partir de las 11:00 de la noche."
+          "En materia de circulación nocturna de motocicletas, ciclomotores, mototriciclos, tricimotos y cuatrimotos, no podrán circular entre las 10 de la noche y las 5:00 de la mañana del día siguiente, de domingo a sábado. Para los motocarros la restricción rige a partir de las 11:00 de la noche.",
+        exceptions: `Las prohibiciones del Pico y Placa no son aplicables a los siguientes vehículos públicos que para el ejercicio de sus funciones, en vía pública o privadas abiertas al público utilicen motocicletas:<ul>
+        <li>Miembros de la fuerza pública.</li>
+        <li>Policía judicial.</li>
+        <li>Agentes de tránsito y transporte.</li>
+        <li>Miembros de la defensa civil, cruz roja, bomberos y gestión de riesgo.</li>
+        <li>Personal adscrito al servicio público de salud y hospitalario.</li>
+        <li>Propietarios de motocicletas cuyo cilindraje sea igual o superios a 598 centímetros cúbicos.</li>
+        <li>Servidores públicos y trabajadores de empresas prestadoras de servicios públicos en ejercicio de sus funciones.</li>
+        <ul></ul>`
       },
       name: "Motos",
       na: [0, 6],
