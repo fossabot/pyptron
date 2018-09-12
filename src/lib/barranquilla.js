@@ -25,9 +25,7 @@ export default {
         hours: ["Todo el día"],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo",
-        observations: "",
-        penalties:
-          "Los infractores a lo dispuesto serán sancionados con multa equivalente a quince (15) salarios mínimos diarios legales vigentes e inmovilización del vehículo, según lo consagrado por el artículo 131 literal C numeral 14 de la Ley 769 de 2002."
+        observations: ""
       },
       name: "Taxis",
       na: [0, 6],
