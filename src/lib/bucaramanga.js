@@ -151,7 +151,6 @@ export default {
             <li>Los vehículos que estén ocupados por Magistrados, Jueces, Procuradores, Investigadores, Fiscales, Contralor del Municipio de Bucaramanga, Personer, Defensor del Pueblo, Registrador del Estado Civil y miembros de la Organización Electral debidamente autorizados (estos últimos únicamente en época elctoral), deben portar la identificación vigente que así lo acredite.</li>
             <li>Los vehículos conducidos por los miembros activos de la Policía Cívia, para lo cual deben portar la identificacón correspondiente.</li>
             <li>Los vehículos de servicio especial destinados al transporte de estudiantes, asalariados, turistas "prestadores de servicios turísticos", vinculados a una empresa legalmente constituida y debidamente habilitada en esta modalidad.</li>
-            <li></li>
           </ul>
           Los vehículos enunciados a continuación están sujetos al pago del permiso de circulación registrada, previa autorización de la Dirección de Tránsito de Bucaramanga:
           <ul>

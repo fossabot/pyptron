@@ -43,7 +43,6 @@ export default {
           <li>Vehículos donde se transporten Magistrados, Jueces, Fiscales, Produradores, Obispos,Arzobispo, Diputados, Concejales, Contralores, Defensores Públicos, Personeros, Registrador Municipal y/o Especial, Departamental del Estado Civil correspondientes a los municipios que confirman el Valle de Aburrá, Congresistas, y personal de la Unidad Nacional de Protección, los cuales deben estar plenamente identificados.</li>
           <li>Vehículos que provengan de otras ciudades con turistas de paso, quienes deberán demostrar dicha calidad con el primer y último recibo del peaje que certifiquen tal situación y sólo para el primer día.</li>
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
-          <li></li>
         </ul>`
       },
       name: "Particulares",
