@@ -42,7 +42,7 @@ describe("Test API endpoints", () => {
       .expect(404)
       .end((err, res) => {
         if (err) throw err;
-        expect(res.body.cities.length).toBe(25);
+        expect(res.body.cities.length).toBe(26);
         done();
       });
   });

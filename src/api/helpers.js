@@ -9,6 +9,7 @@ import pasto from "../lib/pasto";
 import tunja from "../lib/tunja";
 import armenia from "../lib/armenia";
 import pereira from "../lib/pereira";
+import bello from "../lib/bello";
 import bucaramanga from "../lib/bucaramanga";
 import buenaventura from "../lib/buenaventura";
 import barranquilla from "../lib/barranquilla";
@@ -30,6 +31,7 @@ import turbaco from "../lib/turbaco";
 export const cities = {
   armenia,
   barranquilla,
+  bello,
   bogota,
   bucaramanga,
   buenaventura,
