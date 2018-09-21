@@ -14,6 +14,7 @@ module.exports = {
     production: {
       user: process.env.PYPTRON_PRODUCTION_USER,
       host: process.env.PYPTRON_PRODUCTION_HOST,
+      port: process.env.PYPTRON_PRODUCTION_PORT,
       ssh_options: "StrictHostKeyChecking=no",
       ref: "origin/master",
       repo: "git@bitbucket.org:archemiro/pyptron.git",
