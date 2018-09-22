@@ -18,7 +18,7 @@ module.exports = {
       ssh_options: "StrictHostKeyChecking=no",
       ref: "origin/master",
       repo: "git@bitbucket.org:archemiro/pyptron.git",
-      path: "/home/node/pyptron",
+      path: "/home/pyphoy/pyptron",
       "post-deploy":
         "npm install && npm run build && pm2 startOrRestart ecosystem.config.js --env production && pm2 save"
     }
