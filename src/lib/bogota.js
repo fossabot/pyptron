@@ -77,7 +77,12 @@ export default {
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4643"
           },
           {
-            name: "Decreto 058 de 2003 y Decreto 051 de 2004",
+            name: "Decreto 058 del 10 de marzo de 2003",
+            url:
+              "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=7182"
+          },
+          {
+            name: "Decreto 051 del 20 de febrero de 2004",
             url:
               "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124"
           },
@@ -94,7 +99,14 @@ export default {
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
         observations:
-          '<a href="https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf">Calendario pyp taxis primer semestre 2018</a>'
+          '<a href="https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf">Calendario pyp taxis primer semestre 2018</a>',
+        exceptions: `<ul>
+        <li>Vehículos vinculados al transporte masivo de pasajeros bien sean articulados o alimentadores.</li>
+        <li>Vehículos de tranporte público colectivo intermunicipal de pasajeros cuyo destino u origen sea el Terminal de Transporte de Bogotá.</li>
+        <li>Vehículos de servicios especiales de transporte de asalariados y escolares debidamente autorizados.</li>
+        <li>Vehículos de carga.</li>
+        <li>Vehículos de servicios especiales de turismo, salvo aquellos a los cuales alude el artículo primero del presente Decreto.</li>
+      </ul>`
       },
       name: "Taxis",
       na: [0],
