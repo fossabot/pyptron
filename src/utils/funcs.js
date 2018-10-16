@@ -1,7 +1,6 @@
-import moment, { locale } from "moment";
+import dayjs from "dayjs";
+import weekOfYear from "dayjs/plugin/weekOfYear";
 import { getHoliday } from "pascua";
-
-locale("es_CO");
 
 /**
  * Excluye una fecha si corresponde a alguno de los días de exclusión o si es festivo en caso de
@@ -35,30 +34,37 @@ export function daysDiff(
   skipHolidays = false,
   specialDates = []
 ) {
-  const mCurrentDate = moment(startDate);
-  const mEndDate = moment(endDate);
+  // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
+  // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
+  // Usamos el formato ISO
+  const ISOStartDate =
+    startDate.length === 10 ? `${startDate}T00:00:00.000-05:00` : startDate;
+  const ISOEndDate =
+    endDate.length === 10 ? `${endDate}T00:00:00.000-05:00` : endDate;
+  const cDateObject = new Date(ISOStartDate);
+  const eDateObject = new Date(ISOEndDate);
   let daysLapse = 0;
 
-  while (mCurrentDate <= mEndDate) {
-    if (specialDates.includes(mCurrentDate.format("YYYY-MM-DD"))) {
-      mCurrentDate.add(1, "days");
+  while (cDateObject <= eDateObject) {
+    if (specialDates.includes(dayjs(cDateObject).format("YYYY-MM-DD"))) {
+      cDateObject.setDate(cDateObject.getDate() + 1);
       continue; // eslint-disable-line no-continue
     }
 
     if (skipHolidays) {
-      if (getHoliday(mCurrentDate.toDate())) {
-        mCurrentDate.add(1, "days");
+      if (getHoliday(cDateObject)) {
+        cDateObject.setDate(cDateObject.getDate() + 1);
         continue; // eslint-disable-line no-continue
       }
     }
 
-    if (skip.includes(mCurrentDate.day())) {
-      mCurrentDate.add(1, "days");
+    if (skip.includes(cDateObject.getDay())) {
+      cDateObject.setDate(cDateObject.getDate() + 1);
+
       continue; // eslint-disable-line no-continue
     }
-
     daysLapse += 1;
-    mCurrentDate.add(1, "days");
+    cDateObject.setDate(cDateObject.getDate() + 1);
   }
   return daysLapse;
 }
@@ -71,8 +77,9 @@ export function daysDiff(
  * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
  */
 export function monthsDiff(startDate, endDate, interval = 1) {
-  const mDate = moment(endDate);
-  return Math.floor(mDate.diff(startDate, "months") / interval);
+  const mDate = dayjs(endDate);
+  const diff = Math.floor(mDate.diff(startDate, "months") / interval);
+  return Math.abs(diff);
 }
 
 /**
@@ -89,7 +96,7 @@ export function pyp(date, na, holidays, specialProcessing) {
   if (daysDiff(startDate, date, []) <= 0) {
     throw new Error("Date out of range");
   }
-  if (monthsDiff(moment(), date) >= 12) {
+  if (monthsDiff(Date(), date) >= 12) {
     throw new Error("Date out of range");
   }
   if (excludeDays(date, na, holidays)) {
@@ -126,7 +133,8 @@ export function getMonth(date) {
  * @returns {int} Número de semana del año en que cae la fecha dada.
  */
 export function getWeek(date) {
-  return moment(date).week();
+  dayjs.extend(weekOfYear);
+  return dayjs(date).week();
 }
 
 /**
@@ -151,11 +159,11 @@ export function getDay(date) {
  * Da formato el formato deseado a una fecha. Por ejemplo:
  *   formatDate("01/01/2017", "YYYY-MM-DD") // 2017-01-01
  * @param {string} date Fecha a la que se le desea dar formato.
- * @param {string} format Formato que se desea aplicar usando los formatos de momentjs.
+ * @param {string} format Formato que se desea aplicar.
  * @returns {string} La fecha en con el formato solicitado.
  */
 export function formatDate(date, format) {
-  return moment(date).format(format);
+  return dayjs(date).format(format);
 }
 
 /**
@@ -217,8 +225,8 @@ export function rotateBy(
   reverse = false,
   interval = 1
 ) {
-  const mDate = moment(date);
-  const mStartDate = moment(startDate);
+  const mDate = dayjs(date);
+  const mStartDate = dayjs(startDate);
   const pypOffset = pypNums.indexOf(startNums);
   let lapse = 0;
   if (reverse) {
