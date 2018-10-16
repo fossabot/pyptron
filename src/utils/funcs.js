@@ -12,8 +12,10 @@ locale("es_CO");
  * @returns {boolean} Verdadero si la fecha es excluida de lo contrario falso.
  */
 export function excludeDays(date, days, holidays = true) {
-  const mDate = moment(date);
-  return days.includes(mDate.day()) || (holidays && getHoliday(mDate.toDate()));
+  const dateObject = new Date(date);
+  return (
+    days.includes(dateObject.getDay()) || (holidays && getHoliday(dateObject))
+  );
 }
 
 /**
@@ -115,7 +117,7 @@ export function getIndex(index, arrLen) {
  * @returns {int} Número del mes de la fecha dada. Enero = 1.
  */
 export function getMonth(date) {
-  return moment(date).month() + 1;
+  return new Date(date).getMonth() + 1;
 }
 
 /**
@@ -133,7 +135,7 @@ export function getWeek(date) {
  * @returns {int} El día de la fecha.
  */
 export function getDate(date) {
-  return moment(date).date();
+  return new Date(date).getDate();
 }
 
 /**
@@ -142,7 +144,7 @@ export function getDate(date) {
  * @returns {int} El día de la semana de la fecha dada.
  */
 export function getDay(date) {
-  return moment(date).day();
+  return new Date(date).getDay();
 }
 
 /**
@@ -189,10 +191,8 @@ export function arrRotate(arr, offset) {
  * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
  */
 export function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
-  const mDate = moment(date);
-  const mStartDate = moment(startDate);
   // eslint-disable-next-line no-unmodified-loop-condition
-  let daysLapse = daysDiff(mStartDate, mDate, skip);
+  let daysLapse = daysDiff(startDate, date, skip);
   daysLapse += pypNums.indexOf(startNums) - 1;
   return pypNums[daysLapse % pypNums.length];
 }
