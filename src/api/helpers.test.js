@@ -54,7 +54,7 @@ describe("Generate pyp object maps of global info with the slug and the key", ()
 
 describe("Generate pyp data objects", () => {
   it("should return data for three days for all categories", () => {
-    const date = "2018-03-06T00:00:02-05:00";
+    const date = "2018-03-06T00:00:02.000-05:00";
     const days = 3;
     const result = getPypData("bogota", date, days);
     expect(result.data.length).toBe(3);

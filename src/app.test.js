@@ -103,7 +103,7 @@ describe("Test API endpoints", () => {
             expect(typeof pypData.info).toBe("object");
             // Debe tener una propiedad data
             expect(typeof pypData.data).toBe("object");
-            expect(pypData.data[0].date).toBe(`${date}T00:00:00-05:00`);
+            expect(pypData.data[0].date).toBe(`${date}T05:00:00.000Z`);
             expect(pypData.data.length).toBe(1);
             done();
           });
@@ -128,7 +128,7 @@ describe("Test API endpoints", () => {
             expect(typeof pypData.info).toBe("object");
             // Debe tener una propiedad data
             expect(typeof pypData.data).toBe("object");
-            expect(pypData.data[0].date).toBe(`${date}T00:00:00-05:00`);
+            expect(pypData.data[0].date).toBe(`${date}T05:00:00.000Z`);
             expect(pypData.data.length).toBe(days);
             done();
           });

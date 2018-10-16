@@ -1,31 +1,29 @@
-import moment from "moment";
 import slugify from "slugify";
-
-import bogota from "../lib/bogota";
-import medellin from "../lib/medellin";
-import cali from "../lib/cali";
-import santamarta from "../lib/santamarta";
-import pasto from "../lib/pasto";
-import tunja from "../lib/tunja";
 import armenia from "../lib/armenia";
-import pereira from "../lib/pereira";
+import barranquilla from "../lib/barranquilla";
 import bello from "../lib/bello";
+import bogota from "../lib/bogota";
 import bucaramanga from "../lib/bucaramanga";
 import buenaventura from "../lib/buenaventura";
-import barranquilla from "../lib/barranquilla";
+import cali from "../lib/cali";
 import cartagena from "../lib/cartagena";
-import quibdo from "../lib/quibdo";
-import manizales from "../lib/manizales";
-import envigado from "../lib/envigado";
 import cucuta from "../lib/cucuta";
-import itagui from "../lib/itagui";
-import ocana from "../lib/ocana";
-import sabaneta from "../lib/sabaneta";
-import laestrella from "../lib/laestrella";
+import envigado from "../lib/envigado";
 import ibague from "../lib/ibague";
-import popayan from "../lib/popayan";
+import itagui from "../lib/itagui";
+import laestrella from "../lib/laestrella";
+import manizales from "../lib/manizales";
+import medellin from "../lib/medellin";
+import ocana from "../lib/ocana";
 import pamplona from "../lib/pamplona";
+import pasto from "../lib/pasto";
+import pereira from "../lib/pereira";
+import popayan from "../lib/popayan";
+import quibdo from "../lib/quibdo";
+import sabaneta from "../lib/sabaneta";
+import santamarta from "../lib/santamarta";
 import soledad from "../lib/soledad";
+import tunja from "../lib/tunja";
 import turbaco from "../lib/turbaco";
 
 export const cities = {
@@ -182,6 +180,7 @@ export function getPypInfo(city, categories = []) {
     return result;
   }, {});
 }
+
 /**
  * Devuelve la metainformación y la información correspondiente a la ciudad solicitada para la
  * fecha solicitada. Si no se especifican los días se desean sólo se devuelve la información para un
@@ -196,8 +195,12 @@ export function getPypInfo(city, categories = []) {
  * @returns {Object} Toda la información correspondiente a la ciudad, categorías y días solicitados.
  */
 export function getPypData(city, date, days = 1, categories = []) {
+  // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
+  // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
+  // Usamos el formato ISO
+  const ISODate = date.length === 10 ? `${date}T00:00:00.000-05:00` : date;
   const pypCity = cities[city];
-  const currentDate = moment(date);
+  const currentDate = new Date(ISODate);
   const result = {
     name: pypCity.name,
     path: slugify(pypCity.name, { lower: true }),
@@ -206,10 +209,10 @@ export function getPypData(city, date, days = 1, categories = []) {
   };
   for (let i = 0; i < days; i += 1) {
     result.data.push({
-      date: currentDate.format(),
+      date: currentDate.toISOString(),
       categories: getPyp(city, currentDate, categories)
     });
-    currentDate.add(1, "days");
+    currentDate.setDate(currentDate.getDate() + 1);
   }
   return result;
 }
