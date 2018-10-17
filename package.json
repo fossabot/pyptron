@@ -14,13 +14,13 @@
     "test": "jest",
     "test:ci": "JEST_JUNIT_OUTPUT=test-results/jest/results.xml jest --ci --coverage --testResultsProcessor=jest-junit",
     "prebuild": "npm run clean",
-    "build": "babel --out-dir dist --ignore __tests__ src",
+    "build": "babel --out-dir dist --ignore *.test.js src",
     "deploy:setup": "pm2 deploy production setup",
     "deploy": "pm2 deploy production"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged --debug",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
