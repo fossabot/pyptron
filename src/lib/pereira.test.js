@@ -1,19 +1,19 @@
-import testCases from "../../utils/testsWrapper";
-import city from "../pamplona";
+import testCases from "../utils/testsWrapper";
+import city from "./pereira";
 
 const dateCases = [
   {
     date: "2018-04-09", // lunes 9 de abril de 2018
     pypCases: {
-      particulares: "1-2",
-      motos: "1-2"
+      particulares: "0-1",
+      motos: "0-1"
     }
   },
   {
     date: "2018-05-16", // miércoles 16 de mayo de 2018
     pypCases: {
-      particulares: "5-6",
-      motos: "5-6"
+      particulares: "4-5",
+      motos: "4-5"
     }
   }
 ];

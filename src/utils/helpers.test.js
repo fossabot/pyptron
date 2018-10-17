@@ -11,19 +11,19 @@ import {
 const dir = "./src/lib";
 let totalCities = 0;
 
-describe("test for ISOString", () => {
-  it(`should append the time offset to the date`, () => {
-    expect(ISOString("2018-01-01")).toBe("2018-01-01T00:00:00.000-05:00");
+beforeAll(done => {
+  readdir(dir, (err, files) => {
+    totalCities = files.filter(file => !file.endsWith("test.js")).length;
+    done();
   });
 });
 
-beforeAll(done => {
-  readdir(dir, (err, files) => {
-    // la cantidad de ciudades que hay en la librería para verificar más adelante que corresponda
-    // con la cantidad de ciudades devueltas por la función. Restamos uno para descontar el dir
-    // __test__
-    totalCities = files.length - 1;
-    done();
+describe("test for ISOString", () => {
+  it(`should append the time offset to the date`, () => {
+    expect(ISOString("2018-01-01")).toBe("2018-01-01T00:00:00.000-05:00");
+    expect(ISOString("2018-01-01T00:00:00.000-05:00")).toBe(
+      "2018-01-01T00:00:00.000-05:00"
+    );
   });
 });
 

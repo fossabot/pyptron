@@ -1,5 +1,5 @@
-import testCases from "../../utils/testsWrapper";
-import city from "../soledad";
+import testCases from "../utils/testsWrapper";
+import city from "./soledad";
 
 const dateCases = [
   {
