@@ -110,8 +110,12 @@ Object {
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330",
         },
         Object {
-          "name": "Calendario pico y placa primer semestre 2018 unificado",
-          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+          "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+        },
+        Object {
+          "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
         },
       ],
       "exceptions": "<ul>
@@ -153,8 +157,12 @@ Object {
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359",
         },
         Object {
-          "name": "Calendario pico y placa primer semestre 2018 unificado",
-          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+          "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+        },
+        Object {
+          "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
         },
       ],
       "hours": Array [
@@ -186,8 +194,12 @@ Object {
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155",
         },
         Object {
-          "name": "Calendario pico y placa primer semestre 2018 unificado",
-          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+          "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+        },
+        Object {
+          "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
         },
       ],
       "exceptions": "<ul>
@@ -241,8 +253,12 @@ Object {
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124",
         },
         Object {
-          "name": "Calendario pico y placa primer semestre 2018 unificado",
-          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+          "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+        },
+        Object {
+          "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
         },
       ],
       "exceptions": "<ul>
@@ -256,7 +272,7 @@ Object {
         "5:30 - 21:00",
       ],
       "name": "Taxis",
-      "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
+      "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
       "path": "bogota/taxis",
       "scheme": "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
       "vehicleClasses": Array [
@@ -273,8 +289,12 @@ Object {
           "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702",
         },
         Object {
-          "name": "Calendario pico y placa primer semestre 2018 unificado",
-          "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+          "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+        },
+        Object {
+          "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+          "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
         },
       ],
       "hours": Array [
@@ -341,8 +361,12 @@ Object {
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330",
       },
       Object {
-        "name": "Calendario pico y placa primer semestre 2018 unificado",
-        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+      },
+      Object {
+        "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
       },
     ],
     "exceptions": "<ul>
@@ -384,8 +408,12 @@ Object {
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359",
       },
       Object {
-        "name": "Calendario pico y placa primer semestre 2018 unificado",
-        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+      },
+      Object {
+        "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
       },
     ],
     "hours": Array [
@@ -417,8 +445,12 @@ Object {
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155",
       },
       Object {
-        "name": "Calendario pico y placa primer semestre 2018 unificado",
-        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+      },
+      Object {
+        "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
       },
     ],
     "exceptions": "<ul>
@@ -472,8 +504,12 @@ Object {
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124",
       },
       Object {
-        "name": "Calendario pico y placa primer semestre 2018 unificado",
-        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+      },
+      Object {
+        "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
       },
     ],
     "exceptions": "<ul>
@@ -487,7 +523,7 @@ Object {
       "5:30 - 21:00",
     ],
     "name": "Taxis",
-    "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/Calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
+    "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
     "path": "bogota/taxis",
     "scheme": "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
     "vehicleClasses": Array [
@@ -504,8 +540,12 @@ Object {
         "url": "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702",
       },
       Object {
-        "name": "Calendario pico y placa primer semestre 2018 unificado",
-        "url": "https://cdn.pyphoy.com/bogota/Calendario-pico-y-placa-2018-1-Unificado.pdf",
+        "name": "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf",
+      },
+      Object {
+        "name": "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+        "url": "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf",
       },
     ],
     "hours": Array [
