@@ -6,26 +6,31 @@ Object {
     Object {
       "categories": Array [
         Object {
+          "key": "ambiental",
           "name": "Ambiental",
           "path": "bogota/ambiental",
           "pyp": "3",
         },
         Object {
+          "key": "especial",
           "name": "Servicio de Transporte Especial",
           "path": "bogota/servicio-de-transporte-especial",
           "pyp": "7-8",
         },
         Object {
+          "key": "particulares",
           "name": "Particulares",
           "path": "bogota/particulares",
           "pyp": "0-2-4-6-8",
         },
         Object {
+          "key": "taxis",
           "name": "Taxis",
           "path": "bogota/taxis",
           "pyp": "7-8",
         },
         Object {
+          "key": "tpc",
           "name": "Transporte Público Colectivo",
           "path": "bogota/transporte-publico-colectivo",
           "pyp": "5-6",
@@ -36,26 +41,31 @@ Object {
     Object {
       "categories": Array [
         Object {
+          "key": "ambiental",
           "name": "Ambiental",
           "path": "bogota/ambiental",
           "pyp": "4",
         },
         Object {
+          "key": "especial",
           "name": "Servicio de Transporte Especial",
           "path": "bogota/servicio-de-transporte-especial",
           "pyp": "9-0",
         },
         Object {
+          "key": "particulares",
           "name": "Particulares",
           "path": "bogota/particulares",
           "pyp": "1-3-5-7-9",
         },
         Object {
+          "key": "taxis",
           "name": "Taxis",
           "path": "bogota/taxis",
           "pyp": "9-0",
         },
         Object {
+          "key": "tpc",
           "name": "Transporte Público Colectivo",
           "path": "bogota/transporte-publico-colectivo",
           "pyp": "7-8",
@@ -66,26 +76,31 @@ Object {
     Object {
       "categories": Array [
         Object {
+          "key": "ambiental",
           "name": "Ambiental",
           "path": "bogota/ambiental",
           "pyp": "5",
         },
         Object {
+          "key": "especial",
           "name": "Servicio de Transporte Especial",
           "path": "bogota/servicio-de-transporte-especial",
           "pyp": "1-2",
         },
         Object {
+          "key": "particulares",
           "name": "Particulares",
           "path": "bogota/particulares",
           "pyp": "0-2-4-6-8",
         },
         Object {
+          "key": "taxis",
           "name": "Taxis",
           "path": "bogota/taxis",
           "pyp": "1-2",
         },
         Object {
+          "key": "tpc",
           "name": "Transporte Público Colectivo",
           "path": "bogota/transporte-publico-colectivo",
           "pyp": "9-0",
@@ -317,26 +332,31 @@ Object {
 exports[`Generate pyp data objects should return pyp data for one date 1`] = `
 Array [
   Object {
+    "key": "ambiental",
     "name": "Ambiental",
     "path": "bogota/ambiental",
     "pyp": "3",
   },
   Object {
+    "key": "especial",
     "name": "Servicio de Transporte Especial",
     "path": "bogota/servicio-de-transporte-especial",
     "pyp": "7-8",
   },
   Object {
+    "key": "particulares",
     "name": "Particulares",
     "path": "bogota/particulares",
     "pyp": "0-2-4-6-8",
   },
   Object {
+    "key": "taxis",
     "name": "Taxis",
     "path": "bogota/taxis",
     "pyp": "7-8",
   },
   Object {
+    "key": "tpc",
     "name": "Transporte Público Colectivo",
     "path": "bogota/transporte-publico-colectivo",
     "pyp": "5-6",

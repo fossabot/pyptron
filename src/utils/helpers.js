@@ -150,7 +150,8 @@ export function getPyp(city, date, categories = []) {
     result.push({
       name: pypCity.categories[category].name,
       path: `${cityPath}/${categoryPath}`,
-      pyp: pypCity.categories[category].pyp(date)
+      pyp: pypCity.categories[category].pyp(date),
+      key: category
     });
     return result;
   }, []);
@@ -221,9 +222,10 @@ export function getPypData(city, date, days = 1, categories = []) {
     data: []
   };
   for (let i = 0; i < days; i += 1) {
+    const pypData = getPyp(city, currentDate, categories);
     result.data.push({
       date: currentDate.toISOString(),
-      categories: getPyp(city, currentDate, categories)
+      categories: pypData
     });
     currentDate.setDate(currentDate.getDate() + 1);
   }
