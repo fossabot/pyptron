@@ -21,7 +21,9 @@ export default {
         days: [
           "Lunes a viernes hábiles (no aplica sábados, domingos y feriados establecidos por la ley o cuando excepcionalmente lo establezca la autoridad competente)."
         ],
-        hours: ["6:00 - 10:00", "16:00 - 20:00"],
+        hours: [
+          { comment: "", hours: [["6:00", "10:00"], ["16:00", "20:00"]] }
+        ],
         scheme: "Se toma como referencia el último dígito de la placa",
         observations:
           "Restringe la circulación de vehículos de servicio particular, servicio oficial y público solo en la modalidad especial, esta última para los vehículos de clase automovil, campero y camioneta hsta de cinco (5) sillas o puestos, es decir, el conductor más cuatro (4) pasajeros.",
@@ -71,7 +73,7 @@ export default {
           }
         ],
         days: ["Lunes a domingo"],
-        hours: ["06:00 - 05:00 del día siguiente"],
+        hours: [{ comment: "", hours: [["06:00", "05:00"]] }],
         scheme:
           "Rotación de acuerdo con el último dígito del número de la placa",
         observations: ""
@@ -100,7 +102,7 @@ export default {
           }
         ],
         days: ["Lunes a domingo"],
-        hours: ["05:00 - 22:00"],
+        hours: [{ comment: "", hours: [["05:00", "22:00"]] }],
         scheme:
           "Rotación de acuerdo con el último dígito del número de la placa",
         observations: ""

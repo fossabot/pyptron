@@ -17,7 +17,7 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo",
         observations:
@@ -52,7 +52,7 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo",
         observations:

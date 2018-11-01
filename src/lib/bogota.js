@@ -38,8 +38,14 @@ export default {
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
         hours: [
-          "Transporte Público Colectivo: 6:00 - 10:00",
-          "Transporte de Carga: 9:00 - 10:00"
+          {
+            comment: "Transporte Público Colectivo",
+            hours: [["6:00", "10:00"]]
+          },
+          {
+            comment: "Transporte de Carga",
+            hours: [["9:00", "10:00"]]
+          }
         ],
         scheme:
           "Para todos los vehículos de transporte de carga (incluye servicio público y particular).",
@@ -109,7 +115,7 @@ export default {
         days: [
           "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["5:30 - 21:00"],
+        hours: [{ comment: "", hours: [["5:30", "21:00"]] }],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
         observations:
@@ -166,7 +172,7 @@ export default {
         days: [
           "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)."
         ],
-        hours: ["5:30 - 21:00"],
+        hours: [{ comment: "", hours: [["5:30", "21:00"]] }],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
         observations: ""
@@ -213,7 +219,7 @@ export default {
         days: [
           "Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)"
         ],
-        hours: ["Todo el día"],
+        hours: [{ comment: "Todo el día", hours: [[]] }],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
         observations:
@@ -269,7 +275,7 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["6:00 - 8:30", "15:00 - 19:30"],
+        hours: [{ comment: "", hours: [["6:00", "8:30"], ["15:00", "19:30"]] }],
         scheme:
           "Día par hábil: placa último dígito par. Día impar hábil: placa último dígito impar.",
         observations:

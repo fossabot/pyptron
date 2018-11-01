@@ -23,7 +23,7 @@ export default {
         days: [
           "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa según el esquema",
         observations: ""
       },
@@ -56,7 +56,7 @@ export default {
         days: [
           "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa según el esquema",
         observations: "",
         exceptions: `<ul>

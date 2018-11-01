@@ -15,7 +15,9 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 10:00", "17:00 - 20:00"],
+        hours: [
+          { comment: "", hours: [["7:00", "10:00"], ["17:00", "20:00"]] }
+        ],
         scheme: "Último dígito del número de la placa",
         observations:
           "Los vehículos de servicio particular no podrán circular desde el kilómetro cinco, es decir, desde el sector del Sena hasta el Centro de la Ciudad y viceversa, de lo contrario serán sancionados por incurrir con la norma"
@@ -44,7 +46,7 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa",
         observations:
           "Aplica para todo el distrito. El Decreto autoriza la movilización de vehículos de servicio público sólo para que realicen el mantenimiento respectivo, por ello deberán portar el tablero colocado en el parabrisas el siguiente aviso: 'vehículo en mantenimiento por pico y placa'"
@@ -73,7 +75,7 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa",
         observations:
           "Aplica para todo el distrito. El Decreto autoriza la movilización de vehículos de servicio público sólo para que realicen el mantenimiento respectivo, por ello deberán portar el tablero colocado en el parabrisas el siguiente aviso: 'vehículo en mantenimiento por pico y placa'"

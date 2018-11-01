@@ -31,7 +31,10 @@ export default {
           }
         ],
         days: ["Lunes a sábado hábiles"],
-        hours: ["Lunes a viernes: 6:00 - 20:00", "Sábados: 9:00 - 13:00"],
+        hours: [
+          { comment: "Lunes a viernes", hours: [["6:00", "20:00"]] },
+          { comment: "Sábados", hours: [["9:00", "13:00"]] }
+        ],
         scheme: "Según el último dígito del número de la placa",
         observations:
           "Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera.",
@@ -128,7 +131,10 @@ export default {
           }
         ],
         days: ["Lunes a sábado hábiles"],
-        hours: ["Lunes a viernes: 6:00 - 20:00", "Sábados: 9:00 - 13:00"],
+        hours: [
+          { comment: "Lunes a viernes", hours: [["6:00", "20:00"]] },
+          { comment: "Sábados", hours: [["9:00", "13:00"]] }
+        ],
         scheme:
           "Último dígito numérico de la placa según el esquema sin tener en cuenta la letra o letras finales",
         observations:
@@ -217,7 +223,7 @@ export default {
           }
         ],
         days: ["Lunes a sábado hábiles"],
-        hours: ["7:00 - 21:00"],
+        hours: [{ comment: "", hours: [["7:00", "21:00"]] }],
         scheme: "Último dígito numérico de la placa según el esquema",
         observations: ""
       },

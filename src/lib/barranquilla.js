@@ -22,7 +22,7 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["Todo el día"],
+        hours: [{ comment: "Todo el día", hours: [[]] }],
         scheme:
           "Cíclico de acuerdo con el último número de la placa del vehículo",
         observations: ""

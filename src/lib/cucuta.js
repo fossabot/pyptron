@@ -19,7 +19,12 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:30 - 9:00", "11:30 - 13:30", "17:30 - 19:00"],
+        hours: [
+          {
+            comment: "",
+            hours: [["7:30", " 9:00"], ["11:30", "13:30"], ["17:30", "19:00"]]
+          }
+        ],
         scheme:
           "El ‘pico y placa’ contempla restricciones en la movilidad para vehículos particulares de placa Nacional (automóviles, motocicletas, camionetas, camiones, volquetes) matriculados en Cúcuta, Villa del Rosario, Los Patios y El Zulia",
         observations: `Aplica en el cuadrante del centro que encierran las siguientes avenidas y calles:<ul>
@@ -81,7 +86,12 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:30 - 9:00", "11:30 - 13:30", "17:30 - 19:00"],
+        hours: [
+          {
+            comment: "",
+            hours: [["7:30", "9:00"], ["11:30", "13:30"], ["17:30", "19:00"]]
+          }
+        ],
         scheme:
           "El ‘pico y placa’ contempla restricciones en la movilidad para vehículos particulares de placa Nacional (automóviles, motocicletas, camionetas, camiones, volquetes) matriculados en Cúcuta, Villa del Rosario, Los Patios y El Zulia",
         observations: `Aplica en el cuadrante del centro que encierran las siguientes avenidas y calles:<ul>
@@ -143,7 +153,7 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:30 - 23:00"],
+        hours: [{ comment: "", hours: [["7:30", "23:00"]] }],
         scheme:
           "Medida de tránsito de RESTRICCIÓN VEHICULAR denominada PLACA – DÍA en la ciudad de San José de Cúcuta para VEHÍCULOS DE SERVICIO PÚBLICO TIPO TAXI, VEHÍCULOS DE PLACA EXTRANJERA (automóviles, motocicletas, camionetas, camiones, volquetas) y VEHÍCULOS DE PLACA NACIONAL (automóviles, motocicletas, camionetas, camiones, volquetes)."
       },

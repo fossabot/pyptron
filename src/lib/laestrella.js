@@ -14,7 +14,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["7:00 - 8:30", "17:30 - 19:00"],
+        hours: medellin.categories.particulares.info.hours,
         scheme:
           "Restringe la circulación de vehículos particulares y oficiales",
         observations:
@@ -61,7 +61,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["7:00 - 8:30", "17:30 - 19:00"],
+        hours: medellin.categories.motos.info.hours,
         scheme:
           "Restringe la circulación de motos de dos tiempos según el primer número de su placa",
         observations:
@@ -108,7 +108,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["6:00 - 20:00"],
+        hours: medellin.categories.taxis.info.hours,
         scheme: "De acuerdo con el último número de la placa del vehículo",
         observations:
           "En la jurisdicción del Municipio La Estrella la medida de	restricción vehicular se continuará aplicará en las siguientes vías:	<ul><li>Tramo de la autopista sur (carrera 50) en la jurisdicción del Municipio de La	Estrella.</li><li>Tramo de la variante a Caldas (carrera 48) en la jurisdicción del Municipio	de La Estrella</li><li>Tramo de la Carrera 62A, entre la Calle 73 sur y la Calle 75 sur</li><li>Tramo de la Calle 74 sur, entre la Carrera 62A y Carrera 54</li><ul>"

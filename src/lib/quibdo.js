@@ -15,7 +15,7 @@ export default {
         days: [
           "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:30 - 19:30"],
+        hours: [{ comment: "", hours: [["7:30", "19:30"]] }],
         scheme: "Conforme al último dígito numérico de la placa",
         observations: "",
         exceptions: `<ul>Se exceptúan de la aplicación de la restricción por Pico y Placa los vehículos que se encuentren al servicio de las siguientes entidades siempre y cuando se movilicen en ejercicio de sus funciones y sus ocupantes se identifiquen plenamente:
@@ -57,7 +57,7 @@ export default {
         days: [
           "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:30 - 19:30"],
+        hours: [{ comment: "", hours: [["7:30", "19:30"]] }],
         scheme: "Conforme al último dígito numérico de la placa",
         observations: "",
         exceptions: `<ul>Se exceptúan de la aplicación de la restricción por Pico y Placa los vehículos que se encuentren al servicio de las siguientes entidades siempre y cuando se movilicen en ejercicio de sus funciones y sus ocupantes se identifiquen plenamente:

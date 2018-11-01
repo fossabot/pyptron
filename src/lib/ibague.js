@@ -14,7 +14,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["6:30 - 9:00", "17:00 - 19:30"],
+        hours: [{ comment: "", hours: [["6:30", "9:00"], ["17:00", "19:30"]] }],
         scheme:
           "Restringir la circulación de vehículos particulares (carros) en toda el área urbana de la ciudad de Ibagué. Exceptuando tránsito vehícular por las variantes nacionales",
         observations:
@@ -56,8 +56,8 @@ export default {
               "http://www.ibague.gov.co/portal/admin/archivos/normatividad/2016/13967-DEC-20160415.pdf"
           }
         ],
-        days: ["Todos los días de la semana."],
-        hours: ["Durante las 24 horas de cada día"],
+        days: ["Todos los días de la semana"],
+        hours: [{ comment: "Todo el día", hours: [[]] }],
         scheme:
           "Restringe la circulación de Vehículos de Servicio Público de Transporte Colectivo Municipal de Pasajeros, tipo Busetón, Buseta, Microbus, en todo el territorio Urbano de la ciudad de Ibagué, durante las veinticuatro (24) horas de cada día"
       },
@@ -89,7 +89,7 @@ export default {
           }
         ],
         days: ["Todos los días de la semana"],
-        hours: ["Inica a las 6:00am hasta las 6:00am del siguiente día"],
+        hours: [{ comment: "", hours: [["6:00", "6:00"]] }],
         scheme: "De acuerdo con el último número de la placa del vehículo",
         observations:
           "Las restricciones establecidas para este servicio no se suspenderán en ninguna época del año, ni en festividades de semana santa, mitad o final de año."

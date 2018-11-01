@@ -14,7 +14,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["7:00 - 8:30", "17:30 - 19:00"],
+        hours: medellin.categories.particulares.info.hours,
         scheme:
           "Restringe la circulación de vehículos particulares y oficiales",
         observations:
@@ -60,7 +60,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["7:00 - 8:30", "17:30 - 19:00"],
+        hours: medellin.categories.motos.info.hours,
         scheme:
           "Restringe la circulación de motos de dos tiempos según el primer número de su placa",
         observations:
@@ -106,7 +106,7 @@ export default {
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: ["6:00 - 20:00"],
+        hours: medellin.categories.taxis.info.hours,
         scheme: "De acuerdo con el último número de la placa del vehículo",
         observations:
           "La rotación de la medida de “Pico y placa” para el transporte público individual (taxis) que circulen en la Jurisdicción de Envigado, seguirá siendo cada dos semanas en el horario comprendido enre las 06:00 y las 20:00 horas durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del jueves 1 de febrero de 2018."

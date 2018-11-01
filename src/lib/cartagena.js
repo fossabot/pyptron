@@ -18,7 +18,7 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["6:00 - 6:00 del día siguiente"],
+        hours: [{ comment: "", hours: [["6:00", "6:00"]] }],
         scheme: "Último dígito del número de la placa",
         observations: ""
       },
@@ -58,7 +58,12 @@ export default {
         days: [
           "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 9:00", "12:00 - 14:00", "17:00 - 19:30"],
+        hours: [
+          {
+            comment: "",
+            hours: [["7:00", "9:00"], ["12:00", "14:00"], ["17:00", "19:30"]]
+          }
+        ],
         scheme: "Último dígito del número de la placa",
         observations: `Se aplica en las siguientes vías del Distrito Turístico y Cultural de Cartagena de Indias:
         <ul>

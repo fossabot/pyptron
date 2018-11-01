@@ -14,7 +14,7 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa según el esquema",
         exceptions: `<ul>
         <li>Vehículos que conforman las caravanas presidenciales, Directores, Gerentes de Entidades del orden nacional con sede en la Ciudad de Popayán, Alcalde, Gobernador y Cuerpo Diplomático.</li>
@@ -71,7 +71,7 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa según el esquema",
         exceptions: `<ul>
         <li>Vehículos que conforman las caravanas presidenciales, Directores, Gerentes de Entidades del orden nacional con sede en la Ciudad de Popayán, Alcalde, Gobernador y Cuerpo Diplomático.</li>
@@ -130,7 +130,7 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa según el esquema"
       },
       name: "Transporte Público de Carga",

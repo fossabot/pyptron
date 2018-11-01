@@ -150,8 +150,24 @@ Object {
           </li>
         </ul>",
       "hours": Array [
-        "Transporte Público Colectivo: 6:00 - 10:00",
-        "Transporte de Carga: 9:00 - 10:00",
+        Object {
+          "comment": "Transporte Público Colectivo",
+          "hours": Array [
+            Array [
+              "6:00",
+              "10:00",
+            ],
+          ],
+        },
+        Object {
+          "comment": "Transporte de Carga",
+          "hours": Array [
+            Array [
+              "9:00",
+              "10:00",
+            ],
+          ],
+        },
       ],
       "name": "Ambiental",
       "observations": "",
@@ -181,7 +197,15 @@ Object {
         },
       ],
       "hours": Array [
-        "5:30 - 21:00",
+        Object {
+          "comment": "",
+          "hours": Array [
+            Array [
+              "5:30",
+              "21:00",
+            ],
+          ],
+        },
       ],
       "name": "Servicio de Transporte Especial",
       "observations": "",
@@ -239,8 +263,19 @@ Object {
         <p>Se prohíbe la expedición de permisos especiales de circulación por parte de las autoridades de tránsito. Los automotores exceptuados podrán circular con la simple demostración de las condiciones señaladas, y en consecuencia no requerirán de la expedición de permiso alguno. En cuanto a los controles por medios tecnológicos, bastará con la inscripción en registro referido en el párrafo anterior.</p>
         ",
       "hours": Array [
-        "6:00 - 8:30",
-        "15:00 - 19:30",
+        Object {
+          "comment": "",
+          "hours": Array [
+            Array [
+              "6:00",
+              "8:30",
+            ],
+            Array [
+              "15:00",
+              "19:30",
+            ],
+          ],
+        },
       ],
       "name": "Particulares",
       "observations": "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
@@ -284,7 +319,15 @@ Object {
         <li>Vehículos de servicios especiales de turismo, salvo aquellos a los cuales alude el artículo primero del presente Decreto.</li>
       </ul>",
       "hours": Array [
-        "5:30 - 21:00",
+        Object {
+          "comment": "",
+          "hours": Array [
+            Array [
+              "5:30",
+              "21:00",
+            ],
+          ],
+        },
       ],
       "name": "Taxis",
       "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
@@ -313,7 +356,12 @@ Object {
         },
       ],
       "hours": Array [
-        "Todo el día",
+        Object {
+          "comment": "Todo el día",
+          "hours": Array [
+            Array [],
+          ],
+        },
       ],
       "name": "Transporte Público Colectivo",
       "observations": "Los vehículos de servicio público de transporte colectivo de pasajeros con restricción, podrán circular con no más de un (1) acompañante, únicamente para atender labores de mantenimiento, alistamiento, reparación o revisión técnico mecánica, portando en un lugar visible aviso que exprese claramente que se encuentran fuera de servicio.",
@@ -406,8 +454,24 @@ Object {
           </li>
         </ul>",
     "hours": Array [
-      "Transporte Público Colectivo: 6:00 - 10:00",
-      "Transporte de Carga: 9:00 - 10:00",
+      Object {
+        "comment": "Transporte Público Colectivo",
+        "hours": Array [
+          Array [
+            "6:00",
+            "10:00",
+          ],
+        ],
+      },
+      Object {
+        "comment": "Transporte de Carga",
+        "hours": Array [
+          Array [
+            "9:00",
+            "10:00",
+          ],
+        ],
+      },
     ],
     "name": "Ambiental",
     "observations": "",
@@ -437,7 +501,15 @@ Object {
       },
     ],
     "hours": Array [
-      "5:30 - 21:00",
+      Object {
+        "comment": "",
+        "hours": Array [
+          Array [
+            "5:30",
+            "21:00",
+          ],
+        ],
+      },
     ],
     "name": "Servicio de Transporte Especial",
     "observations": "",
@@ -495,8 +567,19 @@ Object {
         <p>Se prohíbe la expedición de permisos especiales de circulación por parte de las autoridades de tránsito. Los automotores exceptuados podrán circular con la simple demostración de las condiciones señaladas, y en consecuencia no requerirán de la expedición de permiso alguno. En cuanto a los controles por medios tecnológicos, bastará con la inscripción en registro referido en el párrafo anterior.</p>
         ",
     "hours": Array [
-      "6:00 - 8:30",
-      "15:00 - 19:30",
+      Object {
+        "comment": "",
+        "hours": Array [
+          Array [
+            "6:00",
+            "8:30",
+          ],
+          Array [
+            "15:00",
+            "19:30",
+          ],
+        ],
+      },
     ],
     "name": "Particulares",
     "observations": "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
@@ -540,7 +623,15 @@ Object {
         <li>Vehículos de servicios especiales de turismo, salvo aquellos a los cuales alude el artículo primero del presente Decreto.</li>
       </ul>",
     "hours": Array [
-      "5:30 - 21:00",
+      Object {
+        "comment": "",
+        "hours": Array [
+          Array [
+            "5:30",
+            "21:00",
+          ],
+        ],
+      },
     ],
     "name": "Taxis",
     "observations": "<a href=\\"https://cdn.pyphoy.com/bogota/calendario-pyp-taxis-primer-semestre-2018.pdf\\">Calendario pyp taxis primer semestre 2018</a>",
@@ -569,7 +660,12 @@ Object {
       },
     ],
     "hours": Array [
-      "Todo el día",
+      Object {
+        "comment": "Todo el día",
+        "hours": Array [
+          Array [],
+        ],
+      },
     ],
     "name": "Transporte Público Colectivo",
     "observations": "Los vehículos de servicio público de transporte colectivo de pasajeros con restricción, podrán circular con no más de un (1) acompañante, únicamente para atender labores de mantenimiento, alistamiento, reparación o revisión técnico mecánica, portando en un lugar visible aviso que exprese claramente que se encuentran fuera de servicio.",

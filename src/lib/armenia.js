@@ -14,8 +14,14 @@ export default {
         ],
         days: ["Lunes a viernes hábiles"],
         hours: [
-          "Centro de la ciudad: 7:30 - 19:30",
-          "Toda la ciudad: 7:30 - 9:30, 11:30 - 14:30 y 17:30 - 19:30"
+          {
+            comment: "Centro de la ciudad",
+            hours: [["7:30", "19:30"]]
+          },
+          {
+            comment: "Toda la ciudad",
+            hours: [["7:30", "9:30"], ["11:30", "14:30"], ["17:30", "19:30"]]
+          }
         ],
         scheme: "Último dígito del número de la placa según el esquema",
         exceptions: `<ul>
@@ -66,8 +72,14 @@ export default {
         ],
         days: ["Lunes a viernes hábiles"],
         hours: [
-          "Centro de la ciudad: 7:30 - 19:30",
-          "Toda la ciudad: 7:30 - 9:30, 11:30 - 14:30 y 17:30 - 19:30"
+          {
+            comment: "Centro de la ciudad",
+            hours: [["7:30", "19:30"]]
+          },
+          {
+            comment: "Toda la ciudad",
+            hours: [["7:30", "9:30"], ["11:30", "14:30"], ["17:30", "19:30"]]
+          }
         ],
         scheme: "Primer dígito del número de la placa según el esquema",
         exceptions: `<ul>
@@ -117,7 +129,12 @@ export default {
           }
         ],
         days: ["Lunes a viernes hábiles"],
-        hours: ["7:30 - 19:30"],
+        hours: [
+          {
+            comment: "",
+            hours: [["7:30", "19:30"]]
+          }
+        ],
         scheme: "Primer dígito del número de la placa según el esquema"
       },
       name: "Taxis",

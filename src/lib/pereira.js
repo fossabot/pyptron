@@ -26,7 +26,7 @@ export default {
         days: [
           "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Último dígito del número de la placa según el esquema",
         observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
         <ul>
@@ -95,7 +95,7 @@ export default {
         days: [
           "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
         ],
-        hours: ["7:00 - 19:00"],
+        hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
         scheme: "Primer dígito del número de la placa según el esquema",
         observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
         <ul>
