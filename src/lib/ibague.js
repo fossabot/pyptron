@@ -11,10 +11,19 @@ export default {
             name: "Decreto 0037 de 13 de Enero de 2017",
             url:
               "http://www.ibague.gov.co/portal/admin/archivos/normatividad/2017/16370-DEC-20170116.pdf"
+          },
+          {
+            name: "Decreto 0946 del 31 de octubre de 2018",
+            url: "https://cdn.pyphoy.com/ibague/decreto-0946-de-2018.pdf"
           }
         ],
         days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: [{ comment: "", hours: [["6:30", "9:00"], ["17:00", "19:30"]] }],
+        hours: [
+          {
+            comment: "",
+            hours: [["6:30", "9:00"], ["11:30", "14:30"], ["17:00", "19:30"]]
+          }
+        ],
         scheme:
           "Restringir la circulación de vehículos particulares (carros) en toda el área urbana de la ciudad de Ibagué. Exceptuando tránsito vehícular por las variantes nacionales",
         observations:
