@@ -1,11 +1,15 @@
 import medellin from "./medellin";
 
+const medellinParticulares = medellin.categories.particulares;
+const medellinMotos = medellin.categories.motos;
+const medellinTaxis = medellin.categories.taxis;
+
 export default {
   name: "Bello",
   categories: {
     particulares: {
       info: {
-        vehicleClasses: ["Vehículos particulares y oficiales"],
+        vehicleClasses: medellinParticulares.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto pico y placa enero de 2017",
@@ -18,10 +22,9 @@ export default {
               "http://www.bello.gov.co/index.php/component/k2/item/download/941_94bced8a97224f77da7427d07b1da1b1"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.particulares.info.hours,
-        scheme:
-          "Restringe la circulación de vehículos particulares y oficiales",
+        days: medellinParticulares.info.days,
+        hours: medellinParticulares.info.hours,
+        scheme: medellinParticulares.info.scheme,
         observations:
           "Quedan excluidas de la aplicación de la medida, las vías de la zona rural, la vía regional en jurisdicción de Bello, la autopista norte en el tramo comprendido entre la glorieta de la estación del Metro de Niquia y Jardines de la Fe, límites con el Municipio de Copacabana (incluyendo la Glorieta) y la Autopista Medellín - Bogotá, en jurisdicción de Bello. La Autopista Norte en el tramo comprendido entre la carrera 50 por calle 24A (Intercambio Vial Juan Ignacio Castrillón), hasta la glorieta de la estación del Metro Niquia será objeto de Pico y Placa",
         exceptions: `Estarán exentos de la medida del Pico y Placa, en consideración a las necesidades de la Ciudad, los siguientes vehículos:<ul>
@@ -49,13 +52,13 @@ export default {
           <li>Los demás casos en los que, por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Bello.</li>
         </ul>`
       },
-      name: "Particulares",
-      na: [0, 6],
-      pyp: medellin.categories.particulares.pyp
+      name: medellinParticulares.name,
+      na: medellinParticulares.na,
+      pyp: medellinParticulares.pyp
     },
     motos: {
       info: {
-        vehicleClasses: ["Motos de dos tiempos"],
+        vehicleClasses: medellinMotos.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 053 del 29 de enero de 2018",
@@ -63,12 +66,10 @@ export default {
               "http://www.Bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.motos.info.hours,
-        scheme:
-          "Restringe la circulación de motos de dos tiempos según el primer número de su placa",
-        observations:
-          "La rotación de la medida de “Pico y placa” para motos de dos tiempos, quedará rigiendo entre las 07:00 y las 08:30 y entre las 17:30 y las 19:00 horas, durante los días hábiles de la semana, según el primer número de su placa, a partir del lunes 05 de febrero de 2018.",
+        days: medellinMotos.info.days,
+        hours: medellinMotos.info.hours,
+        scheme: medellinMotos.info.scheme,
+        observations: medellinMotos.info.observations,
         exceptions: `Estarán exentos de la medida del Pico y Placa, en consideración a las necesidades de la Ciudad, los siguientes vehículos:<ul>
         <li>Vehículos de emergencia (ambulancias incluidas  las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
         <li>Los vehículos particulares y oficiales que usen gas natural vehícular en vez de combustible, previa inscripción ante la Secretaría de Movilidad de Bello; exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la última certificación anual para el uso de gas natural vehicular vigente. Para aquellos vehículos que formalicen en la licencia de tránsito el cambio de combustible a gas natural vehicular y pertenezcan al parque automotor, matriculado en este Organismo de Tránsito, quedarán automáticamente exentos de la medida. Para la inscripción ante la Secretaría de Movilidad de Bello, deberá aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito, en la cual conste el cambio de combustible o copia de la última certificación anual vigente para el uso de gas natural vehicular.</li>
@@ -94,28 +95,30 @@ export default {
         <li>Los demás casos en los que, por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Bello.</li>
       </ul>`
       },
-      name: "Motos",
-      na: [0, 6],
-      pyp: medellin.categories.motos.pyp
+      name: medellinMotos.name,
+      na: medellinMotos.na,
+      pyp: medellinMotos.pyp
     },
     taxis: {
       info: {
-        vehicleClasses: ["Transporte público individual - taxis"],
+        vehicleClasses: medellinTaxis.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 053 del 29 de enero de 2018",
             url:
-              "http://www.Bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
+              "http://www.bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.taxis.info.hours,
-        scheme: "De acuerdo con el último número de la placa del vehículo",
-        observations:
-          "La rotación de la medida de “Pico y placa” para el transporte público individual (taxis) que circulen en la Jurisdicción de Bello, seguirá siendo cada dos semanas en el horario comprendido enre las 06:00 y las 20:00 horas durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del jueves 1 de febrero de 2018."
+        days: medellinTaxis.info.days,
+        hours: medellinTaxis.info.hours,
+        scheme: medellinTaxis.info.shceme,
+        observations: medellinTaxis.info.observations.replace(
+          "Medellín",
+          "Bello"
+        )
       },
-      name: "Taxis",
-      na: [0, 6],
+      name: medellinTaxis.name,
+      na: medellinTaxis.na,
       pyp: medellin.categories.taxis.pyp
     }
   }

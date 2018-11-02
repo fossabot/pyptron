@@ -1,11 +1,15 @@
 import medellin from "./medellin";
 
+const medellinParticulares = medellin.categories.particulares;
+const medellinMotos = medellin.categories.motos;
+const medellinTaxis = medellin.categories.taxis;
+
 export default {
   name: "Itagüí",
   categories: {
     particulares: {
       info: {
-        vehicleClasses: ["Vehículos particulares y oficiales"],
+        vehicleClasses: medellinParticulares.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 067 del 31 de enero de 2018",
@@ -13,12 +17,13 @@ export default {
               "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.particulares.info.hours,
-        scheme:
-          "Restringe la circulación de vehículos particulares y oficiales",
-        observations:
-          "La rotación de la medida de “Pico y placa” para toda la ciudad de Itagüí, que restringe la circulación de vehículos particules y oficiales, quedará rigiendo durante los periodos comprendidos entre las 07:00 y las 08:30 horas y entre las 17:30 y las 19:00 horas, durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del lunes 5 de febrero de 2018.",
+        days: medellinParticulares.info.days,
+        hours: medellinParticulares.info.hours,
+        scheme: medellinParticulares.info.scheme,
+        observations: medellinParticulares.info.observations.replace(
+          "Medellín",
+          "Itagüí"
+        ),
         exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
         <ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
@@ -44,13 +49,13 @@ export default {
           <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizadas por la Secretaría de Movilidad.</li>
         </ul>`
       },
-      name: "Particulares",
-      na: [0, 6],
-      pyp: medellin.categories.particulares.pyp
+      name: medellinParticulares.name,
+      na: medellinParticulares.na,
+      pyp: medellinParticulares.pyp
     },
     motos: {
       info: {
-        vehicleClasses: ["Motos de dos tiempos"],
+        vehicleClasses: medellinMotos.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 067 del 31 de enero de 2018",
@@ -58,12 +63,10 @@ export default {
               "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.motos.info.hours,
-        scheme:
-          "Restringe la circulación de motos de dos tiempos según el primer número de su placa",
-        observations:
-          "La rotación de la medida de “Pico y placa” para motos de dos tiempos, quedará rigiendo entre las 07:00 y las 08:30 y entre las 17:30 y las 19:00 horas, durante los días hábiles de la semana, según el primer número de su placa, a partir del lunes 05 de febrero de 2018.",
+        days: medellinMotos.info.days,
+        hours: medellinMotos.info.hours,
+        scheme: medellinMotos.info.scheme,
+        observations: medellinMotos.info.observations,
         exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
           <ul>
             <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
@@ -89,13 +92,13 @@ export default {
             <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizadas por la Secretaría de Movilidad.</li>
           </ul>`
       },
-      name: "Motos",
-      na: [0, 6],
-      pyp: medellin.categories.motos.pyp
+      name: medellinMotos.name,
+      na: medellinMotos.na,
+      pyp: medellinMotos.pyp
     },
     taxis: {
       info: {
-        vehicleClasses: ["Transporte público individual - taxis"],
+        vehicleClasses: medellinTaxis.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 067 del 31 de enero de 2018",
@@ -103,14 +106,16 @@ export default {
               "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.taxis.info.hours,
-        scheme: "De acuerdo con el último número de la placa del vehículo",
-        observations:
-          "La rotación de la medida de “Pico y placa” para el transporte público individual (taxis) que circulen en la Jurisdicción de Itagüí, seguirá siendo cada dos semanas en el horario comprendido enre las 06:00 y las 20:00 horas durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del jueves 1 de febrero de 2018."
+        days: medellinTaxis.info.days,
+        hours: medellinTaxis.info.hours,
+        scheme: medellinTaxis.info.scheme,
+        observations: medellinTaxis.info.observations.replace(
+          "Medellín",
+          "Itagüí"
+        )
       },
-      name: "Taxis",
-      na: [0, 6],
+      name: medellinTaxis.name,
+      na: medellinTaxis.na,
       pyp: medellin.categories.taxis.pyp
     }
   }

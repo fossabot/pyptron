@@ -1,11 +1,15 @@
 import medellin from "./medellin";
 
+const medellinParticulares = medellin.categories.particulares;
+const medellinMotos = medellin.categories.motos;
+const medellinTaxis = medellin.categories.taxis;
+
 export default {
   name: "Sabaneta",
   categories: {
     particulares: {
       info: {
-        vehicleClasses: ["Vehículos particulares y oficiales"],
+        vehicleClasses: medellinParticulares.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto Nº 29 del 30 de enero de 2018",
@@ -13,10 +17,9 @@ export default {
               "http://www.sabaneta.gov.co/institucional/Normas/DECRETO_029_2018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.particulares.info.hours,
-        scheme:
-          "Restringe la circulación de vehículos particulares y oficiales",
+        days: medellinParticulares.info.days,
+        hours: medellinParticulares.info.hours,
+        scheme: medellinParticulares.info.scheme,
         observations:
           "En la jurisdicción del municipio de Sabaneta la medida aplica en las siguientes vías: <ul><li>Variante a Caldas, Calle 84 sur entre carrera 26 y carrera 49.</li><li>Avenida Regional, Carrera 49 entre Calle 50 sur y Calle83 sur.</li><li> Avenida Las Vegas, Carrera 48 entre Calle 50 Sur y Calle 77 Sur.</li><li>Avenida El Poblado, Carrera 43 A entre Calle 50 Sur y Calle 66 Sur</li></ul>",
         exceptions: `Se exceptúan de la presente medida, en consideración a las necesidades de la ciudad, los siguientes vehículos:<ul>
@@ -46,13 +49,13 @@ export default {
         <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizados por el Secretario de Movilidad.</li>
         </ul>`
       },
-      name: "Particulares",
-      na: [0, 6],
-      pyp: medellin.categories.particulares.pyp
+      name: medellinParticulares.name,
+      na: medellinParticulares.na,
+      pyp: medellinParticulares.pyp
     },
     motos: {
       info: {
-        vehicleClasses: ["Motos de dos tiempos"],
+        vehicleClasses: medellinMotos.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto Nº 29 del 30 de enero de 2018",
@@ -60,10 +63,9 @@ export default {
               "http://www.sabaneta.gov.co/institucional/Normas/DECRETO_029_2018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.motos.info.hours,
-        scheme:
-          "Restringe la circulación de motos de dos tiempos según el primer número de su placa",
+        days: medellinMotos.info.days,
+        hours: medellinMotos.info.hours,
+        scheme: medellinMotos.info.scheme,
         observations:
           "En la jurisdicción del municipio de Sabaneta la medida aplica en las siguientes vías: <ul><li>Variante a Caldas, Calle 84 sur entre carrera 26 y carrera 49.</li><li>Avenida Regional, Carrera 49 entre Calle 50 sur y Calle83 sur.</li><li> Avenida Las Vegas, Carrera 48 entre Calle 50 Sur y Calle 77 Sur.</li><li>Avenida El Poblado, Carrera 43 A entre Calle 50 Sur y Calle 66 Sur</li></ul>",
         exceptions: `Se exceptúan de la presente medida, en consideración a las necesidades de la ciudad, los siguientes vehículos:<ul>
@@ -93,13 +95,13 @@ export default {
           <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizados por el Secretario de Movilidad.</li>
           </ul>`
       },
-      name: "Motos",
-      na: [0, 6],
-      pyp: medellin.categories.motos.pyp
+      name: medellinMotos.name,
+      na: medellinMotos.na,
+      pyp: medellinMotos.pyp
     },
     taxis: {
       info: {
-        vehicleClasses: ["Transporte público individual - taxis"],
+        vehicleClasses: medellinTaxis.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto Nº 29 del 30 de enero de 2018",
@@ -107,15 +109,15 @@ export default {
               "http://www.sabaneta.gov.co/institucional/Normas/DECRETO_029_2018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.taxis.info.hours,
-        scheme: "De acuerdo con el último número de la placa del vehículo",
+        days: medellinTaxis.info.days,
+        hours: medellinTaxis.info.hours,
+        scheme: medellinTaxis.info.scheme,
         observations:
           "En la jurisdicción del municipio de Sabaneta la medida aplica en las siguientes vías: <ul><li>Variante a Caldas, Calle 84 sur entre carrera 26 y carrera 49.</li><li>Avenida Regional, Carrera 49 entre Calle 50 sur y Calle83 sur.</li><li> Avenida Las Vegas, Carrera 48 entre Calle 50 Sur y Calle 77 Sur.</li><li>Avenida El Poblado, Carrera 43 A entre Calle 50 Sur y Calle 66 Sur</li></ul>"
       },
-      name: "Taxis",
-      na: [0, 6],
-      pyp: medellin.categories.taxis.pyp
+      name: medellinTaxis.name,
+      na: medellinTaxis.na,
+      pyp: medellinTaxis.pyp
     }
   }
 };

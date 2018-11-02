@@ -1,11 +1,15 @@
 import medellin from "./medellin";
 
+const medellinParticulares = medellin.categories.particulares;
+const medellinMotos = medellin.categories.motos;
+const medellinTaxis = medellin.categories.taxis;
+
 export default {
   name: "Envigado",
   categories: {
     particulares: {
       info: {
-        vehicleClasses: ["Vehículos particulares y oficiales"],
+        vehicleClasses: medellinParticulares.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 053 del 29 de enero de 2018",
@@ -13,12 +17,13 @@ export default {
               "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.particulares.info.hours,
-        scheme:
-          "Restringe la circulación de vehículos particulares y oficiales",
-        observations:
-          "La rotación de la medida de “Pico y placa” para toda la ciudad de Envigado, que restringe la circulación de vehículos particules y oficiales, quedará rigiendo durante los periodos comprendidos entre las 07:00 y las 08:30 horas y entre las 17:30 y las 19:00 horas, durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del lunes 5 de febrero de 2018.",
+        days: medellinParticulares.info.days,
+        hours: medellinParticulares.info.hours,
+        scheme: medellinParticulares.info.scheme,
+        observations: medellinParticulares.info.observations.replace(
+          "Medellín",
+          "Envigado"
+        ),
         exceptions: `<ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y demás equipos logísticos para atención de siniestros); vehículos de atención médica personalizada y con identificación permanente.</li>
           <li>Vehículos de transporte escolar debidamente legalizados y con identificación permanente.</li>
@@ -45,13 +50,13 @@ export default {
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
         </ul>`
       },
-      name: "Particulares",
-      na: [0, 6],
-      pyp: medellin.categories.particulares.pyp
+      name: medellinParticulares.name,
+      na: medellinParticulares.na,
+      pyp: medellinParticulares.pyp
     },
     motos: {
       info: {
-        vehicleClasses: ["Motos de dos tiempos"],
+        vehicleClasses: medellinMotos.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 053 del 29 de enero de 2018",
@@ -59,12 +64,10 @@ export default {
               "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.motos.info.hours,
-        scheme:
-          "Restringe la circulación de motos de dos tiempos según el primer número de su placa",
-        observations:
-          "La rotación de la medida de “Pico y placa” para motos de dos tiempos, quedará rigiendo entre las 07:00 y las 08:30 y entre las 17:30 y las 19:00 horas, durante los días hábiles de la semana, según el primer número de su placa, a partir del lunes 05 de febrero de 2018.",
+        days: medellinMotos.info.days,
+        hours: medellinMotos.info.hours,
+        scheme: medellinMotos.info.scheme,
+        observations: medellinMotos.info.observations,
         exceptions: `<ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y demás equipos logísticos para atención de siniestros); vehículos de atención médica personalizada y con identificación permanente.</li>
           <li>Vehículos de transporte escolar debidamente legalizados y con identificación permanente.</li>
@@ -91,13 +94,13 @@ export default {
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
         </ul>`
       },
-      name: "Motos",
-      na: [0, 6],
-      pyp: medellin.categories.motos.pyp
+      name: medellinMotos.name,
+      na: medellinMotos.na,
+      pyp: medellinMotos.pyp
     },
     taxis: {
       info: {
-        vehicleClasses: ["Transporte público individual - taxis"],
+        vehicleClasses: medellinTaxis.info.vehicleClasses,
         decrees: [
           {
             name: "Decreto 053 del 29 de enero de 2018",
@@ -105,15 +108,17 @@ export default {
               "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
           }
         ],
-        days: ["Días hábiles de la semana - lunes a viernes."],
-        hours: medellin.categories.taxis.info.hours,
-        scheme: "De acuerdo con el último número de la placa del vehículo",
-        observations:
-          "La rotación de la medida de “Pico y placa” para el transporte público individual (taxis) que circulen en la Jurisdicción de Envigado, seguirá siendo cada dos semanas en el horario comprendido enre las 06:00 y las 20:00 horas durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del jueves 1 de febrero de 2018."
+        days: medellinTaxis.info.days,
+        hours: medellinTaxis.info.hours,
+        scheme: medellinTaxis.info.scheme,
+        observations: medellinTaxis.info.observations.replace(
+          "Medellín",
+          "Envigado"
+        )
       },
-      name: "Taxis",
-      na: [0, 6],
-      pyp: medellin.categories.taxis.pyp
+      name: medellinTaxis.name,
+      na: medellinTaxis.na,
+      pyp: medellinTaxis.pyp
     }
   }
 };
