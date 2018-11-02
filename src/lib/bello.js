@@ -111,7 +111,7 @@ export default {
         ],
         days: medellinTaxis.info.days,
         hours: medellinTaxis.info.hours,
-        scheme: medellinTaxis.info.shceme,
+        scheme: medellinTaxis.info.scheme,
         observations: medellinTaxis.info.observations.replace(
           "Medellín",
           "Bello"

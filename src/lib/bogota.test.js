@@ -1,4 +1,4 @@
-import tests from "../utils/testsWrapper";
+import { testCases, testInfo } from "../utils/testsWrapper";
 import city from "./bogota";
 
 const dateCases = [
@@ -32,4 +32,5 @@ const dateCases = [
     }
   }
 ];
-tests(city, dateCases);
+testCases(city, dateCases);
+testInfo(city);
