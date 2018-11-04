@@ -3,17 +3,15 @@ import city from "./ocana";
 
 const dateCases = [
   {
-    date: "2018-04-09", // lunes 9 de abril de 2018
+    date: "2018-11-19", // lunes 19 de noviembre de 2018
     pypCases: {
-      particulares: "5-6",
-      motos: "5-6"
+      particulares: "0-1"
     }
   },
   {
-    date: "2018-05-16", // miércoles 16 de mayo de 2018
+    date: "2018-11-22", // jueves 22 de noviembre de 2018
     pypCases: {
-      particulares: "9-0",
-      motos: "9-0"
+      particulares: "6-7"
     }
   }
 ];
