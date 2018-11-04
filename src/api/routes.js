@@ -10,22 +10,15 @@ const router = express.Router();
 
 const citiesMap = pyptron.getCities();
 
-/* GET cities map. */
-router.get("/cities", (req, res) => {
-  res.json(citiesMap);
-});
-
 router.get("/", (req, res) => {
   res.json(citiesMap);
 });
 
-/* GET city page. */
 router.get("/:city", (req, res) => {
   const { city } = req.params;
   debugRoute("Requested city:", city);
   debugRoute("Query string:", req.query);
   const date = req.query.date || new Date();
-  // verificamos que la ciudad solicitada esté disponible
   if (!citiesMap.hasOwnProperty(city)) {
     res
       .status(404)
@@ -41,21 +34,18 @@ router.get("/:city", (req, res) => {
   }
 });
 
-/* GET category page. */
 router.get("/:city/:category", (req, res) => {
   const { city, category } = req.params;
   debugRoute("Requested city:", city);
   debugRoute("Query string:", req.query);
   const date = req.query.date || new Date();
   const days = req.query.days || 1;
-  // verificamos que la ciudad solicitada se encuentre disponible
   if (!citiesMap.hasOwnProperty(city)) {
     res
       .status(404)
       .json({ error: "City not found", cities: Object.keys(citiesMap) });
     return;
   }
-  // verificamos que la categoría solicita se encuentre disponible dentro de la ciudad
   if (!citiesMap[city].categories.hasOwnProperty(category)) {
     res.status(404).json({
       error: "Category not found",
@@ -73,21 +63,18 @@ router.get("/:city/:category", (req, res) => {
   }
 });
 
-/* GET number query page. */
 router.get("/:city/:category/:number", (req, res) => {
   const { city, category } = req.params;
   debugRoute("Requested city:", city);
   debugRoute("Query string:", req.query);
   const date = req.query.date || new Date();
   const days = req.query.days || 1;
-  // verificamos que la ciudad solicitada se encuentre disponible
   if (!citiesMap.hasOwnProperty(city)) {
     res
       .status(404)
       .json({ error: "City not found", cities: Object.keys(citiesMap) });
     return;
   }
-  // verificamos que la categoría solicita se encuentre disponible dentro de la ciudad
   if (!citiesMap[city].categories.hasOwnProperty(category)) {
     res.status(404).json({
       error: "Category not found",
