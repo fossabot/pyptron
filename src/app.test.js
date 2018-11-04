@@ -15,22 +15,7 @@ describe("Test API endpoints", () => {
       .expect(200)
       .end((err, res) => {
         if (err) throw err;
-        const pypData = res.body;
-        const cities = Object.keys(pypData);
-        expect(cities).toEqual(Object.keys(citiesMap));
-        cities.forEach(city => {
-          // Debe tener una propiedad nombre de tipo texto
-          expect(typeof pypData[city].name).toBe("string");
-          expect(pypData[city].name.length).toBeGreaterThan(0);
-          // Debe tener un propiedad path igual a la ruta solicitada
-          expect(typeof pypData[city].path).toBe("string");
-          expect(pypData[city].path.length).toBeGreaterThan(0);
-          // Debe tener un propiedad info
-          expect(typeof pypData[city].info).toBe("object");
-          // Debe tener una propiedad data
-          expect(typeof pypData[city].data).toBe("object");
-          expect(pypData[city].data.length).toBe(1);
-        });
+        expect(res.body).toEqual(citiesMap);
         done();
       });
   });

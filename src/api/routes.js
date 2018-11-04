@@ -16,18 +16,7 @@ router.get("/cities", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  const date = req.query.date || new Date();
-  try {
-    res.json(
-      Object.keys(citiesMap).reduce((result, city) => {
-        // eslint-disable-next-line no-param-reassign
-        result[city] = pyptron.getPypData(citiesMap[city].key, date);
-        return result;
-      }, {})
-    );
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
+  res.json(citiesMap);
 });
 
 /* GET city page. */
