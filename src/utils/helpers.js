@@ -37,21 +37,21 @@ export const cities = {
   cartagena,
   cucuta,
   envigado,
+  ibague,
   itagui,
   laestrella,
   manizales,
   medellin,
   ocana,
+  pamplona,
   pasto,
   pereira,
+  popayan,
   quibdo,
   sabaneta,
   santamarta,
-  tunja,
-  ibague,
-  popayan,
-  pamplona,
   soledad,
+  tunja,
   turbaco
 };
 /**
@@ -73,7 +73,7 @@ export function getCategories(city) {
   const cityObj = cities[city];
   const categories = Object.keys(cityObj.categories).sort();
   categories.forEach(category => {
-    const categoryName = cityObj.categories[category].name;
+    const categoryName = cityObj.categories[category][0].name;
     const categorySlug = slugify(categoryName, { lower: true });
     categoriesMap[categorySlug] = { key: category, name: categoryName };
   });
@@ -144,13 +144,22 @@ export function getPyp(city, date, categories = []) {
     : Object.keys(pypCity.categories).sort();
   return cats.reduce((result, category) => {
     const cityPath = slugify(pypCity.name, { lower: true });
-    const categoryPath = slugify(pypCity.categories[category].name, {
+    const dateString = typeof date === "string" ? date : date.toISOString();
+    let activeCategory = {};
+    for (let i = 0; i < pypCity.categories[category].length; i += 1) {
+      const currentCat = pypCity.categories[category][i];
+      if (dateString >= currentCat.from) {
+        activeCategory = currentCat;
+        break;
+      }
+    }
+    const categoryPath = slugify(activeCategory.name, {
       lower: true
     });
     result.push({
-      name: pypCity.categories[category].name,
+      name: activeCategory.name,
       path: `${cityPath}/${categoryPath}`,
-      pyp: pypCity.categories[category].pyp(date),
+      pyp: activeCategory.pyp(date),
       key: category
     });
     return result;
@@ -161,21 +170,31 @@ export function getPyp(city, date, categories = []) {
  * slug de las categorías correspondientes a la ciudad dada ordenada alfabéticamente. Si no se
  * especifican categorías por defecto se devuelven todas las categorías disponibles.
  * @param {string} city Ciudad para la cual se desea consultar la meta-información.
+ * @param {string} date Fecha para la cual se desea obtener la información.
  * @param {Array} categories Opcional lista de categorías que se desean consultar.
  * @returns {Object} La meta-información para la ciudad y categorías solicitadas.
  */
-export function getPypInfo(city, categories = []) {
+export function getPypInfo(city, date, categories = []) {
   const pypCity = cities[city];
   const cats = categories.length
     ? categories
     : Object.keys(pypCity.categories).sort();
   return cats.reduce((result, category) => {
     const cityPath = slugify(pypCity.name, { lower: true });
-    const categoryPath = slugify(pypCity.categories[category].name, {
+    let activeCategory = {};
+    const dateString = typeof date === "string" ? date : date.toISOString();
+    for (let i = 0; i < pypCity.categories[category].length; i += 1) {
+      const currentCat = pypCity.categories[category][i];
+      if (dateString >= currentCat.from) {
+        activeCategory = currentCat;
+        break;
+      }
+    }
+    const categoryPath = slugify(activeCategory.name, {
       lower: true
     });
-    const { info } = pypCity.categories[category];
-    info.name = pypCity.categories[category].name;
+    const { info } = activeCategory;
+    info.name = activeCategory.name;
     info.path = `${cityPath}/${categoryPath}`;
     result[category] = info; // eslint-disable-line no-param-reassign
     return result;
@@ -218,7 +237,7 @@ export function getPypData(city, date, days = 1, categories = []) {
   const result = {
     name: pypCity.name,
     path: slugify(pypCity.name, { lower: true }),
-    info: getPypInfo(city, categories),
+    info: getPypInfo(city, currentDate, categories),
     data: []
   };
   for (let i = 0; i < days; i += 1) {

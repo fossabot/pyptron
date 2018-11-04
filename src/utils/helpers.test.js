@@ -81,7 +81,8 @@ describe("Generate pyp data objects", () => {
     expect(Object.keys(result.info).length).toBe(categories.length);
   });
   it("should return pyp meta-info for all categories", () => {
-    expect(getPypInfo("bogota")).toMatchSnapshot();
+    const date = "2018-03-06T00:00:02-05:00";
+    expect(getPypInfo("bogota", date)).toMatchSnapshot();
   });
   it("should return pyp data for one date", () => {
     const date = "2018-03-06T00:00:02-05:00";

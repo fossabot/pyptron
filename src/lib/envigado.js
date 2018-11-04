@@ -1,30 +1,32 @@
 import medellin from "./medellin";
 
-const medellinParticulares = medellin.categories.particulares;
-const medellinMotos = medellin.categories.motos;
-const medellinTaxis = medellin.categories.taxis;
+const medellinParticulares = medellin.categories.particulares[0];
+const medellinMotos = medellin.categories.motos[0];
+const medellinTaxis = medellin.categories.taxis[0];
 
 export default {
   name: "Envigado",
   categories: {
-    particulares: {
-      info: {
-        vehicleClasses: medellinParticulares.info.vehicleClasses,
-        decrees: [
-          {
-            name: "Decreto 053 del 29 de enero de 2018",
-            url:
-              "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
-          }
-        ],
-        days: medellinParticulares.info.days,
-        hours: medellinParticulares.info.hours,
-        scheme: medellinParticulares.info.scheme,
-        observations: medellinParticulares.info.observations.replace(
-          "Medellín",
-          "Envigado"
-        ),
-        exceptions: `<ul>
+    particulares: [
+      {
+        from: medellinParticulares.from,
+        info: {
+          vehicleClasses: medellinParticulares.info.vehicleClasses,
+          decrees: [
+            {
+              name: "Decreto 053 del 29 de enero de 2018",
+              url:
+                "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
+            }
+          ],
+          days: medellinParticulares.info.days,
+          hours: medellinParticulares.info.hours,
+          scheme: medellinParticulares.info.scheme,
+          observations: medellinParticulares.info.observations.replace(
+            "Medellín",
+            "Envigado"
+          ),
+          exceptions: `<ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y demás equipos logísticos para atención de siniestros); vehículos de atención médica personalizada y con identificación permanente.</li>
           <li>Vehículos de transporte escolar debidamente legalizados y con identificación permanente.</li>
           <li>Vehículos para el transporte de alimentos perecederos, como cárnicos, lácteos y sus derivados, que se encuentren debidamente legalizados.</li>
@@ -49,26 +51,30 @@ export default {
           <li>Vehículos que provengan de otras ciudades con turistas de paso, quienes deberán demostrar dicha calidad con el primer y último recibo del peaje que certifiquen tal situación y sólo para el primer día.</li>
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
         </ul>`
-      },
-      name: medellinParticulares.name,
-      na: medellinParticulares.na,
-      pyp: medellinParticulares.pyp
-    },
-    motos: {
-      info: {
-        vehicleClasses: medellinMotos.info.vehicleClasses,
-        decrees: [
-          {
-            name: "Decreto 053 del 29 de enero de 2018",
-            url:
-              "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
-          }
-        ],
-        days: medellinMotos.info.days,
-        hours: medellinMotos.info.hours,
-        scheme: medellinMotos.info.scheme,
-        observations: medellinMotos.info.observations,
-        exceptions: `<ul>
+        },
+        name: medellinParticulares.name,
+        na: medellinParticulares.na,
+        pyp: medellinParticulares.pyp
+      }
+    ],
+    motos: [
+      {
+        from: medellinMotos.from,
+
+        info: {
+          vehicleClasses: medellinMotos.info.vehicleClasses,
+          decrees: [
+            {
+              name: "Decreto 053 del 29 de enero de 2018",
+              url:
+                "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
+            }
+          ],
+          days: medellinMotos.info.days,
+          hours: medellinMotos.info.hours,
+          scheme: medellinMotos.info.scheme,
+          observations: medellinMotos.info.observations,
+          exceptions: `<ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y demás equipos logísticos para atención de siniestros); vehículos de atención médica personalizada y con identificación permanente.</li>
           <li>Vehículos de transporte escolar debidamente legalizados y con identificación permanente.</li>
           <li>Vehículos para el transporte de alimentos perecederos, como cárnicos, lácteos y sus derivados, que se encuentren debidamente legalizados.</li>
@@ -93,32 +99,36 @@ export default {
           <li>Vehículos que provengan de otras ciudades con turistas de paso, quienes deberán demostrar dicha calidad con el primer y último recibo del peaje que certifiquen tal situación y sólo para el primer día.</li>
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
         </ul>`
-      },
-      name: medellinMotos.name,
-      na: medellinMotos.na,
-      pyp: medellinMotos.pyp
-    },
-    taxis: {
-      info: {
-        vehicleClasses: medellinTaxis.info.vehicleClasses,
-        decrees: [
-          {
-            name: "Decreto 053 del 29 de enero de 2018",
-            url:
-              "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
-          }
-        ],
-        days: medellinTaxis.info.days,
-        hours: medellinTaxis.info.hours,
-        scheme: medellinTaxis.info.scheme,
-        observations: medellinTaxis.info.observations.replace(
-          "Medellín",
-          "Envigado"
-        )
-      },
-      name: medellinTaxis.name,
-      na: medellinTaxis.na,
-      pyp: medellinTaxis.pyp
-    }
+        },
+        name: medellinMotos.name,
+        na: medellinMotos.na,
+        pyp: medellinMotos.pyp
+      }
+    ],
+    taxis: [
+      {
+        from: medellinTaxis.from,
+        info: {
+          vehicleClasses: medellinTaxis.info.vehicleClasses,
+          decrees: [
+            {
+              name: "Decreto 053 del 29 de enero de 2018",
+              url:
+                "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
+            }
+          ],
+          days: medellinTaxis.info.days,
+          hours: medellinTaxis.info.hours,
+          scheme: medellinTaxis.info.scheme,
+          observations: medellinTaxis.info.observations.replace(
+            "Medellín",
+            "Envigado"
+          )
+        },
+        name: medellinTaxis.name,
+        na: medellinTaxis.na,
+        pyp: medellinTaxis.pyp
+      }
+    ]
   }
 };

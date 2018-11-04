@@ -1,30 +1,32 @@
 import medellin from "./medellin";
 
-const medellinParticulares = medellin.categories.particulares;
-const medellinMotos = medellin.categories.motos;
-const medellinTaxis = medellin.categories.taxis;
+const medellinParticulares = medellin.categories.particulares[0];
+const medellinMotos = medellin.categories.motos[0];
+const medellinTaxis = medellin.categories.taxis[0];
 
 export default {
   name: "Itagüí",
   categories: {
-    particulares: {
-      info: {
-        vehicleClasses: medellinParticulares.info.vehicleClasses,
-        decrees: [
-          {
-            name: "Decreto 067 del 31 de enero de 2018",
-            url:
-              "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
-          }
-        ],
-        days: medellinParticulares.info.days,
-        hours: medellinParticulares.info.hours,
-        scheme: medellinParticulares.info.scheme,
-        observations: medellinParticulares.info.observations.replace(
-          "Medellín",
-          "Itagüí"
-        ),
-        exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
+    particulares: [
+      {
+        from: medellinParticulares.from,
+        info: {
+          vehicleClasses: medellinParticulares.info.vehicleClasses,
+          decrees: [
+            {
+              name: "Decreto 067 del 31 de enero de 2018",
+              url:
+                "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
+            }
+          ],
+          days: medellinParticulares.info.days,
+          hours: medellinParticulares.info.hours,
+          scheme: medellinParticulares.info.scheme,
+          observations: medellinParticulares.info.observations.replace(
+            "Medellín",
+            "Itagüí"
+          ),
+          exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
         <ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
           <li>Los vehículos particulares y oficiales que usen gas natural vehicular, previa inscripción ante la secretaría de Movilidad de Itagüí, exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la última certificación anual para el uso de gas natural vehícular vigente. Para aquellos vehículos que formalicen en la licencia de tránsito el cambio de combustible a gas natural vehícular y pertenezcan al parque autmomotor, matriculado en este organismo de tránsito, quedarán automáticamente exentos de la medida. Para la inscripción ante la Secretaría de Movilidad de Itagüí, deberán aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito, en la cual conste el cambio de combustible o copia de la última certificación anual vigente para el uso de gas natural vehicular.</li>
@@ -48,26 +50,29 @@ export default {
           <li>Los vehículos con placas de municipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al departamento de Antioquia, el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día de estadía en el municipio.</li>
           <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizadas por la Secretaría de Movilidad.</li>
         </ul>`
-      },
-      name: medellinParticulares.name,
-      na: medellinParticulares.na,
-      pyp: medellinParticulares.pyp
-    },
-    motos: {
-      info: {
-        vehicleClasses: medellinMotos.info.vehicleClasses,
-        decrees: [
-          {
-            name: "Decreto 067 del 31 de enero de 2018",
-            url:
-              "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
-          }
-        ],
-        days: medellinMotos.info.days,
-        hours: medellinMotos.info.hours,
-        scheme: medellinMotos.info.scheme,
-        observations: medellinMotos.info.observations,
-        exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
+        },
+        name: medellinParticulares.name,
+        na: medellinParticulares.na,
+        pyp: medellinParticulares.pyp
+      }
+    ],
+    motos: [
+      {
+        from: medellinMotos.from,
+        info: {
+          vehicleClasses: medellinMotos.info.vehicleClasses,
+          decrees: [
+            {
+              name: "Decreto 067 del 31 de enero de 2018",
+              url:
+                "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
+            }
+          ],
+          days: medellinMotos.info.days,
+          hours: medellinMotos.info.hours,
+          scheme: medellinMotos.info.scheme,
+          observations: medellinMotos.info.observations,
+          exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
           <ul>
             <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
             <li>Los vehículos particulares y oficiales que usen gas natural vehicular, previa inscripción ante la secretaría de Movilidad de Itagüí, exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la última certificación anual para el uso de gas natural vehícular vigente. Para aquellos vehículos que formalicen en la licencia de tránsito el cambio de combustible a gas natural vehícular y pertenezcan al parque autmomotor, matriculado en este organismo de tránsito, quedarán automáticamente exentos de la medida. Para la inscripción ante la Secretaría de Movilidad de Itagüí, deberán aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito, en la cual conste el cambio de combustible o copia de la última certificación anual vigente para el uso de gas natural vehicular.</li>
@@ -91,32 +96,36 @@ export default {
             <li>Los vehículos con placas de municipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al departamento de Antioquia, el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día de estadía en el municipio.</li>
             <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizadas por la Secretaría de Movilidad.</li>
           </ul>`
-      },
-      name: medellinMotos.name,
-      na: medellinMotos.na,
-      pyp: medellinMotos.pyp
-    },
-    taxis: {
-      info: {
-        vehicleClasses: medellinTaxis.info.vehicleClasses,
-        decrees: [
-          {
-            name: "Decreto 067 del 31 de enero de 2018",
-            url:
-              "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
-          }
-        ],
-        days: medellinTaxis.info.days,
-        hours: medellinTaxis.info.hours,
-        scheme: medellinTaxis.info.scheme,
-        observations: medellinTaxis.info.observations.replace(
-          "Medellín",
-          "Itagüí"
-        )
-      },
-      name: medellinTaxis.name,
-      na: medellinTaxis.na,
-      pyp: medellin.categories.taxis.pyp
-    }
+        },
+        name: medellinMotos.name,
+        na: medellinMotos.na,
+        pyp: medellinMotos.pyp
+      }
+    ],
+    taxis: [
+      {
+        from: medellinTaxis.from,
+        info: {
+          vehicleClasses: medellinTaxis.info.vehicleClasses,
+          decrees: [
+            {
+              name: "Decreto 067 del 31 de enero de 2018",
+              url:
+                "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
+            }
+          ],
+          days: medellinTaxis.info.days,
+          hours: medellinTaxis.info.hours,
+          scheme: medellinTaxis.info.scheme,
+          observations: medellinTaxis.info.observations.replace(
+            "Medellín",
+            "Itagüí"
+          )
+        },
+        name: medellinTaxis.name,
+        na: medellinTaxis.na,
+        pyp: medellinTaxis.pyp
+      }
+    ]
   }
 };

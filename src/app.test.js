@@ -8,7 +8,7 @@ const appTest = app(config);
 const citiesMap = getCities();
 
 describe("Test API endpoints", () => {
-  it("should GET /", done => {
+  it.only("should GET /", done => {
     request(appTest)
       .get("/")
       .expect("Content-Type", /json/)
