@@ -8,7 +8,7 @@ export default {
         from: "2018-10-22",
         info: {
           vehicleClasses: [
-            "Pico y placa particular tipo automóvil, camperos, camionetas, microbuses particulares y motocicletas"
+            "Vehículos particulares no matriculados en el municipio de Ocaña"
           ],
           decrees: [
             {
