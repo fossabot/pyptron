@@ -23,7 +23,8 @@ export default {
           hours: [
             {
               comment: "",
-              hours: [["6:30", "9:00"], ["11:30", "14:30"], ["17:00", "19:30"]]
+              hours: [["6:30", "9:00"], ["11:30", "14:30"], ["17:00", "19:30"]],
+              days: []
             }
           ],
           scheme:
@@ -76,7 +77,8 @@ export default {
           hours: [
             {
               comment: "",
-              hours: [["6:30", "9:00"], ["17:00", "19:30"]]
+              hours: [["6:30", "9:00"], ["17:00", "19:30"]],
+              days: []
             }
           ],
           scheme:
@@ -126,7 +128,13 @@ export default {
             }
           ],
           days: ["Todos los días de la semana"],
-          hours: [{ comment: "Todo el día", hours: [[]] }],
+          hours: [
+            {
+              comment: "Todo el día",
+              hours: [[]],
+              days: []
+            }
+          ],
           scheme:
             "Restringe la circulación de Vehículos de Servicio Público de Transporte Colectivo Municipal de Pasajeros, tipo Busetón, Buseta, Microbus, en todo el territorio Urbano de la ciudad de Ibagué, durante las veinticuatro (24) horas de cada día"
         },
@@ -161,7 +169,13 @@ export default {
             }
           ],
           days: ["Todos los días de la semana"],
-          hours: [{ comment: "", hours: [["6:00", "6:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["6:00", "6:00"]],
+              days: []
+            }
+          ],
           scheme: "De acuerdo con el último número de la placa del vehículo",
           observations:
             "Las restricciones establecidas para este servicio no se suspenderán en ninguna época del año, ni en festividades de semana santa, mitad o final de año."

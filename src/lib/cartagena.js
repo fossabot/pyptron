@@ -20,7 +20,13 @@ export default {
           days: [
             "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["6:00", "6:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["6:00", "6:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito del número de la placa",
           observations: ""
         },
@@ -66,7 +72,8 @@ export default {
           hours: [
             {
               comment: "",
-              hours: [["7:00", "9:00"], ["12:00", "14:00"], ["17:00", "19:30"]]
+              hours: [["7:00", "9:00"], ["12:00", "14:00"], ["17:00", "19:30"]],
+              days: []
             }
           ],
           scheme: "Último dígito del número de la placa",

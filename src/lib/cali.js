@@ -25,7 +25,11 @@ export default {
             "Lunes a viernes hábiles (no aplica sábados, domingos y feriados establecidos por la ley o cuando excepcionalmente lo establezca la autoridad competente)."
           ],
           hours: [
-            { comment: "", hours: [["6:00", "10:00"], ["16:00", "20:00"]] }
+            {
+              comment: "",
+              hours: [["6:00", "10:00"], ["16:00", "20:00"]],
+              days: []
+            }
           ],
           scheme: "Se toma como referencia el último dígito de la placa",
           observations:
@@ -80,7 +84,13 @@ export default {
             }
           ],
           days: ["Lunes a domingo"],
-          hours: [{ comment: "", hours: [["06:00", "05:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["06:00", "05:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Rotación de acuerdo con el último dígito del número de la placa",
           observations: ""
@@ -118,7 +128,13 @@ export default {
             }
           ],
           days: ["Lunes a domingo"],
-          hours: [{ comment: "", hours: [["05:00", "22:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["05:00", "22:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Rotación de acuerdo con el último dígito del número de la placa",
           observations: ""

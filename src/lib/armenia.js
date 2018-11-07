@@ -18,11 +18,13 @@ export default {
           hours: [
             {
               comment: "Centro de la ciudad",
-              hours: [["7:30", "19:30"]]
+              hours: [["7:30", "19:30"]],
+              days: []
             },
             {
               comment: "Toda la ciudad",
-              hours: [["7:30", "9:30"], ["11:30", "14:30"], ["17:30", "19:30"]]
+              hours: [["7:30", "9:30"], ["11:30", "14:30"], ["17:30", "19:30"]],
+              days: []
             }
           ],
           scheme: "Último dígito del número de la placa según el esquema",
@@ -79,11 +81,13 @@ export default {
           hours: [
             {
               comment: "Centro de la ciudad",
-              hours: [["7:30", "19:30"]]
+              hours: [["7:30", "19:30"]],
+              days: []
             },
             {
               comment: "Toda la ciudad",
-              hours: [["7:30", "9:30"], ["11:30", "14:30"], ["17:30", "19:30"]]
+              hours: [["7:30", "9:30"], ["11:30", "14:30"], ["17:30", "19:30"]],
+              days: []
             }
           ],
           scheme: "Primer dígito del número de la placa según el esquema",
@@ -140,7 +144,8 @@ export default {
           hours: [
             {
               comment: "",
-              hours: [["7:30", "19:30"]]
+              hours: [["7:30", "19:30"]],
+              days: []
             }
           ],
           scheme: "Primer dígito del número de la placa según el esquema"

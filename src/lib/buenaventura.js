@@ -18,7 +18,11 @@ export default {
             "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
           ],
           hours: [
-            { comment: "", hours: [["7:00", "10:00"], ["17:00", "20:00"]] }
+            {
+              comment: "",
+              hours: [["7:00", "10:00"], ["17:00", "20:00"]],
+              days: []
+            }
           ],
           scheme: "Último dígito del número de la placa",
           observations:
@@ -51,7 +55,13 @@ export default {
           days: [
             "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "19:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito del número de la placa",
           observations:
             "Aplica para todo el distrito. El Decreto autoriza la movilización de vehículos de servicio público sólo para que realicen el mantenimiento respectivo, por ello deberán portar el tablero colocado en el parabrisas el siguiente aviso: 'vehículo en mantenimiento por pico y placa'"
@@ -83,7 +93,13 @@ export default {
           days: [
             "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "19:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito del número de la placa",
           observations:
             "Aplica para todo el distrito. El Decreto autoriza la movilización de vehículos de servicio público sólo para que realicen el mantenimiento respectivo, por ello deberán portar el tablero colocado en el parabrisas el siguiente aviso: 'vehículo en mantenimiento por pico y placa'"

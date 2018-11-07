@@ -25,7 +25,13 @@ export default {
           days: [
             "Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "19:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Cíclico de acuerdo con el último número de la placa del vehículo",
           observations: `La medida de Pico y Placa rige en toda la jurisdicción urbana del municipio de Ocaña, (con excepción de la vía nacional) bajo los siguientes parámetros:

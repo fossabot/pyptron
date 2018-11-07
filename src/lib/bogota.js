@@ -42,11 +42,13 @@ export default {
           hours: [
             {
               comment: "Transporte Público Colectivo",
-              hours: [["6:00", "10:00"]]
+              hours: [["6:00", "10:00"]],
+              days: []
             },
             {
               comment: "Transporte de Carga",
-              hours: [["9:00", "10:00"]]
+              hours: [["9:00", "10:00"]],
+              days: []
             }
           ],
           scheme:
@@ -120,7 +122,13 @@ export default {
           days: [
             "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["5:30", "21:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["5:30", "21:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
           observations:
@@ -180,7 +188,13 @@ export default {
           days: [
             "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)."
           ],
-          hours: [{ comment: "", hours: [["5:30", "21:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["5:30", "21:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
           observations: ""
@@ -230,7 +244,13 @@ export default {
           days: [
             "Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "Todo el día", hours: [[]] }],
+          hours: [
+            {
+              comment: "Todo el día",
+              hours: [[]],
+              days: []
+            }
+          ],
           scheme:
             "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
           observations:
@@ -290,7 +310,11 @@ export default {
           ],
           days: ["Lunes a viernes hábiles"],
           hours: [
-            { comment: "", hours: [["6:00", "8:30"], ["15:00", "19:30"]] }
+            {
+              comment: "",
+              hours: [["6:00", "8:30"], ["15:00", "19:30"]],
+              days: []
+            }
           ],
           scheme:
             "Día par hábil: placa último dígito par. Día impar hábil: placa último dígito impar.",

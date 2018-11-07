@@ -17,7 +17,13 @@ export default {
           days: [
             "Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["6:00", "23:59"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["6:00", "23:59"]],
+              days: []
+            }
+          ],
           scheme:
             "toma como referencia la letra que antecede al número lateral de cada uno de los automotores",
           observations: ""
@@ -77,7 +83,13 @@ export default {
           days: [
             "Todos los días de la semana (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["4:00", "4:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["4:00", "4:00"]],
+              days: []
+            }
+          ],
           scheme: "De acuerdo con el último número de la placa del vehículo",
           observations: ""
         },

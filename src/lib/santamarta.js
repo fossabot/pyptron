@@ -21,7 +21,13 @@ export default {
           days: [
             "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "19:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito del número de la placa según el esquema",
           observations: "",
           exceptions: `Exceptúense de las prohibiciones por Pico y Placa las siguientes categorías de vehículos:<ul>
@@ -83,7 +89,13 @@ export default {
           days: [
             "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:00", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "19:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito del número de la placa según el esquema",
           observations: ""
         },
@@ -117,7 +129,13 @@ export default {
             }
           ],
           days: ["Lunes a sábado"],
-          hours: [{ comment: "", hours: [["7:00", "21:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "21:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito del número de la placa según el esquema",
           observations:
             "Se permitirá excepcionalmente la ciruculación de los vehículos de servicio de transporte público individual (tipo taxi) en su día de Pico y placa solo para efectos de reparación y mantenimiento: Solo podrá transitar en los horarios que comprendan entre las 06:00 y las 08:00 horas y desde las 15:00 hasta las 17:00 horas además de hacerlo con los vidrios laterales abajo, la silla lateral derecha reclinada, sin la silla trasera, sin ocupantes y solo podrá ir ocupado por el conductor. Parágrafo: Se permitirá excepcionalmente la circulación de los vehículos automotores de servicio público individual tipo taxi en su día de Pico y placa el día 20 de cada mes, lo anterior en relación a que ese día opera la restricción de cirtulación de motocicletas, motociclos, mototriciclos, motocarros y cuatrimotos en el Distrito."

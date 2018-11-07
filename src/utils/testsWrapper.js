@@ -65,6 +65,7 @@ export const testInfo = city => {
           expect(Array.isArray(hours)).toBe(true);
           hours.forEach(hour => {
             expect(typeof hour.comment).toBe("string");
+            expect(Array.isArray(hour.days)).toBe(true);
             expect(Array.isArray(hour.hours[0])).toBe(true);
             hour.hours.forEach(h => {
               expect(h.length === 0 || h.length === 2).toBe(true);

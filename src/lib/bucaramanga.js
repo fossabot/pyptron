@@ -34,8 +34,16 @@ export default {
           ],
           days: ["Lunes a sábado hábiles"],
           hours: [
-            { comment: "Lunes a viernes", hours: [["6:00", "20:00"]] },
-            { comment: "Sábados", hours: [["9:00", "13:00"]] }
+            {
+              comment: "Lunes a viernes",
+              hours: [["6:00", "20:00"]],
+              days: [1, 2, 3, 4, 5]
+            },
+            {
+              comment: "Sábados",
+              hours: [["9:00", "13:00"]],
+              days: [6]
+            }
           ],
           scheme: "Según el último dígito del número de la placa",
           observations:
@@ -137,8 +145,16 @@ export default {
           ],
           days: ["Lunes a sábado hábiles"],
           hours: [
-            { comment: "Lunes a viernes", hours: [["6:00", "20:00"]] },
-            { comment: "Sábados", hours: [["9:00", "13:00"]] }
+            {
+              comment: "Lunes a viernes",
+              hours: [["6:00", "20:00"]],
+              days: [1, 2, 3, 4, 5]
+            },
+            {
+              comment: "Sábados",
+              hours: [["9:00", "13:00"]],
+              days: [6]
+            }
           ],
           scheme:
             "Último dígito numérico de la placa según el esquema sin tener en cuenta la letra o letras finales",
@@ -231,7 +247,13 @@ export default {
             }
           ],
           days: ["Lunes a sábado hábiles"],
-          hours: [{ comment: "", hours: [["7:00", "21:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:00", "21:00"]],
+              days: []
+            }
+          ],
           scheme: "Último dígito numérico de la placa según el esquema",
           observations: ""
         },

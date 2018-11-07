@@ -18,7 +18,13 @@ export default {
           days: [
             "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:30", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:30", "19:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Se restringe el tránsito de vehículos automotores en la ciudad de San Juan de Pasto de acuerdo con el último dígito numérico de la placa del vehículo, sujetándose a los ciclos y dias señalados",
           observations: "",
@@ -79,7 +85,13 @@ export default {
           days: [
             "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
           ],
-          hours: [{ comment: "", hours: [["7:30", "19:00"]] }],
+          hours: [
+            {
+              comment: "",
+              hours: [["7:30", "19:00"]],
+              days: []
+            }
+          ],
           scheme:
             "Se restringe el tránsito de vehículos automotores en la ciudad de San Juan de Pasto de acuerdo con el último dígito numérico de la placa del vehículo, sujetándose a los ciclos y dias señalados",
           observations: ""

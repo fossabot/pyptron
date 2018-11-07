@@ -152,6 +152,7 @@ Object {
       "hours": Array [
         Object {
           "comment": "Transporte Público Colectivo",
+          "days": Array [],
           "hours": Array [
             Array [
               "6:00",
@@ -161,6 +162,7 @@ Object {
         },
         Object {
           "comment": "Transporte de Carga",
+          "days": Array [],
           "hours": Array [
             Array [
               "9:00",
@@ -199,6 +201,7 @@ Object {
       "hours": Array [
         Object {
           "comment": "",
+          "days": Array [],
           "hours": Array [
             Array [
               "5:30",
@@ -265,6 +268,7 @@ Object {
       "hours": Array [
         Object {
           "comment": "",
+          "days": Array [],
           "hours": Array [
             Array [
               "6:00",
@@ -321,6 +325,7 @@ Object {
       "hours": Array [
         Object {
           "comment": "",
+          "days": Array [],
           "hours": Array [
             Array [
               "5:30",
@@ -358,6 +363,7 @@ Object {
       "hours": Array [
         Object {
           "comment": "Todo el día",
+          "days": Array [],
           "hours": Array [
             Array [],
           ],
@@ -456,6 +462,7 @@ Object {
     "hours": Array [
       Object {
         "comment": "Transporte Público Colectivo",
+        "days": Array [],
         "hours": Array [
           Array [
             "6:00",
@@ -465,6 +472,7 @@ Object {
       },
       Object {
         "comment": "Transporte de Carga",
+        "days": Array [],
         "hours": Array [
           Array [
             "9:00",
@@ -503,6 +511,7 @@ Object {
     "hours": Array [
       Object {
         "comment": "",
+        "days": Array [],
         "hours": Array [
           Array [
             "5:30",
@@ -569,6 +578,7 @@ Object {
     "hours": Array [
       Object {
         "comment": "",
+        "days": Array [],
         "hours": Array [
           Array [
             "6:00",
@@ -625,6 +635,7 @@ Object {
     "hours": Array [
       Object {
         "comment": "",
+        "days": Array [],
         "hours": Array [
           Array [
             "5:30",
@@ -662,6 +673,7 @@ Object {
     "hours": Array [
       Object {
         "comment": "Todo el día",
+        "days": Array [],
         "hours": Array [
           Array [],
         ],
