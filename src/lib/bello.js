@@ -62,7 +62,6 @@ export default {
     motos: [
       {
         from: medellinMotos.from,
-
         info: {
           vehicleClasses: medellinMotos.info.vehicleClasses,
           decrees: [

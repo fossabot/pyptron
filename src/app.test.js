@@ -8,7 +8,7 @@ const appTest = app(config);
 const citiesMap = getCities();
 
 describe("Test API endpoints", () => {
-  it.only("should GET /", done => {
+  it("should GET /", done => {
     request(appTest)
       .get("/")
       .expect("Content-Type", /json/)
@@ -68,7 +68,7 @@ describe("Test API endpoints", () => {
             done();
           });
       });
-      const date = "2018-02-01";
+      const date = "2018-10-22";
       it(`should GET /${city}/${category}?date=${date}`, done => {
         request(appTest)
           .get(`/${city}/${category}?date=${date}`)
