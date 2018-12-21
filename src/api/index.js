@@ -1,6 +1,6 @@
-import debug from "debug";
-import app from "../app";
-import config from "../config";
+const debug = require("debug");
+const app = require("../app");
+const config = require("../config");
 
 const apiApp = app(config);
 

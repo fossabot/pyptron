@@ -1,32 +1,32 @@
-import slugify from "slugify";
-import armenia from "../lib/armenia";
-import barranquilla from "../lib/barranquilla";
-import bello from "../lib/bello";
-import bogota from "../lib/bogota";
-import bucaramanga from "../lib/bucaramanga";
-import buenaventura from "../lib/buenaventura";
-import cali from "../lib/cali";
-import cartagena from "../lib/cartagena";
-import cucuta from "../lib/cucuta";
-import envigado from "../lib/envigado";
-import ibague from "../lib/ibague";
-import itagui from "../lib/itagui";
-import laestrella from "../lib/laestrella";
-import manizales from "../lib/manizales";
-import medellin from "../lib/medellin";
-import ocana from "../lib/ocana";
-import pamplona from "../lib/pamplona";
-import pasto from "../lib/pasto";
-import pereira from "../lib/pereira";
-import popayan from "../lib/popayan";
-import quibdo from "../lib/quibdo";
-import sabaneta from "../lib/sabaneta";
-import santamarta from "../lib/santamarta";
-import soledad from "../lib/soledad";
-import tunja from "../lib/tunja";
-import turbaco from "../lib/turbaco";
+const slugify = require("slugify");
+const armenia = require("../lib/armenia");
+const barranquilla = require("../lib/barranquilla");
+const bello = require("../lib/bello");
+const bogota = require("../lib/bogota");
+const bucaramanga = require("../lib/bucaramanga");
+const buenaventura = require("../lib/buenaventura");
+const cali = require("../lib/cali");
+const cartagena = require("../lib/cartagena");
+const cucuta = require("../lib/cucuta");
+const envigado = require("../lib/envigado");
+const ibague = require("../lib/ibague");
+const itagui = require("../lib/itagui");
+const laestrella = require("../lib/laestrella");
+const manizales = require("../lib/manizales");
+const medellin = require("../lib/medellin");
+const ocana = require("../lib/ocana");
+const pamplona = require("../lib/pamplona");
+const pasto = require("../lib/pasto");
+const pereira = require("../lib/pereira");
+const popayan = require("../lib/popayan");
+const quibdo = require("../lib/quibdo");
+const sabaneta = require("../lib/sabaneta");
+const santamarta = require("../lib/santamarta");
+const soledad = require("../lib/soledad");
+const tunja = require("../lib/tunja");
+const turbaco = require("../lib/turbaco");
 
-export const cities = {
+const cities = {
   armenia,
   barranquilla,
   bello,
@@ -68,7 +68,7 @@ export const cities = {
  * @param {string} city La ciudad para la cual se desean consultar las categorías.
  * @returns {Object} Las categorías correspondientes a la ciudad con la llave y el nombre humano.
  */
-export function getCategories(city) {
+function getCategories(city) {
   const categoriesMap = {};
   const cityObj = cities[city];
   const categories = Object.keys(cityObj.categories).sort();
@@ -113,7 +113,7 @@ export function getCategories(city) {
  *  ...
  * @returns {Object} Las ciudades disponibles con sus correspondientes categorías.
  */
-export function getCities() {
+function getCities() {
   return Object.keys(cities)
     .sort()
     .reduce((result, city) => {
@@ -137,7 +137,7 @@ export function getCities() {
  * @param {Array} categories Opcional lista de categorías que se desean consultar.
  * @returns {Array} El valor del pyp para la ciudad y categorías solicitadas.
  */
-export function getPyp(city, date, categories = []) {
+function getPyp(city, date, categories = []) {
   const pypCity = cities[city];
   const cats = categories.length
     ? categories
@@ -174,7 +174,7 @@ export function getPyp(city, date, categories = []) {
  * @param {Array} categories Opcional lista de categorías que se desean consultar.
  * @returns {Object} La meta-información para la ciudad y categorías solicitadas.
  */
-export function getPypInfo(city, date, categories = []) {
+function getPypInfo(city, date, categories = []) {
   const pypCity = cities[city];
   const cats = categories.length
     ? categories
@@ -210,7 +210,7 @@ export function getPypInfo(city, date, categories = []) {
  * @param {string} timeOffset Desplazamiento de la zona horaria.
  * @returns {string} La fecha con la zona horaria incluida si no la traía.
  */
-export function ISOString(date, timeOffset = "-05:00") {
+function ISOString(date, timeOffset = "-05:00") {
   return date.length === 10 ? `${date}T00:00:00.000${timeOffset}` : date;
 }
 
@@ -227,7 +227,7 @@ export function ISOString(date, timeOffset = "-05:00") {
  * @param {Array} categories Lista de categorías que se desean consultar.
  * @returns {Object} Toda la información correspondiente a la ciudad, categorías y días solicitados.
  */
-export function getPypData(city, date, days = 1, categories = []) {
+function getPypData(city, date, days = 1, categories = []) {
   // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
   // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
   // Usamos el formato ISO
@@ -250,3 +250,12 @@ export function getPypData(city, date, days = 1, categories = []) {
   }
   return result;
 }
+
+module.exports = {
+  getCategories,
+  getCities,
+  getPyp,
+  getPypData,
+  getPypInfo,
+  ISOString
+};

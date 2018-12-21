@@ -1,4 +1,4 @@
-export const testInfo = city => {
+exports.testInfo = city => {
   Object.keys(city.categories).forEach(categoryName => {
     describe(`'pyp' should be a function for ${categoryName}`, () => {
       it("should be a function", () => {
@@ -77,7 +77,7 @@ export const testInfo = city => {
   });
 };
 
-export const testCases = (city, dateCases) => {
+exports.testCases = (city, dateCases) => {
   describe(`Test cases for ${city.name}`, () => {
     const times = ["T00:00:00.000-05:00", "T23:59:59.999-05:00"];
     // cada caso para cada fecha. Por ello comenzamos recorriendo cada uno de

@@ -1,10 +1,10 @@
-import {
+const {
   arrRotate,
   monthsDiff,
   pyp,
   rotateByMonth,
   rotateByWeek
-} from "./funcs";
+} = require("./funcs");
 
 describe("test for holidays", () => {
   const times = ["T00:00:00.0000-05:00", "T23:59:59.999-05:00"];

@@ -1,9 +1,9 @@
-import debug from "debug";
-import express from "express";
-import morgan from "morgan";
-import apiRoute from "./api/routes";
+const debug = require("debug");
+const express = require("express");
+const morgan = require("morgan");
+const apiRoute = require("./api/routes");
 
-export default config => {
+module.exports = config => {
   const app = express();
   const debugApp = debug("pyptron:app");
 

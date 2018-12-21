@@ -1,5 +1,6 @@
-import { testCases, testInfo } from "../utils/testsWrapper";
-import city from "./medellin";
+const { testCases, testInfo } = require("../utils/testsWrapper");
+
+const city = require("./medellin");
 
 const dateCases = [
   {

@@ -1,4 +1,5 @@
-import { testInfo } from "../utils/testsWrapper";
-import city from "./laestrella";
+const { testInfo } = require("../utils/testsWrapper");
+
+const city = require("./laestrella");
 
 testInfo(city);

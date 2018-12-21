@@ -1,10 +1,10 @@
-import medellin from "./medellin";
+const medellin = require("./medellin");
 
 const medellinParticulares = medellin.categories.particulares[0];
 const medellinMotos = medellin.categories.motos[0];
 const medellinTaxis = medellin.categories.taxis[0];
 
-export default {
+module.exports = {
   name: "Envigado",
   categories: {
     particulares: [

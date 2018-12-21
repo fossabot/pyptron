@@ -1,8 +1,8 @@
 /* eslint no-prototype-builtins: 0 */
 
-import debug from "debug";
-import express from "express";
-import * as pyptron from "../utils/helpers";
+const debug = require("debug");
+const express = require("express");
+const pyptron = require("../utils/helpers");
 
 const debugRoute = debug("pyphoy:route");
 
@@ -92,4 +92,4 @@ router.get("/:city/:category/:number", (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

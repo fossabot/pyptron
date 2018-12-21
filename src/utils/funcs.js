@@ -1,6 +1,6 @@
-import dayjs from "dayjs";
-import weekOfYear from "dayjs/plugin/weekOfYear";
-import { getHoliday } from "pascua";
+const dayjs = require("dayjs");
+const weekOfYear = require("dayjs/plugin/weekOfYear");
+const { getHoliday } = require("pascua");
 
 /**
  * Excluye una fecha si corresponde a alguno de los días de exclusión o si es festivo en caso de
@@ -10,7 +10,7 @@ import { getHoliday } from "pascua";
  * @param {boolean} holidays Si se desea incluir los festivos como motivo de exclusión.
  * @returns {boolean} Verdadero si la fecha es excluida de lo contrario falso.
  */
-export function excludeDays(date, days, holidays = true) {
+function excludeDays(date, days, holidays = true) {
   const dateObject = new Date(date);
   return (
     days.includes(dateObject.getDay()) || (holidays && getHoliday(dateObject))
@@ -27,7 +27,7 @@ export function excludeDays(date, days, holidays = true) {
  * @param {array} specialDates Fechas especiales que se desean saltar en el conteo.
  * @returns {number} Cantidad de días de difencia entre la fecha inicial y la fecha final.
  */
-export function daysDiff(
+function daysDiff(
   startDate,
   endDate,
   skip = [0],
@@ -76,7 +76,7 @@ export function daysDiff(
  * @param {int} interval Intervalo de meses para calcular la diferencia.
  * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
  */
-export function monthsDiff(startDate, endDate, interval = 1) {
+function monthsDiff(startDate, endDate, interval = 1) {
   const mDate = dayjs(endDate);
   const diff = Math.floor(mDate.diff(startDate, "months") / interval);
   return Math.abs(diff);
@@ -91,7 +91,7 @@ export function monthsDiff(startDate, endDate, interval = 1) {
  * @param {function} specialProcessing Algoritmo para el pyp.
  * @returns {string} El valor correspondiente al pyp para el día solicitado.
  */
-export function pyp(date, na, holidays, specialProcessing) {
+function pyp(date, na, holidays, specialProcessing) {
   const startDate = "2018-01-01";
   if (daysDiff(startDate, date, []) <= 0) {
     throw new Error("Date out of range");
@@ -114,7 +114,7 @@ export function pyp(date, na, holidays, specialProcessing) {
  * @param {int} arrLen Largo del array.
  * @returns {int} El índice - en caso de ser negativo corresponde al indice de atrás hacia adelante.
  */
-export function getIndex(index, arrLen) {
+function getIndex(index, arrLen) {
   return ((index % arrLen) + arrLen) % arrLen;
 }
 
@@ -123,7 +123,7 @@ export function getIndex(index, arrLen) {
  * @param {string} date Fecha para la cual se desea obtener el mes.
  * @returns {int} Número del mes de la fecha dada. Enero = 1.
  */
-export function getMonth(date) {
+function getMonth(date) {
   return new Date(date).getMonth() + 1;
 }
 
@@ -132,7 +132,7 @@ export function getMonth(date) {
  * @param {string} date Fecha para la cual se desea obtener el número de semana.
  * @returns {int} Número de semana del año en que cae la fecha dada.
  */
-export function getWeek(date) {
+function getWeek(date) {
   dayjs.extend(weekOfYear);
   return dayjs(date).week();
 }
@@ -142,7 +142,7 @@ export function getWeek(date) {
  * @param {string} date Fecha para la cual se desea extraer el día de la fecha.
  * @returns {int} El día de la fecha.
  */
-export function getDate(date) {
+function getDate(date) {
   return new Date(date).getDate();
 }
 
@@ -151,7 +151,7 @@ export function getDate(date) {
  * @param {string} date Fecha para la cual se desea obtener el día de la semana.
  * @returns {int} El día de la semana de la fecha dada.
  */
-export function getDay(date) {
+function getDay(date) {
   return new Date(date).getDay();
 }
 
@@ -162,7 +162,7 @@ export function getDay(date) {
  * @param {string} format Formato que se desea aplicar.
  * @returns {string} La fecha en con el formato solicitado.
  */
-export function formatDate(date, format) {
+function formatDate(date, format) {
   return dayjs(date).format(format);
 }
 
@@ -175,7 +175,7 @@ export function formatDate(date, format) {
  * @param {int} offset Número de elementos que se desea desplazar el array.
  * @returns {array} Un nuevo array con los valores desplazados según el offset.
  */
-export function arrRotate(arr, offset) {
+function arrRotate(arr, offset) {
   const arrOffset = offset % arr.length;
   let head = [];
   let tail = [];
@@ -198,7 +198,7 @@ export function arrRotate(arr, offset) {
  * @param {array} skip Días de la semana que se desean saltar en la rotación.
  * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
  */
-export function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
+function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
   // eslint-disable-next-line no-unmodified-loop-condition
   let daysLapse = daysDiff(startDate, date, skip);
   daysLapse += pypNums.indexOf(startNums) - 1;
@@ -216,7 +216,7 @@ export function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
  * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
-export function rotateBy(
+function rotateBy(
   date,
   startDate,
   startNums,
@@ -252,7 +252,7 @@ export function rotateBy(
  * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
-export function rotateByWeek(
+function rotateByWeek(
   date,
   startDate,
   startNums,
@@ -281,7 +281,7 @@ export function rotateByWeek(
  * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
-export function rotateByMonth(
+function rotateByMonth(
   date,
   startDate,
   startNums,
@@ -299,3 +299,21 @@ export function rotateByMonth(
     interval
   );
 }
+
+module.exports = {
+  excludeDays,
+  daysDiff,
+  monthsDiff,
+  pyp,
+  getIndex,
+  getMonth,
+  getWeek,
+  getDate,
+  getDay,
+  formatDate,
+  arrRotate,
+  rotateByDay,
+  rotateBy,
+  rotateByWeek,
+  rotateByMonth
+};

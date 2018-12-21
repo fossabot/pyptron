@@ -1,7 +1,7 @@
-import request from "supertest";
-import app from "./app";
-import config from "./config";
-import { getCities } from "./utils/helpers";
+const request = require("supertest");
+const { getCities } = require("./utils/helpers");
+const app = require("./app");
+const config = require("./config");
 
 const appTest = app(config);
 

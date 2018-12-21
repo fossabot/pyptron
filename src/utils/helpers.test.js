@@ -1,12 +1,12 @@
-import { readdir } from "fs";
-import {
+const { readdir } = require("fs");
+const {
   getCategories,
   getCities,
   getPyp,
   getPypData,
   getPypInfo,
   ISOString
-} from "./helpers";
+} = require("./helpers");
 
 const dir = "./src/lib";
 let totalCities = 0;

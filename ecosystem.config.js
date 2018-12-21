@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "pyptron",
-      script: "dist/api",
+      script: "src/api",
       env_production: {
         NODE_ENV: "production",
         PORT: 3245,
