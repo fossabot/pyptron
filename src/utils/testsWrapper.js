@@ -93,11 +93,9 @@ exports.testCases = (city, dateCases) => {
         // horas para verificar que da el resultado esperado independiente de la
         // hora para comprobar que no estamos teniendo saltos de fecha por zona
         // horaria.
-        it(`should return '${pypNum}' for '${pypCase}' @${
-          dateCase.date
-        }`, () => {
-          times.forEach(time => {
-            const pypDate = dateCase.date + time;
+        times.forEach(time => {
+          const pypDate = `${dateCase.date}${time}`;
+          it(`should return '${pypNum}' for '${pypCase}' @${pypDate}`, () => {
             let activeCategory = {};
             for (let i = 0; i < city.categories[pypCase].length; i += 1) {
               const currentCat = city.categories[pypCase][i];
