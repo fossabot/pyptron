@@ -77,14 +77,16 @@ const dateCases = [
     date: "2018-10-01", // lunes 1 de octubre
     pypCases: {
       taxis: "7-8",
-      particulares: "7-8"
+      particulares: "7-8",
+      motos: "1-3-5-7-9"
     }
   },
   {
     date: "2018-10-02", // martes 2 de octubre
     pypCases: {
       taxis: "9-0",
-      particulares: "9-0"
+      particulares: "9-0",
+      motos: "0-2-4-6-8"
     }
   },
   {
@@ -98,7 +100,20 @@ const dateCases = [
     date: "2018-09-03", // lunes 3 de septiembre
     pypCases: {
       taxis: "9-0",
-      particulares: "7-8"
+      particulares: "7-8",
+      motos: "1-3-5-7-9"
+    }
+  },
+  {
+    date: "2018-09-14", // Segundo viernes del mes
+    pypCases: {
+      motos: "0-1-2-3-4-5-6-7-8-9"
+    }
+  },
+  {
+    date: "2018-11-30", // Último viernes del mes
+    pypCases: {
+      motos: "0-1-2-3-4-5-6-7-8-9"
     }
   }
 ];
