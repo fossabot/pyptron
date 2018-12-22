@@ -18,8 +18,7 @@ function excludeDays(date, days, holidays = true) {
 }
 
 /**
- * Calcula la cantidad de días de diferencia entre una fecha inicia y una fecha final. Por defecto,
- * se excluyen los domingos.
+ * Calcula la cantidad de días de diferencia entre una fecha inicial y una fecha final. Por defecto, se excluyen los domingos.
  * @param {string} startDate Fecha inicial.
  * @param {string} endDate Fecha final.
  * @param {array} skip Días de la semana que se omiten. 0 = Domingo.
@@ -105,6 +104,28 @@ function pyp(date, na, holidays, specialProcessing) {
   return specialProcessing(date);
 }
 
+/**
+ * Permite saber un día n del mes, por ejemplo, el segundo o el último viernes de un mes dado. Por ejemplo, para consultar el último domingo de diciembre de 2014:
+ * getNthDayOfMonth(2012, 12, 0, -1)
+ * @param {number} year El año para el cual queremos la fecha
+ * @param {number} month El mes para el cual queremos la fecha (0 = Enero)
+ * @param {number} dayOfWeek El día que queremos saber (0 = Domingo)
+ * @param {number} index La posición del día que queremos saber. -1 = último, 0 = primero, 1 = segundo, etc...
+ * @return {date} La fecha correspondiente al día n solicitado.
+ */
+function getNthDayOfMonth(year, month, dayOfWeek, index) {
+  const backwards = index < 0;
+  const offset = (index + (backwards ? 1 : 0)) * 7;
+  const date = new Date(
+    year,
+    month + (backwards ? 1 : 0),
+    (backwards ? 0 : 1) + offset
+  );
+  while (date.getDay() !== dayOfWeek) {
+    date.setDate(date.getDate() + (backwards ? -1 : 1));
+  }
+  return date;
+}
 /**
  * Calcula el índice para cuando el valor del índice es mayor al largo del array o en caso de que se
  * tenga un valor negativo para el índice. Si el valor es negativo el valor correspondiente al
@@ -315,5 +336,6 @@ module.exports = {
   rotateByDay,
   rotateBy,
   rotateByWeek,
-  rotateByMonth
+  rotateByMonth,
+  getNthDayOfMonth
 };
