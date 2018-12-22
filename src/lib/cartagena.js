@@ -68,7 +68,7 @@ module.exports = {
             {
               name: "Decreto 1361 del 29 de noviembre de 2018",
               url:
-                "https://cdn.pyphoy.com/cartagena/decreo-1361-del-29-de-noviembre-de-2018.pdf"
+                "https://cdn.pyphoy.com/cartagena/decreto-1361-del-29-de-noviembre-de-2018.pdf"
             }
           ],
           days: [
