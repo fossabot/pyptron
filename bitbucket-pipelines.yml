@@ -56,7 +56,7 @@ pipelines:
                 - python get-pip.py
                 - pip install awscli
                 # end awscli installation
-                - npm run sync:assets
+                - npm run sync:assets -- --debug
       - step:
           name: Deploy to production
           caches:
