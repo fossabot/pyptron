@@ -47,8 +47,6 @@ pipelines:
               caches:
                 - node
               script:
-                - echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
-                - echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
                 # install awscli
                 # https://confluence.atlassian.com/bitbucket/deploy-to-amazon-aws-875304040.html#DeploytoAmazonAWS-DeploytoAWSwithS3
                 - apt-get update && apt-get install -y python-dev
