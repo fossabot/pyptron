@@ -48,4 +48,5 @@ pipelines:
             - node
           deployment: production
           script:
+            - npm run deploy:assets
             - npm run deploy
