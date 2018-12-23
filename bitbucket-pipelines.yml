@@ -43,7 +43,7 @@ pipelines:
               script:
                 - npm run lint
           - step:
-              name: Deploy assets to S3
+              name: Sync assets to S3
               caches:
                 - node
               script:
@@ -54,7 +54,7 @@ pipelines:
                 - python get-pip.py
                 - pip install awscli
                 # end awscli installation
-                - npm run deploy:assets
+                - npm run sync:assets
       - step:
           name: Deploy to production
           caches:
