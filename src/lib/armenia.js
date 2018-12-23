@@ -11,7 +11,7 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 083 de 2016",
-              url: "https://cdn.pyphoy.com/armenia/decreto-083-de-2016.pdf"
+              url: pypFuncs.buildAssetPath("armenia", "decreto-083-de-2016.pdf")
             }
           ],
           days: ["Lunes a viernes hábiles"],
@@ -74,7 +74,10 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 083 de 2016",
-              url: "https://cdn.pyphoy.com/armenia/decreto-083-de-2016.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreto-083-de-2016.pdf"
+              )
             }
           ],
           days: ["Lunes a viernes hábiles"],
@@ -137,7 +140,7 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 083 de 2016",
-              url: "https://cdn.pyphoy.com/armenia/decreto-083-de-2016.pdf"
+              url: pypFuncs.buildAssetPath("armenia", "decreto-083-de-2016.pdf")
             }
           ],
           days: ["Lunes a viernes hábiles"],

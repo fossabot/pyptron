@@ -11,11 +11,17 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 349 del 12 de diciembre de 2017",
-              url: "https://cdn.pyphoy.com/santa-marta/decreto-349-de-2017.pdf"
+              url: pypFuncs.buildAssetPath(
+                "santa-marta",
+                "decreto-349-de-2017.pdf"
+              )
             },
             {
               name: "Decreto 070 del 28 de febrero de 2018",
-              url: "https://cdn.pyphoy.com/santa-marta/decreto-070-de-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "santa-marta",
+                "decreto-070-de-2018.pdf"
+              )
             }
           ],
           days: [
@@ -125,7 +131,10 @@ module.exports = {
           decrees: [
             {
               name: "decreto 068 de 28 de febrero de 2018",
-              url: "https://cdn.pyphoy.com/santa-marta/decreto-068-de-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "santa-marta",
+                "decreto-068-de-2018.pdf"
+              )
             }
           ],
           days: ["Lunes a sábado"],

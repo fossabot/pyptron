@@ -13,8 +13,10 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 0205 de 2009",
-              url:
-                "https://cdn.pyphoy.com/barranquilla/decreto-0205-de-2009.pdf"
+              url: pypFuncs.buildAssetPath(
+                "barranquilla",
+                "decreto-0205-de-2009.pdf"
+              )
             },
             {
               name: "BOLETÍN  229",

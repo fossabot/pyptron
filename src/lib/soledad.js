@@ -11,7 +11,7 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 288 de julio de 2017",
-              url: "https://cdn.pyphoy.com/soledad/decreto-288-de-2017.pdf"
+              url: pypFuncs.buildAssetPath("soledad", "decreto-288-de-2017.pdf")
             }
           ],
           days: ["Lunes a viernes hábiles"],
@@ -62,7 +62,7 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 288 de julio de 2017",
-              url: "https://cdn.pyphoy.com/soledad/decreto-288-de-2017.pdf"
+              url: pypFuncs.buildAssetPath("soledad", "decreto-288-de-2017.pdf")
             }
           ],
           days: ["Todos los días de la semana"],

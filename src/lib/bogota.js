@@ -25,14 +25,18 @@ module.exports = {
             {
               name:
                 "Calendario pico y placa Bogotá primer semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              )
             },
             {
               name:
                 "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              )
             }
           ],
           days: [
@@ -109,14 +113,18 @@ module.exports = {
             {
               name:
                 "Calendario pico y placa Bogotá primer semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              )
             },
             {
               name:
                 "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              )
             }
           ],
           days: [
@@ -131,8 +139,6 @@ module.exports = {
           ],
           scheme:
             "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
-          observations:
-            '<a href="https://cdn.pyphoy.com/bogota/calendario-pyp-taxis-primer-semestre-2018.pdf">Calendario pyp taxis primer semestre 2018</a>',
           exceptions: `<ul>
         <li>Vehículos vinculados al transporte masivo de pasajeros bien sean articulados o alimentadores.</li>
         <li>Vehículos de tranporte público colectivo intermunicipal de pasajeros cuyo destino u origen sea el Terminal de Transporte de Bogotá.</li>
@@ -175,14 +181,18 @@ module.exports = {
             {
               name:
                 "Calendario pico y placa Bogotá primer semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              )
             },
             {
               name:
                 "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              )
             }
           ],
           days: [
@@ -231,14 +241,18 @@ module.exports = {
             {
               name:
                 "Calendario pico y placa Bogotá primer semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              )
             },
             {
               name:
                 "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              )
             }
           ],
           days: [
@@ -298,14 +312,18 @@ module.exports = {
             {
               name:
                 "Calendario pico y placa Bogotá primer semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
+              )
             },
             {
               name:
                 "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
-              url:
-                "https://cdn.pyphoy.com/bogota/calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              url: pypFuncs.buildAssetPath(
+                "bogota",
+                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
+              )
             }
           ],
           days: ["Lunes a viernes hábiles"],

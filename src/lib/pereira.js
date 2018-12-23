@@ -11,18 +11,24 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 193 del 6 de marzo de 2015",
-              url:
-                "https://cdn.pyphoy.com/pereira/decreto-193-del-6-de-marzo-de-2015.pdf"
+              url: pypFuncs.buildAssetPath(
+                "pereira",
+                "decreto-193-del-6-de-marzo-de-2015.pdf"
+              )
             },
             {
               name: "Decreto 516 del 21 de julio de 2015",
-              url:
-                "https://cdn.pyphoy.com/pereira/decreto-516-del-21-de-julio-de-2015.pdf"
+              url: pypFuncs.buildAssetPath(
+                "pereira",
+                "decreto-516-del-21-de-julio-de-2015.pdf"
+              )
             },
             {
               name: "Decreto 241 del 26 de marzo de 2016",
-              url:
-                "https://cdn.pyphoy.com/pereira/decreto-241-del-26-de-marzo-de-2016.pdf"
+              url: pypFuncs.buildAssetPath(
+                "pereira",
+                "decreto-241-del-26-de-marzo-de-2016.pdf"
+              )
             }
           ],
           days: [
@@ -63,7 +69,10 @@ module.exports = {
         <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
         </ul>
         `,
-          map: "https://cdn.pyphoy.com/pereira/mapa-pico-y-placa-pereira.jpg"
+          map: pypFuncs.buildAssetPath(
+            "pereira",
+            "mapa-pico-y-placa-pereira.jpg"
+          )
         },
         name: "Particulares",
         na: [0, 6],
@@ -89,18 +98,24 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 193 del 6 de marzo de 2015",
-              url:
-                "https://cdn.pyphoy.com/pereira/decreto-193-del-6-de-marzo-de-2015.pdf"
+              url: pypFuncs.buildAssetPath(
+                "pereira",
+                "decreto-193-del-6-de-marzo-de-2015.pdf"
+              )
             },
             {
               name: "Decreto 516 del 21 de julio de 2015",
-              url:
-                "https://cdn.pyphoy.com/pereira/decreto-516-del-21-de-julio-de-2015.pdf"
+              url: pypFuncs.buildAssetPath(
+                "pereira",
+                "decreto-516-del-21-de-julio-de-2015.pdf"
+              )
             },
             {
               name: "Decreto 241 del 26 de marzo de 2016",
-              url:
-                "https://cdn.pyphoy.com/pereira/decreto-241-del-26-de-marzo-de-2016.pdf"
+              url: pypFuncs.buildAssetPath(
+                "pereira",
+                "decreto-241-del-26-de-marzo-de-2016.pdf"
+              )
             }
           ],
           days: [
@@ -140,7 +155,10 @@ module.exports = {
           <li>Los vehículos que transporten al personal médico, paramédico y asistencial, de las salas de urgencias y cirugías, previa identificación.</li>
           <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
         </ul>`,
-          map: "https://cdn.pyphoy.com/pereira/mapa-pico-y-placa-pereira.jpg"
+          map: pypFuncs.buildAssetPath(
+            "pereira",
+            "mapa-pico-y-placa-pereira.jpg"
+          )
         },
         name: "Motos",
         na: [0, 6],

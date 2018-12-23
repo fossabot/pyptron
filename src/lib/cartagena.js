@@ -13,8 +13,10 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 1659 de diciembre de 2017",
-              url:
-                "https://cdn.pyphoy.com/cartagena/decreto-1659-de-diciembre-de-2017.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreto-1659-de-diciembre-de-2017.pdf"
+              )
             }
           ],
           days: [
@@ -62,13 +64,17 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 1550 del 30 de noviembre de 2017",
-              url:
-                "https://cdn.pyphoy.com/cartagena/decreto-1550-del-30-de-noviembre-de-2017.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreto-1550-del-30-de-noviembre-de-2017.pdf"
+              )
             },
             {
               name: "Decreto 1361 del 29 de noviembre de 2018",
-              url:
-                "https://cdn.pyphoy.com/cartagena/decreto-1361-del-29-de-noviembre-de-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreto-1361-del-29-de-noviembre-de-2018.pdf"
+              )
             }
           ],
           days: [
@@ -191,13 +197,17 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 1550 del 30 de noviembre de 2017",
-              url:
-                "https://cdn.pyphoy.com/cartagena/decreto-1550-del-30-de-noviembre-de-2017.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreto-1550-del-30-de-noviembre-de-2017.pdf"
+              )
             },
             {
               name: "Decreto 1361 del 29 de noviembre de 2018",
-              url:
-                "https://cdn.pyphoy.com/cartagena/decreo-1361-del-29-de-noviembre-de-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreo-1361-del-29-de-noviembre-de-2018.pdf"
+              )
             }
           ],
           days: [
@@ -324,8 +334,10 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 1035 del 5 de septiembre de 2018",
-              url:
-                "https://cdn.pyphoy.com/cartagena/decreto-1035-del-5-de-septiembre-de-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "cartagena",
+                "decreto-1035-del-5-de-septiembre-de-2018.pdf"
+              )
             }
           ],
           days: ["Lunes a viernes."],

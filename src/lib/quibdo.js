@@ -11,7 +11,7 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 222 de 2016",
-              url: "https://cdn.pyphoy.com/quibdo/decreto-222-de-2016.pdf"
+              url: pypFuncs.buildAssetPath("quibdo", "decreto-222-de-2016.pdf")
             }
           ],
           days: [
@@ -62,7 +62,7 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 222 de 2016",
-              url: "https://cdn.pyphoy.com/quibdo/decreto-222-de-2016.pdf"
+              url: pypFuncs.buildAssetPath("quibdo", "decreto-222-de-2016.pdf")
             }
           ],
           days: [

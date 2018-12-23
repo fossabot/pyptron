@@ -16,7 +16,7 @@ module.exports = {
             },
             {
               name: "Decreto 0946 del 31 de octubre de 2018",
-              url: "https://cdn.pyphoy.com/ibague/decreto-0946-de-2018.pdf"
+              url: pypFuncs.buildAssetPath("ibague", "decreto-0946-de-2018.pdf")
             }
           ],
           days: ["Días hábiles de la semana - lunes a viernes."],
@@ -70,7 +70,7 @@ module.exports = {
             },
             {
               name: "Decreto 0946 del 31 de octubre de 2018",
-              url: "https://cdn.pyphoy.com/ibague/decreto-0946-de-2018.pdf"
+              url: pypFuncs.buildAssetPath("ibague", "decreto-0946-de-2018.pdf")
             }
           ],
           days: ["Días hábiles de la semana - lunes a viernes."],

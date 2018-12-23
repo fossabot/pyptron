@@ -13,13 +13,17 @@ module.exports = {
           decrees: [
             {
               name: "Decreto 60 del 22 de octubre de 2018",
-              url:
-                "https://cdn.pyphoy.com/ocana/decreto-60-del-22-de-octubre-de-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "ocana",
+                "decreto-60-del-22-de-octubre-de-2018.pdf"
+              )
             },
             {
               name: "Estudio de tráfico pico y placa",
-              url:
-                "https://cdn.pyphoy.com/ocana/estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf"
+              url: pypFuncs.buildAssetPath(
+                "ocana",
+                "estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf"
+              )
             }
           ],
           days: [
