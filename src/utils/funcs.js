@@ -1,6 +1,17 @@
 const dayjs = require("dayjs");
 const weekOfYear = require("dayjs/plugin/weekOfYear");
 const { getHoliday } = require("pascua");
+const config = require("../config");
+
+/**
+ * Construye la ruta del recurso al que se desea acceder dependiendo del ambiente en que nos encontramos.
+ * @param {string} city La ciudad a la que pertenece el recurso
+ * @param {string} asset El recurso al que se desea acceder
+ * @returns {string} La ruta del recurso
+ */
+function buildAssetPath(city, asset) {
+  return `${config.cdn}/${city}/${asset}`;
+}
 
 /**
  * Excluye una fecha si corresponde a alguno de los días de exclusión o si es festivo en caso de
@@ -337,5 +348,6 @@ module.exports = {
   rotateBy,
   rotateByWeek,
   rotateByMonth,
-  getNthDayOfMonth
+  getNthDayOfMonth,
+  buildAssetPath
 };
