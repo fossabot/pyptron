@@ -42,18 +42,23 @@ pipelines:
                 - node
               script:
                 - npm run lint
+          - step:
+              name: Deploy assets to S3
+              caches:
+                - node
+              script:
+                # install awscli
+                # https://confluence.atlassian.com/bitbucket/deploy-to-amazon-aws-875304040.html#DeploytoAmazonAWS-DeploytoAWSwithS3
+                - apt-get update && apt-get install -y python-dev
+                - curl -O https://bootstrap.pypa.io/get-pip.py
+                - python get-pip.py
+                - pip install awscli
+                # end awscli installation
+                - npm run deploy:assets
       - step:
           name: Deploy to production
           caches:
             - node
           deployment: production
           script:
-            # install awscli
-            # https://confluence.atlassian.com/bitbucket/deploy-to-amazon-aws-875304040.html#DeploytoAmazonAWS-DeploytoAWSwithS3
-            - apt-get update && apt-get install -y python-dev
-            - curl -O https://bootstrap.pypa.io/get-pip.py
-            - python get-pip.py
-            - pip install awscli
-            # end awscli installation
-            - npm run deploy:assets
             - npm run deploy
