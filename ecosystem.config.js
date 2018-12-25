@@ -6,7 +6,7 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
         PORT: 3245,
-        IP: "127.0.0.1"
+        IP: "172.31.93.234"
       }
     }
   ],
