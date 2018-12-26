@@ -4,6 +4,23 @@ const { getHoliday } = require("pascua");
 const config = require("../config");
 
 /**
+ * Devuelve una respuesta válida para API Gateway consistente por lo menos de un cuerpo (body) y un código de respuesta (statusCode).
+ * @param {integer} statusCode Código de respuesta http
+ * @param {object} body El cuerpo como objeto de javascript
+ * @returns {object} La respuesta para API Gateway
+ */
+function createResponse(statusCode, body) {
+  return {
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    },
+    statusCode,
+    body: JSON.stringify(body)
+  };
+}
+
+/**
  * Construye la ruta del recurso al que se desea acceder dependiendo del ambiente en que nos encontramos.
  * @param {string} city La ciudad a la que pertenece el recurso
  * @param {string} asset El recurso al que se desea acceder
@@ -349,5 +366,6 @@ module.exports = {
   rotateByWeek,
   rotateByMonth,
   getNthDayOfMonth,
-  buildAssetPath
+  buildAssetPath,
+  createResponse
 };

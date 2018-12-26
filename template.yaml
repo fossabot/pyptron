@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: JSON API para consultar el Pico y Placa en Colombia.
+Globals:
+  Api:
+    EndpointConfiguration: REGIONAL
+Resources:
+  Pyptron:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      Handler: handler.pyptron
+      Runtime: nodejs8.10
+      CodeUri: dist/
+      Description: Información sobre el Pico y placa por ciudades en Colombia.
+      MemorySize: 128
+      Timeout: 5
+      Environment:
+        Variables:
+          STAGE: "Prod"
+      Events:
+        cities:
+          Type: Api
+          Properties:
+            Path: /
+            Method: GET
+        city:
+          Type: Api
+          Properties:
+            Path: /{city}
+            Method: GET
+        cityCategory:
+          Type: Api
+          Properties:
+            Path: /{city}/{category}
+            Method: GET
+      Tags:
+        AppName: !Ref AWS::StackName
+Outputs:
+  Pyptron:
+    Description: Endpoint de API Gateway
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/

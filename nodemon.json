@@ -1,7 +1,0 @@
-{
-  "watch": "src",
-  "ignore": ["**/__tests__/", "**/*.test.js"],
-  "env": {
-    "NODE_ENV": "development"
-  }
-}
