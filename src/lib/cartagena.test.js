@@ -78,7 +78,7 @@ const dateCases = [
     pypCases: {
       taxis: "7-8",
       particulares: "7-8",
-      motos: "1-3-5-7-9"
+      motos: "0-2-4-6-8"
     }
   },
   {
@@ -86,7 +86,7 @@ const dateCases = [
     pypCases: {
       taxis: "9-0",
       particulares: "9-0",
-      motos: "0-2-4-6-8"
+      motos: "1-3-5-7-9"
     }
   },
   {
@@ -101,7 +101,7 @@ const dateCases = [
     pypCases: {
       taxis: "9-0",
       particulares: "7-8",
-      motos: "1-3-5-7-9"
+      motos: "0-2-4-6-8"
     }
   },
   {
