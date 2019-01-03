@@ -106,7 +106,7 @@ function daysDiff(
 function monthsDiff(startDate, endDate, interval = 1) {
   const mDate = dayjs(endDate);
   const diff = Math.floor(mDate.diff(startDate, "months") / interval);
-  return Math.abs(diff);
+  return diff;
 }
 
 /**
