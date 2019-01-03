@@ -98,7 +98,7 @@ module.exports = {
         <li>Vehículos de medios de comunicación, es decir automotores de propiedad de los medios de comunicación, que porten pintados o adheridos en la carrocería en forma visible los distintivos del medio de comunicación y que transporten personal o equipos técnicos de comunicación para el desarrollo de la labor periodística.</li>
         <li>Vehículos de autoridades judiciales, es decir los automotores de propiedad de Magistrados(as) de las Salas Penales del Tribunal de Boyacá, los(as) Jueces(as) Penales y los Fiscales a quienes el Consejo Seccional de la Judicatura y la Fiscalía certifiquen que desempeñan dicha labor en la ciudad de Tunja, poseen alto riesgo de seguridad, previo estudio y que no tienen asignado un vehículo oficial para su transporte y custodia.</li>
         </ul>La secretaría de Tránsito y Transporte de Tunja definirá las condiciones necesarias para la inscripción de los vehículos exceptuados en el Registro Automotor Municipal de Tunja, los cuales deben pertenecer a la persona natural o jurídica en quien concurran las condiciones de excepción.`,
-          map: pypFuncs.buildAssetPath("tunja", "mapa-pico-y-placa-tunja.png")
+          map: pypFuncs.buildAssetPath("tunja", "mapa-pico-y-placa-tunja.jpg")
         },
         name: "Particulares",
         na: [0, 6],
