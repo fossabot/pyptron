@@ -10,6 +10,11 @@ module.exports = {
           vehicleClasses: ["Vehículos automotores de servicio particular."],
           decrees: [
             {
+              name: "Decreto 0801 de 2018",
+              url:
+                "http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=32835"
+            },
+            {
               name:
                 "Decreto 4112.010.20.0318-28/06/2018 del 28 de junio de 2018",
               url:
@@ -71,6 +76,11 @@ module.exports = {
             "Vehículos de transporte público individual de pasajeros - Taxis."
           ],
           decrees: [
+            {
+              name: "Decreto 0801 de 2018",
+              url:
+                "http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=32835"
+            },
             {
               name:
                 "Decreto 4112.010.20.0318-28/06/2018 del 28 de junio de 2018",
