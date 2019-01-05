@@ -115,6 +115,54 @@ const dateCases = [
     pypCases: {
       motos: "0-1-2-3-4-5-6-7-8-9"
     }
+  },
+  {
+    date: "2019-01-07", // Inicio del nuevo decreto
+    pypCases: {
+      taxis: "7"
+    }
+  },
+  {
+    date: "2019-01-11", // Segundo viernes de enero
+    pypCases: {
+      taxis: "NA"
+    }
+  },
+  {
+    date: "2019-03-08", // Segundo viernes de marzo
+    pypCases: {
+      taxis: "NA"
+    }
+  },
+  {
+    date: "2019-03-29", // Último viernes de mayo
+    pypCases: {
+      taxis: "NA"
+    }
+  },
+  {
+    date: "2019-05-10", // Segundo viernes de mayo
+    pypCases: {
+      taxis: "NA"
+    }
+  },
+  {
+    date: "2019-05-24", // Penúltimo viernes de mayo
+    pypCases: {
+      taxis: "4"
+    }
+  },
+  {
+    date: "2019-05-31", // Viernes
+    pypCases: {
+      taxis: "NA"
+    }
+  },
+  {
+    date: "2019-06-23", // Domingo
+    pypCases: {
+      taxis: "3"
+    }
   }
 ];
 testCases(city, dateCases);
