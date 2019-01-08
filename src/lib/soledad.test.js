@@ -82,6 +82,13 @@ const dateCases = [
     pypCases: {
       motocarros: "1-3-5-7-9- azul"
     }
+  },
+  {
+    // Excepción según el parágrafo 3 del decreto
+    date: "2019-01-30",
+    pypCases: {
+      motos: "0-1-2-3-4-5-6-7-8-9"
+    }
   }
 ];
 testCases(city, dateCases);
