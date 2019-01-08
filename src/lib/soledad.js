@@ -14,7 +14,7 @@ module.exports = {
               url: pypFuncs.buildAssetPath("soledad", "decreto-288-de-2017.pdf")
             }
           ],
-          days: ["Lunes a viernes hábiles"],
+          days: ["Lunes a viernes"],
           hours: [
             {
               comment: "",
