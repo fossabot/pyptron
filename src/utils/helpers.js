@@ -25,6 +25,7 @@ const santamarta = require("../lib/santamarta");
 const soledad = require("../lib/soledad");
 const tunja = require("../lib/tunja");
 const turbaco = require("../lib/turbaco");
+const villavicencio = require("../lib/villavicencio");
 
 const cities = {
   armenia,
@@ -52,7 +53,8 @@ const cities = {
   santamarta,
   soledad,
   tunja,
-  turbaco
+  turbaco,
+  villavicencio
 };
 /**
  * Obtiene las categorías correspondientes a una ciudad dada en donde la llave es el slug ordenado
