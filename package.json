@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "eslint src",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:ci": "JEST_JUNIT_OUTPUT=test-results/jest/results.xml jest --ci --coverage --testResultsProcessor=jest-junit",
     "start:server": "sam local start-api --port 3246",
