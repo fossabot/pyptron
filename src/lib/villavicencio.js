@@ -24,7 +24,7 @@ module.exports = {
               )
             }
           ],
-          days: ["Lunes a viernes hábiles"],
+          days: ["Lunes a viernes"],
           hours: [
             {
               comment: "",
@@ -34,7 +34,7 @@ module.exports = {
           ],
           scheme:
             "La prohibición a la circulación de vehículos automotores particulares se realizará según el último dígito de la placa única nacional y acorde con el día calendario hábil.",
-          observations: `<iframe src="https://www.google.com/maps/d/embed?mid=1PPDx11aLKk7HOW-AdBidJijNczU" width="100%" height="480"></iframe>`,
+          observations: `<iframe src="https://www.google.com/maps/d/u/0/embed?mid=10W9kwMwYeJfueGAuk2eqXD982kOfLG-8" width="100%" height="480"></iframe>`,
           exceptions: `<ul>
           <li>Automotores destinados o contratados para el transporte y/o disposición de residuos y/o desechos hospitalarios, siempre y cuando cuenten con plena y pública identificación, consistente en los logos de la empresa contratante pintados o adheridos en la carrocería.</li>
           <li>Los vehículos que presten el servicio de transporte a diez (10) o más empleados, estudiantes y/o pacientes, que sean propiedad de las empresas, instituciones o entidades para las cuales preseten el servicio.</li>
@@ -97,7 +97,7 @@ module.exports = {
               )
             }
           ],
-          days: ["Lunes a viernes hábiles"],
+          days: ["Lunes a viernes"],
           hours: [
             {
               comment: "",
@@ -107,7 +107,7 @@ module.exports = {
           ],
           scheme:
             "La prohibición a la circulación de vehículos automotores particulares se realizará según el último dígito de la placa única nacional y acorde con el día calendario hábil.",
-          observations: `<iframe src="https://www.google.com/maps/d/embed?mid=1PPDx11aLKk7HOW-AdBidJijNczU" width="100%" height="680"></iframe>`,
+          observations: `<iframe src="https://www.google.com/maps/d/u/0/embed?mid=10W9kwMwYeJfueGAuk2eqXD982kOfLG-8" width="100%" height="680"></iframe>`,
           exceptions: `<ul>
           <li>Motocicletas que pertenezcan o estén contratadas por las empresas dedicadas a los servicio de seguridad vigilancia privada o de escoltas, siempre y cuando estén prestando el servicio y plenamente identificados.</li>
           <li>Motocicletas cuya propiead pertenezca a las Fuerzas Armadas, a la Policía Nacional, Rama Judicial y a la Fiscalía.</li>
@@ -179,7 +179,7 @@ module.exports = {
               )
             }
           ],
-          days: ["Lunes a viernes hábiles"],
+          days: ["Lunes a viernes"],
           hours: [
             {
               comment: "",
@@ -255,7 +255,7 @@ module.exports = {
               )
             }
           ],
-          days: ["Lunes a viernes hábiles"],
+          days: ["Lunes a viernes"],
           hours: [
             {
               comment: "",
