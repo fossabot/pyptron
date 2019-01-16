@@ -165,85 +165,38 @@ module.exports = {
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            // Se basa en dos secuencias de números que se alternan semanalmente. Las secuencias rotan
-            // cada mes, salvo la primera semana en caso de que el primero no sea lunes.
-            // Si el primero de cada mes no es lunes, la secuencia no rota sino hasta la siguiente
-            // semana.
-
-            // La fecha en la que inician las secuencias.
-            const startDate = "2018-01-01";
-            // Los números con los que inicia cada secuencia en la fecha de inicio.
-            const startNums = ["5", "0"];
-            // Las dos secuencias de números.
-            const pypNums = [
-              ["3", "4", "5", "6", "7"],
-              ["0", "1", "2", "8", "9"]
+            const dateObject = new Date(date);
+            const startDate = new Date("2018-01-01T05:00:00.000Z");
+            const millisecondsPerDay = 1000 * 60 * 60 * 24;
+            const millisecondsDiff = dateObject - startDate;
+            const daysDiff = millisecondsDiff / millisecondsPerDay;
+            const weeksOffset = Math.ceil((daysDiff + 1) / 7);
+            let pypNums = [
+              ["5", "0"],
+              ["6", "1"],
+              ["7", "2"],
+              ["3", "8"],
+              ["4", "9"]
             ];
-            // A partir de 2018-05-07 las secuencias cambian, asignamos las nuevas secuencias si la
-            // fecha solicitada es mayor a esa fecha.
-            if (
-              pypFuncs.formatDate(date, "YYMMDD") >=
-              pypFuncs.formatDate("2018-05-07", "YYMMDD")
-            ) {
-              pypNums[0] = ["8", "4", "5", "6", "2"];
-              pypNums[1] = ["0", "1", "7", "3", "9"];
+            if (dateObject >= new Date("2018-05-07T05:00:00.000Z")) {
+              pypNums[2] = ["2", "7"];
+              pypNums[3] = ["8", "3"];
             }
-            // Verificamos la semana para determinar que secuencia vamos a usar. Las semanas impares
-            // usamos la primera secuencia, las pares la segunda.
-            const week = 1 - (pypFuncs.getWeek(date) % 2);
-            const weekStartNum = startNums[week];
-            const weekPypNums = pypNums[week];
-            // Calculamos si estamos en la primera semana y si el primer día del mes corresponde con
-            // el lunes. Lo que hacemos es obtener la fecha y el día de la semana correspondientes
-            // a la fecha.
-            // El lunes es el día 1 de la semana, así que si el primero corresponde al lunes la
-            // diferencia será 0.
-            // Si la diferencia es negativa, por ejemplo, la fecha es 5, la diferencia con el lunes y
-            // de ahí en adelante es negativa, por lo tanto no nos interesan esas fechas.
-            // Si la diferencia es positiva, quiere decir que el día de la semana es mayor que la
-            // fecha pasada y por lo tanto la primera semana no comenzó en lunes, estos son los casos
-            // que nos interesan:
-            //           D  L  M  M  J  V  S
-            //     día | 0  1  2  3  4  5  6
-            //         | -------------------
-            //   fecha | 1                   = -1 No nos interesa, rotamos normalmente
-            //   fecha | 8                   = -8 No nos interesa, rotamos normalmente
-            //
-            //         | D  L  M  M  J  V  S
-            //     día | 0  1  2  3  4  5  6
-            //         | -------------------
-            //   fecha |    1                = 0 No nos interesa, rotamos normalmente
-            //   fecha | 7                   = -7 No nos interesa, rotamos normalmente
-            //
-            //         | D  L  M  M  J  V  S
-            //     día | 0  1  2  3  4  5  6
-            //         | -------------------
-            //   fecha |       1             = 1 Este caso nos interesa, no rotamos
-            //   fecha | 6                   = -6 No nos interesa, rotamos normalmente
-            //
-            //         | D  L  M  M  J  V  S
-            //     día | 0  1  2  3  4  5  6
-            //         | -------------------
-            //   fecha |                  1 = 5 Este caso nos interesa, no rotamos
-            //   fecha | 2                   = -2 No nos interesa, rotamos normalmente
-            const weekOffset =
-              pypFuncs.getDay(date) - pypFuncs.getDate(date) >= 1 ? 1 : 0;
-            // Obtenemos la rotación mensual normalmente, si esa semana el lunes no cayó en lunes,
-            // nos devolvemos una rotación para deshacer la rotación que se hizo de más y que no
-            // habría que hacer para esa semana.
-            let pypNum = pypFuncs.rotateByMonth(
-              date,
-              startDate,
-              weekStartNum,
-              weekPypNums
-            );
-            if (weekOffset) {
-              [pypNum] = pypFuncs.arrRotate(
-                weekPypNums,
-                -weekPypNums.indexOf(pypNum) - weekOffset
-              );
+            if (dateObject >= new Date("2019-01-08T05:00:00.000Z")) {
+              pypNums[0] = ["0", "5"];
+              pypNums[4] = ["9", "4"];
             }
-            return pypNum;
+            const monthsDiff = dateObject.getMonth() - startDate.getMonth();
+            const yearsDiff =
+              dateObject.getFullYear() - startDate.getFullYear();
+            const monthsDiffAccu = monthsDiff + yearsDiff * 12;
+            const datesWeekDay = dateObject.getDay();
+            const datesDate = dateObject.getDate();
+            const weekOfMonth = Math.floor((datesDate - datesWeekDay) / 7);
+            const offset = monthsDiffAccu - (weekOfMonth < 0 ? 1 : 0);
+            pypNums = pypFuncs.arrRotate(pypNums, offset < 0 ? 0 : offset);
+
+            return pypNums[datesWeekDay - 1][(weeksOffset + 1) % 2];
           });
         }
       }

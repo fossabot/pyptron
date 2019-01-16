@@ -284,6 +284,132 @@ const dateCases = [
     pypCases: {
       taxis: "3"
     }
+  },
+  {
+    date: "2019-01-03",
+    pypCases: {
+      taxis: "2"
+    }
+  },
+  {
+    date: "2019-01-04",
+    pypCases: {
+      taxis: "8"
+    }
+  },
+  {
+    date: "2019-01-08",
+    pypCases: {
+      taxis: "4"
+    }
+  },
+  {
+    date: "2019-01-09",
+    pypCases: {
+      taxis: "5"
+    }
+  },
+  {
+    date: "2019-01-10",
+    pypCases: {
+      taxis: "1"
+    }
+  },
+  {
+    date: "2019-01-11",
+    pypCases: {
+      taxis: "7"
+    }
+  },
+  {
+    date: "2019-01-14",
+    pypCases: {
+      taxis: "8"
+    }
+  },
+  {
+    date: "2019-01-15",
+    pypCases: {
+      taxis: "9"
+    }
+  },
+  {
+    date: "2019-01-16",
+    pypCases: {
+      taxis: "0"
+    }
+  },
+  {
+    date: "2019-01-16",
+    pypCases: {
+      taxis: "0"
+    }
+  },
+  {
+    date: "2019-01-17",
+    pypCases: {
+      taxis: "6"
+    }
+  },
+  {
+    date: "2019-01-18",
+    pypCases: {
+      taxis: "2"
+    }
+  },
+  {
+    date: "2019-01-21",
+    pypCases: {
+      taxis: "3"
+    }
+  },
+  {
+    date: "2019-01-22",
+    pypCases: {
+      taxis: "4"
+    }
+  },
+  {
+    date: "2019-01-23",
+    pypCases: {
+      taxis: "5"
+    }
+  },
+  {
+    date: "2019-01-24",
+    pypCases: {
+      taxis: "1"
+    }
+  },
+  {
+    date: "2019-01-25",
+    pypCases: {
+      taxis: "7"
+    }
+  },
+  {
+    date: "2019-01-28",
+    pypCases: {
+      taxis: "8"
+    }
+  },
+  {
+    date: "2019-01-29",
+    pypCases: {
+      taxis: "9"
+    }
+  },
+  {
+    date: "2019-01-30",
+    pypCases: {
+      taxis: "0"
+    }
+  },
+  {
+    date: "2019-01-31",
+    pypCases: {
+      taxis: "6"
+    }
   }
 ];
 testCases(city, dateCases);
