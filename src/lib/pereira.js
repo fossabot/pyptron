@@ -71,7 +71,7 @@ module.exports = {
         `,
           map: pypFuncs.buildAssetPath(
             "pereira",
-            "mapa-pico-y-placa-pereira.jpg"
+            "mapa-pico-y-placa-pereira-actualizado.jpg"
           )
         },
         name: "Particulares",
@@ -157,7 +157,7 @@ module.exports = {
         </ul>`,
           map: pypFuncs.buildAssetPath(
             "pereira",
-            "mapa-pico-y-placa-pereira.jpg"
+            "mapa-pico-y-placa-pereira-actualizado.jpg"
           )
         },
         name: "Motos",
