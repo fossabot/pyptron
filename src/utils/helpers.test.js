@@ -32,7 +32,7 @@ describe("Generate pyp object maps of global info with the slug and the key", ()
     const categoriesMap = getCategories("bogota");
     const categories = Object.keys(categoriesMap);
     expect(typeof categoriesMap).toBe("object");
-    expect(categories.length).toBe(5);
+    expect(categories.length).toBe(6);
     categories.forEach(category => {
       expect(typeof categoriesMap[category]).toBe("object");
       expect(Object.keys(categoriesMap[category]).length).toBe(2);

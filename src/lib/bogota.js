@@ -329,13 +329,27 @@ module.exports = {
           days: ["Lunes a viernes hábiles"],
           hours: [
             {
-              comment: "",
-              hours: [["6:00", "8:30"], ["15:00", "19:30"]],
-              days: []
+              comment: "Lunes a viernes",
+              hours: [["6:00", "19:30"]],
+              days: [1, 2, 3, 4, 5]
+            },
+            {
+              comment: "Sábados",
+              hours: [["6:30", "18:00"]],
+              days: [6]
+            },
+            {
+              comment: "Domingos",
+              hours: [["6:30", "15:00"]],
+              days: [0]
             }
           ],
-          scheme:
-            "Día par hábil: placa último dígito par. Día impar hábil: placa último dígito impar.",
+          scheme: `<ul>
+          <li>Día par hábil: placa último dígito par.</li>
+          <li>Día impar hábil: placa último dígito impar.</li>
+          <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
+          <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+          <ul>`,
           observations:
             "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
           exceptions: `<ul>
@@ -361,14 +375,78 @@ module.exports = {
         `
         },
         name: "Particulares",
-        na: [0, 6],
+        na: [],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
+            const day = pypFuncs.getDay(date);
             if (
               pypFuncs.formatDate(date) >= "2018-12-26T00:00:00-05:00" &&
               pypFuncs.formatDate(date) <= "2019-01-04T00:00:00-05:00"
             ) {
               return "NA";
+            }
+            if (day === 6) {
+              return "0-2-4-6-8";
+            }
+            if (day === 0) {
+              return "1-3-5-7-9";
+            }
+            const pyp = ["0-2-4-6-8", "1-3-5-7-9"];
+            return pyp[pypFuncs.getDate(date) % 2];
+          });
+        }
+      }
+    ],
+    motos: [
+      {
+        from: "2018-01-01",
+        info: {
+          vehicleClasses: ["Motocicletas"],
+          decrees: [],
+          days: ["Lunes a viernes hábiles"],
+          hours: [
+            {
+              comment: "Lunes a viernes",
+              hours: [["6:00", "19:30"]],
+              days: [1, 2, 3, 4, 5]
+            },
+            {
+              comment: "Sábados",
+              hours: [["6:30", "18:00"]],
+              days: [6]
+            },
+            {
+              comment: "Domingos",
+              hours: [["6:30", "15:00"]],
+              days: [0]
+            }
+          ],
+          scheme: `<ul>
+            <li>Día par hábil: placa último dígito par.</li>
+            <li>Día impar hábil: placa último dígito impar.</li>
+            <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
+            <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+            <ul>`,
+          observations:
+            "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
+          exceptions: ""
+        },
+        name: "Motos",
+        na: [],
+        pyp(date) {
+          return pypFuncs.pyp(date, this.na, true, () => {
+            const day = pypFuncs.getDay(date);
+            if (
+              pypFuncs.formatDate(date) >= "2018-12-26T00:00:00-05:00" &&
+              pypFuncs.formatDate(date) <= "2019-01-04T00:00:00-05:00"
+            ) {
+              return "NA";
+            }
+            if (day === 6) {
+              return "0-2-4-6-8";
+            }
+            if (day === 0) {
+              return "1-3-5-7-9";
             }
             const pyp = ["0-2-4-6-8", "1-3-5-7-9"];
             return pyp[pypFuncs.getDate(date) % 2];

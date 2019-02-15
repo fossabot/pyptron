@@ -19,7 +19,8 @@ const dateCases = [
       taxis: "5-6",
       especial: "5-6",
       tpc: "3-4",
-      particulares: "1-3-5-7-9"
+      particulares: "1-3-5-7-9",
+      motos: "1-3-5-7-9"
     }
   },
   {
@@ -29,7 +30,22 @@ const dateCases = [
       taxis: "9-0",
       especial: "9-0",
       tpc: "7-8",
-      particulares: "0-2-4-6-8"
+      particulares: "0-2-4-6-8",
+      motos: "0-2-4-6-8"
+    }
+  },
+  {
+    date: "2019-02-23", // sábado
+    pypCases: {
+      particulares: "0-2-4-6-8",
+      motos: "0-2-4-6-8"
+    }
+  },
+  {
+    date: "2019-02-24", // domingo
+    pypCases: {
+      particulares: "1-3-5-7-9",
+      motos: "1-3-5-7-9"
     }
   }
 ];
