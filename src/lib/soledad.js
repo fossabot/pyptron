@@ -40,20 +40,24 @@ module.exports = {
         <ul></ul>`,
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            if (pypFuncs.getDate(date) === 30) {
-              return '0-1-2-3-4-5-6-7-8-9'
-            }
-            const pyp = [
-              '1-3', // lunes
-              '2-4', // martes
-              '5-7', // miércoles
-              '6-8', // jueves
-              '9-0', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: false,
+            processingFunction() {
+              if (pypFuncs.getDate(date) === 30) {
+                return '0-1-2-3-4-5-6-7-8-9'
+              }
+              const pyp = [
+                '1-3', // lunes
+                '2-4', // martes
+                '5-7', // miércoles
+                '6-8', // jueves
+                '9-0', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -88,26 +92,30 @@ module.exports = {
             'En consecuencia, con la medida de ‘pico y color’, se establecen medidas los días 31 de los meses de enero, marzo, julio, agosto, octubre y diciembre la prohibición de circulación.',
         },
         name: 'Motocarros',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const pyp = ['0-2-4-6-8- naranja', '1-3-5-7-9- azul']
-            switch (pypFuncs.formatDate(date, 'MMDD')) {
-              case '0131':
-                return '0-2-4-6-8- naranja'
-              case '0331':
-                return '1-3-5-7-9- azul'
-              case '0731':
-                return '0-2-4-6-8- naranja'
-              case '0831':
-                return '1-3-5-7-9- azul'
-              case '1031':
-                return '0-2-4-6-8- naranja'
-              case '1231':
-                return '1-3-5-7-9- azul'
-              default:
-                return pyp[pypFuncs.getDate(date) % 2]
-            }
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: false,
+            processingFunction() {
+              const pyp = ['0-2-4-6-8- naranja', '1-3-5-7-9- azul']
+              switch (pypFuncs.formatDate(date, 'MMDD')) {
+                case '0131':
+                  return '0-2-4-6-8- naranja'
+                case '0331':
+                  return '1-3-5-7-9- azul'
+                case '0731':
+                  return '0-2-4-6-8- naranja'
+                case '0831':
+                  return '1-3-5-7-9- azul'
+                case '1031':
+                  return '0-2-4-6-8- naranja'
+                case '1231':
+                  return '1-3-5-7-9- azul'
+                default:
+                  return pyp[pypFuncs.getDate(date) % 2]
+              }
+            },
           })
         },
       },

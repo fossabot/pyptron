@@ -56,14 +56,18 @@ module.exports = {
         </ul>`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-01'
-            const pypNums = ['3-4', '5-6', '7-8', '9-0', '1-2']
-            const lapse = pypFuncs.monthsDiff(startDate, date, 6)
-            const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
-            return newPypNums[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const pypNums = ['3-4', '5-6', '7-8', '9-0', '1-2']
+              const lapse = pypFuncs.monthsDiff(startDate, date, 6)
+              const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
+              return newPypNums[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -106,13 +110,23 @@ module.exports = {
           observations: '',
         },
         name: 'Taxis',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = '2018-01-01'
-            const startNums = '7-8'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByDay(date, startDate, startNums, pypNums, [])
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: false,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '7-8'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByDay(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                []
+              )
+            },
           })
         },
       },
@@ -144,13 +158,23 @@ module.exports = {
           observations: '',
         },
         name: 'Transporte Público Colectivo',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = '2018-01-01'
-            const startNums = '6-7'
-            const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
-            return pypFuncs.rotateByDay(date, startDate, startNums, pypNums, [])
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: false,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '6-7'
+              const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
+              return pypFuncs.rotateByDay(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                []
+              )
+            },
           })
         },
       },

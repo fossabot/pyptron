@@ -47,17 +47,21 @@ module.exports = {
         </ul>No serán objeto de la restricción a la circulación por Pico y Placa, los vehículos automotores de registro oficial, diplomático y consular.`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '0-1', // lunes
-              '2-3', // martes
-              '4-5', // miércoles
-              '6-7', // jueves
-              '8-9', // iernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '0-1', // lunes
+                '2-3', // martes
+                '4-5', // miércoles
+                '6-7', // jueves
+                '8-9', // iernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -104,17 +108,21 @@ module.exports = {
         </ul>No serán objeto de la restricción a la circulación por Pico y Placa, los vehículos automotores de registro oficial, diplomático y consular.`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '0-1', // lunes
-              '2-3', // martes
-              '4-5', // miércoles
-              '6-7', // jueves
-              '8-9', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '0-1', // lunes
+                '2-3', // martes
+                '4-5', // miércoles
+                '6-7', // jueves
+                '8-9', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -145,19 +153,23 @@ module.exports = {
             'Restringe la circulación de Vehículos de Servicio Público de Transporte Colectivo Municipal de Pasajeros, tipo Busetón, Buseta, Microbus, en todo el territorio Urbano de la ciudad de Ibagué, durante las veinticuatro (24) horas de cada día',
         },
         name: 'Transporte Público Colectivo',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = '2017-12-02'
-            const pyp = [
-              '1-2', // lunes
-              '0-3', // martes
-              '4-9', // miércoles
-              '5-6', // jueves
-              '7-8', // viernes
-            ]
-            const daysDiff = pypFuncs.daysDiff(startDate, date, []) - 1
-            return pyp[daysDiff % pyp.length]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: false,
+            processingFunction() {
+              const startDate = '2017-12-02'
+              const pyp = [
+                '1-2', // lunes
+                '0-3', // martes
+                '4-9', // miércoles
+                '5-6', // jueves
+                '7-8', // viernes
+              ]
+              const daysDiff = pypFuncs.daysDiff(startDate, date, []) - 1
+              return pyp[daysDiff % pyp.length]
+            },
           })
         },
       },
@@ -187,11 +199,15 @@ module.exports = {
             'Las restricciones establecidas para este servicio no se suspenderán en ninguna época del año, ni en festividades de semana santa, mitad o final de año.',
         },
         name: 'Taxis',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = '2017-12-01'
-            return String((pypFuncs.daysDiff(startDate, date, []) + 1) % 10)
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: false,
+            processingFunction() {
+              const startDate = '2017-12-01'
+              return String((pypFuncs.daysDiff(startDate, date, []) + 1) % 10)
+            },
           })
         },
       },

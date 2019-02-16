@@ -31,17 +31,10 @@ exports.testInfo = city => {
           expect(typeof category.name).toBe('string')
           expect(category.name.length).toBeGreaterThan(0)
         })
-        it(`should return 'na' array for ${categoryName}`, () => {
-          expect(Array.isArray(category.na)).toBe(true)
-        })
       })
       describe(`Test for ${city.name} info`, () => {
         it(`Should return a string for the name of ${categoryName}`, () => {
           expect(typeof category.name).toBe('string')
-          expect(category.name.length).toBeGreaterThan(0)
-        })
-        it(`Should return an array for 'na' of ${categoryName}`, () => {
-          expect(Array.isArray(category.na)).toBe(true)
           expect(category.name.length).toBeGreaterThan(0)
         })
         const { info } = category

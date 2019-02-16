@@ -61,17 +61,21 @@ module.exports = {
         </ul>`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '0-9', // lunes
-              '1-8', // martes
-              '2-7', // miércoles
-              '3-6', // jueves
-              '4-5', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '0-9', // lunes
+                '1-8', // martes
+                '2-7', // miércoles
+                '3-6', // jueves
+                '4-5', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -132,17 +136,21 @@ module.exports = {
           </ul>`,
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '0-9', // lunes
-              '1-8', // martes
-              '2-7', // miércoles
-              '3-6', // jueves
-              '4-5', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '0-9', // lunes
+                '1-8', // martes
+                '2-7', // miércoles
+                '3-6', // jueves
+                '4-5', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -178,27 +186,31 @@ module.exports = {
             'Medida de tránsito de RESTRICCIÓN VEHICULAR denominada PLACA – DÍA en la ciudad de San José de Cúcuta para VEHÍCULOS DE SERVICIO PÚBLICO TIPO TAXI, VEHÍCULOS DE PLACA EXTRANJERA (automóviles, motocicletas, camionetas, camiones, volquetas) y VEHÍCULOS DE PLACA NACIONAL (automóviles, motocicletas, camionetas, camiones, volquetes).',
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              [
-                '0', // lunes
-                '9', // martes
-                '8', // miércoles
-                '7', // jueves
-                '6', // viernes
-              ],
-              [
-                '1', // lunes
-                '2', // martes
-                '3', // miércoles
-                '4', // jueves
-                '5', // viernes
-              ],
-            ]
-            const week = pypFuncs.getWeek(date) % 2
-            return pyp[week][pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                [
+                  '0', // lunes
+                  '9', // martes
+                  '8', // miércoles
+                  '7', // jueves
+                  '6', // viernes
+                ],
+                [
+                  '1', // lunes
+                  '2', // martes
+                  '3', // miércoles
+                  '4', // jueves
+                  '5', // viernes
+                ],
+              ]
+              const week = pypFuncs.getWeek(date) % 2
+              return pyp[week][pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },

@@ -72,17 +72,21 @@ module.exports = {
           </ul>`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '0-1', // lunes
-              '2-3', // martes
-              '4-5', // miércoles
-              '6-7', // jueves
-              '8-9', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '0-1', // lunes
+                '2-3', // martes
+                '4-5', // miércoles
+                '6-7', // jueves
+                '8-9', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },

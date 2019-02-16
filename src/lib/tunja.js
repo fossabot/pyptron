@@ -36,13 +36,17 @@ module.exports = {
           observations: '',
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2015-06-01'
-            const startNums = '3-4'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2015-06-01'
+              const startNums = '3-4'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+            },
           })
         },
       },
@@ -101,17 +105,21 @@ module.exports = {
           map: pypFuncs.buildAssetPath('tunja', 'mapa-pico-y-placa-tunja.jpg'),
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '3-4', // lunes
-              '5-6', // martes
-              '7-8', // miércoles
-              '9-0', // jueves
-              '1-2', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '3-4', // lunes
+                '5-6', // martes
+                '7-8', // miércoles
+                '9-0', // jueves
+                '1-2', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -161,17 +169,21 @@ module.exports = {
         </ul>La secretaría de Tránsito y Transporte de Tunja definirá las condiciones necesarias para la inscripción de los vehículos exceptuados en el Registro Automotor Municipal de Tunja, los cuales deben pertenecer a la persona natural o jurídica en quien concurran las condiciones de excepción.`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '5-6', // lunes
-              '7-8', // martes
-              '9-0', // miércoles
-              '1-2', // jueves
-              '3-4', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '5-6', // lunes
+                '7-8', // martes
+                '9-0', // miércoles
+                '1-2', // jueves
+                '3-4', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },

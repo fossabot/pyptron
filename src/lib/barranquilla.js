@@ -39,19 +39,23 @@ module.exports = {
           observations: '',
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-01'
-            const startNums = '5-6'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '5-6'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByWeek(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true
+              )
+            },
           })
         },
       },

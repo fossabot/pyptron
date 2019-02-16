@@ -58,20 +58,24 @@ module.exports = {
           ),
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = '2017-08-01'
-            const startNums = '9-0'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateBy(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              'years',
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: false,
+            processingFunction() {
+              const startDate = '2017-08-01'
+              const startNums = '9-0'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateBy(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                'years',
+                true
+              )
+            },
           })
         },
       },
@@ -124,20 +128,24 @@ module.exports = {
           ),
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = '2017-08-01'
-            const startNums = '9-0'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateBy(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              'years',
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: false,
+            processingFunction() {
+              const startDate = '2017-08-01'
+              const startNums = '9-0'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateBy(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                'years',
+                true
+              )
+            },
           })
         },
       },
@@ -205,15 +213,19 @@ module.exports = {
           </ul>`,
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const dateObject = new Date(date)
-            const datesDate = dateObject.getDate()
-            if (datesDate === 31) {
-              return 'NA'
-            }
-            return (datesDate % 10).toString(10)
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: false,
+            processingFunction() {
+              const dateObject = new Date(date)
+              const datesDate = dateObject.getDate()
+              if (datesDate === 31) {
+                return 'NA'
+              }
+              return (datesDate % 10).toString(10)
+            },
           })
         },
       },
@@ -276,9 +288,15 @@ module.exports = {
           exceptions: `La anterior restricción no aplica para la producción agrícola, ganadera, de alientos perecederos, vehículos de emergencia, los que transporten valores, oxígeno hospitalario, los de las fuerzas militares o de policía y de las empresas de servicio públicos domiciliarios.`,
         },
         name: 'Transporte de Carga',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => '0-1-2-3-4-5-6-7-8-9')
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: false,
+            processingFunction() {
+              return '0-1-2-3-4-5-6-7-8-9'
+            },
+          })
         },
       },
     ],

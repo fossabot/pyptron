@@ -52,20 +52,24 @@ module.exports = {
         </ul>`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-02-05'
-            const pypNums = [
-              '4-5-6-7', // lunes
-              '8-9-0-1', // martes
-              '2-3-4-5', // miércoles
-              '6-7-8-9', // jueves
-              '0-1-2-3', // viernes
-            ]
-            const lapse = pypFuncs.monthsDiff(startDate, date, 6)
-            const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
-            return newPypNums[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-02-05'
+              const pypNums = [
+                '4-5-6-7', // lunes
+                '8-9-0-1', // martes
+                '2-3-4-5', // miércoles
+                '6-7-8-9', // jueves
+                '0-1-2-3', // viernes
+              ]
+              const lapse = pypFuncs.monthsDiff(startDate, date, 6)
+              const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
+              return newPypNums[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -119,20 +123,24 @@ module.exports = {
           </ul>`,
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-02-05'
-            const pypNums = [
-              '8-9', // lunes
-              '0-1', // martes
-              '2-3', // miércoles
-              '4-5', // jueves
-              '6-7', // viernes
-            ]
-            const lapse = pypFuncs.monthsDiff(startDate, date, 6)
-            const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
-            return newPypNums[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-02-05'
+              const pypNums = [
+                '8-9', // lunes
+                '0-1', // martes
+                '2-3', // miércoles
+                '4-5', // jueves
+                '6-7', // viernes
+              ]
+              const lapse = pypFuncs.monthsDiff(startDate, date, 6)
+              const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
+              return newPypNums[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -162,40 +170,45 @@ module.exports = {
             'La rotación de la medida de “Pico y placa” para el transporte público individual (taxis) que circulen en la Jurisdicción de Medellín, seguirá siendo cada dos semanas en el horario comprendido enre las 06:00 y las 20:00 horas durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del jueves 1 de febrero de 2018.',
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const dateObject = new Date(date)
-            const startDate = new Date('2018-01-01T05:00:00.000Z')
-            const millisecondsPerDay = 1000 * 60 * 60 * 24
-            const millisecondsDiff = dateObject - startDate
-            const daysDiff = millisecondsDiff / millisecondsPerDay
-            const weeksOffset = Math.ceil((daysDiff + 1) / 7)
-            let pypNums = [
-              ['5', '0'],
-              ['6', '1'],
-              ['7', '2'],
-              ['3', '8'],
-              ['4', '9'],
-            ]
-            if (dateObject >= new Date('2018-05-07T05:00:00.000Z')) {
-              pypNums[2] = ['2', '7']
-              pypNums[3] = ['8', '3']
-            }
-            if (dateObject >= new Date('2019-01-08T05:00:00.000Z')) {
-              pypNums[0] = ['0', '5']
-              pypNums[4] = ['9', '4']
-            }
-            const monthsDiff = dateObject.getMonth() - startDate.getMonth()
-            const yearsDiff = dateObject.getFullYear() - startDate.getFullYear()
-            const monthsDiffAccu = monthsDiff + yearsDiff * 12
-            const datesWeekDay = dateObject.getDay()
-            const datesDate = dateObject.getDate()
-            const weekOfMonth = Math.floor((datesDate - datesWeekDay) / 7)
-            const offset = monthsDiffAccu - (weekOfMonth < 0 ? 1 : 0)
-            pypNums = pypFuncs.arrRotate(pypNums, offset < 0 ? 0 : offset)
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const dateObject = new Date(date)
+              const startDate = new Date('2018-01-01T05:00:00.000Z')
+              const millisecondsPerDay = 1000 * 60 * 60 * 24
+              const millisecondsDiff = dateObject - startDate
+              const daysDiff = millisecondsDiff / millisecondsPerDay
+              const weeksOffset = Math.ceil((daysDiff + 1) / 7)
+              let pypNums = [
+                ['5', '0'],
+                ['6', '1'],
+                ['7', '2'],
+                ['3', '8'],
+                ['4', '9'],
+              ]
+              if (dateObject >= new Date('2018-05-07T05:00:00.000Z')) {
+                pypNums[2] = ['2', '7']
+                pypNums[3] = ['8', '3']
+              }
+              if (dateObject >= new Date('2019-01-08T05:00:00.000Z')) {
+                pypNums[0] = ['0', '5']
+                pypNums[4] = ['9', '4']
+              }
+              const monthsDiff = dateObject.getMonth() - startDate.getMonth()
+              const yearsDiff =
+                dateObject.getFullYear() - startDate.getFullYear()
+              const monthsDiffAccu = monthsDiff + yearsDiff * 12
+              const datesWeekDay = dateObject.getDay()
+              const datesDate = dateObject.getDate()
+              const weekOfMonth = Math.floor((datesDate - datesWeekDay) / 7)
+              const offset = monthsDiffAccu - (weekOfMonth < 0 ? 1 : 0)
+              pypNums = pypFuncs.arrRotate(pypNums, offset < 0 ? 0 : offset)
 
-            return pypNums[datesWeekDay - 1][(weeksOffset + 1) % 2]
+              return pypNums[datesWeekDay - 1][(weeksOffset + 1) % 2]
+            },
           })
         },
       },

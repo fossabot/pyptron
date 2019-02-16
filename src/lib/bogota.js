@@ -76,13 +76,17 @@ module.exports = {
         </ul>`,
         },
         name: 'Ambiental',
-        na: [0],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-01'
-            const startNums = '9'
-            const pypNums = ['0', '1', '2', '3', '4', '5', '6', '7', '9', '8']
-            return pypFuncs.rotateByDay(date, startDate, startNums, pypNums)
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '9'
+              const pypNums = ['0', '1', '2', '3', '4', '5', '6', '7', '9', '8']
+              return pypFuncs.rotateByDay(date, startDate, startNums, pypNums)
+            },
           })
         },
       },
@@ -148,19 +152,23 @@ module.exports = {
       </ul>`,
         },
         name: 'Taxis',
-        na: [0],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-01'
-            const startNums = '7-8'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '7-8'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByWeek(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true
+              )
+            },
           })
         },
       },
@@ -210,19 +218,23 @@ module.exports = {
           observations: '',
         },
         name: 'Servicio de Transporte Especial',
-        na: [0],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-01'
-            const startNums = '7-8'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '7-8'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByWeek(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true
+              )
+            },
           })
         },
       },
@@ -271,19 +283,23 @@ module.exports = {
             'Los vehículos de servicio público de transporte colectivo de pasajeros con restricción, podrán circular con no más de un (1) acompañante, únicamente para atender labores de mantenimiento, alistamiento, reparación o revisión técnico mecánica, portando en un lugar visible aviso que exprese claramente que se encuentran fuera de servicio.',
         },
         name: 'Transporte Público Colectivo',
-        na: [0],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-01'
-            const startNums = '5-6'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-01'
+              const startNums = '5-6'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByWeek(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true
+              )
+            },
           })
         },
       },
@@ -375,24 +391,28 @@ module.exports = {
         `,
         },
         name: 'Particulares',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const day = pypFuncs.getDay(date)
-            if (
-              pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
-              pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
-            ) {
-              return 'NA'
-            }
-            if (day === 6) {
-              return '0-2-4-6-8'
-            }
-            if (day === 0) {
-              return '1-3-5-7-9'
-            }
-            const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-            return pyp[pypFuncs.getDate(date) % 2]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: true,
+            processingFunction() {
+              const day = pypFuncs.getDay(date)
+              if (
+                pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+                pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
+              ) {
+                return 'NA'
+              }
+              if (day === 6) {
+                return '0-2-4-6-8'
+              }
+              if (day === 0) {
+                return '1-3-5-7-9'
+              }
+              const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+              return pyp[pypFuncs.getDate(date) % 2]
+            },
           })
         },
       },
@@ -450,24 +470,28 @@ module.exports = {
           <li>Vehículos y motocicletas destinadas al control de emisiones y vertimientos. Automotores y motocicletas utilizados por la Secretaria Distrital de Ambiente o por el Ministerio de Ambiente y Desarrollo Sostenible o quien haga sus veces, para la revisión, atención y prevención de emisiones y vertimientos contaminantes, siempre y cuando cuenten con plena y pública identificación, consistente en los logos pintados o adheridos en el vehículo y/o plena y pública identificación del conductor del vehículo.</li></ul>`,
         },
         name: 'Motos',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const day = pypFuncs.getDay(date)
-            if (
-              pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
-              pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
-            ) {
-              return 'NA'
-            }
-            if (day === 6) {
-              return '0-2-4-6-8'
-            }
-            if (day === 0) {
-              return '1-3-5-7-9'
-            }
-            const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-            return pyp[pypFuncs.getDate(date) % 2]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: true,
+            processingFunction() {
+              const day = pypFuncs.getDay(date)
+              if (
+                pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+                pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
+              ) {
+                return 'NA'
+              }
+              if (day === 6) {
+                return '0-2-4-6-8'
+              }
+              if (day === 0) {
+                return '1-3-5-7-9'
+              }
+              const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+              return pyp[pypFuncs.getDate(date) % 2]
+            },
           })
         },
       },

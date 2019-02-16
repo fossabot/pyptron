@@ -86,32 +86,36 @@ module.exports = {
         </ul>`,
         },
         name: 'Particulares',
-        na: [0],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            if (pypFuncs.getDay(date) === 6) {
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0],
+            skipHolidays: true,
+            processingFunction() {
+              if (pypFuncs.getDay(date) === 6) {
+                const startNums = '3-4'
+                const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+                const startDate = '2018-01-06'
+                return pypFuncs.rotateByWeek(
+                  date,
+                  startDate,
+                  startNums,
+                  pypNums,
+                  true
+                )
+              }
               const startNums = '3-4'
               const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-              const startDate = '2018-01-06'
-              return pypFuncs.rotateByWeek(
+              const startDate = '2018-01-01'
+              return pypFuncs.rotateByMonth(
                 date,
                 startDate,
                 startNums,
                 pypNums,
-                true
+                true,
+                3
               )
-            }
-            const startNums = '3-4'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            const startDate = '2018-01-01'
-            return pypFuncs.rotateByMonth(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true,
-              3
-            )
+            },
           })
         },
       },
@@ -197,32 +201,36 @@ module.exports = {
           </ul>`,
         },
         name: 'Motos',
-        na: [0],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            if (pypFuncs.getDay(date) === 6) {
-              const startDate = '2018-01-06'
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0],
+            skipHolidays: true,
+            processingFunction() {
+              if (pypFuncs.getDay(date) === 6) {
+                const startDate = '2018-01-06'
+                const startNums = '3-4'
+                const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+                return pypFuncs.rotateByWeek(
+                  date,
+                  startDate,
+                  startNums,
+                  pypNums,
+                  true
+                )
+              }
               const startNums = '3-4'
               const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-              return pypFuncs.rotateByWeek(
+              const startDate = '2018-01-01'
+              return pypFuncs.rotateByMonth(
                 date,
                 startDate,
                 startNums,
                 pypNums,
-                true
+                true,
+                3
               )
-            }
-            const startNums = '3-4'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            const startDate = '2018-01-01'
-            return pypFuncs.rotateByMonth(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true,
-              3
-            )
+            },
           })
         },
       },
@@ -258,19 +266,23 @@ module.exports = {
           observations: '',
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = '2018-01-08'
-            const startNums = '1-2'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const startDate = '2018-01-08'
+              const startNums = '1-2'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByWeek(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true
+              )
+            },
           })
         },
       },

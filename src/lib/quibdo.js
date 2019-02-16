@@ -39,17 +39,21 @@ module.exports = {
         </ul>Los conductores de los vehículos anteriormente relacionados, deberán portar su respectivo carné y distintivos de la institución o empresa que acrediten la condición de excepción, certificado de existencia y representación legal del ente respectivo y la certificación original debidamente expedida por el representante legal en la que indique como mínimo nombre del conductor, identificación y placa del vehículo automotor, acreditando que el vehículo presta servicio. El vehículo podrá circular demostrando su condición de excepción a través de los documentos relacionados y por lo tanto no rquiere la expedición de permiso alguno.`,
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '1-2-3-4', // lunes
-              '5-6-7-8', // martes
-              '9-0-1-2', // miércoles
-              '3-4-5-6', // jueves
-              '7-8-9-0', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '1-2-3-4', // lunes
+                '5-6-7-8', // martes
+                '9-0-1-2', // miércoles
+                '3-4-5-6', // jueves
+                '7-8-9-0', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -90,17 +94,21 @@ module.exports = {
         </ul>Los conductores de los vehículos anteriormente relacionados, deberán portar su respectivo carné y distintivos de la institución o empresa que acrediten la condición de excepción, certificado de existencia y representación legal del ente respectivo y la certificación original debidamente expedida por el representante legal en la que indique como mínimo nombre del conductor, identificación y placa del vehículo automotor, acreditando que el vehículo presta servicio. El vehículo podrá circular demostrando su condición de excepción a través de los documentos relacionados y por lo tanto no rquiere la expedición de permiso alguno.`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '1-2', // lunes
-              '3-4', // martes
-              '5-6', // miércoles
-              '7-8', // jueves
-              '9-0', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '1-2', // lunes
+                '3-4', // martes
+                '5-6', // miércoles
+                '7-8', // jueves
+                '9-0', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },

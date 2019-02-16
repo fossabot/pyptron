@@ -38,33 +38,42 @@ module.exports = {
             'El pico y placa operará de acuerdo con el último dígito de la fecha del calendario.',
         },
         name: 'Taxis',
-        na: [],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const dateObject = new Date(date)
-            const datesDate = dateObject.getDate()
-            if (datesDate === 31) {
-              return 'NA'
-            }
-            if (dateObject.getDay() === 5) {
-              const year = dateObject.getFullYear()
-              const month = dateObject.getMonth()
-              const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1)
-              if (
-                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
-                pypFuncs.formatDate(secondFriday, 'YYMMDD')
-              ) {
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [],
+            skipHolidays: false,
+            processingFunction() {
+              const dateObject = new Date(date)
+              const datesDate = dateObject.getDate()
+              if (datesDate === 31) {
                 return 'NA'
               }
-              const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
-              if (
-                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
-                pypFuncs.formatDate(lastFriday, 'YYMMDD')
-              ) {
-                return 'NA'
+              if (dateObject.getDay() === 5) {
+                const year = dateObject.getFullYear()
+                const month = dateObject.getMonth()
+                const secondFriday = pypFuncs.getNthDayOfMonth(
+                  year,
+                  month,
+                  5,
+                  1
+                )
+                if (
+                  pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                  pypFuncs.formatDate(secondFriday, 'YYMMDD')
+                ) {
+                  return 'NA'
+                }
+                const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
+                if (
+                  pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                  pypFuncs.formatDate(lastFriday, 'YYMMDD')
+                ) {
+                  return 'NA'
+                }
               }
-            }
-            return (datesDate % 10).toString(10)
+              return (datesDate % 10).toString(10)
+            },
           })
         },
       },
@@ -97,25 +106,29 @@ module.exports = {
           observations: '',
         },
         name: 'Taxis',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
-              case '2018-02-02':
-                return '3-4'
-              case '2018-03-02':
-                return '1-2'
-              case '2018-04-30':
-                return '7-8'
-              case '2018-10-01':
-                return '7-8'
-              default:
-                break
-            }
-            const startDate = '2018-01-02'
-            const startNums = '7-8'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+                case '2018-02-02':
+                  return '3-4'
+                case '2018-03-02':
+                  return '1-2'
+                case '2018-04-30':
+                  return '7-8'
+                case '2018-10-01':
+                  return '7-8'
+                default:
+                  break
+              }
+              const startDate = '2018-01-02'
+              const startNums = '7-8'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+            },
           })
         },
       },
@@ -228,26 +241,30 @@ module.exports = {
         </ul>`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
-              case '2018-03-02':
-                return '9-0'
-              default:
-                break
-            }
-            const startDate = '2017-12-02'
-            const startNums = '1-2'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByMonth(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true,
-              3
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+                case '2018-03-02':
+                  return '9-0'
+                default:
+                  break
+              }
+              const startDate = '2017-12-02'
+              const startNums = '1-2'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByMonth(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true,
+                3
+              )
+            },
           })
         },
       },
@@ -361,26 +378,30 @@ module.exports = {
         </ul>`,
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
-              case '2018-03-02':
-                return '9-0'
-              default:
-                break
-            }
-            const startDate = '2017-12-02'
-            const startNums = '1-2'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByMonth(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true,
-              3
-            )
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+                case '2018-03-02':
+                  return '9-0'
+                default:
+                  break
+              }
+              const startDate = '2017-12-02'
+              const startNums = '1-2'
+              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+              return pypFuncs.rotateByMonth(
+                date,
+                startDate,
+                startNums,
+                pypNums,
+                true,
+                3
+              )
+            },
           })
         },
       },
@@ -444,30 +465,39 @@ module.exports = {
           </ol>`,
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, false, () => {
-            const dateObject = new Date(date)
-            if (dateObject.getDay() === 5) {
-              const year = dateObject.getFullYear()
-              const month = dateObject.getMonth()
-              const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1)
-              if (
-                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
-                pypFuncs.formatDate(secondFriday, 'YYMMDD')
-              ) {
-                return '0-1-2-3-4-5-6-7-8-9'
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: false,
+            processingFunction() {
+              const dateObject = new Date(date)
+              if (dateObject.getDay() === 5) {
+                const year = dateObject.getFullYear()
+                const month = dateObject.getMonth()
+                const secondFriday = pypFuncs.getNthDayOfMonth(
+                  year,
+                  month,
+                  5,
+                  1
+                )
+                if (
+                  pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                  pypFuncs.formatDate(secondFriday, 'YYMMDD')
+                ) {
+                  return '0-1-2-3-4-5-6-7-8-9'
+                }
+                const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
+                if (
+                  pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                  pypFuncs.formatDate(lastFriday, 'YYMMDD')
+                ) {
+                  return '0-1-2-3-4-5-6-7-8-9'
+                }
               }
-              const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
-              if (
-                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
-                pypFuncs.formatDate(lastFriday, 'YYMMDD')
-              ) {
-                return '0-1-2-3-4-5-6-7-8-9'
-              }
-            }
-            const pyp = ['1-3-5-7-9', '0-2-4-6-8']
-            return pyp[pypFuncs.getDate(date) % 2]
+              const pyp = ['1-3-5-7-9', '0-2-4-6-8']
+              return pyp[pypFuncs.getDate(date) % 2]
+            },
           })
         },
       },

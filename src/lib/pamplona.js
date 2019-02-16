@@ -24,17 +24,21 @@ module.exports = {
             'Perímetro de pico y placa: Calle 9º y la Calle 4 sin incluir	la vía nacional y el de la Carrera 8º , en su totalidad, hasta la Carrera 3º en su	Totalidad',
         },
         name: 'Particulares',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '1-2', // lunes
-              '3-4', // martes
-              '5-6', // miércoles
-              '7-8', // jueves
-              '9-0', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '1-2', // lunes
+                '3-4', // martes
+                '5-6', // miércoles
+                '7-8', // jueves
+                '9-0', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
@@ -58,17 +62,21 @@ module.exports = {
             'Perímetro de pico y placa: Calle 9º y la Calle 4 sin incluir	la vía nacional y el de la Carrera 8º , en su totalidad, hasta la Carrera 3º en su	Totalidad',
         },
         name: 'Motos',
-        na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(date, this.na, true, () => {
-            const pyp = [
-              '1-2', // lunes
-              '3-4', // martes
-              '5-6', // miércoles
-              '7-8', // jueves
-              '9-0', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
+          return pypFuncs.pyp({
+            date,
+            excludedDays: [0, 6],
+            skipHolidays: true,
+            processingFunction() {
+              const pyp = [
+                '1-2', // lunes
+                '3-4', // martes
+                '5-6', // miércoles
+                '7-8', // jueves
+                '9-0', // viernes
+              ]
+              return pyp[pypFuncs.getDay(date) - 1]
+            },
           })
         },
       },
