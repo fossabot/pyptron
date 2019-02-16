@@ -1,35 +1,35 @@
-const { testCases, testInfo } = require("../utils/testsWrapper");
+const { testCases, testInfo } = require('../utils/testsWrapper')
 
-const city = require("./armenia");
+const city = require('./armenia')
 
 const dateCases = [
   {
-    date: "2018-02-08",
+    date: '2018-02-08',
     pypCases: {
-      taxis: "3-4"
-    }
+      taxis: '3-4',
+    },
   },
   {
-    date: "2018-03-12",
+    date: '2018-03-12',
     pypCases: {
-      taxis: "7-8"
-    }
+      taxis: '7-8',
+    },
   },
   {
-    date: "2018-04-09", // lunes 9 de abril de 2018
+    date: '2018-04-09', // lunes 9 de abril de 2018
     pypCases: {
-      particulares: "1-2",
-      motos: "1-2",
-      taxis: "5-6"
-    }
+      particulares: '1-2',
+      motos: '1-2',
+      taxis: '5-6',
+    },
   },
   {
-    date: "2018-05-16", // miércoles 16 de mayo de 2018
+    date: '2018-05-16', // miércoles 16 de mayo de 2018
     pypCases: {
-      particulares: "5-6",
-      motos: "5-6"
-    }
-  }
-];
-testCases(city, dateCases);
-testInfo(city);
+      particulares: '5-6',
+      motos: '5-6',
+    },
+  },
+]
+testCases(city, dateCases)
+testInfo(city)

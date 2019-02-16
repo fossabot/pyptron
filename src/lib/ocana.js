@@ -1,43 +1,43 @@
-const pypFuncs = require("../utils/funcs");
+const pypFuncs = require('../utils/funcs')
 
 module.exports = {
-  name: "Ocaña",
+  name: 'Ocaña',
   categories: {
     particulares: [
       {
-        from: "2018-10-22",
+        from: '2018-10-22',
         info: {
           vehicleClasses: [
-            "Vehículos particulares no matriculados en el municipio de Ocaña"
+            'Vehículos particulares no matriculados en el municipio de Ocaña',
           ],
           decrees: [
             {
-              name: "Decreto 60 del 22 de octubre de 2018",
+              name: 'Decreto 60 del 22 de octubre de 2018',
               url: pypFuncs.buildAssetPath(
-                "ocana",
-                "decreto-60-del-22-de-octubre-de-2018.pdf"
-              )
+                'ocana',
+                'decreto-60-del-22-de-octubre-de-2018.pdf'
+              ),
             },
             {
-              name: "Estudio de tráfico pico y placa",
+              name: 'Estudio de tráfico pico y placa',
               url: pypFuncs.buildAssetPath(
-                "ocana",
-                "estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf"
-              )
-            }
+                'ocana',
+                'estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "19:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '19:00']],
+              days: [],
+            },
           ],
           scheme:
-            "Cíclico de acuerdo con el último número de la placa del vehículo",
+            'Cíclico de acuerdo con el último número de la placa del vehículo',
           observations: `La medida de Pico y Placa rige en toda la jurisdicción urbana del municipio de Ocaña, (con excepción de la vía nacional) bajo los siguientes parámetros:
             <ol>
             <li>La aplicación de la medida de reducción de vehículos, se hará de lunes a viernes (días hábilies) desde las 7:00am a 7:00pm para vehículos particulares.</li>
@@ -69,23 +69,23 @@ module.exports = {
             <li>Vehículos particulares u oficiales en que se transporte el Personero, Registrados Municipal y Departamental del Estado Civil, vehículos asigandos por la Agencia Nacional de Protección, siempre uqe dichos personajes se encuentren dentro del vehículo y ostenten dicha calidad, la cual deberá acreditarse en el momento en que sea rquerido por la autoridad de tránsito en la vía pública.</li>
             <li>Vehículos con placas de municipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al Municipio de Ocaña, Norte de Santander el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día. </li>
             <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizados por la Secretaría de Movilidad.</li>
-          </ul>`
+          </ul>`,
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
             const pyp = [
-              "0-1", // lunes
-              "2-3", // martes
-              "4-5", // miércoles
-              "6-7", // jueves
-              "8-9" // viernes
-            ];
-            return pyp[pypFuncs.getDay(date) - 1];
-          });
-        }
-      }
-    ]
-  }
-};
+              '0-1', // lunes
+              '2-3', // martes
+              '4-5', // miércoles
+              '6-7', // jueves
+              '8-9', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          })
+        },
+      },
+    ],
+  },
+}

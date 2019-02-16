@@ -1,81 +1,81 @@
-const pypFuncs = require("../utils/funcs");
+const pypFuncs = require('../utils/funcs')
 
 module.exports = {
-  name: "Tunja",
+  name: 'Tunja',
   categories: {
     taxis: [
       {
-        from: "2015-06-01",
+        from: '2015-06-01',
         info: {
           vehicleClasses: [
-            "Vehículos de transporte público individual de pasajeros - Taxis"
+            'Vehículos de transporte público individual de pasajeros - Taxis',
           ],
           decrees: [
             {
-              name: "Decreto No. 0201 del 13 de junio de 2016",
+              name: 'Decreto No. 0201 del 13 de junio de 2016',
               url:
-                "http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf"
+                'http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf',
             },
             {
-              name: "Decreto 0151 del 22 de marzo 2013",
+              name: 'Decreto 0151 del 22 de marzo 2013',
               url:
-                "http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf"
-            }
+                'http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf',
+            },
           ],
           days: [
-            "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "19:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '19:00']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa según el esquema",
-          observations: ""
+          scheme: 'Último dígito del número de la placa según el esquema',
+          observations: '',
         },
-        name: "Taxis",
+        name: 'Taxis',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = "2015-06-01";
-            const startNums = "3-4";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
-            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums);
-          });
-        }
-      }
+            const startDate = '2015-06-01'
+            const startNums = '3-4'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+          })
+        },
+      },
     ],
     particulares: [
       {
-        from: "2019-01-15",
+        from: '2019-01-15',
 
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto No. 0201 del 13 de junio de 2016",
+              name: 'Decreto No. 0201 del 13 de junio de 2016',
               url:
-                "http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf"
+                'http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf',
             },
             {
-              name: "Decreto 0151 del 22 de marzo 2013",
+              name: 'Decreto 0151 del 22 de marzo 2013',
               url:
-                "http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf"
-            }
+                'http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf',
+            },
           ],
           days: [
-            "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "19:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '19:00']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa según el esquema",
+          scheme: 'Último dígito del número de la placa según el esquema',
           observations: `Queda excluida de la restricción establecida la infraestructura de transporte (vías y glorietas) que conforman los siguientes Corredores Principales, dentro del perímetro urbano de la ciudad de Tunja:
           <ul>
           <li>Corredor Longitudinal 1 (Norte-Sur): Ingreso a Tunja – Avenida Norte – Glorieta Norte.</li>
@@ -98,52 +98,52 @@ module.exports = {
         <li>Vehículos de medios de comunicación, es decir automotores de propiedad de los medios de comunicación, que porten pintados o adheridos en la carrocería en forma visible los distintivos del medio de comunicación y que transporten personal o equipos técnicos de comunicación para el desarrollo de la labor periodística.</li>
         <li>Vehículos de autoridades judiciales, es decir los automotores de propiedad de Magistrados(as) de las Salas Penales del Tribunal de Boyacá, los(as) Jueces(as) Penales y los Fiscales a quienes el Consejo Seccional de la Judicatura y la Fiscalía certifiquen que desempeñan dicha labor en la ciudad de Tunja, poseen alto riesgo de seguridad, previo estudio y que no tienen asignado un vehículo oficial para su transporte y custodia.</li>
         </ul>La secretaría de Tránsito y Transporte de Tunja definirá las condiciones necesarias para la inscripción de los vehículos exceptuados en el Registro Automotor Municipal de Tunja, los cuales deben pertenecer a la persona natural o jurídica en quien concurran las condiciones de excepción.`,
-          map: pypFuncs.buildAssetPath("tunja", "mapa-pico-y-placa-tunja.jpg")
+          map: pypFuncs.buildAssetPath('tunja', 'mapa-pico-y-placa-tunja.jpg'),
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
             const pyp = [
-              "3-4", // lunes
-              "5-6", // martes
-              "7-8", // miércoles
-              "9-0", // jueves
-              "1-2" // viernes
-            ];
-            return pyp[pypFuncs.getDay(date) - 1];
-          });
-        }
+              '3-4', // lunes
+              '5-6', // martes
+              '7-8', // miércoles
+              '9-0', // jueves
+              '1-2', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          })
+        },
       },
       {
-        from: "2015-06-01",
+        from: '2015-06-01',
 
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto No. 0201 del 13 de junio de 2016",
+              name: 'Decreto No. 0201 del 13 de junio de 2016',
               url:
-                "http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf"
+                'http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf',
             },
             {
-              name: "Decreto 0151 del 22 de marzo 2013",
+              name: 'Decreto 0151 del 22 de marzo 2013',
               url:
-                "http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf"
-            }
+                'http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf',
+            },
           ],
           days: [
-            "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "19:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '19:00']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa según el esquema",
-          observations: "",
+          scheme: 'Último dígito del número de la placa según el esquema',
+          observations: '',
           exceptions: `<ul>
         <li>Caravanas de vehículos para el transporte de funcionarios del orden Nacional, Departamenteal y Municipal; y vehículos con placa oficial para el transporte de funcionarios del orden Nacional, Departamental y Municipal.</li>
         <li>Vehículos de servicio diplomático o consular o automotor identificados con placas especiales asignadas por el Ministerio de Relaciones Exteriores, y vehículos de las autoridades eclesiásticas.</li>
@@ -158,23 +158,23 @@ module.exports = {
         <li>Vehículos escolta, es decir aquellos conducidos por personal armado autorizado y registrado ante la Superintendencia de Vigilancia y Seguridad Privada.</li>
         <li>Vehículos de medios de comunicación, es decir automotores de propiedad de los medios de comunicación, que porten pintados o adheridos en la carrocería en forma visible los distintivos del medio de comunicación y que transporten personal o equipos técnicos de comunicación para el desarrollo de la labor periodística.</li>
         <li>Vehículos de autoridades judiciales, es decir los automotores de propiedad de Magistrados(as) de las Salas Penales del Tribunal de Boyacá, los(as) Jueces(as) Penales y los Fiscales a quienes el Consejo Seccional de la Judicatura y la Fiscalía certifiquen que desempeñan dicha labor en la ciudad de Tunja, poseen alto riesgo de seguridad, previo estudio y que no tienen asignado un vehículo oficial para su transporte y custodia.</li>
-        </ul>La secretaría de Tránsito y Transporte de Tunja definirá las condiciones necesarias para la inscripción de los vehículos exceptuados en el Registro Automotor Municipal de Tunja, los cuales deben pertenecer a la persona natural o jurídica en quien concurran las condiciones de excepción.`
+        </ul>La secretaría de Tránsito y Transporte de Tunja definirá las condiciones necesarias para la inscripción de los vehículos exceptuados en el Registro Automotor Municipal de Tunja, los cuales deben pertenecer a la persona natural o jurídica en quien concurran las condiciones de excepción.`,
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
             const pyp = [
-              "5-6", // lunes
-              "7-8", // martes
-              "9-0", // miércoles
-              "1-2", // jueves
-              "3-4" // viernes
-            ];
-            return pyp[pypFuncs.getDay(date) - 1];
-          });
-        }
-      }
-    ]
-  }
-};
+              '5-6', // lunes
+              '7-8', // martes
+              '9-0', // miércoles
+              '1-2', // jueves
+              '3-4', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          })
+        },
+      },
+    ],
+  },
+}

@@ -1,5 +1,5 @@
-const { testInfo } = require("../utils/testsWrapper");
+const { testInfo } = require('../utils/testsWrapper')
 
-const city = require("./envigado");
+const city = require('./envigado')
 
-testInfo(city);
+testInfo(city)

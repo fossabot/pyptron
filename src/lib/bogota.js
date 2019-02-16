@@ -1,63 +1,63 @@
-const pypFuncs = require("../utils/funcs");
+const pypFuncs = require('../utils/funcs')
 
 module.exports = {
-  name: "Bogotá",
+  name: 'Bogotá',
   categories: {
     ambiental: [
       {
-        from: "2018-01-01",
+        from: '2018-01-01',
         info: {
           vehicleClasses: [
-            "Vehículos de Transporte Público Colectivo de pasajeros",
-            "Vehículos de Transporte de Carga"
+            'Vehículos de Transporte Público Colectivo de pasajeros',
+            'Vehículos de Transporte de Carga',
           ],
           decrees: [
             {
-              name: "Decreto 325 del 16 de agosto de 2006",
+              name: 'Decreto 325 del 16 de agosto de 2006',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=21050"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=21050',
             },
             {
-              name: "Decreto 174 de 2006",
+              name: 'Decreto 174 de 2006',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=56330',
             },
             {
               name:
-                "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+                'Calendario pico y placa Bogotá primer semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
-              )
+                'bogota',
+                'calendario-pico-y-placa-primer-semestre-2018-unificado.pdf'
+              ),
             },
             {
               name:
-                "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+                'Calendario pico y placa Bogotá segundo semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
-              )
-            }
+                'bogota',
+                'calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)",
-            "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)',
+            'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "Transporte Público Colectivo",
-              hours: [["6:00", "10:00"]],
-              days: []
+              comment: 'Transporte Público Colectivo',
+              hours: [['6:00', '10:00']],
+              days: [],
             },
             {
-              comment: "Transporte de Carga",
-              hours: [["9:00", "10:00"]],
-              days: []
-            }
+              comment: 'Transporte de Carga',
+              hours: [['9:00', '10:00']],
+              days: [],
+            },
           ],
           scheme:
-            "Para todos los vehículos de transporte de carga (incluye servicio público y particular).",
-          observations: "",
+            'Para todos los vehículos de transporte de carga (incluye servicio público y particular).',
+          observations: '',
           exceptions: `<ul>
           <li>
             <strong>Vehículos de Transporte Público Colectivo de Pasajeros</strong>:
@@ -73,276 +73,276 @@ module.exports = {
               <li>No será aplicable a los vehículos particulares de carga, así como a los vinculados a las empresas de transporte de carga que se acojan al "Programa de Autorregurlación Ambiental.</li>
             </ul>
           </li>
-        </ul>`
+        </ul>`,
         },
-        name: "Ambiental",
+        name: 'Ambiental',
         na: [0],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = "2018-01-01";
-            const startNums = "9";
-            const pypNums = ["0", "1", "2", "3", "4", "5", "6", "7", "9", "8"];
-            return pypFuncs.rotateByDay(date, startDate, startNums, pypNums);
-          });
-        }
-      }
+            const startDate = '2018-01-01'
+            const startNums = '9'
+            const pypNums = ['0', '1', '2', '3', '4', '5', '6', '7', '9', '8']
+            return pypFuncs.rotateByDay(date, startDate, startNums, pypNums)
+          })
+        },
+      },
     ],
     taxis: [
       {
-        from: "2018-01-01",
+        from: '2018-01-01',
         info: {
           vehicleClasses: [
-            "Vehículos de transporte público individual de pasajeros - Taxis"
+            'Vehículos de transporte público individual de pasajeros - Taxis',
           ],
           decrees: [
             {
-              name: "Decreto 660 del 27 de agosto de 2001",
+              name: 'Decreto 660 del 27 de agosto de 2001',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4643"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4643',
             },
             {
-              name: "Decreto 058 del 10 de marzo de 2003",
+              name: 'Decreto 058 del 10 de marzo de 2003',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=7182"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=7182',
             },
             {
-              name: "Decreto 051 del 20 de febrero de 2004",
+              name: 'Decreto 051 del 20 de febrero de 2004',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=12124',
             },
             {
               name:
-                "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+                'Calendario pico y placa Bogotá primer semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
-              )
+                'bogota',
+                'calendario-pico-y-placa-primer-semestre-2018-unificado.pdf'
+              ),
             },
             {
               name:
-                "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+                'Calendario pico y placa Bogotá segundo semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
-              )
-            }
+                'bogota',
+                'calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["5:30", "21:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['5:30', '21:00']],
+              days: [],
+            },
           ],
           scheme:
-            "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
+            'Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)',
           exceptions: `<ul>
         <li>Vehículos vinculados al transporte masivo de pasajeros bien sean articulados o alimentadores.</li>
         <li>Vehículos de tranporte público colectivo intermunicipal de pasajeros cuyo destino u origen sea el Terminal de Transporte de Bogotá.</li>
         <li>Vehículos de servicios especiales de transporte de asalariados y escolares debidamente autorizados.</li>
         <li>Vehículos de carga.</li>
         <li>Vehículos de servicios especiales de turismo, salvo aquellos a los cuales alude el artículo primero del presente Decreto.</li>
-      </ul>`
+      </ul>`,
         },
-        name: "Taxis",
+        name: 'Taxis',
         na: [0],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = "2018-01-01";
-            const startNums = "7-8";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2018-01-01'
+            const startNums = '7-8'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateByWeek(
               date,
               startDate,
               startNums,
               pypNums,
               true
-            );
-          });
-        }
-      }
+            )
+          })
+        },
+      },
     ],
     especial: [
       {
-        from: "2018-01-01",
+        from: '2018-01-01',
         info: {
           vehicleClasses: [
-            "Vehículos de servicio público de transporte terrestre automotor especial, clase automóvil, camioneta o campero, con capacidad para cuatro (4) pasajeros (sin incluir conductor)"
+            'Vehículos de servicio público de transporte terrestre automotor especial, clase automóvil, camioneta o campero, con capacidad para cuatro (4) pasajeros (sin incluir conductor)',
           ],
           decrees: [
             {
-              name: "Decreto 248 del 14 de junio de 2016",
+              name: 'Decreto 248 del 14 de junio de 2016',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66359',
             },
             {
               name:
-                "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+                'Calendario pico y placa Bogotá primer semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
-              )
+                'bogota',
+                'calendario-pico-y-placa-primer-semestre-2018-unificado.pdf'
+              ),
             },
             {
               name:
-                "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+                'Calendario pico y placa Bogotá segundo semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
-              )
-            }
+                'bogota',
+                'calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)."
+            'Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley).',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["5:30", "21:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['5:30', '21:00']],
+              days: [],
+            },
           ],
           scheme:
-            "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
-          observations: ""
+            'Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)',
+          observations: '',
         },
-        name: "Servicio de Transporte Especial",
+        name: 'Servicio de Transporte Especial',
         na: [0],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = "2018-01-01";
-            const startNums = "7-8";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2018-01-01'
+            const startNums = '7-8'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateByWeek(
               date,
               startDate,
               startNums,
               pypNums,
               true
-            );
-          });
-        }
-      }
+            )
+          })
+        },
+      },
     ],
     tpc: [
       {
-        from: "2018-01-01",
+        from: '2018-01-01',
         info: {
-          vehicleClasses: ["Vehículos de Transporte Público Colectivo (TPC)"],
+          vehicleClasses: ['Vehículos de Transporte Público Colectivo (TPC)'],
           decrees: [
             {
-              name: "Decreto 444 de 2014",
+              name: 'Decreto 444 de 2014',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702',
             },
             {
               name:
-                "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+                'Calendario pico y placa Bogotá primer semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
-              )
+                'bogota',
+                'calendario-pico-y-placa-primer-semestre-2018-unificado.pdf'
+              ),
             },
             {
               name:
-                "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+                'Calendario pico y placa Bogotá segundo semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
-              )
-            }
+                'bogota',
+                'calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)"
+            'Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "Todo el día",
+              comment: 'Todo el día',
               hours: [[]],
-              days: []
-            }
+              days: [],
+            },
           ],
           scheme:
-            "Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)",
+            'Cíclico de acuerdo con el último número de la placa del vehículo (2 dígitos por día según calendario establecido)',
           observations:
-            "Los vehículos de servicio público de transporte colectivo de pasajeros con restricción, podrán circular con no más de un (1) acompañante, únicamente para atender labores de mantenimiento, alistamiento, reparación o revisión técnico mecánica, portando en un lugar visible aviso que exprese claramente que se encuentran fuera de servicio."
+            'Los vehículos de servicio público de transporte colectivo de pasajeros con restricción, podrán circular con no más de un (1) acompañante, únicamente para atender labores de mantenimiento, alistamiento, reparación o revisión técnico mecánica, portando en un lugar visible aviso que exprese claramente que se encuentran fuera de servicio.',
         },
-        name: "Transporte Público Colectivo",
+        name: 'Transporte Público Colectivo',
         na: [0],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const startDate = "2018-01-01";
-            const startNums = "5-6";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2018-01-01'
+            const startNums = '5-6'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateByWeek(
               date,
               startDate,
               startNums,
               pypNums,
               true
-            );
-          });
-        }
-      }
+            )
+          })
+        },
+      },
     ],
     particulares: [
       {
-        from: "2018-01-01",
+        from: '2018-01-01',
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto 515 del 22 de Noviembre de 2016",
+              name: 'Decreto 515 del 22 de Noviembre de 2016',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=55963"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=55963',
             },
             {
-              name: "Decreto 575 del 17 de diciembre de 2013",
+              name: 'Decreto 575 del 17 de diciembre de 2013',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=67497"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=67497',
             },
             {
-              name: "Decreto 159 del 11 de abril de 2014",
+              name: 'Decreto 159 del 11 de abril de 2014',
               url:
-                "http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155"
+                'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155',
             },
             {
               name:
-                "Calendario pico y placa Bogotá primer semestre 2018 unificado",
+                'Calendario pico y placa Bogotá primer semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-primer-semestre-2018-unificado.pdf"
-              )
+                'bogota',
+                'calendario-pico-y-placa-primer-semestre-2018-unificado.pdf'
+              ),
             },
             {
               name:
-                "Calendario pico y placa Bogotá segundo semestre 2018 unificado",
+                'Calendario pico y placa Bogotá segundo semestre 2018 unificado',
               url: pypFuncs.buildAssetPath(
-                "bogota",
-                "calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf"
-              )
-            }
+                'bogota',
+                'calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf'
+              ),
+            },
           ],
-          days: ["Lunes a viernes hábiles"],
+          days: ['Lunes a viernes hábiles'],
           hours: [
             {
-              comment: "Lunes a viernes",
-              hours: [["6:00", "19:30"]],
-              days: [1, 2, 3, 4, 5]
+              comment: 'Lunes a viernes',
+              hours: [['6:00', '19:30']],
+              days: [1, 2, 3, 4, 5],
             },
             {
-              comment: "Sábados",
-              hours: [["6:30", "18:00"]],
-              days: [6]
+              comment: 'Sábados',
+              hours: [['6:30', '18:00']],
+              days: [6],
             },
             {
-              comment: "Domingos",
-              hours: [["6:30", "15:00"]],
-              days: [0]
-            }
+              comment: 'Domingos',
+              hours: [['6:30', '15:00']],
+              days: [0],
+            },
           ],
           scheme: `<ul>
           <li>Día par hábil: placa último dígito par.</li>
@@ -351,7 +351,7 @@ module.exports = {
           <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
           <ul>`,
           observations:
-            "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
+            'No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.',
           exceptions: `<ul>
           <li>Vehículos automotores propulsados exclusivamente por motores eléctricos.</li>
           <li>Caravana presidencial. Grupo de vehículos que hagan parte del esquema de seguridad de la Presidencia de la República y están al servicio de actividades inherentes.</li>
@@ -372,54 +372,54 @@ module.exports = {
         </ul>
         <p>La Secretaría Distrital de Movilidad llevará a cabo un registro de vehículos exceptuados, para efectos de evitar la imposición de comparendos por medios técnicos y tecnológicos y definirá las condiciones necesarias para la inscripción de dichos vehículos. La inscripción en el registro de exceptuados será válida mientras subsistan las condiciones que configuran la excepción y estará sujeta a la verificación y depuración.</p>
         <p>Se prohíbe la expedición de permisos especiales de circulación por parte de las autoridades de tránsito. Los automotores exceptuados podrán circular con la simple demostración de las condiciones señaladas, y en consecuencia no requerirán de la expedición de permiso alguno. En cuanto a los controles por medios tecnológicos, bastará con la inscripción en registro referido en el párrafo anterior.</p>
-        `
+        `,
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const day = pypFuncs.getDay(date);
+            const day = pypFuncs.getDay(date)
             if (
-              pypFuncs.formatDate(date) >= "2018-12-26T00:00:00-05:00" &&
-              pypFuncs.formatDate(date) <= "2019-01-04T00:00:00-05:00"
+              pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+              pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
             ) {
-              return "NA";
+              return 'NA'
             }
             if (day === 6) {
-              return "0-2-4-6-8";
+              return '0-2-4-6-8'
             }
             if (day === 0) {
-              return "1-3-5-7-9";
+              return '1-3-5-7-9'
             }
-            const pyp = ["0-2-4-6-8", "1-3-5-7-9"];
-            return pyp[pypFuncs.getDate(date) % 2];
-          });
-        }
-      }
+            const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+            return pyp[pypFuncs.getDate(date) % 2]
+          })
+        },
+      },
     ],
     motos: [
       {
-        from: "2018-01-01",
+        from: '2018-01-01',
         info: {
-          vehicleClasses: ["Motocicletas"],
+          vehicleClasses: ['Motocicletas'],
           decrees: [],
-          days: ["Lunes a viernes hábiles"],
+          days: ['Lunes a viernes hábiles'],
           hours: [
             {
-              comment: "Lunes a viernes",
-              hours: [["6:00", "19:30"]],
-              days: [1, 2, 3, 4, 5]
+              comment: 'Lunes a viernes',
+              hours: [['6:00', '19:30']],
+              days: [1, 2, 3, 4, 5],
             },
             {
-              comment: "Sábados",
-              hours: [["6:30", "18:00"]],
-              days: [6]
+              comment: 'Sábados',
+              hours: [['6:30', '18:00']],
+              days: [6],
             },
             {
-              comment: "Domingos",
-              hours: [["6:30", "15:00"]],
-              days: [0]
-            }
+              comment: 'Domingos',
+              hours: [['6:30', '15:00']],
+              days: [0],
+            },
           ],
           scheme: `<ul>
             <li>Día par hábil: placa último dígito par.</li>
@@ -428,31 +428,31 @@ module.exports = {
             <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
             <ul>`,
           observations:
-            "No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.",
-          exceptions: ""
+            'No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.',
+          exceptions: '',
         },
-        name: "Motos",
+        name: 'Motos',
         na: [],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            const day = pypFuncs.getDay(date);
+            const day = pypFuncs.getDay(date)
             if (
-              pypFuncs.formatDate(date) >= "2018-12-26T00:00:00-05:00" &&
-              pypFuncs.formatDate(date) <= "2019-01-04T00:00:00-05:00"
+              pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+              pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
             ) {
-              return "NA";
+              return 'NA'
             }
             if (day === 6) {
-              return "0-2-4-6-8";
+              return '0-2-4-6-8'
             }
             if (day === 0) {
-              return "1-3-5-7-9";
+              return '1-3-5-7-9'
             }
-            const pyp = ["0-2-4-6-8", "1-3-5-7-9"];
-            return pyp[pypFuncs.getDate(date) % 2];
-          });
-        }
-      }
-    ]
-  }
-};
+            const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+            return pyp[pypFuncs.getDate(date) % 2]
+          })
+        },
+      },
+    ],
+  },
+}

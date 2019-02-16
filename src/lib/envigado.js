@@ -1,11 +1,11 @@
-const medellin = require("./medellin");
+const medellin = require('./medellin')
 
-const medellinParticulares = medellin.categories.particulares[0];
-const medellinMotos = medellin.categories.motos[0];
-const medellinTaxis = medellin.categories.taxis[0];
+const medellinParticulares = medellin.categories.particulares[0]
+const medellinMotos = medellin.categories.motos[0]
+const medellinTaxis = medellin.categories.taxis[0]
 
 module.exports = {
-  name: "Envigado",
+  name: 'Envigado',
   categories: {
     particulares: [
       {
@@ -14,17 +14,17 @@ module.exports = {
           vehicleClasses: medellinParticulares.info.vehicleClasses,
           decrees: [
             {
-              name: "Decreto 053 del 29 de enero de 2018",
+              name: 'Decreto 053 del 29 de enero de 2018',
               url:
-                "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
-            }
+                'http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
+            },
           ],
           days: medellinParticulares.info.days,
           hours: medellinParticulares.info.hours,
           scheme: medellinParticulares.info.scheme,
           observations: medellinParticulares.info.observations.replace(
-            "Medellín",
-            "Envigado"
+            'Medellín',
+            'Envigado'
           ),
           exceptions: `<ul>
           <li>Vehículos de emergencia (ambulancias incluidas las veterinarias, bomberos y demás equipos logísticos para atención de siniestros); vehículos de atención médica personalizada y con identificación permanente.</li>
@@ -50,12 +50,12 @@ module.exports = {
           <li>Vehículos donde se transporten Magistrados, Jueces, Fiscales, Produradores, Obispos,Arzobispo, Diputados, Concejales, Contralores, Defensores Públicos, Personeros, Registrador Municipal y/o Especial, Departamental del Estado Civil correspondientes a los municipios que confirman el Valle de Aburrá, Congresistas, y personal de la Unidad Nacional de Protección, los cuales deben estar plenamente identificados.</li>
           <li>Vehículos que provengan de otras ciudades con turistas de paso, quienes deberán demostrar dicha calidad con el primer y último recibo del peaje que certifiquen tal situación y sólo para el primer día.</li>
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
-        </ul>`
+        </ul>`,
         },
         name: medellinParticulares.name,
         na: medellinParticulares.na,
-        pyp: medellinParticulares.pyp
-      }
+        pyp: medellinParticulares.pyp,
+      },
     ],
     motos: [
       {
@@ -65,10 +65,10 @@ module.exports = {
           vehicleClasses: medellinMotos.info.vehicleClasses,
           decrees: [
             {
-              name: "Decreto 053 del 29 de enero de 2018",
+              name: 'Decreto 053 del 29 de enero de 2018',
               url:
-                "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
-            }
+                'http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
+            },
           ],
           days: medellinMotos.info.days,
           hours: medellinMotos.info.hours,
@@ -98,12 +98,12 @@ module.exports = {
           <li>Vehículos donde se transporten Magistrados, Jueces, Fiscales, Produradores, Obispos,Arzobispo, Diputados, Concejales, Contralores, Defensores Públicos, Personeros, Registrador Municipal y/o Especial, Departamental del Estado Civil correspondientes a los municipios que confirman el Valle de Aburrá, Congresistas, y personal de la Unidad Nacional de Protección, los cuales deben estar plenamente identificados.</li>
           <li>Vehículos que provengan de otras ciudades con turistas de paso, quienes deberán demostrar dicha calidad con el primer y último recibo del peaje que certifiquen tal situación y sólo para el primer día.</li>
           <li>En su defecto, los casos en los qeu por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Envigado.</li>
-        </ul>`
+        </ul>`,
         },
         name: medellinMotos.name,
         na: medellinMotos.na,
-        pyp: medellinMotos.pyp
-      }
+        pyp: medellinMotos.pyp,
+      },
     ],
     taxis: [
       {
@@ -112,23 +112,23 @@ module.exports = {
           vehicleClasses: medellinTaxis.info.vehicleClasses,
           decrees: [
             {
-              name: "Decreto 053 del 29 de enero de 2018",
+              name: 'Decreto 053 del 29 de enero de 2018',
               url:
-                "http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf"
-            }
+                'http://www.envigado.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
+            },
           ],
           days: medellinTaxis.info.days,
           hours: medellinTaxis.info.hours,
           scheme: medellinTaxis.info.scheme,
           observations: medellinTaxis.info.observations.replace(
-            "Medellín",
-            "Envigado"
-          )
+            'Medellín',
+            'Envigado'
+          ),
         },
         name: medellinTaxis.name,
         na: medellinTaxis.na,
-        pyp: medellinTaxis.pyp
-      }
-    ]
-  }
-};
+        pyp: medellinTaxis.pyp,
+      },
+    ],
+  },
+}

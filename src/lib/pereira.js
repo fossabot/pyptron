@@ -1,54 +1,54 @@
-const pypFuncs = require("../utils/funcs");
+const pypFuncs = require('../utils/funcs')
 
 module.exports = {
-  name: "Pereira",
+  name: 'Pereira',
   categories: {
     particulares: [
       {
-        from: "2015-04-07",
+        from: '2015-04-07',
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto 872 del 22 de noviembre de 2018",
+              name: 'Decreto 872 del 22 de noviembre de 2018',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-872-del-22-de-noviembre-de-2018.pdf"
-              )
+                'pereira',
+                'decreto-872-del-22-de-noviembre-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 241 del 26 de marzo de 2016",
+              name: 'Decreto 241 del 26 de marzo de 2016',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-241-del-26-de-marzo-de-2016.pdf"
-              )
+                'pereira',
+                'decreto-241-del-26-de-marzo-de-2016.pdf'
+              ),
             },
             {
-              name: "Decreto 516 del 21 de julio de 2015",
+              name: 'Decreto 516 del 21 de julio de 2015',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-516-del-21-de-julio-de-2015.pdf"
-              )
+                'pereira',
+                'decreto-516-del-21-de-julio-de-2015.pdf'
+              ),
             },
             {
-              name: "Decreto 193 del 6 de marzo de 2015",
+              name: 'Decreto 193 del 6 de marzo de 2015',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-193-del-6-de-marzo-de-2015.pdf"
-              )
-            }
+                'pereira',
+                'decreto-193-del-6-de-marzo-de-2015.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "19:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '19:00']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa según el esquema",
+          scheme: 'Último dígito del número de la placa según el esquema',
           observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
         <ul>
           <li>Partiendo del puente Mosquera (punto 1) se continúa por la Avenida del Río hasta la intersección Turín (punto 2). Este corredor en ambos sentidos no estará sometido a la mediada de pico y placa.</li>
@@ -77,72 +77,72 @@ module.exports = {
         </ul>
         `,
           map: pypFuncs.buildAssetPath(
-            "pereira",
-            "mapa-pico-y-placa-pereira-nuevo.jpg"
-          )
+            'pereira',
+            'mapa-pico-y-placa-pereira-nuevo.jpg'
+          ),
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
             const pyp = [
-              "0-1", // lunes
-              "2-3", // martes
-              "4-5", // miércoles
-              "6-7", // jueves
-              "8-9" // viernes
-            ];
-            return pyp[pypFuncs.getDay(date) - 1];
-          });
-        }
-      }
+              '0-1', // lunes
+              '2-3', // martes
+              '4-5', // miércoles
+              '6-7', // jueves
+              '8-9', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          })
+        },
+      },
     ],
     motos: [
       {
-        from: "2015-04-07",
+        from: '2015-04-07',
         info: {
-          vehicleClasses: ["Motocicletas"],
+          vehicleClasses: ['Motocicletas'],
           decrees: [
             {
-              name: "Decreto 872 del 22 de noviembre de 2018",
+              name: 'Decreto 872 del 22 de noviembre de 2018',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-872-del-22-de-noviembre-de-2018.pdf"
-              )
+                'pereira',
+                'decreto-872-del-22-de-noviembre-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 241 del 26 de marzo de 2016",
+              name: 'Decreto 241 del 26 de marzo de 2016',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-241-del-26-de-marzo-de-2016.pdf"
-              )
+                'pereira',
+                'decreto-241-del-26-de-marzo-de-2016.pdf'
+              ),
             },
             {
-              name: "Decreto 516 del 21 de julio de 2015",
+              name: 'Decreto 516 del 21 de julio de 2015',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-516-del-21-de-julio-de-2015.pdf"
-              )
+                'pereira',
+                'decreto-516-del-21-de-julio-de-2015.pdf'
+              ),
             },
             {
-              name: "Decreto 193 del 6 de marzo de 2015",
+              name: 'Decreto 193 del 6 de marzo de 2015',
               url: pypFuncs.buildAssetPath(
-                "pereira",
-                "decreto-193-del-6-de-marzo-de-2015.pdf"
-              )
-            }
+                'pereira',
+                'decreto-193-del-6-de-marzo-de-2015.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "19:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '19:00']],
+              days: [],
+            },
           ],
-          scheme: "Primer dígito del número de la placa según el esquema",
+          scheme: 'Primer dígito del número de la placa según el esquema',
           observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
           <ul>
           <li>Partiendo del puente Mosquera (punto 1) se continúa por la Avenida del Río hasta la intersección Turín (punto 2). Este corredor en ambos sentidos no estará sometido a la mediada de pico y placa.</li>
@@ -170,25 +170,25 @@ module.exports = {
           <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
         </ul>`,
           map: pypFuncs.buildAssetPath(
-            "pereira",
-            "mapa-pico-y-placa-pereira-nuevo.jpg"
-          )
+            'pereira',
+            'mapa-pico-y-placa-pereira-nuevo.jpg'
+          ),
         },
-        name: "Motos",
+        name: 'Motos',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
             const pyp = [
-              "0-1", // lunes
-              "2-3", // martes
-              "4-5", // miércoles
-              "6-7", // jueves
-              "8-9" // viernes
-            ];
-            return pyp[pypFuncs.getDay(date) - 1];
-          });
-        }
-      }
-    ]
-  }
-};
+              '0-1', // lunes
+              '2-3', // martes
+              '4-5', // miércoles
+              '6-7', // jueves
+              '8-9', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          })
+        },
+      },
+    ],
+  },
+}

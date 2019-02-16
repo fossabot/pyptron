@@ -1,169 +1,169 @@
-const { testCases, testInfo } = require("../utils/testsWrapper");
+const { testCases, testInfo } = require('../utils/testsWrapper')
 
-const city = require("./cartagena");
+const city = require('./cartagena')
 
 const dateCases = [
   {
-    date: "2018-04-09", // lunes 9 de abril de 2018
+    date: '2018-04-09', // lunes 9 de abril de 2018
     pypCases: {
-      taxis: "9-0",
-      particulares: "3-4"
-    }
+      taxis: '9-0',
+      particulares: '3-4',
+    },
   },
   {
-    date: "2018-05-16", // miércoles 16 de mayo de 2018
+    date: '2018-05-16', // miércoles 16 de mayo de 2018
     pypCases: {
-      taxis: "1-2",
-      particulares: "7-8"
-    }
+      taxis: '1-2',
+      particulares: '7-8',
+    },
   },
   {
-    date: "2018-06-14", // jueves 14 de junio de 2018
+    date: '2018-06-14', // jueves 14 de junio de 2018
     pypCases: {
-      taxis: "1-2",
-      particulares: "1-2"
-    }
+      taxis: '1-2',
+      particulares: '1-2',
+    },
   },
   {
-    date: "2018-02-01", // jueves 1 de febrero
+    date: '2018-02-01', // jueves 1 de febrero
     pypCases: {
-      taxis: "1-2",
-      particulares: "7-8"
-    }
+      taxis: '1-2',
+      particulares: '7-8',
+    },
   },
   {
-    date: "2018-02-02", // viernes 2 de febrero
+    date: '2018-02-02', // viernes 2 de febrero
     pypCases: {
-      taxis: "3-4",
-      particulares: "9-0"
-    }
+      taxis: '3-4',
+      particulares: '9-0',
+    },
   },
   {
-    date: "2018-02-05", // lunes 5 de febrero
+    date: '2018-02-05', // lunes 5 de febrero
     pypCases: {
-      taxis: "3-4",
-      particulares: "1-2"
-    }
+      taxis: '3-4',
+      particulares: '1-2',
+    },
   },
   {
-    date: "2018-03-02", // viernes 2 de marzo
+    date: '2018-03-02', // viernes 2 de marzo
     pypCases: {
-      taxis: "1-2",
-      particulares: "9-0"
-    }
+      taxis: '1-2',
+      particulares: '9-0',
+    },
   },
   {
-    date: "2018-03-05", // lunes 5 de marzo
+    date: '2018-03-05', // lunes 5 de marzo
     pypCases: {
-      taxis: "1-2",
-      particulares: "3-4"
-    }
+      taxis: '1-2',
+      particulares: '3-4',
+    },
   },
   {
-    date: "2018-04-30", // lunes 30 de abril
+    date: '2018-04-30', // lunes 30 de abril
     pypCases: {
-      taxis: "7-8",
-      particulares: "3-4"
-    }
+      taxis: '7-8',
+      particulares: '3-4',
+    },
   },
   {
-    date: "2018-06-01", // viernes 1 de junio
+    date: '2018-06-01', // viernes 1 de junio
     pypCases: {
-      taxis: "5-6",
-      particulares: "1-2"
-    }
+      taxis: '5-6',
+      particulares: '1-2',
+    },
   },
   {
-    date: "2018-10-01", // lunes 1 de octubre
+    date: '2018-10-01', // lunes 1 de octubre
     pypCases: {
-      taxis: "7-8",
-      particulares: "7-8",
-      motos: "0-2-4-6-8"
-    }
+      taxis: '7-8',
+      particulares: '7-8',
+      motos: '0-2-4-6-8',
+    },
   },
   {
-    date: "2018-10-02", // martes 2 de octubre
+    date: '2018-10-02', // martes 2 de octubre
     pypCases: {
-      taxis: "9-0",
-      particulares: "9-0",
-      motos: "1-3-5-7-9"
-    }
+      taxis: '9-0',
+      particulares: '9-0',
+      motos: '1-3-5-7-9',
+    },
   },
   {
-    date: "2018-04-04", // miércoles 2 de abril
+    date: '2018-04-04', // miércoles 2 de abril
     pypCases: {
-      taxis: "3-4",
-      particulares: "7-8"
-    }
+      taxis: '3-4',
+      particulares: '7-8',
+    },
   },
   {
-    date: "2018-09-03", // lunes 3 de septiembre
+    date: '2018-09-03', // lunes 3 de septiembre
     pypCases: {
-      taxis: "9-0",
-      particulares: "7-8",
-      motos: "0-2-4-6-8"
-    }
+      taxis: '9-0',
+      particulares: '7-8',
+      motos: '0-2-4-6-8',
+    },
   },
   {
-    date: "2018-09-14", // Segundo viernes del mes
+    date: '2018-09-14', // Segundo viernes del mes
     pypCases: {
-      motos: "0-1-2-3-4-5-6-7-8-9"
-    }
+      motos: '0-1-2-3-4-5-6-7-8-9',
+    },
   },
   {
-    date: "2018-11-30", // Último viernes del mes
+    date: '2018-11-30', // Último viernes del mes
     pypCases: {
-      motos: "0-1-2-3-4-5-6-7-8-9"
-    }
+      motos: '0-1-2-3-4-5-6-7-8-9',
+    },
   },
   {
-    date: "2019-01-07", // Inicio del nuevo decreto
+    date: '2019-01-07', // Inicio del nuevo decreto
     pypCases: {
-      taxis: "7"
-    }
+      taxis: '7',
+    },
   },
   {
-    date: "2019-01-11", // Segundo viernes de enero
+    date: '2019-01-11', // Segundo viernes de enero
     pypCases: {
-      taxis: "NA"
-    }
+      taxis: 'NA',
+    },
   },
   {
-    date: "2019-03-08", // Segundo viernes de marzo
+    date: '2019-03-08', // Segundo viernes de marzo
     pypCases: {
-      taxis: "NA"
-    }
+      taxis: 'NA',
+    },
   },
   {
-    date: "2019-03-29", // Último viernes de mayo
+    date: '2019-03-29', // Último viernes de mayo
     pypCases: {
-      taxis: "NA"
-    }
+      taxis: 'NA',
+    },
   },
   {
-    date: "2019-05-10", // Segundo viernes de mayo
+    date: '2019-05-10', // Segundo viernes de mayo
     pypCases: {
-      taxis: "NA"
-    }
+      taxis: 'NA',
+    },
   },
   {
-    date: "2019-05-24", // Penúltimo viernes de mayo
+    date: '2019-05-24', // Penúltimo viernes de mayo
     pypCases: {
-      taxis: "4"
-    }
+      taxis: '4',
+    },
   },
   {
-    date: "2019-05-31", // Viernes
+    date: '2019-05-31', // Viernes
     pypCases: {
-      taxis: "NA"
-    }
+      taxis: 'NA',
+    },
   },
   {
-    date: "2019-06-23", // Domingo
+    date: '2019-06-23', // Domingo
     pypCases: {
-      taxis: "3"
-    }
-  }
-];
-testCases(city, dateCases);
-testInfo(city);
+      taxis: '3',
+    },
+  },
+]
+testCases(city, dateCases)
+testInfo(city)

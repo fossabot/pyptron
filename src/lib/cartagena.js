@@ -1,157 +1,157 @@
-const pypFuncs = require("../utils/funcs");
+const pypFuncs = require('../utils/funcs')
 
 module.exports = {
-  name: "Cartagena",
+  name: 'Cartagena',
   categories: {
     taxis: [
       {
-        from: "2019-01-07",
+        from: '2019-01-07',
         info: {
           vehicleClasses: [
-            "Vehículos de transporte público individual de pasajeros - Taxis"
+            'Vehículos de transporte público individual de pasajeros - Taxis',
           ],
           decrees: [
             {
-              name: "Decreto 1483 de diciembre de 2018",
-              url: ""
+              name: 'Decreto 1483 de diciembre de 2018',
+              url: '',
             },
             {
-              name: "Decreto 1659 de diciembre de 2017",
+              name: 'Decreto 1659 de diciembre de 2017',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreto-1659-de-diciembre-de-2017.pdf"
-              )
-            }
+                'cartagena',
+                'decreto-1659-de-diciembre-de-2017.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "Todo el día",
+              comment: 'Todo el día',
               hours: [[]],
-              days: []
-            }
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa",
+          scheme: 'Último dígito del número de la placa',
           observations:
-            "El pico y placa operará de acuerdo con el último dígito de la fecha del calendario."
+            'El pico y placa operará de acuerdo con el último dígito de la fecha del calendario.',
         },
-        name: "Taxis",
+        name: 'Taxis',
         na: [],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, false, () => {
-            const dateObject = new Date(date);
-            const datesDate = dateObject.getDate();
+            const dateObject = new Date(date)
+            const datesDate = dateObject.getDate()
             if (datesDate === 31) {
-              return "NA";
+              return 'NA'
             }
             if (dateObject.getDay() === 5) {
-              const year = dateObject.getFullYear();
-              const month = dateObject.getMonth();
-              const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1);
+              const year = dateObject.getFullYear()
+              const month = dateObject.getMonth()
+              const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1)
               if (
-                pypFuncs.formatDate(dateObject, "YYMMDD") ===
-                pypFuncs.formatDate(secondFriday, "YYMMDD")
+                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                pypFuncs.formatDate(secondFriday, 'YYMMDD')
               ) {
-                return "NA";
+                return 'NA'
               }
-              const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1);
+              const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
               if (
-                pypFuncs.formatDate(dateObject, "YYMMDD") ===
-                pypFuncs.formatDate(lastFriday, "YYMMDD")
+                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                pypFuncs.formatDate(lastFriday, 'YYMMDD')
               ) {
-                return "NA";
+                return 'NA'
               }
             }
-            return (datesDate % 10).toString(10);
-          });
-        }
+            return (datesDate % 10).toString(10)
+          })
+        },
       },
       {
-        from: "2018-01-02",
+        from: '2018-01-02',
         info: {
           vehicleClasses: [
-            "Vehículos de transporte público individual de pasajeros - Taxis"
+            'Vehículos de transporte público individual de pasajeros - Taxis',
           ],
           decrees: [
             {
-              name: "Decreto 1659 de diciembre de 2017",
+              name: 'Decreto 1659 de diciembre de 2017',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreto-1659-de-diciembre-de-2017.pdf"
-              )
-            }
+                'cartagena',
+                'decreto-1659-de-diciembre-de-2017.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["6:00", "6:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['6:00', '6:00']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa",
-          observations: ""
+          scheme: 'Último dígito del número de la placa',
+          observations: '',
         },
-        name: "Taxis",
+        name: 'Taxis',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            switch (pypFuncs.formatDate(date, "YYYY-MM-DD")) {
-              case "2018-02-02":
-                return "3-4";
-              case "2018-03-02":
-                return "1-2";
-              case "2018-04-30":
-                return "7-8";
-              case "2018-10-01":
-                return "7-8";
+            switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+              case '2018-02-02':
+                return '3-4'
+              case '2018-03-02':
+                return '1-2'
+              case '2018-04-30':
+                return '7-8'
+              case '2018-10-01':
+                return '7-8'
               default:
-                break;
+                break
             }
-            const startDate = "2018-01-02";
-            const startNums = "7-8";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
-            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums);
-          });
-        }
-      }
+            const startDate = '2018-01-02'
+            const startNums = '7-8'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+          })
+        },
+      },
     ],
     particulares: [
       {
-        from: "2018-12-03",
+        from: '2018-12-03',
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto 1361 del 29 de noviembre de 2018",
+              name: 'Decreto 1361 del 29 de noviembre de 2018',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreto-1361-del-29-de-noviembre-de-2018.pdf"
-              )
+                'cartagena',
+                'decreto-1361-del-29-de-noviembre-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 1550 del 30 de noviembre de 2017",
+              name: 'Decreto 1550 del 30 de noviembre de 2017',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreto-1550-del-30-de-noviembre-de-2017.pdf"
-              )
-            }
+                'cartagena',
+                'decreto-1550-del-30-de-noviembre-de-2017.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "10:00"], ["17:00", "20:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '10:00'], ['17:00', '20:00']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa",
+          scheme: 'Último dígito del número de la placa',
           observations: `Se aplica en las siguientes vías del Distrito Turístico y Cultural de Cartagena de Indias:
         <ul>
           <li>Transversal 54: desde la intersección con la Calle 30 hasta la glorieta del Pozón sobre la Variante a Cartagena.</li>
@@ -225,21 +225,21 @@ module.exports = {
         <li>Vehículos de propiedad de los médicos en ejercicio de sus funciones.</li>
         <li>Vehículos que distribuyan medicamentos y alimentos.</li>
         <li>Vehículos de transporte de valores externamente identificados.</li>
-        </ul>`
+        </ul>`,
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            switch (pypFuncs.formatDate(date, "YYYY-MM-DD")) {
-              case "2018-03-02":
-                return "9-0";
+            switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+              case '2018-03-02':
+                return '9-0'
               default:
-                break;
+                break
             }
-            const startDate = "2017-12-02";
-            const startNums = "1-2";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2017-12-02'
+            const startNums = '1-2'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateByMonth(
               date,
               startDate,
@@ -247,41 +247,41 @@ module.exports = {
               pypNums,
               true,
               3
-            );
-          });
-        }
+            )
+          })
+        },
       },
       {
-        from: "2017-12-02",
+        from: '2017-12-02',
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto 1550 del 30 de noviembre de 2017",
+              name: 'Decreto 1550 del 30 de noviembre de 2017',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreto-1550-del-30-de-noviembre-de-2017.pdf"
-              )
+                'cartagena',
+                'decreto-1550-del-30-de-noviembre-de-2017.pdf'
+              ),
             },
             {
-              name: "Decreto 1361 del 29 de noviembre de 2018",
+              name: 'Decreto 1361 del 29 de noviembre de 2018',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreo-1361-del-29-de-noviembre-de-2018.pdf"
-              )
-            }
+                'cartagena',
+                'decreo-1361-del-29-de-noviembre-de-2018.pdf'
+              ),
+            },
           ],
           days: [
-            "Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)"
+            'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
           ],
           hours: [
             {
-              comment: "",
-              hours: [["7:00", "9:00"], ["12:00", "14:00"], ["17:00", "19:30"]],
-              days: []
-            }
+              comment: '',
+              hours: [['7:00', '9:00'], ['12:00', '14:00'], ['17:00', '19:30']],
+              days: [],
+            },
           ],
-          scheme: "Último dígito del número de la placa",
+          scheme: 'Último dígito del número de la placa',
           observations: `Se aplica en las siguientes vías del Distrito Turístico y Cultural de Cartagena de Indias:
         <ul>
           <li>Avenida Pedro de Heredia: tramo comprendido entre la intersección con la avenida Luis Carlos López y la Avenida Rafael Nuñez (Sector India Catalina), hasta la intersección con la transversal 54 (Sector de la Bomba el Amparo).</li>
@@ -358,21 +358,21 @@ module.exports = {
         <li>Vehículos de propiedad de los médicos en ejercicio de sus funciones.</li>
         <li>Vehículos que distribuyan medicamentos y alimentos.</li>
         <li>Vehículos de transporte de valores externamente identificados.</li>
-        </ul>`
+        </ul>`,
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, true, () => {
-            switch (pypFuncs.formatDate(date, "YYYY-MM-DD")) {
-              case "2018-03-02":
-                return "9-0";
+            switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+              case '2018-03-02':
+                return '9-0'
               default:
-                break;
+                break
             }
-            const startDate = "2017-12-02";
-            const startNums = "1-2";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2017-12-02'
+            const startNums = '1-2'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateByMonth(
               date,
               startDate,
@@ -380,34 +380,34 @@ module.exports = {
               pypNums,
               true,
               3
-            );
-          });
-        }
-      }
+            )
+          })
+        },
+      },
     ],
     motos: [
       {
-        from: "2018-09-03",
+        from: '2018-09-03',
         info: {
           vehicleClasses: [
-            "Vehículos tipo motocicleta de cualquier modalidad y cilindraje, incluyendo cuatrimotos, tricimotos, motocarros y bicicletas con pedalea asistido con motor."
+            'Vehículos tipo motocicleta de cualquier modalidad y cilindraje, incluyendo cuatrimotos, tricimotos, motocarros y bicicletas con pedalea asistido con motor.',
           ],
           decrees: [
             {
-              name: "Decreto 1035 del 5 de septiembre de 2018",
+              name: 'Decreto 1035 del 5 de septiembre de 2018',
               url: pypFuncs.buildAssetPath(
-                "cartagena",
-                "decreto-1035-del-5-de-septiembre-de-2018.pdf"
-              )
-            }
+                'cartagena',
+                'decreto-1035-del-5-de-septiembre-de-2018.pdf'
+              ),
+            },
           ],
-          days: ["Lunes a viernes."],
+          days: ['Lunes a viernes.'],
           hours: [
             {
-              comment: "",
-              hours: [["5:00", "23:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['5:00', '23:00']],
+              days: [],
+            },
           ],
           scheme: `<ol>
           <li>Restringir en todo el territorio del Distrito Turístico y Cultural de Cartagena de Indias la circulación de los vehículos tipo motocicleta de cualquier modalidad y cilindraje, incluyendo las cuatrimotos, tricimotos, motocarros y bicicletas con pedaleo asistido con motor, mediante la implementación de la medida de Pico y Placa que operará así: <ul><li>Los días pares solo circularán motocicletas cuyas placas terminen en números pares, incluyendo el 0.</li><li>Los días impares solo circularán motocicletas cuyas placas terminen en números impares.</li></ul>
@@ -441,36 +441,36 @@ module.exports = {
           <li>Las motocicletas de propiedad y al servicio de las empresas de servicios públicos domiciliario.</li>
           </ul>
           </li>
-          </ol>`
+          </ol>`,
         },
-        name: "Motos",
+        name: 'Motos',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, false, () => {
-            const dateObject = new Date(date);
+            const dateObject = new Date(date)
             if (dateObject.getDay() === 5) {
-              const year = dateObject.getFullYear();
-              const month = dateObject.getMonth();
-              const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1);
+              const year = dateObject.getFullYear()
+              const month = dateObject.getMonth()
+              const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1)
               if (
-                pypFuncs.formatDate(dateObject, "YYMMDD") ===
-                pypFuncs.formatDate(secondFriday, "YYMMDD")
+                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                pypFuncs.formatDate(secondFriday, 'YYMMDD')
               ) {
-                return "0-1-2-3-4-5-6-7-8-9";
+                return '0-1-2-3-4-5-6-7-8-9'
               }
-              const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1);
+              const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
               if (
-                pypFuncs.formatDate(dateObject, "YYMMDD") ===
-                pypFuncs.formatDate(lastFriday, "YYMMDD")
+                pypFuncs.formatDate(dateObject, 'YYMMDD') ===
+                pypFuncs.formatDate(lastFriday, 'YYMMDD')
               ) {
-                return "0-1-2-3-4-5-6-7-8-9";
+                return '0-1-2-3-4-5-6-7-8-9'
               }
             }
-            const pyp = ["1-3-5-7-9", "0-2-4-6-8"];
-            return pyp[pypFuncs.getDate(date) % 2];
-          });
-        }
-      }
-    ]
-  }
-};
+            const pyp = ['1-3-5-7-9', '0-2-4-6-8']
+            return pyp[pypFuncs.getDate(date) % 2]
+          })
+        },
+      },
+    ],
+  },
+}

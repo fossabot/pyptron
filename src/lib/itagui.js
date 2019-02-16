@@ -1,11 +1,11 @@
-const medellin = require("./medellin");
+const medellin = require('./medellin')
 
-const medellinParticulares = medellin.categories.particulares[0];
-const medellinMotos = medellin.categories.motos[0];
-const medellinTaxis = medellin.categories.taxis[0];
+const medellinParticulares = medellin.categories.particulares[0]
+const medellinMotos = medellin.categories.motos[0]
+const medellinTaxis = medellin.categories.taxis[0]
 
 module.exports = {
-  name: "Itagüí",
+  name: 'Itagüí',
   categories: {
     particulares: [
       {
@@ -14,17 +14,17 @@ module.exports = {
           vehicleClasses: medellinParticulares.info.vehicleClasses,
           decrees: [
             {
-              name: "Decreto 067 del 31 de enero de 2018",
+              name: 'Decreto 067 del 31 de enero de 2018',
               url:
-                "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
-            }
+                'https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf',
+            },
           ],
           days: medellinParticulares.info.days,
           hours: medellinParticulares.info.hours,
           scheme: medellinParticulares.info.scheme,
           observations: medellinParticulares.info.observations.replace(
-            "Medellín",
-            "Itagüí"
+            'Medellín',
+            'Itagüí'
           ),
           exceptions: `Estarán exentos de la medida de Pico y Placa, en consideración a las necesidades de la ciudad, los siguientes vehículos:
         <ul>
@@ -49,12 +49,12 @@ module.exports = {
           <li>Vehículos particulares y oficiales en los que se transporten; Magistrados de los diferentes Tribunales, Jueces, Fiscales, Defensores Públicos y de Familia, Procuradores, Inspectores Urbanos de Policía de Primera Categoría, Comisarios de Familia, Corregidores, Obispos, Arzobispo y presbíteros, Concejales, Personeros, Contralores y Vice Contralores, Registrador Municipal y/o Especial, Departamental del Estado Civil. Lo anterior aplica para el personal perteneciente a los municipios que conforman el Área Metropolitana del Valle de Aburrá. Así mismo, para los vehículos particulares u oficiales en que se transporten Diputados, Congresistas y personal de la Agencia Nacional de Protección.</li>
           <li>Los vehículos con placas de municipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al departamento de Antioquia, el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día de estadía en el municipio.</li>
           <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizadas por la Secretaría de Movilidad.</li>
-        </ul>`
+        </ul>`,
         },
         name: medellinParticulares.name,
         na: medellinParticulares.na,
-        pyp: medellinParticulares.pyp
-      }
+        pyp: medellinParticulares.pyp,
+      },
     ],
     motos: [
       {
@@ -63,10 +63,10 @@ module.exports = {
           vehicleClasses: medellinMotos.info.vehicleClasses,
           decrees: [
             {
-              name: "Decreto 067 del 31 de enero de 2018",
+              name: 'Decreto 067 del 31 de enero de 2018',
               url:
-                "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
-            }
+                'https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf',
+            },
           ],
           days: medellinMotos.info.days,
           hours: medellinMotos.info.hours,
@@ -95,12 +95,12 @@ module.exports = {
             <li>Vehículos particulares y oficiales en los que se transporten; Magistrados de los diferentes Tribunales, Jueces, Fiscales, Defensores Públicos y de Familia, Procuradores, Inspectores Urbanos de Policía de Primera Categoría, Comisarios de Familia, Corregidores, Obispos, Arzobispo y presbíteros, Concejales, Personeros, Contralores y Vice Contralores, Registrador Municipal y/o Especial, Departamental del Estado Civil. Lo anterior aplica para el personal perteneciente a los municipios que conforman el Área Metropolitana del Valle de Aburrá. Así mismo, para los vehículos particulares u oficiales en que se transporten Diputados, Congresistas y personal de la Agencia Nacional de Protección.</li>
             <li>Los vehículos con placas de municipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al departamento de Antioquia, el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día de estadía en el municipio.</li>
             <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizadas por la Secretaría de Movilidad.</li>
-          </ul>`
+          </ul>`,
         },
         name: medellinMotos.name,
         na: medellinMotos.na,
-        pyp: medellinMotos.pyp
-      }
+        pyp: medellinMotos.pyp,
+      },
     ],
     taxis: [
       {
@@ -109,23 +109,23 @@ module.exports = {
           vehicleClasses: medellinTaxis.info.vehicleClasses,
           decrees: [
             {
-              name: "Decreto 067 del 31 de enero de 2018",
+              name: 'Decreto 067 del 31 de enero de 2018',
               url:
-                "https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf"
-            }
+                'https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf',
+            },
           ],
           days: medellinTaxis.info.days,
           hours: medellinTaxis.info.hours,
           scheme: medellinTaxis.info.scheme,
           observations: medellinTaxis.info.observations.replace(
-            "Medellín",
-            "Itagüí"
-          )
+            'Medellín',
+            'Itagüí'
+          ),
         },
         name: medellinTaxis.name,
         na: medellinTaxis.na,
-        pyp: medellinTaxis.pyp
-      }
-    ]
-  }
-};
+        pyp: medellinTaxis.pyp,
+      },
+    ],
+  },
+}

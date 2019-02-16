@@ -1,31 +1,31 @@
-const slugify = require("slugify");
-const armenia = require("../lib/armenia");
-const barranquilla = require("../lib/barranquilla");
-const bello = require("../lib/bello");
-const bogota = require("../lib/bogota");
-const bucaramanga = require("../lib/bucaramanga");
-const buenaventura = require("../lib/buenaventura");
-const cali = require("../lib/cali");
-const cartagena = require("../lib/cartagena");
-const cucuta = require("../lib/cucuta");
-const envigado = require("../lib/envigado");
-const ibague = require("../lib/ibague");
-const itagui = require("../lib/itagui");
-const laestrella = require("../lib/laestrella");
-const manizales = require("../lib/manizales");
-const medellin = require("../lib/medellin");
-const ocana = require("../lib/ocana");
-const pamplona = require("../lib/pamplona");
-const pasto = require("../lib/pasto");
-const pereira = require("../lib/pereira");
-const popayan = require("../lib/popayan");
-const quibdo = require("../lib/quibdo");
-const sabaneta = require("../lib/sabaneta");
-const santamarta = require("../lib/santamarta");
-const soledad = require("../lib/soledad");
-const tunja = require("../lib/tunja");
-const turbaco = require("../lib/turbaco");
-const villavicencio = require("../lib/villavicencio");
+const slugify = require('slugify')
+const armenia = require('../lib/armenia')
+const barranquilla = require('../lib/barranquilla')
+const bello = require('../lib/bello')
+const bogota = require('../lib/bogota')
+const bucaramanga = require('../lib/bucaramanga')
+const buenaventura = require('../lib/buenaventura')
+const cali = require('../lib/cali')
+const cartagena = require('../lib/cartagena')
+const cucuta = require('../lib/cucuta')
+const envigado = require('../lib/envigado')
+const ibague = require('../lib/ibague')
+const itagui = require('../lib/itagui')
+const laestrella = require('../lib/laestrella')
+const manizales = require('../lib/manizales')
+const medellin = require('../lib/medellin')
+const ocana = require('../lib/ocana')
+const pamplona = require('../lib/pamplona')
+const pasto = require('../lib/pasto')
+const pereira = require('../lib/pereira')
+const popayan = require('../lib/popayan')
+const quibdo = require('../lib/quibdo')
+const sabaneta = require('../lib/sabaneta')
+const santamarta = require('../lib/santamarta')
+const soledad = require('../lib/soledad')
+const tunja = require('../lib/tunja')
+const turbaco = require('../lib/turbaco')
+const villavicencio = require('../lib/villavicencio')
 
 const cities = {
   armenia,
@@ -54,8 +54,8 @@ const cities = {
   soledad,
   tunja,
   turbaco,
-  villavicencio
-};
+  villavicencio,
+}
 /**
  * Obtiene las categorías correspondientes a una ciudad dada en donde la llave es el slug ordenado
  * alfabéticamente y el valor es otro objecto que contiene la llave interna para acceder a la
@@ -71,15 +71,15 @@ const cities = {
  * @returns {Object} Las categorías correspondientes a la ciudad con la llave y el nombre humano.
  */
 function getCategories(city) {
-  const categoriesMap = {};
-  const cityObj = cities[city];
-  const categories = Object.keys(cityObj.categories).sort();
+  const categoriesMap = {}
+  const cityObj = cities[city]
+  const categories = Object.keys(cityObj.categories).sort()
   categories.forEach(category => {
-    const categoryName = cityObj.categories[category][0].name;
-    const categorySlug = slugify(categoryName, { lower: true });
-    categoriesMap[categorySlug] = { key: category, name: categoryName };
-  });
-  return categoriesMap;
+    const categoryName = cityObj.categories[category][0].name
+    const categorySlug = slugify(categoryName, { lower: true })
+    categoriesMap[categorySlug] = { key: category, name: categoryName }
+  })
+  return categoriesMap
 }
 
 /**
@@ -119,16 +119,16 @@ function getCities() {
   return Object.keys(cities)
     .sort()
     .reduce((result, city) => {
-      const cityName = cities[city].name;
-      const citySlug = slugify(cityName, { lower: true });
+      const cityName = cities[city].name
+      const citySlug = slugify(cityName, { lower: true })
       // eslint-disable-next-line no-param-reassign
       result[citySlug] = {
         name: cityName,
         key: city,
-        categories: getCategories(city)
-      };
-      return result;
-    }, {});
+        categories: getCategories(city),
+      }
+      return result
+    }, {})
 }
 /**
  * Devuelve un array con las categorías y los valores correspondientes al pico y placa para la
@@ -140,32 +140,32 @@ function getCities() {
  * @returns {Array} El valor del pyp para la ciudad y categorías solicitadas.
  */
 function getPyp(city, date, categories = []) {
-  const pypCity = cities[city];
+  const pypCity = cities[city]
   const cats = categories.length
     ? categories
-    : Object.keys(pypCity.categories).sort();
+    : Object.keys(pypCity.categories).sort()
   return cats.reduce((result, category) => {
-    const cityPath = slugify(pypCity.name, { lower: true });
-    const dateString = typeof date === "string" ? date : date.toISOString();
-    let activeCategory = {};
+    const cityPath = slugify(pypCity.name, { lower: true })
+    const dateString = typeof date === 'string' ? date : date.toISOString()
+    let activeCategory = {}
     for (let i = 0; i < pypCity.categories[category].length; i += 1) {
-      const currentCat = pypCity.categories[category][i];
+      const currentCat = pypCity.categories[category][i]
       if (dateString >= currentCat.from) {
-        activeCategory = currentCat;
-        break;
+        activeCategory = currentCat
+        break
       }
     }
     const categoryPath = slugify(activeCategory.name, {
-      lower: true
-    });
+      lower: true,
+    })
     result.push({
       name: activeCategory.name,
       path: `${cityPath}/${categoryPath}`,
       pyp: activeCategory.pyp(date),
-      key: category
-    });
-    return result;
-  }, []);
+      key: category,
+    })
+    return result
+  }, [])
 }
 /**
  * Devuelve un objeto conla metainformación para la ciudad solicitada en donde las llaves son el
@@ -177,30 +177,30 @@ function getPyp(city, date, categories = []) {
  * @returns {Object} La meta-información para la ciudad y categorías solicitadas.
  */
 function getPypInfo(city, date, categories = []) {
-  const pypCity = cities[city];
+  const pypCity = cities[city]
   const cats = categories.length
     ? categories
-    : Object.keys(pypCity.categories).sort();
+    : Object.keys(pypCity.categories).sort()
   return cats.reduce((result, category) => {
-    const cityPath = slugify(pypCity.name, { lower: true });
-    let activeCategory = {};
-    const dateString = typeof date === "string" ? date : date.toISOString();
+    const cityPath = slugify(pypCity.name, { lower: true })
+    let activeCategory = {}
+    const dateString = typeof date === 'string' ? date : date.toISOString()
     for (let i = 0; i < pypCity.categories[category].length; i += 1) {
-      const currentCat = pypCity.categories[category][i];
+      const currentCat = pypCity.categories[category][i]
       if (dateString >= currentCat.from) {
-        activeCategory = currentCat;
-        break;
+        activeCategory = currentCat
+        break
       }
     }
     const categoryPath = slugify(activeCategory.name, {
-      lower: true
-    });
-    const { info } = activeCategory;
-    info.name = activeCategory.name;
-    info.path = `${cityPath}/${categoryPath}`;
-    result[category] = info; // eslint-disable-line no-param-reassign
-    return result;
-  }, {});
+      lower: true,
+    })
+    const { info } = activeCategory
+    info.name = activeCategory.name
+    info.path = `${cityPath}/${categoryPath}`
+    result[category] = info // eslint-disable-line no-param-reassign
+    return result
+  }, {})
 }
 
 /**
@@ -212,8 +212,8 @@ function getPypInfo(city, date, categories = []) {
  * @param {string} timeOffset Desplazamiento de la zona horaria.
  * @returns {string} La fecha con la zona horaria incluida si no la traía.
  */
-function ISOString(date, timeOffset = "-05:00") {
-  return date.length === 10 ? `${date}T00:00:00.000${timeOffset}` : date;
+function ISOString(date, timeOffset = '-05:00') {
+  return date.length === 10 ? `${date}T00:00:00.000${timeOffset}` : date
 }
 
 /**
@@ -233,24 +233,24 @@ function getPypData(city, date, days = 1, categories = []) {
   // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
   // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
   // Usamos el formato ISO
-  const ISODate = ISOString(date);
-  const pypCity = cities[city];
-  const currentDate = new Date(ISODate);
+  const ISODate = ISOString(date)
+  const pypCity = cities[city]
+  const currentDate = new Date(ISODate)
   const result = {
     name: pypCity.name,
     path: slugify(pypCity.name, { lower: true }),
     info: getPypInfo(city, currentDate, categories),
-    data: []
-  };
+    data: [],
+  }
   for (let i = 0; i < days; i += 1) {
-    const pypData = getPyp(city, currentDate, categories);
+    const pypData = getPyp(city, currentDate, categories)
     result.data.push({
       date: currentDate.toISOString(),
-      categories: pypData
-    });
-    currentDate.setDate(currentDate.getDate() + 1);
+      categories: pypData,
+    })
+    currentDate.setDate(currentDate.getDate() + 1)
   }
-  return result;
+  return result
 }
 
 module.exports = {
@@ -259,5 +259,5 @@ module.exports = {
   getPyp,
   getPypData,
   getPypInfo,
-  ISOString
-};
+  ISOString,
+}

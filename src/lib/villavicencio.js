@@ -1,39 +1,39 @@
-const pypFuncs = require("../utils/funcs");
+const pypFuncs = require('../utils/funcs')
 
 module.exports = {
-  name: "Villavicencio",
+  name: 'Villavicencio',
   categories: {
     particulares: [
       {
-        from: "2017-08-01",
+        from: '2017-08-01',
         info: {
-          vehicleClasses: ["Vehículos automotores de servicio particular"],
+          vehicleClasses: ['Vehículos automotores de servicio particular'],
           decrees: [
             {
-              name: "Decreto 222 de 2018",
+              name: 'Decreto 222 de 2018',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-222-del-25-de-julio-de-2018.pdf"
-              )
+                'villavicencio',
+                'decreto-222-del-25-de-julio-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 245 de 2017",
+              name: 'Decreto 245 de 2017',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-245-del-26-de-julio-de-2017.pdf"
-              )
-            }
+                'villavicencio',
+                'decreto-245-del-26-de-julio-de-2017.pdf'
+              ),
+            },
           ],
-          days: ["Lunes a viernes"],
+          days: ['Lunes a viernes'],
           hours: [
             {
-              comment: "",
-              hours: [["6:30", "19:30"]],
-              days: []
-            }
+              comment: '',
+              hours: [['6:30', '19:30']],
+              days: [],
+            },
           ],
           scheme:
-            "La prohibición a la circulación de vehículos automotores particulares se realizará según el último dígito de la placa única nacional y acorde con el día calendario hábil.",
+            'La prohibición a la circulación de vehículos automotores particulares se realizará según el último dígito de la placa única nacional y acorde con el día calendario hábil.',
           observations: `<iframe src="https://www.google.com/maps/d/u/0/embed?mid=10W9kwMwYeJfueGAuk2eqXD982kOfLG-8" width="100%" height="480"></iframe>`,
           exceptions: `<ul>
           <li>Automotores destinados o contratados para el transporte y/o disposición de residuos y/o desechos hospitalarios, siempre y cuando cuenten con plena y pública identificación, consistente en los logos de la empresa contratante pintados o adheridos en la carrocería.</li>
@@ -53,60 +53,60 @@ module.exports = {
           <li>Vehículos eléctricos: Automotores propulsados exclusivamente por motores eléctricos.</li>
           <ul>`,
           map: pypFuncs.buildAssetPath(
-            "villavicencio",
-            "mapa-pico-y-placa-villavicencio.jpg"
-          )
+            'villavicencio',
+            'mapa-pico-y-placa-villavicencio.jpg'
+          ),
         },
-        name: "Particulares",
+        name: 'Particulares',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = "2017-08-01";
-            const startNums = "9-0";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2017-08-01'
+            const startNums = '9-0'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateBy(
               date,
               startDate,
               startNums,
               pypNums,
-              "years",
+              'years',
               true
-            );
-          });
-        }
-      }
+            )
+          })
+        },
+      },
     ],
     motos: [
       {
-        from: "2017-08-01",
+        from: '2017-08-01',
         info: {
-          vehicleClasses: ["Motocicletas y motocarros de servicio particular"],
+          vehicleClasses: ['Motocicletas y motocarros de servicio particular'],
           decrees: [
             {
-              name: "Decreto 222 de 2018",
+              name: 'Decreto 222 de 2018',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-222-del-25-de-julio-de-2018.pdf"
-              )
+                'villavicencio',
+                'decreto-222-del-25-de-julio-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 245 de 2017",
+              name: 'Decreto 245 de 2017',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-245-del-26-de-julio-de-2017.pdf"
-              )
-            }
+                'villavicencio',
+                'decreto-245-del-26-de-julio-de-2017.pdf'
+              ),
+            },
           ],
-          days: ["Lunes a viernes"],
+          days: ['Lunes a viernes'],
           hours: [
             {
-              comment: "",
-              hours: [["6:30", "19:30"]],
-              days: []
-            }
+              comment: '',
+              hours: [['6:30', '19:30']],
+              days: [],
+            },
           ],
           scheme:
-            "La prohibición a la circulación de vehículos automotores particulares se realizará según el último dígito de la placa única nacional y acorde con el día calendario hábil.",
+            'La prohibición a la circulación de vehículos automotores particulares se realizará según el último dígito de la placa única nacional y acorde con el día calendario hábil.',
           observations: `<iframe src="https://www.google.com/maps/d/u/0/embed?mid=10W9kwMwYeJfueGAuk2eqXD982kOfLG-8" width="100%" height="680"></iframe>`,
           exceptions: `<ul>
           <li>Motocicletas que pertenezcan o estén contratadas por las empresas dedicadas a los servicio de seguridad vigilancia privada o de escoltas, siempre y cuando estén prestando el servicio y plenamente identificados.</li>
@@ -119,76 +119,76 @@ module.exports = {
           <li>Motocicletas eléctricas. Motocicletas propulsadas exclusivamente por motores eléctricos.</li>
           <ul>`,
           map: pypFuncs.buildAssetPath(
-            "villavicencio",
-            "mapa-pico-y-placa-villavicencio.jpg"
-          )
+            'villavicencio',
+            'mapa-pico-y-placa-villavicencio.jpg'
+          ),
         },
-        name: "Motos",
+        name: 'Motos',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, false, () => {
-            const startDate = "2017-08-01";
-            const startNums = "9-0";
-            const pypNums = ["1-2", "3-4", "5-6", "7-8", "9-0"];
+            const startDate = '2017-08-01'
+            const startNums = '9-0'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
             return pypFuncs.rotateBy(
               date,
               startDate,
               startNums,
               pypNums,
-              "years",
+              'years',
               true
-            );
-          });
-        }
-      }
+            )
+          })
+        },
+      },
     ],
     taxis: [
       {
-        from: "2017-08-01",
+        from: '2017-08-01',
         info: {
           vehicleClasses: [
-            "Vehículos automotores de servicio público de transporte terrestre individual de pasajeros en vehículos tipo taxi"
+            'Vehículos automotores de servicio público de transporte terrestre individual de pasajeros en vehículos tipo taxi',
           ],
           decrees: [
             {
-              name: "Decreto 222 de 2018",
+              name: 'Decreto 222 de 2018',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-222-del-25-de-julio-de-2018.pdf"
-              )
+                'villavicencio',
+                'decreto-222-del-25-de-julio-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 245 de 2017",
+              name: 'Decreto 245 de 2017',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-245-del-26-de-julio-de-2017.pdf"
-              )
+                'villavicencio',
+                'decreto-245-del-26-de-julio-de-2017.pdf'
+              ),
             },
             {
-              name: "Decreto 010 de 2017",
+              name: 'Decreto 010 de 2017',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-010-del-24-de-enero-de-2017.pdf"
-              )
+                'villavicencio',
+                'decreto-010-del-24-de-enero-de-2017.pdf'
+              ),
             },
             {
-              name: "Decreto 131 de 2016",
+              name: 'Decreto 131 de 2016',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-131-del-26-de-enero-de-2016.pdf"
-              )
-            }
+                'villavicencio',
+                'decreto-131-del-26-de-enero-de-2016.pdf'
+              ),
+            },
           ],
-          days: ["Lunes a viernes"],
+          days: ['Lunes a viernes'],
           hours: [
             {
-              comment: "",
-              hours: [["6:00", "24:00"]],
-              days: []
-            }
+              comment: '',
+              hours: [['6:00', '24:00']],
+              days: [],
+            },
           ],
           scheme:
-            "Según el último dígito de la placa única nacional y acorde con el día hábil de cada mes.",
+            'Según el último dígito de la placa única nacional y acorde con el día hábil de cada mes.',
           observations: `Los vehículos de servicio público de transporte terrestre automotor individual de pasajeros tipo taxi, que tengan restricción de circulación según el último dígito de la placa única nacional, podrán circular entre las 6:00 y las 7:00 horas y entre las 16:00 y las 17:00, solo por efectos de mantenimiento del vehículo y deberán cumplir las siguientes condiciones: <ul>
           <li>Portar en el vidrio delantero (lugar del pasajero) y en el vidrio trasero, un aviso que diga "FUERA DE SERVICIO", escrito en letra Arial de diez (10) centímetros de altura.</li>
           <li>En el vehículo solo se podrá movilizar el conductor.</li>
@@ -202,69 +202,69 @@ module.exports = {
           <li>Vía antigua a Bogotá a la altura del sector de Súper Gas.</li>
           <li>Vía nueva a Bogotá a la altura del sector de Buenavista entrada al túnel (Misael Pastrana Borrero) sentido Bogotá - Villavicencio.</li>
           <li>Vía Catama a la altura del sector de la Reliquia (incluido la Reliquia).</li>
-          </ul>`
+          </ul>`,
         },
-        name: "Taxis",
+        name: 'Taxis',
         na: [0, 6],
         pyp(date) {
           return pypFuncs.pyp(date, this.na, false, () => {
-            const dateObject = new Date(date);
-            const datesDate = dateObject.getDate();
+            const dateObject = new Date(date)
+            const datesDate = dateObject.getDate()
             if (datesDate === 31) {
-              return "NA";
+              return 'NA'
             }
-            return (datesDate % 10).toString(10);
-          });
-        }
-      }
+            return (datesDate % 10).toString(10)
+          })
+        },
+      },
     ],
     carga: [
       {
-        from: "2017-08-01",
+        from: '2017-08-01',
         info: {
           vehicleClasses: [
-            "Vehículos automotores con capacidad de carga de treinta (30) toneladas o superior"
+            'Vehículos automotores con capacidad de carga de treinta (30) toneladas o superior',
           ],
           decrees: [
             {
-              name: "Decreto 222 de 2018",
+              name: 'Decreto 222 de 2018',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-222-del-25-de-julio-de-2018.pdf"
-              )
+                'villavicencio',
+                'decreto-222-del-25-de-julio-de-2018.pdf'
+              ),
             },
             {
-              name: "Decreto 245 de 2017",
+              name: 'Decreto 245 de 2017',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-245-del-26-de-julio-de-2017.pdf"
-              )
+                'villavicencio',
+                'decreto-245-del-26-de-julio-de-2017.pdf'
+              ),
             },
             {
-              name: "Decreto 010 de 2017",
+              name: 'Decreto 010 de 2017',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-010-del-24-de-enero-de-2017.pdf"
-              )
+                'villavicencio',
+                'decreto-010-del-24-de-enero-de-2017.pdf'
+              ),
             },
             {
-              name: "Decreto 131 de 2016",
+              name: 'Decreto 131 de 2016',
               url: pypFuncs.buildAssetPath(
-                "villavicencio",
-                "decreto-131-del-26-de-enero-de-2016.pdf"
-              )
-            }
+                'villavicencio',
+                'decreto-131-del-26-de-enero-de-2016.pdf'
+              ),
+            },
           ],
-          days: ["Lunes a viernes"],
+          days: ['Lunes a viernes'],
           hours: [
             {
-              comment: "",
-              hours: [["6:00", "8:00"], ["17:00", "19:30"]],
-              days: []
-            }
+              comment: '',
+              hours: [['6:00', '8:00'], ['17:00', '19:30']],
+              days: [],
+            },
           ],
           scheme:
-            "Prohíbase el tránsito de vehículos automotores con capacidad de carga de treinta (30) toneladas o superior por las vías públicas del perímetro urbano de la ciudad de Villavicencio de lunes a viernes entre las 6:00 y las 8:00 horas y desde las 17:00 hasta las 19:30 horas.",
+            'Prohíbase el tránsito de vehículos automotores con capacidad de carga de treinta (30) toneladas o superior por las vías públicas del perímetro urbano de la ciudad de Villavicencio de lunes a viernes entre las 6:00 y las 8:00 horas y desde las 17:00 hasta las 19:30 horas.',
           observations: `A partir de los siguientes sectores: <ul>
           <li>Vía a Puerto López a la altura de puente sobre el Rio Ocoa.</li>
           <li>Vía a Acacias a la altura del Sector Porfía (inclido Ciudad Porfía).</li>
@@ -273,19 +273,14 @@ module.exports = {
           <li>Vía antigua a Bogotá a la altura del sector Súper Gas.</li>
           <li>Vía nueva a Bogotá a la altura del sector Buenavista entrada túnel sentido Bogotá - Villavicencio.</li>
           </ul>`,
-          exceptions: `La anterior restricción no aplica para la producción agrícola, ganadera, de alientos perecederos, vehículos de emergencia, los que transporten valores, oxígeno hospitalario, los de las fuerzas militares o de policía y de las empresas de servicio públicos domiciliarios.`
+          exceptions: `La anterior restricción no aplica para la producción agrícola, ganadera, de alientos perecederos, vehículos de emergencia, los que transporten valores, oxígeno hospitalario, los de las fuerzas militares o de policía y de las empresas de servicio públicos domiciliarios.`,
         },
-        name: "Transporte de Carga",
+        name: 'Transporte de Carga',
         na: [0, 6],
         pyp(date) {
-          return pypFuncs.pyp(
-            date,
-            this.na,
-            false,
-            () => "0-1-2-3-4-5-6-7-8-9"
-          );
-        }
-      }
-    ]
-  }
-};
+          return pypFuncs.pyp(date, this.na, false, () => '0-1-2-3-4-5-6-7-8-9')
+        },
+      },
+    ],
+  },
+}

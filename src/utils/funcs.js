@@ -1,7 +1,7 @@
-const dayjs = require("dayjs");
-const weekOfYear = require("dayjs/plugin/weekOfYear");
-const { getHoliday } = require("pascua");
-const config = require("../config");
+const dayjs = require('dayjs')
+const weekOfYear = require('dayjs/plugin/weekOfYear')
+const { getHoliday } = require('pascua')
+const config = require('../config')
 
 /**
  * Devuelve una respuesta válida para API Gateway consistente por lo menos de un cuerpo (body) y un código de respuesta (statusCode).
@@ -12,12 +12,12 @@ const config = require("../config");
 function createResponse(statusCode, body) {
   return {
     headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
     statusCode,
-    body: JSON.stringify(body)
-  };
+    body: JSON.stringify(body),
+  }
 }
 
 /**
@@ -27,7 +27,7 @@ function createResponse(statusCode, body) {
  * @returns {string} La ruta del recurso
  */
 function buildAssetPath(city, asset) {
-  return `${config.cdn}/${city}/${asset}`;
+  return `${config.cdn}/${city}/${asset}`
 }
 
 /**
@@ -39,10 +39,10 @@ function buildAssetPath(city, asset) {
  * @returns {boolean} Verdadero si la fecha es excluida de lo contrario falso.
  */
 function excludeDays(date, days, holidays = true) {
-  const dateObject = new Date(date);
+  const dateObject = new Date(date)
   return (
     days.includes(dateObject.getDay()) || (holidays && getHoliday(dateObject))
-  );
+  )
 }
 
 /**
@@ -65,35 +65,35 @@ function daysDiff(
   // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
   // Usamos el formato ISO
   const ISOStartDate =
-    startDate.length === 10 ? `${startDate}T00:00:00.000-05:00` : startDate;
+    startDate.length === 10 ? `${startDate}T00:00:00.000-05:00` : startDate
   const ISOEndDate =
-    endDate.length === 10 ? `${endDate}T00:00:00.000-05:00` : endDate;
-  const cDateObject = new Date(ISOStartDate);
-  const eDateObject = new Date(ISOEndDate);
-  let daysLapse = 0;
+    endDate.length === 10 ? `${endDate}T00:00:00.000-05:00` : endDate
+  const cDateObject = new Date(ISOStartDate)
+  const eDateObject = new Date(ISOEndDate)
+  let daysLapse = 0
 
   while (cDateObject <= eDateObject) {
-    if (specialDates.includes(dayjs(cDateObject).format("YYYY-MM-DD"))) {
-      cDateObject.setDate(cDateObject.getDate() + 1);
-      continue; // eslint-disable-line no-continue
+    if (specialDates.includes(dayjs(cDateObject).format('YYYY-MM-DD'))) {
+      cDateObject.setDate(cDateObject.getDate() + 1)
+      continue // eslint-disable-line no-continue
     }
 
     if (skipHolidays) {
       if (getHoliday(cDateObject)) {
-        cDateObject.setDate(cDateObject.getDate() + 1);
-        continue; // eslint-disable-line no-continue
+        cDateObject.setDate(cDateObject.getDate() + 1)
+        continue // eslint-disable-line no-continue
       }
     }
 
     if (skip.includes(cDateObject.getDay())) {
-      cDateObject.setDate(cDateObject.getDate() + 1);
+      cDateObject.setDate(cDateObject.getDate() + 1)
 
-      continue; // eslint-disable-line no-continue
+      continue // eslint-disable-line no-continue
     }
-    daysLapse += 1;
-    cDateObject.setDate(cDateObject.getDate() + 1);
+    daysLapse += 1
+    cDateObject.setDate(cDateObject.getDate() + 1)
   }
-  return daysLapse;
+  return daysLapse
 }
 
 /**
@@ -104,9 +104,9 @@ function daysDiff(
  * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
  */
 function monthsDiff(startDate, endDate, interval = 1) {
-  const mDate = dayjs(endDate);
-  const diff = Math.floor(mDate.diff(startDate, "months") / interval);
-  return diff;
+  const mDate = dayjs(endDate)
+  const diff = Math.floor(mDate.diff(startDate, 'months') / interval)
+  return diff
 }
 
 /**
@@ -119,17 +119,17 @@ function monthsDiff(startDate, endDate, interval = 1) {
  * @returns {string} El valor correspondiente al pyp para el día solicitado.
  */
 function pyp(date, na, holidays, specialProcessing) {
-  const startDate = "2018-01-01";
+  const startDate = '2018-01-01'
   if (daysDiff(startDate, date, []) <= 0) {
-    throw new Error("Date out of range");
+    throw new Error('Date out of range')
   }
   if (monthsDiff(Date(), date) >= 12) {
-    throw new Error("Date out of range");
+    throw new Error('Date out of range')
   }
   if (excludeDays(date, na, holidays)) {
-    return "NA";
+    return 'NA'
   }
-  return specialProcessing(date);
+  return specialProcessing(date)
 }
 
 /**
@@ -142,17 +142,17 @@ function pyp(date, na, holidays, specialProcessing) {
  * @return {date} La fecha correspondiente al día n solicitado.
  */
 function getNthDayOfMonth(year, month, dayOfWeek, index) {
-  const backwards = index < 0;
-  const offset = (index + (backwards ? 1 : 0)) * 7;
+  const backwards = index < 0
+  const offset = (index + (backwards ? 1 : 0)) * 7
   const date = new Date(
     year,
     month + (backwards ? 1 : 0),
     (backwards ? 0 : 1) + offset
-  );
+  )
   while (date.getDay() !== dayOfWeek) {
-    date.setDate(date.getDate() + (backwards ? -1 : 1));
+    date.setDate(date.getDate() + (backwards ? -1 : 1))
   }
-  return date;
+  return date
 }
 /**
  * Calcula el índice para cuando el valor del índice es mayor al largo del array o en caso de que se
@@ -164,7 +164,7 @@ function getNthDayOfMonth(year, month, dayOfWeek, index) {
  * @returns {int} El índice - en caso de ser negativo corresponde al indice de atrás hacia adelante.
  */
 function getIndex(index, arrLen) {
-  return ((index % arrLen) + arrLen) % arrLen;
+  return ((index % arrLen) + arrLen) % arrLen
 }
 
 /**
@@ -173,7 +173,7 @@ function getIndex(index, arrLen) {
  * @returns {int} Número del mes de la fecha dada. Enero = 1.
  */
 function getMonth(date) {
-  return new Date(date).getMonth() + 1;
+  return new Date(date).getMonth() + 1
 }
 
 /**
@@ -182,8 +182,8 @@ function getMonth(date) {
  * @returns {int} Número de semana del año en que cae la fecha dada.
  */
 function getWeek(date) {
-  dayjs.extend(weekOfYear);
-  return dayjs(date).week();
+  dayjs.extend(weekOfYear)
+  return dayjs(date).week()
 }
 
 /**
@@ -192,7 +192,7 @@ function getWeek(date) {
  * @returns {int} El día de la fecha.
  */
 function getDate(date) {
-  return new Date(date).getDate();
+  return new Date(date).getDate()
 }
 
 /**
@@ -201,7 +201,7 @@ function getDate(date) {
  * @returns {int} El día de la semana de la fecha dada.
  */
 function getDay(date) {
-  return new Date(date).getDay();
+  return new Date(date).getDay()
 }
 
 /**
@@ -212,7 +212,7 @@ function getDay(date) {
  * @returns {string} La fecha en con el formato solicitado.
  */
 function formatDate(date, format) {
-  return dayjs(date).format(format);
+  return dayjs(date).format(format)
 }
 
 /**
@@ -225,17 +225,17 @@ function formatDate(date, format) {
  * @returns {array} Un nuevo array con los valores desplazados según el offset.
  */
 function arrRotate(arr, offset) {
-  const arrOffset = offset % arr.length;
-  let head = [];
-  let tail = [];
+  const arrOffset = offset % arr.length
+  let head = []
+  let tail = []
   if (arrOffset >= 0) {
-    head = arr.slice(arr.length - arrOffset);
-    tail = arr.slice(0, arr.length - arrOffset);
+    head = arr.slice(arr.length - arrOffset)
+    tail = arr.slice(0, arr.length - arrOffset)
   } else {
-    head = arr.slice(-arrOffset);
-    tail = arr.slice(0, -arrOffset);
+    head = arr.slice(-arrOffset)
+    tail = arr.slice(0, -arrOffset)
   }
-  return head.concat(tail);
+  return head.concat(tail)
 }
 
 /**
@@ -249,9 +249,9 @@ function arrRotate(arr, offset) {
  */
 function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
   // eslint-disable-next-line no-unmodified-loop-condition
-  let daysLapse = daysDiff(startDate, date, skip);
-  daysLapse += pypNums.indexOf(startNums) - 1;
-  return pypNums[daysLapse % pypNums.length];
+  let daysLapse = daysDiff(startDate, date, skip)
+  daysLapse += pypNums.indexOf(startNums) - 1
+  return pypNums[daysLapse % pypNums.length]
 }
 
 /**
@@ -274,21 +274,21 @@ function rotateBy(
   reverse = false,
   interval = 1
 ) {
-  const mDate = dayjs(date);
-  const mStartDate = dayjs(startDate);
-  const pypOffset = pypNums.indexOf(startNums);
-  let lapse = 0;
+  const mDate = dayjs(date)
+  const mStartDate = dayjs(startDate)
+  const pypOffset = pypNums.indexOf(startNums)
+  let lapse = 0
   if (reverse) {
-    lapse = Math.ceil(mStartDate.diff(date, period) / interval);
+    lapse = Math.ceil(mStartDate.diff(date, period) / interval)
   } else {
-    lapse = Math.ceil(mDate.diff(mStartDate, period) / interval);
+    lapse = Math.ceil(mDate.diff(mStartDate, period) / interval)
   }
-  const pypArray = arrRotate(pypNums, lapse - pypOffset);
+  const pypArray = arrRotate(pypNums, lapse - pypOffset)
   // La diferencia entre mDate.day() y mStartDate.day() puede ser negativa por lo tanto calculamos
   // el índice en caso de que sea negativo, en cuyo caso el cálculo se haría de atrás hacia
   // adelante, siendo -1 el último elemento del array.
-  const index = getIndex(mDate.day() - mStartDate.day(), pypArray.length);
-  return pypArray[index];
+  const index = getIndex(mDate.day() - mStartDate.day(), pypArray.length)
+  return pypArray[index]
 }
 
 /**
@@ -314,10 +314,10 @@ function rotateByWeek(
     startDate,
     startNums,
     pypNums,
-    "weeks",
+    'weeks',
     reverse,
     interval
-  );
+  )
 }
 
 /**
@@ -343,10 +343,10 @@ function rotateByMonth(
     startDate,
     startNums,
     pypNums,
-    "months",
+    'months',
     reverse,
     interval
-  );
+  )
 }
 
 module.exports = {
@@ -367,5 +367,5 @@ module.exports = {
   rotateByMonth,
   getNthDayOfMonth,
   buildAssetPath,
-  createResponse
-};
+  createResponse,
+}
