@@ -23,12 +23,6 @@
     "outputs": "aws cloudformation describe-stacks --stack-name pyptron --query \"Stacks[].Outputs[]\"",
     "deploy": "cross-env NODE_ENV=production run-s sam:validate build sam:package sam:deploy"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "bugs": {
     "url": "https://bitbucket.org/archemiro/pyptron/issues",
     "email": "pyptron@pyphoy.com"
