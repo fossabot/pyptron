@@ -3,35 +3,30 @@ const pypFuncs = require('../utils/funcs')
 module.exports = {
   name: 'Armenia',
   categories: {
-    particulares: [
-      {
-        from: '2016-08-09',
-        info: {
-          vehicleClasses: ['Vehículos automotores de servicio particular'],
-          decrees: [
-            {
-              name: 'Decreto 083 de 2016',
-              url: pypFuncs.buildAssetPath(
-                'armenia',
-                'decreto-083-de-2016.pdf'
-              ),
-            },
-          ],
-          days: ['Lunes a viernes hábiles'],
-          hours: [
-            {
-              comment: 'Centro de la ciudad',
-              hours: [['7:30', '19:30']],
-              days: [],
-            },
-            {
-              comment: 'Toda la ciudad',
-              hours: [['7:30', '9:30'], ['11:30', '14:30'], ['17:30', '19:30']],
-              days: [],
-            },
-          ],
-          scheme: 'Último dígito del número de la placa según el esquema',
-          exceptions: `<ul>
+    particulares: {
+      info: {
+        vehicleClasses: ['Vehículos automotores de servicio particular'],
+        decrees: [
+          {
+            name: 'Decreto 083 de 2016',
+            url: pypFuncs.buildAssetPath('armenia', 'decreto-083-de-2016.pdf'),
+          },
+        ],
+        days: ['Lunes a viernes hábiles'],
+        hours: [
+          {
+            comment: 'Centro de la ciudad',
+            hours: [['7:30', '19:30']],
+            days: [],
+          },
+          {
+            comment: 'Toda la ciudad',
+            hours: [['7:30', '9:30'], ['11:30', '14:30'], ['17:30', '19:30']],
+            days: [],
+          },
+        ],
+        scheme: 'Último dígito del número de la placa según el esquema',
+        exceptions: `<ul>
         <li>Vehículos de asistencia médica de urgencias, domiciliarios adscritos, en propiedad o alquiler de empresas cuyo objeto social sea la prestación de servicio de salud, para lo cual la persona natural o jurídica autorizada deberá tramitar ante el organismo de tránsito de Armenia la inscripción del vehículo autorizado para este servicio, prestando el contrato trabajo respectivo, certificado de existencia y Representación expedido por la Cámara de Comercio (con fecha de expedición no mayor a treinta (30) días) RUT, comprobante de pago de parafiscales y seguridad social del último mes, fotocopia de la cédula de ciudadanía, fotocopia de la licencia de conducción del conductor, fotocopia de la licencia de tránsito del vehículo, seguro obligatorio vigente, revisión técnico mecánica y encontrarse a paz y salvo por infracciones de tránsito.</li>
         <li>Los vehículos pertenecientes a las Fuerzas Armadas, a la Policia Nacional, los agentes y reguladores de Trásito y Transporte en sus respectivos horarios laborales.</li>
         <li>Carrozas fúnebres, más no el cortejo fúnebre.</li>
@@ -50,58 +45,55 @@ module.exports = {
         <li>Vehículos pertenecientes a empresas de mensajería, adscritos a una empresa autorizada para realizar dicha labor, para lo cual deben de estar plenamente identificados y durante la prestación del servicio.</li>
         <li>Vehículos particulares en los que transporten magistrados de los diferentes tribunales, jueces, fiscales, Defensor(a) del Pueblo, Contralor(a) Municipal y Departamental, Personero(a), procuradores provinciales y regionales, Obispo, Director (a) del SENA, ICBF, Director (a) de la Cruz Roja y Defensa Civil, Director(a) INPEC, Director(a) de Gestión del Riesgo Municipal y Departamental, diputados y concejales, Registrador(a), vehículos asignados por la Agencia Nacional de Protección, siempre que dichos funcionarios se encuentren dentro del vehículo y ostentes dicha calidad, lo cual deberá acreditarse en el momento en que sea requerido por la autoridad de tránsito en la vía Pública.</li>
         </ul>`,
-        },
-        name: 'Particulares',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const pyp = [
-                '1-2', // lunes
-                '3-4', // martes
-                '5-6', // miércoles
-                '7-8', // jueves
-                '9-0', // viernes
-              ]
-              return pyp[pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
       },
-    ],
-    motos: [
-      {
-        from: '2016-08-09',
-        info: {
-          vehicleClasses: [
-            'Vehículos automotores particulares de dos tiempos tipo motocicleta, mototriciclos, cuatrimotos y motocarros',
-          ],
-          decrees: [
-            {
-              name: 'Decreto 083 de 2016',
-              url: pypFuncs.buildAssetPath(
-                'cartagena',
-                'decreto-083-de-2016.pdf'
-              ),
-            },
-          ],
-          days: ['Lunes a viernes hábiles'],
-          hours: [
-            {
-              comment: 'Centro de la ciudad',
-              hours: [['7:30', '19:30']],
-              days: [],
-            },
-            {
-              comment: 'Toda la ciudad',
-              hours: [['7:30', '9:30'], ['11:30', '14:30'], ['17:30', '19:30']],
-              days: [],
-            },
-          ],
-          scheme: 'Primer dígito del número de la placa según el esquema',
-          exceptions: `<ul>
+      name: 'Particulares',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const pyp = [
+              '1-2', // lunes
+              '3-4', // martes
+              '5-6', // miércoles
+              '7-8', // jueves
+              '9-0', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          },
+        })
+      },
+    },
+    motos: {
+      info: {
+        vehicleClasses: [
+          'Vehículos automotores particulares de dos tiempos tipo motocicleta, mototriciclos, cuatrimotos y motocarros',
+        ],
+        decrees: [
+          {
+            name: 'Decreto 083 de 2016',
+            url: pypFuncs.buildAssetPath(
+              'cartagena',
+              'decreto-083-de-2016.pdf'
+            ),
+          },
+        ],
+        days: ['Lunes a viernes hábiles'],
+        hours: [
+          {
+            comment: 'Centro de la ciudad',
+            hours: [['7:30', '19:30']],
+            days: [],
+          },
+          {
+            comment: 'Toda la ciudad',
+            hours: [['7:30', '9:30'], ['11:30', '14:30'], ['17:30', '19:30']],
+            days: [],
+          },
+        ],
+        scheme: 'Primer dígito del número de la placa según el esquema',
+        exceptions: `<ul>
         <li>Vehículos de asistencia médica de urgencias, domiciliarios adscritos, en propiedad o alquiler de empresas cuyo objeto social sea la prestación de servicio de salud, para lo cual la persona natural o jurídica autorizada deberá tramitar ante el organismo de tránsito de Armenia la inscripción del vehículo autorizado para este servicio, prestando el contrato trabajo respectivo, certificado de existencia y Representación expedido por la Cámara de Comercio (con fecha de expedición no mayor a treinta (30) días) RUT, comprobante de pago de parafiscales y seguridad social del último mes, fotocopia de la cédula de ciudadanía, fotocopia de la licencia de conducción del conductor, fotocopia de la licencia de tránsito del vehículo, seguro obligatorio vigente, revisión técnico mecánica y encontrarse a paz y salvo por infracciones de tránsito.</li>
         <li>Los vehículos pertenecientes a las Fuerzas Armadas, a la Policia Nacional, los agentes y reguladores de Trásito y Transporte en sus respectivos horarios laborales.</li>
         <li>Carrozas fúnebres, más no el cortejo fúnebre.</li>
@@ -120,74 +112,67 @@ module.exports = {
         <li>Vehículos pertenecientes a empresas de mensajería, adscritos a una empresa autorizada para realizar dicha labor, para lo cual deben de estar plenamente identificados y durante la prestación del servicio.</li>
         <li>Vehículos particulares en los que transporten magistrados de los diferentes tribunales, jueces, fiscales, Defensor(a) del Pueblo, Contralor(a) Municipal y Departamental, Personero(a), procuradores provinciales y regionales, Obispo, Director (a) del SENA, ICBF, Director (a) de la Cruz Roja y Defensa Civil, Director(a) INPEC, Director(a) de Gestión del Riesgo Municipal y Departamental, diputados y concejales, Registrador(a), vehículos asignados por la Agencia Nacional de Protección, siempre que dichos funcionarios se encuentren dentro del vehículo y ostentes dicha calidad, lo cual deberá acreditarse en el momento en que sea requerido por la autoridad de tránsito en la vía Pública.</li>
         </ul>`,
-        },
-        name: 'Motos',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const pyp = [
-                '1-2', // lunes
-                '3-4', // martes
-                '5-6', // miércoles
-                '7-8', // jueves
-                '9-0', // viernes
-              ]
-              return pyp[pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
       },
-    ],
-    taxis: [
-      {
-        from: '2016-08-09',
-        info: {
-          vehicleClasses: [
-            'Vehículos de transporte público individual de pasajeros - Taxis',
-          ],
-          decrees: [
-            {
-              name: 'Decreto 083 de 2016',
-              url: pypFuncs.buildAssetPath(
-                'armenia',
-                'decreto-083-de-2016.pdf'
-              ),
-            },
-          ],
-          days: ['Lunes a viernes hábiles'],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:30', '19:30']],
-              days: [],
-            },
-          ],
-          scheme: 'Primer dígito del número de la placa según el esquema',
-        },
-        name: 'Taxis',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const startDate = '2017-12-11'
-              const startNums = '1-2'
-              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-              return pypFuncs.rotateByWeek(
-                date,
-                startDate,
-                startNums,
-                pypNums,
-                true
-              )
-            },
-          })
-        },
+      name: 'Motos',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const pyp = [
+              '1-2', // lunes
+              '3-4', // martes
+              '5-6', // miércoles
+              '7-8', // jueves
+              '9-0', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          },
+        })
       },
-    ],
+    },
+    taxis: {
+      info: {
+        vehicleClasses: [
+          'Vehículos de transporte público individual de pasajeros - Taxis',
+        ],
+        decrees: [
+          {
+            name: 'Decreto 083 de 2016',
+            url: pypFuncs.buildAssetPath('armenia', 'decreto-083-de-2016.pdf'),
+          },
+        ],
+        days: ['Lunes a viernes hábiles'],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:30', '19:30']],
+            days: [],
+          },
+        ],
+        scheme: 'Primer dígito del número de la placa según el esquema',
+      },
+      name: 'Taxis',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const startDate = '2017-12-11'
+            const startNums = '1-2'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+            return pypFuncs.rotateByWeek(
+              date,
+              startDate,
+              startNums,
+              pypNums,
+              true
+            )
+          },
+        })
+      },
+    },
   },
 }

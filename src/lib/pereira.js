@@ -3,53 +3,51 @@ const pypFuncs = require('../utils/funcs')
 module.exports = {
   name: 'Pereira',
   categories: {
-    particulares: [
-      {
-        from: '2015-04-07',
-        info: {
-          vehicleClasses: ['Vehículos automotores de servicio particular'],
-          decrees: [
-            {
-              name: 'Decreto 872 del 22 de noviembre de 2018',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-872-del-22-de-noviembre-de-2018.pdf'
-              ),
-            },
-            {
-              name: 'Decreto 241 del 26 de marzo de 2016',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-241-del-26-de-marzo-de-2016.pdf'
-              ),
-            },
-            {
-              name: 'Decreto 516 del 21 de julio de 2015',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-516-del-21-de-julio-de-2015.pdf'
-              ),
-            },
-            {
-              name: 'Decreto 193 del 6 de marzo de 2015',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-193-del-6-de-marzo-de-2015.pdf'
-              ),
-            },
-          ],
-          days: [
-            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
-          ],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '19:00']],
-              days: [],
-            },
-          ],
-          scheme: 'Último dígito del número de la placa según el esquema',
-          observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
+    particulares: {
+      info: {
+        vehicleClasses: ['Vehículos automotores de servicio particular'],
+        decrees: [
+          {
+            name: 'Decreto 872 del 22 de noviembre de 2018',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-872-del-22-de-noviembre-de-2018.pdf'
+            ),
+          },
+          {
+            name: 'Decreto 241 del 26 de marzo de 2016',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-241-del-26-de-marzo-de-2016.pdf'
+            ),
+          },
+          {
+            name: 'Decreto 516 del 21 de julio de 2015',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-516-del-21-de-julio-de-2015.pdf'
+            ),
+          },
+          {
+            name: 'Decreto 193 del 6 de marzo de 2015',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-193-del-6-de-marzo-de-2015.pdf'
+            ),
+          },
+        ],
+        days: [
+          'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
+        ],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '19:00']],
+            days: [],
+          },
+        ],
+        scheme: 'Último dígito del número de la placa según el esquema',
+        observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
         <ul>
           <li>Partiendo del puente Mosquera (punto 1) se continúa por la Avenida del Río hasta la intersección Turín (punto 2). Este corredor en ambos sentidos no estará sometido a la mediada de pico y placa.</li>
           <li>De la intersección Turín (punto 2) se continúa por la avenida 30 de agosto hasta la intersección Belmonte (punto 3). Este corredor, en ambos sentidos no estará sometido a la medida de pico y placa.</li>
@@ -58,7 +56,7 @@ module.exports = {
           <li>De la intersección de la call3 17 con carrera 13 (punto 5) se continúa por la avenida del Ferrocarril hasta el Viaducto y la carrera 6 con dirección a la Avenida del Rio-Puente Mosquera (Punto 1). Este corredor se excluye de la medida del pico y placa, con los lazos de unión de la Glorieta de Bavaria con la Avenida del Ferrocarril.</li>
           <li>También se excluye de la restrcción del pico y placa el Viaducto César Gaviria Trujillo, y el tramo de la Avenida 30 de agosto, entre la intersección de Turín (punto 2) y la intersección de las carreras 13 y 14 con calle 17 (punto 5).</li>
         </ul>`,
-          exceptions: `<ul>
+        exceptions: `<ul>
         <li>Carrozas fúnebres y su cortejo.</li>
         <li>Vehículos pertenecientes a las Fuerzas Militares y de la Policía Nacional.</li>
         <li>Ambulancias.</li>
@@ -76,78 +74,75 @@ module.exports = {
         <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
         </ul>
         `,
-          map: pypFuncs.buildAssetPath(
-            'pereira',
-            'mapa-pico-y-placa-pereira-nuevo.jpg'
-          ),
-        },
-        name: 'Particulares',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const pyp = [
-                '0-1', // lunes
-                '2-3', // martes
-                '4-5', // miércoles
-                '6-7', // jueves
-                '8-9', // viernes
-              ]
-              return pyp[pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
+        map: pypFuncs.buildAssetPath(
+          'pereira',
+          'mapa-pico-y-placa-pereira-nuevo.jpg'
+        ),
       },
-    ],
-    motos: [
-      {
-        from: '2015-04-07',
-        info: {
-          vehicleClasses: ['Motocicletas'],
-          decrees: [
-            {
-              name: 'Decreto 872 del 22 de noviembre de 2018',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-872-del-22-de-noviembre-de-2018.pdf'
-              ),
-            },
-            {
-              name: 'Decreto 241 del 26 de marzo de 2016',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-241-del-26-de-marzo-de-2016.pdf'
-              ),
-            },
-            {
-              name: 'Decreto 516 del 21 de julio de 2015',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-516-del-21-de-julio-de-2015.pdf'
-              ),
-            },
-            {
-              name: 'Decreto 193 del 6 de marzo de 2015',
-              url: pypFuncs.buildAssetPath(
-                'pereira',
-                'decreto-193-del-6-de-marzo-de-2015.pdf'
-              ),
-            },
-          ],
-          days: [
-            'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
-          ],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '19:00']],
-              days: [],
-            },
-          ],
-          scheme: 'Primer dígito del número de la placa según el esquema',
-          observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
+      name: 'Particulares',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const pyp = [
+              '0-1', // lunes
+              '2-3', // martes
+              '4-5', // miércoles
+              '6-7', // jueves
+              '8-9', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          },
+        })
+      },
+    },
+    motos: {
+      info: {
+        vehicleClasses: ['Motocicletas'],
+        decrees: [
+          {
+            name: 'Decreto 872 del 22 de noviembre de 2018',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-872-del-22-de-noviembre-de-2018.pdf'
+            ),
+          },
+          {
+            name: 'Decreto 241 del 26 de marzo de 2016',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-241-del-26-de-marzo-de-2016.pdf'
+            ),
+          },
+          {
+            name: 'Decreto 516 del 21 de julio de 2015',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-516-del-21-de-julio-de-2015.pdf'
+            ),
+          },
+          {
+            name: 'Decreto 193 del 6 de marzo de 2015',
+            url: pypFuncs.buildAssetPath(
+              'pereira',
+              'decreto-193-del-6-de-marzo-de-2015.pdf'
+            ),
+          },
+        ],
+        days: [
+          'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
+        ],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '19:00']],
+            days: [],
+          },
+        ],
+        scheme: 'Primer dígito del número de la placa según el esquema',
+        observations: `Se establece como restricción del pico y placa, para los vehículos particulares y motos, el área al interior del perímeto delimitado por las siguientes vías e interseccones:
           <ul>
           <li>Partiendo del puente Mosquera (punto 1) se continúa por la Avenida del Río hasta la intersección Turín (punto 2). Este corredor en ambos sentidos no estará sometido a la mediada de pico y placa.</li>
           <li>De la intersección Turín (punto 2) se continúa por la avenida 30 de agosto hasta la intersección Belmonte (punto 3). Este corredor, en ambos sentidos no estará sometido a la medida de pico y placa.</li>
@@ -156,7 +151,7 @@ module.exports = {
           <li>De la intersección de la call3 17 con carrera 13 (punto 5) se continúa por la avenida del Ferrocarril hasta el Viaducto y la carrera 6 con dirección a la Avenida del Rio-Puente Mosquera (Punto 1). Este corredor se excluye de la medida del pico y placa, con los lazos de unión de la Glorieta de Bavaria con la Avenida del Ferrocarril.</li>
           <li>También se excluye de la restrcción del pico y placa el Viaducto César Gaviria Trujillo, y el tramo de la Avenida 30 de agosto, entre la intersección de Turín (punto 2) y la intersección de las carreras 13 y 14 con calle 17 (punto 5).</li>
         </ul>`,
-          exceptions: `<ul>
+        exceptions: `<ul>
           <li>Carrozas fúnebres y su cortejo.</li>
           <li>Vehículos pertenecientes a las Fuerzas Militares y de la Policía Nacional.</li>
           <li>Ambulancias.</li>
@@ -173,30 +168,29 @@ module.exports = {
           <li>Los vehículos que transporten al personal médico, paramédico y asistencial, de las salas de urgencias y cirugías, previa identificación.</li>
           <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
         </ul>`,
-          map: pypFuncs.buildAssetPath(
-            'pereira',
-            'mapa-pico-y-placa-pereira-nuevo.jpg'
-          ),
-        },
-        name: 'Motos',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const pyp = [
-                '0-1', // lunes
-                '2-3', // martes
-                '4-5', // miércoles
-                '6-7', // jueves
-                '8-9', // viernes
-              ]
-              return pyp[pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
+        map: pypFuncs.buildAssetPath(
+          'pereira',
+          'mapa-pico-y-placa-pereira-nuevo.jpg'
+        ),
       },
-    ],
+      name: 'Motos',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const pyp = [
+              '0-1', // lunes
+              '2-3', // martes
+              '4-5', // miércoles
+              '6-7', // jueves
+              '8-9', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          },
+        })
+      },
+    },
   },
 }

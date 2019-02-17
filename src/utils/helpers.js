@@ -75,7 +75,12 @@ function getCategories(city) {
   const cityObj = cities[city]
   const categories = Object.keys(cityObj.categories).sort()
   categories.forEach(category => {
-    const categoryName = cityObj.categories[category][0].name
+    const categoryName = cityObj.categories[category].name
+    if (!categoryName) {
+      console.log(category)
+      console.log(cityObj.categories[category])
+      console.log(cityObj.categories[category].name)
+    }
     const categorySlug = slugify(categoryName, { lower: true })
     categoriesMap[categorySlug] = { key: category, name: categoryName }
   })
@@ -146,15 +151,7 @@ function getPyp(city, date, categories = []) {
     : Object.keys(pypCity.categories).sort()
   return cats.reduce((result, category) => {
     const cityPath = slugify(pypCity.name, { lower: true })
-    const dateString = typeof date === 'string' ? date : date.toISOString()
-    let activeCategory = {}
-    for (let i = 0; i < pypCity.categories[category].length; i += 1) {
-      const currentCat = pypCity.categories[category][i]
-      if (dateString >= currentCat.from) {
-        activeCategory = currentCat
-        break
-      }
-    }
+    const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
     })
@@ -183,15 +180,7 @@ function getPypInfo(city, date, categories = []) {
     : Object.keys(pypCity.categories).sort()
   return cats.reduce((result, category) => {
     const cityPath = slugify(pypCity.name, { lower: true })
-    let activeCategory = {}
-    const dateString = typeof date === 'string' ? date : date.toISOString()
-    for (let i = 0; i < pypCity.categories[category].length; i += 1) {
-      const currentCat = pypCity.categories[category][i]
-      if (dateString >= currentCat.from) {
-        activeCategory = currentCat
-        break
-      }
-    }
+    const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
     })

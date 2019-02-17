@@ -1,35 +1,33 @@
 const medellin = require('./medellin')
 
-const medellinParticulares = medellin.categories.particulares[0]
-const medellinMotos = medellin.categories.motos[0]
-const medellinTaxis = medellin.categories.taxis[0]
+const medellinParticulares = medellin.categories.particulares
+const medellinMotos = medellin.categories.motos
+const medellinTaxis = medellin.categories.taxis
 
 module.exports = {
   name: 'Bello',
   categories: {
-    particulares: [
-      {
-        from: medellinParticulares.from,
-        info: {
-          vehicleClasses: medellinParticulares.info.vehicleClasses,
-          decrees: [
-            {
-              name: 'Decreto pico y placa enero de 2017',
-              url:
-                'http://www.bello.gov.co/index.php/component/k2/item/download/219_e570e9fbf71412d35ba571a0635ba25b',
-            },
-            {
-              name: 'Decreto pico y placa febrero de 2018',
-              url:
-                'http://www.bello.gov.co/index.php/component/k2/item/download/941_94bced8a97224f77da7427d07b1da1b1',
-            },
-          ],
-          days: medellinParticulares.info.days,
-          hours: medellinParticulares.info.hours,
-          scheme: medellinParticulares.info.scheme,
-          observations:
-            'Quedan excluidas de la aplicación de la medida, las vías de la zona rural, la vía regional en jurisdicción de Bello, la autopista norte en el tramo comprendido entre la glorieta de la estación del Metro de Niquia y Jardines de la Fe, límites con el Municipio de Copacabana (incluyendo la Glorieta) y la Autopista Medellín - Bogotá, en jurisdicción de Bello. La Autopista Norte en el tramo comprendido entre la carrera 50 por calle 24A (Intercambio Vial Juan Ignacio Castrillón), hasta la glorieta de la estación del Metro Niquia será objeto de Pico y Placa',
-          exceptions: `Estarán exentos de la medida del Pico y Placa, en consideración a las necesidades de la Ciudad, los siguientes vehículos:<ul>
+    particulares: {
+      info: {
+        vehicleClasses: medellinParticulares.info.vehicleClasses,
+        decrees: [
+          {
+            name: 'Decreto pico y placa enero de 2017',
+            url:
+              'http://www.bello.gov.co/index.php/component/k2/item/download/219_e570e9fbf71412d35ba571a0635ba25b',
+          },
+          {
+            name: 'Decreto pico y placa febrero de 2018',
+            url:
+              'http://www.bello.gov.co/index.php/component/k2/item/download/941_94bced8a97224f77da7427d07b1da1b1',
+          },
+        ],
+        days: medellinParticulares.info.days,
+        hours: medellinParticulares.info.hours,
+        scheme: medellinParticulares.info.scheme,
+        observations:
+          'Quedan excluidas de la aplicación de la medida, las vías de la zona rural, la vía regional en jurisdicción de Bello, la autopista norte en el tramo comprendido entre la glorieta de la estación del Metro de Niquia y Jardines de la Fe, límites con el Municipio de Copacabana (incluyendo la Glorieta) y la Autopista Medellín - Bogotá, en jurisdicción de Bello. La Autopista Norte en el tramo comprendido entre la carrera 50 por calle 24A (Intercambio Vial Juan Ignacio Castrillón), hasta la glorieta de la estación del Metro Niquia será objeto de Pico y Placa',
+        exceptions: `Estarán exentos de la medida del Pico y Placa, en consideración a las necesidades de la Ciudad, los siguientes vehículos:<ul>
           <li>Vehículos de emergencia (ambulancias incluidas  las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
           <li>Los vehículos particulares y oficiales que usen gas natural vehícular en vez de combustible, previa inscripción ante la Secretaría de Movilidad de Bello; exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la última certificación anual para el uso de gas natural vehicular vigente. Para aquellos vehículos que formalicen en la licencia de tránsito el cambio de combustible a gas natural vehicular y pertenezcan al parque automotor, matriculado en este Organismo de Tránsito, quedarán automáticamente exentos de la medida. Para la inscripción ante la Secretaría de Movilidad de Bello, deberá aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito, en la cual conste el cambio de combustible o copia de la última certificación anual vigente para el uso de gas natural vehicular.</li>
           <li>Vehículos eléctricos que pertenezcan al partque automotor matriculado en esta Secretaría de Movilidad, quedarán automáticamente exentos de la medida. Para aquellos vehículos eléctricos que pertenezcan a otros organismos de tránsito, previa inscripción ante la Secretaría de Movilidad de Bello; exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la licencia de tránsito. Para la inscripción ante la Secretaría de Movilidad de Bello, deberá aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito.</li>
@@ -53,28 +51,25 @@ module.exports = {
           <li>Los vehículos con placas de munucipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al departamente de Antioquia, el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día de estadía en el Municipio.</li>
           <li>Los demás casos en los que, por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Bello.</li>
         </ul>`,
-        },
-        name: medellinParticulares.name,
-        pyp: medellinParticulares.pyp,
       },
-    ],
-    motos: [
-      {
-        from: medellinMotos.from,
-        info: {
-          vehicleClasses: medellinMotos.info.vehicleClasses,
-          decrees: [
-            {
-              name: 'Decreto 053 del 29 de enero de 2018',
-              url:
-                'http://www.Bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
-            },
-          ],
-          days: medellinMotos.info.days,
-          hours: medellinMotos.info.hours,
-          scheme: medellinMotos.info.scheme,
-          observations: medellinMotos.info.observations,
-          exceptions: `Estarán exentos de la medida del Pico y Placa, en consideración a las necesidades de la Ciudad, los siguientes vehículos:<ul>
+      name: medellinParticulares.name,
+      pyp: medellinParticulares.pyp,
+    },
+    motos: {
+      info: {
+        vehicleClasses: medellinMotos.info.vehicleClasses,
+        decrees: [
+          {
+            name: 'Decreto 053 del 29 de enero de 2018',
+            url:
+              'http://www.Bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
+          },
+        ],
+        days: medellinMotos.info.days,
+        hours: medellinMotos.info.hours,
+        scheme: medellinMotos.info.scheme,
+        observations: medellinMotos.info.observations,
+        exceptions: `Estarán exentos de la medida del Pico y Placa, en consideración a las necesidades de la Ciudad, los siguientes vehículos:<ul>
         <li>Vehículos de emergencia (ambulancias incluidas  las veterinarias, bomberos y todos aquellos que transporten equipo y material logístico para atención de emergencias, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros, siempre que se encuentren demarcados con identificación permanente trasera.</li>
         <li>Los vehículos particulares y oficiales que usen gas natural vehícular en vez de combustible, previa inscripción ante la Secretaría de Movilidad de Bello; exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la última certificación anual para el uso de gas natural vehicular vigente. Para aquellos vehículos que formalicen en la licencia de tránsito el cambio de combustible a gas natural vehicular y pertenezcan al parque automotor, matriculado en este Organismo de Tránsito, quedarán automáticamente exentos de la medida. Para la inscripción ante la Secretaría de Movilidad de Bello, deberá aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito, en la cual conste el cambio de combustible o copia de la última certificación anual vigente para el uso de gas natural vehicular.</li>
         <li>Vehículos eléctricos que pertenezcan al partque automotor matriculado en esta Secretaría de Movilidad, quedarán automáticamente exentos de la medida. Para aquellos vehículos eléctricos que pertenezcan a otros organismos de tránsito, previa inscripción ante la Secretaría de Movilidad de Bello; exención que será válida a partir del momento en que el peticionario reciba la comunicación de la Secretaría de Movilidad, aprobando esta situación. En el momento de ser requerido por la autoridad en la vía pública será igualmente exento, siempre y cuando lo acredite con la licencia de tránsito. Para la inscripción ante la Secretaría de Movilidad de Bello, deberá aportarse la solicitud respectiva acompañada con la copia del documento de identificación del propietario del automotor y copia de la licencia de tránsito.</li>
@@ -98,34 +93,30 @@ module.exports = {
         <li>Los vehículos con placas de munucipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al departamente de Antioquia, el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día de estadía en el Municipio.</li>
         <li>Los demás casos en los que, por estricta y justificada necesidad, sean autorizados de manera temporal por la Secretaría de Movilidad de Bello.</li>
       </ul>`,
-        },
-        name: medellinMotos.name,
-        pyp: medellinMotos.pyp,
       },
-    ],
-    taxis: [
-      {
-        from: medellinTaxis.from,
-        info: {
-          vehicleClasses: medellinTaxis.info.vehicleClasses,
-          decrees: [
-            {
-              name: 'Decreto 053 del 29 de enero de 2018',
-              url:
-                'http://www.bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
-            },
-          ],
-          days: medellinTaxis.info.days,
-          hours: medellinTaxis.info.hours,
-          scheme: medellinTaxis.info.scheme,
-          observations: medellinTaxis.info.observations.replace(
-            'Medellín',
-            'Bello'
-          ),
-        },
-        name: medellinTaxis.name,
-        pyp: medellinTaxis.pyp,
+      name: medellinMotos.name,
+      pyp: medellinMotos.pyp,
+    },
+    taxis: {
+      info: {
+        vehicleClasses: medellinTaxis.info.vehicleClasses,
+        decrees: [
+          {
+            name: 'Decreto 053 del 29 de enero de 2018',
+            url:
+              'http://www.bello.gov.co/secretaria-movilidad/SiteAssets/008_DOCUMENTOS/DOCUMENTOS/2018/01/DECRETO%20053%20DE%202018.pdf',
+          },
+        ],
+        days: medellinTaxis.info.days,
+        hours: medellinTaxis.info.hours,
+        scheme: medellinTaxis.info.scheme,
+        observations: medellinTaxis.info.observations.replace(
+          'Medellín',
+          'Bello'
+        ),
       },
-    ],
+      name: medellinTaxis.name,
+      pyp: medellinTaxis.pyp,
+    },
   },
 }

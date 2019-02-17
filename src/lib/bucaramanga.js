@@ -3,52 +3,50 @@ const pypFuncs = require('../utils/funcs')
 module.exports = {
   name: 'Bucaramanga',
   categories: {
-    particulares: [
-      {
-        from: '2018-01-06',
-        info: {
-          vehicleClasses: [
-            'Vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi)',
-          ],
-          decrees: [
-            {
-              name: 'Resolución 108 de 2018',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/108-03-2018.pdf',
-            },
-            {
-              name: 'Resolución 435 de 2017',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/435-08-2017.pdf',
-            },
-            {
-              name: 'Resolución 782 de 2017',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/782-12-2017.pdf',
-            },
-            {
-              name: 'Resolución 783 de 2017',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/783-12-2017.pdf',
-            },
-          ],
-          days: ['Lunes a sábado hábiles'],
-          hours: [
-            {
-              comment: 'Lunes a viernes',
-              hours: [['6:00', '20:00']],
-              days: [1, 2, 3, 4, 5],
-            },
-            {
-              comment: 'Sábados',
-              hours: [['9:00', '13:00']],
-              days: [6],
-            },
-          ],
-          scheme: 'Según el último dígito del número de la placa',
-          observations:
-            'Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera.',
-          exceptions: `Los vehículos que se encuentren cumpliendo las actividades enunciadas a continuación, los cuales, siempre y cuando estén plenamente identificados, no rquieren de acreditación de la empresa o institución, ni autorización de la Dirección de Tránsito de Bucaramanga para la circulación en vías con restricción vehicular:
+    particulares: {
+      info: {
+        vehicleClasses: [
+          'Vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi)',
+        ],
+        decrees: [
+          {
+            name: 'Resolución 108 de 2018',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/108-03-2018.pdf',
+          },
+          {
+            name: 'Resolución 435 de 2017',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/435-08-2017.pdf',
+          },
+          {
+            name: 'Resolución 782 de 2017',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/782-12-2017.pdf',
+          },
+          {
+            name: 'Resolución 783 de 2017',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/783-12-2017.pdf',
+          },
+        ],
+        days: ['Lunes a sábado hábiles'],
+        hours: [
+          {
+            comment: 'Lunes a viernes',
+            hours: [['6:00', '20:00']],
+            days: [1, 2, 3, 4, 5],
+          },
+          {
+            comment: 'Sábados',
+            hours: [['9:00', '13:00']],
+            days: [6],
+          },
+        ],
+        scheme: 'Según el último dígito del número de la placa',
+        observations:
+          'Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera.',
+        exceptions: `Los vehículos que se encuentren cumpliendo las actividades enunciadas a continuación, los cuales, siempre y cuando estén plenamente identificados, no rquieren de acreditación de la empresa o institución, ni autorización de la Dirección de Tránsito de Bucaramanga para la circulación en vías con restricción vehicular:
         <ul>
           <li>Transporte Público urbano de pasajeros del Sistema de Transporte Masivo y colectivo.</li>
           <li>Transporte Público de pasajeros de radio de acción interminucipal, departamental, nacional y anillos viales, de acuerdo con la REsolución 608 de 2013, por la cual se adoptaron las medidas de control ordenadas por los Acuerdos Metropolitanos 016 de agosto de 2013 y 023 de octubre de 2013.</li>
@@ -84,87 +82,84 @@ module.exports = {
           <li>Los vehículos de propiedad de las empresas procesadoras o distribuidoras que repartan y lleven consigo alimentos perecederos de consumo humano, los cuales deberán estar demarcados con identificación permanente de propiedad de las empresas y/o que estén vinculados mediante contrato debidamente certificado y vigente.</li>
           <li>Se entenderá como alimento perecedero, el alimento que debido a su composición, características físico - químicas y biológicas, pueda experimentar alteración de diversa naturaleza en un tiempo determinado y que por lo tanto, exige condiciones especiales de proceso, conservación, almacenamiento, transporte y expendio.</li>
         </ul>`,
-        },
-        name: 'Particulares',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0],
-            skipHolidays: true,
-            processingFunction() {
-              if (pypFuncs.getDay(date) === 6) {
-                const startNums = '3-4'
-                const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-                const startDate = '2018-01-06'
-                return pypFuncs.rotateByWeek(
-                  date,
-                  startDate,
-                  startNums,
-                  pypNums,
-                  true
-                )
-              }
+      },
+      name: 'Particulares',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0],
+          skipHolidays: true,
+          processingFunction() {
+            if (pypFuncs.getDay(date) === 6) {
               const startNums = '3-4'
               const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-              const startDate = '2018-01-01'
-              return pypFuncs.rotateByMonth(
+              const startDate = '2018-01-06'
+              return pypFuncs.rotateByWeek(
                 date,
                 startDate,
                 startNums,
                 pypNums,
-                true,
-                3
+                true
               )
-            },
-          })
-        },
+            }
+            const startNums = '3-4'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+            const startDate = '2018-01-01'
+            return pypFuncs.rotateByMonth(
+              date,
+              startDate,
+              startNums,
+              pypNums,
+              true,
+              3
+            )
+          },
+        })
       },
-    ],
-    motos: [
-      {
-        from: '2018-01-06',
-        info: {
-          vehicleClasses: ['Vehículos tipo motocicletas'],
-          decrees: [
-            {
-              name: 'Resolución 108 de 2018',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/108-03-2018.pdf',
-            },
-            {
-              name: 'Resolución 435 de 2017',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/435-08-2017.pdf',
-            },
-            {
-              name: 'Resolución 782 de 2017',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/782-12-2017.pdf',
-            },
-            {
-              name: 'Resolución 783 de 2017',
-              url:
-                'http://transitobucaramanga.gov.co/resolucion/archivos/783-12-2017.pdf',
-            },
-          ],
-          days: ['Lunes a sábado hábiles'],
-          hours: [
-            {
-              comment: 'Lunes a viernes',
-              hours: [['6:00', '20:00']],
-              days: [1, 2, 3, 4, 5],
-            },
-            {
-              comment: 'Sábados',
-              hours: [['9:00', '13:00']],
-              days: [6],
-            },
-          ],
-          scheme:
-            'Último dígito numérico de la placa según el esquema sin tener en cuenta la letra o letras finales',
-          observations:
-            'Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera.',
-          exceptions: `Los vehículos que se encuentren cumpliendo las actividades enunciadas a continuación, los cuales, siempre y cuando estén plenamente identificados, no rquieren de acreditación de la empresa o institución, ni autorización de la Dirección de Tránsito de Bucaramanga para la circulación en vías con restricción vehicular:
+    },
+    motos: {
+      info: {
+        vehicleClasses: ['Vehículos tipo motocicletas'],
+        decrees: [
+          {
+            name: 'Resolución 108 de 2018',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/108-03-2018.pdf',
+          },
+          {
+            name: 'Resolución 435 de 2017',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/435-08-2017.pdf',
+          },
+          {
+            name: 'Resolución 782 de 2017',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/782-12-2017.pdf',
+          },
+          {
+            name: 'Resolución 783 de 2017',
+            url:
+              'http://transitobucaramanga.gov.co/resolucion/archivos/783-12-2017.pdf',
+          },
+        ],
+        days: ['Lunes a sábado hábiles'],
+        hours: [
+          {
+            comment: 'Lunes a viernes',
+            hours: [['6:00', '20:00']],
+            days: [1, 2, 3, 4, 5],
+          },
+          {
+            comment: 'Sábados',
+            hours: [['9:00', '13:00']],
+            days: [6],
+          },
+        ],
+        scheme:
+          'Último dígito numérico de la placa según el esquema sin tener en cuenta la letra o letras finales',
+        observations:
+          'Rige para vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi), oficial, diplomático, consular y vehículos de importanción temporal y/o matricula extranjera.',
+        exceptions: `Los vehículos que se encuentren cumpliendo las actividades enunciadas a continuación, los cuales, siempre y cuando estén plenamente identificados, no rquieren de acreditación de la empresa o institución, ni autorización de la Dirección de Tránsito de Bucaramanga para la circulación en vías con restricción vehicular:
           <ul>
             <li>Transporte Público urbano de pasajeros del Sistema de Transporte Masivo y colectivo.</li>
             <li>Transporte Público de pasajeros de radio de acción interminucipal, departamental, nacional y anillos viales, de acuerdo con la REsolución 608 de 2013, por la cual se adoptaron las medidas de control ordenadas por los Acuerdos Metropolitanos 016 de agosto de 2013 y 023 de octubre de 2013.</li>
@@ -199,81 +194,17 @@ module.exports = {
             <li>Los vehículos de propiedad de las empresas procesadoras o distribuidoras que repartan y lleven consigo alimentos perecederos de consumo humano, los cuales deberán estar demarcados con identificación permanente de propiedad de las empresas y/o que estén vinculados mediante contrato debidamente certificado y vigente.</li>
             <li>Se entenderá como alimento perecedero, el alimento que debido a su composición, características físico - químicas y biológicas, pueda experimentar alteración de diversa naturaleza en un tiempo determinado y que por lo tanto, exige condiciones especiales de proceso, conservación, almacenamiento, transporte y expendio.</li>
           </ul>`,
-        },
-        name: 'Motos',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0],
-            skipHolidays: true,
-            processingFunction() {
-              if (pypFuncs.getDay(date) === 6) {
-                const startDate = '2018-01-06'
-                const startNums = '3-4'
-                const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-                return pypFuncs.rotateByWeek(
-                  date,
-                  startDate,
-                  startNums,
-                  pypNums,
-                  true
-                )
-              }
-              const startNums = '3-4'
-              const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-              const startDate = '2018-01-01'
-              return pypFuncs.rotateByMonth(
-                date,
-                startDate,
-                startNums,
-                pypNums,
-                true,
-                3
-              )
-            },
-          })
-        },
       },
-    ],
-    taxis: [
-      {
-        from: '2018-01-08',
-        info: {
-          vehicleClasses: ['Vehículos de servicio público individual - taxis'],
-          decrees: [
-            {
-              name: 'Resolución 277 del 27 de Abril de 2006',
-              url: '',
-            },
-            {
-              name: 'Resolución 475 del 23 de Junio de 2006',
-              url: '',
-            },
-            {
-              name: 'Resolución 487 del 30 de Junio de 2006',
-              url: '',
-            },
-          ],
-          days: ['Lunes a sábado hábiles'],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '21:00']],
-              days: [],
-            },
-          ],
-          scheme: 'Último dígito numérico de la placa según el esquema',
-          observations: '',
-        },
-        name: 'Taxis',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const startDate = '2018-01-08'
-              const startNums = '1-2'
+      name: 'Motos',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0],
+          skipHolidays: true,
+          processingFunction() {
+            if (pypFuncs.getDay(date) === 6) {
+              const startDate = '2018-01-06'
+              const startNums = '3-4'
               const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
               return pypFuncs.rotateByWeek(
                 date,
@@ -282,10 +213,70 @@ module.exports = {
                 pypNums,
                 true
               )
-            },
-          })
-        },
+            }
+            const startNums = '3-4'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+            const startDate = '2018-01-01'
+            return pypFuncs.rotateByMonth(
+              date,
+              startDate,
+              startNums,
+              pypNums,
+              true,
+              3
+            )
+          },
+        })
       },
-    ],
+    },
+    taxis: {
+      info: {
+        vehicleClasses: ['Vehículos de servicio público individual - taxis'],
+        decrees: [
+          {
+            name: 'Resolución 277 del 27 de Abril de 2006',
+            url: '',
+          },
+          {
+            name: 'Resolución 475 del 23 de Junio de 2006',
+            url: '',
+          },
+          {
+            name: 'Resolución 487 del 30 de Junio de 2006',
+            url: '',
+          },
+        ],
+        days: ['Lunes a sábado hábiles'],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '21:00']],
+            days: [],
+          },
+        ],
+        scheme: 'Último dígito numérico de la placa según el esquema',
+        observations: '',
+      },
+      name: 'Taxis',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const startDate = '2018-01-08'
+            const startNums = '1-2'
+            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+            return pypFuncs.rotateByWeek(
+              date,
+              startDate,
+              startNums,
+              pypNums,
+              true
+            )
+          },
+        })
+      },
+    },
   },
 }

@@ -3,47 +3,45 @@ const pypFuncs = require('../utils/funcs')
 module.exports = {
   name: 'Ocaña',
   categories: {
-    particulares: [
-      {
-        from: '2018-10-22',
-        info: {
-          vehicleClasses: [
-            'Vehículos particulares no matriculados en el municipio de Ocaña',
-          ],
-          decrees: [
-            {
-              name: 'Decreto 60 del 22 de octubre de 2018',
-              url: pypFuncs.buildAssetPath(
-                'ocana',
-                'decreto-60-del-22-de-octubre-de-2018.pdf'
-              ),
-            },
-            {
-              name: 'Estudio de tráfico pico y placa',
-              url: pypFuncs.buildAssetPath(
-                'ocana',
-                'estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf'
-              ),
-            },
-          ],
-          days: [
-            'Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)',
-          ],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '19:00']],
-              days: [],
-            },
-          ],
-          scheme:
-            'Cíclico de acuerdo con el último número de la placa del vehículo',
-          observations: `La medida de Pico y Placa rige en toda la jurisdicción urbana del municipio de Ocaña, (con excepción de la vía nacional) bajo los siguientes parámetros:
+    particulares: {
+      info: {
+        vehicleClasses: [
+          'Vehículos particulares no matriculados en el municipio de Ocaña',
+        ],
+        decrees: [
+          {
+            name: 'Decreto 60 del 22 de octubre de 2018',
+            url: pypFuncs.buildAssetPath(
+              'ocana',
+              'decreto-60-del-22-de-octubre-de-2018.pdf'
+            ),
+          },
+          {
+            name: 'Estudio de tráfico pico y placa',
+            url: pypFuncs.buildAssetPath(
+              'ocana',
+              'estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf'
+            ),
+          },
+        ],
+        days: [
+          'Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)',
+        ],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '19:00']],
+            days: [],
+          },
+        ],
+        scheme:
+          'Cíclico de acuerdo con el último número de la placa del vehículo',
+        observations: `La medida de Pico y Placa rige en toda la jurisdicción urbana del municipio de Ocaña, (con excepción de la vía nacional) bajo los siguientes parámetros:
             <ol>
             <li>La aplicación de la medida de reducción de vehículos, se hará de lunes a viernes (días hábilies) desde las 7:00am a 7:00pm para vehículos particulares.</li>
             <li>La forma de aplicación en el modelo de pico y placa será definada por el último número de la placa para VEHÍCULOS PARTICULARES de la siguiente forma: LUNES 0-1, MARTES 2-3, MIÉRCOLES 4-5, JUEVES 6-7 Y VIERNES 8-9.</li>
             </ol>`,
-          exceptions: `Se exceptúan de la presente medida, en consideración a las necesidades de la ciudad, los siguientes vehículos los matriculados en Ocaña:
+        exceptions: `Se exceptúan de la presente medida, en consideración a las necesidades de la ciudad, los siguientes vehículos los matriculados en Ocaña:
           <ul>
             <li>Vehículos de emergencia (ambulancias, incluidas las veterinarias, bomberos, y todos aquellos que transporten equipo y material logístico, así como los que prestan atención médica personalizada) y los vehículos requeridos para la atención de siniestros siempre que se encuentresn demarcados con identificación permanente.</li>
             <li>Los vehículos particulares y oficiales que usen gas natural vehicular demarcados con identificación permanente.</li>
@@ -70,26 +68,25 @@ module.exports = {
             <li>Vehículos con placas de municipios de otros departamentos, siempre y cuando su conductor demuestre la calidad de turista con la exhibición del tiquete del primer peaje de ingreso al Municipio de Ocaña, Norte de Santander el cual será válido como medio de prueba ante la autoridad competente y solo para el primer día. </li>
             <li>Aquellos casos en los que por las necesidades en la prestación de un servicio sean autorizados por la Secretaría de Movilidad.</li>
           </ul>`,
-        },
-        name: 'Particulares',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const pyp = [
-                '0-1', // lunes
-                '2-3', // martes
-                '4-5', // miércoles
-                '6-7', // jueves
-                '8-9', // viernes
-              ]
-              return pyp[pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
       },
-    ],
+      name: 'Particulares',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const pyp = [
+              '0-1', // lunes
+              '2-3', // martes
+              '4-5', // miércoles
+              '6-7', // jueves
+              '8-9', // viernes
+            ]
+            return pyp[pypFuncs.getDay(date) - 1]
+          },
+        })
+      },
+    },
   },
 }

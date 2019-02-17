@@ -3,28 +3,26 @@ const pypFuncs = require('../utils/funcs')
 module.exports = {
   name: 'Popayán',
   categories: {
-    particulares: [
-      {
-        from: '2018-01-04',
-        info: {
-          vehicleClasses: ['Vehículos automotores de servicio particular'],
-          decrees: [
-            {
-              name: 'Decreto 20181000000015 del 2 de enero de 2018',
-              url:
-                'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
-            },
-          ],
-          days: ['Lunes a viernes hábiles'],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '19:00']],
-              days: [],
-            },
-          ],
-          scheme: 'Último dígito del número de la placa según el esquema',
-          exceptions: `<ul>
+    particulares: {
+      info: {
+        vehicleClasses: ['Vehículos automotores de servicio particular'],
+        decrees: [
+          {
+            name: 'Decreto 20181000000015 del 2 de enero de 2018',
+            url:
+              'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
+          },
+        ],
+        days: ['Lunes a viernes hábiles'],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '19:00']],
+            days: [],
+          },
+        ],
+        scheme: 'Último dígito del número de la placa según el esquema',
+        exceptions: `<ul>
         <li>Vehículos que conforman las caravanas presidenciales, Directores, Gerentes de Entidades del orden nacional con sede en la Ciudad de Popayán, Alcalde, Gobernador y Cuerpo Diplomático.</li>
         <li>Vehículos asignados por la Rama Judicial y/o cualquier otro organismo de seguridad del Estado a Magistrados de los Tribunales Contencioso Administrativo, Superior, Corte Suprema de Justicia, Corte Constitucional, Consejo Superior de la Judicatura, Consejo de Estado, altos funcionarios de la Fiscalía, Jueces de la República, cuya propiedad se encuentre registrada en la licencia de tránsito, Defensor del Pueblo, Gerente de la Contraloría General de la República Regional Cauca, Contralor Departamental, Municipal, Delegados de la Registraduría Nacional del Estado Civil. Concejales del Municipio de Popayán y Diputados de la Asamblea Departamental del Cauca.</li>
         <li>Vehículos pertenecientes a las Fuerzas Militares, Policia Nacional, Cuerpos Oficiales armados. (CTI-INPEC), cuya propiedad conste en la licencia de tránsito.</li>
@@ -42,59 +40,57 @@ module.exports = {
         <li>Vehículos de propiedad del I.C.B.F. destinados exclisivamente al traslado de menores infractores o en situación de riesgo.</li>
         <li>Vehículos destinados al transporte exclusivo de personas con medidas de protección emanadas por la UNP -Unidad Nacional de Protección-.</li>
         </ul>`,
-        },
-        name: 'Particulares',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
-              const pyp = [
-                [
-                  '3-4', // lunes
-                  '5-6', // martes
-                  '7-8', // miércoles
-                  '9-0', // jueves
-                  '1-2', // viernes
-                ],
-                [
-                  '1-2', // lunes
-                  '3-4', // martes
-                  '5-6', // miércoles
-                  '7-8', // jueves
-                  '9-0', // viernes
-                ],
-              ]
-              return pyp[semester][pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
       },
-    ],
-    motos: [
-      {
-        from: '2018-01-04',
-        info: {
-          vehicleClasses: ['Motocicletas particulares'],
-          decrees: [
-            {
-              name: 'Decreto 20181000000015 del 2 de enero de 2018',
-              url:
-                'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
-            },
-          ],
-          days: ['Lunes a viernes hábiles'],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '19:00']],
-              days: [],
-            },
-          ],
-          scheme: 'Último dígito del número de la placa según el esquema',
-          exceptions: `<ul>
+      name: 'Particulares',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
+            const pyp = [
+              [
+                '3-4', // lunes
+                '5-6', // martes
+                '7-8', // miércoles
+                '9-0', // jueves
+                '1-2', // viernes
+              ],
+              [
+                '1-2', // lunes
+                '3-4', // martes
+                '5-6', // miércoles
+                '7-8', // jueves
+                '9-0', // viernes
+              ],
+            ]
+            return pyp[semester][pypFuncs.getDay(date) - 1]
+          },
+        })
+      },
+    },
+    motos: {
+      from: '2018-01-04',
+      info: {
+        vehicleClasses: ['Motocicletas particulares'],
+        decrees: [
+          {
+            name: 'Decreto 20181000000015 del 2 de enero de 2018',
+            url:
+              'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
+          },
+        ],
+        days: ['Lunes a viernes hábiles'],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '19:00']],
+            days: [],
+          },
+        ],
+        scheme: 'Último dígito del número de la placa según el esquema',
+        exceptions: `<ul>
         <li>Vehículos que conforman las caravanas presidenciales, Directores, Gerentes de Entidades del orden nacional con sede en la Ciudad de Popayán, Alcalde, Gobernador y Cuerpo Diplomático.</li>
         <li>Vehículos asignados por la Rama Judicial y/o cualquier otro organismo de seguridad del Estado a Magistrados de los Tribunales Contencioso Administrativo, Superior, Corte Suprema de Justicia, Corte Constitucional, Consejo Superior de la Judicatura, Consejo de Estado, altos funcionarios de la Fiscalía, Jueces de la República, cuya propiedad se encuentre registrada en la licencia de tránsito, Defensor del Pueblo, Gerente de la Contraloría General de la República Regional Cauca, Contralor Departamental, Municipal, Delegados de la Registraduría Nacional del Estado Civil. Concejales del Municipio de Popayán y Diputados de la Asamblea Departamental del Cauca.</li>
         <li>Vehículos pertenecientes a las Fuerzas Militares, Policia Nacional, Cuerpos Oficiales armados. (CTI-INPEC), cuya propiedad conste en la licencia de tránsito.</li>
@@ -112,82 +108,78 @@ module.exports = {
         <li>Vehículos de propiedad del I.C.B.F. destinados exclisivamente al traslado de menores infractores o en situación de riesgo.</li>
         <li>Vehículos destinados al transporte exclusivo de personas con medidas de protección emanadas por la UNP -Unidad Nacional de Protección-.</li>
         </ul>`,
-        },
-        name: 'Motos',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
-              const pyp = [
-                [
-                  '3-4', // lunes
-                  '5-6', // martes
-                  '7-8', // miércoles
-                  '9-0', // jueves
-                  '1-2', // viernes
-                ],
-                [
-                  '1-2', // lunes
-                  '3-4', // martes
-                  '5-6', // miércoles
-                  '7-8', // jueves
-                  '9-0', // viernes
-                ],
-              ]
-              return pyp[semester][pypFuncs.getDay(date) - 1]
-            },
-          })
-        },
       },
-    ],
-    tpc: [
-      {
-        from: '2018-01-04',
-        info: {
-          vehicleClasses: [
-            'Transporte Público de servicio de carga con capacidad menor a una y media toneladas',
-          ],
-          decrees: [
-            {
-              name: 'Decreto 20181000000015 del 2 de enero de 2018',
-              url:
-                'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
-            },
-          ],
-          days: ['Lunes a viernes hábiles'],
-          hours: [
-            {
-              comment: '',
-              hours: [['7:00', '19:00']],
-              days: [],
-            },
-          ],
-          scheme: 'Último dígito del número de la placa según el esquema',
-        },
-        name: 'Transporte Público de Carga',
-        pyp(date) {
-          return pypFuncs.pyp({
-            date,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              const startDate = '2018-01-04'
-              const specialDates = ['2018-01-05', '2018-04-12', '2018-04-13']
-              const daysDiff = pypFuncs.daysDiff(
-                startDate,
-                date,
-                [0, 6],
-                true,
-                specialDates
-              )
-              return String(daysDiff % 10)
-            },
-          })
-        },
+      name: 'Motos',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
+            const pyp = [
+              [
+                '3-4', // lunes
+                '5-6', // martes
+                '7-8', // miércoles
+                '9-0', // jueves
+                '1-2', // viernes
+              ],
+              [
+                '1-2', // lunes
+                '3-4', // martes
+                '5-6', // miércoles
+                '7-8', // jueves
+                '9-0', // viernes
+              ],
+            ]
+            return pyp[semester][pypFuncs.getDay(date) - 1]
+          },
+        })
       },
-    ],
+    },
+    tpc: {
+      info: {
+        vehicleClasses: [
+          'Transporte Público de servicio de carga con capacidad menor a una y media toneladas',
+        ],
+        decrees: [
+          {
+            name: 'Decreto 20181000000015 del 2 de enero de 2018',
+            url:
+              'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
+          },
+        ],
+        days: ['Lunes a viernes hábiles'],
+        hours: [
+          {
+            comment: '',
+            hours: [['7:00', '19:00']],
+            days: [],
+          },
+        ],
+        scheme: 'Último dígito del número de la placa según el esquema',
+      },
+      name: 'Transporte Público de Carga',
+      pyp(date) {
+        return pypFuncs.pyp({
+          date,
+          excludedDays: [0, 6],
+          skipHolidays: true,
+          processingFunction() {
+            const startDate = '2018-01-04'
+            const specialDates = ['2018-01-05', '2018-04-12', '2018-04-13']
+            const daysDiff = pypFuncs.daysDiff(
+              startDate,
+              date,
+              [0, 6],
+              true,
+              specialDates
+            )
+            return String(daysDiff % 10)
+          },
+        })
+      },
+    },
   },
 }
