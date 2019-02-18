@@ -56,17 +56,18 @@ module.exports = {
           skipHolidays: true,
         }
         const pypFunction = () => {
-          const startDate = '2018-02-05'
+          // const startDate = '2018-02-05'
           const pypNums = [
-            '4-5-6-7', // lunes
-            '8-9-0-1', // martes
-            '2-3-4-5', // miércoles
-            '6-7-8-9', // jueves
-            '0-1-2-3', // viernes
+            '6-7-8-9-0-1', // '4-5-6-7', // lunes
+            '0-1-2-3-4-5', // '8-9-0-1', // martes
+            '4-5-6-7-8-9', // '2-3-4-5', // miércoles
+            '8-9-0-1-2-3', // '6-7-8-9', // jueves
+            '2-3-4-5-6-7', // '0-1-2-3', // viernes
           ]
-          const lapse = pypFuncs.monthsDiff(startDate, date, 6)
-          const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
-          return newPypNums[pypFuncs.getDay(date) - 1]
+          return pypNums[pypFuncs.getDay(date) - 1]
+          // const lapse = pypFuncs.monthsDiff(startDate, date, 6)
+          // const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
+          // return newPypNums[pypFuncs.getDay(date) - 1]
         }
         return pypFuncs.pyp(date, pypFunction, options)
       },
@@ -124,17 +125,18 @@ module.exports = {
           skipHolidays: true,
         }
         const pypFunction = () => {
-          const startDate = '2018-02-05'
+          // const startDate = '2018-02-05'
           const pypNums = [
-            '8-9', // lunes
-            '0-1', // martes
-            '2-3', // miércoles
-            '4-5', // jueves
-            '6-7', // viernes
+            '4-5-6-7-8-9', // '8-9', // lunes
+            '6-7-8-9-0-1', // '0-1', // martes
+            '8-9-0-1-2-3', // '2-3', // miércoles
+            '0-1-2-3-4-5', // '4-5', // jueves
+            '2-3-4-5-6-7', // '6-7', // viernes
           ]
-          const lapse = pypFuncs.monthsDiff(startDate, date, 6)
-          const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
-          return newPypNums[pypFuncs.getDay(date) - 1]
+          return pypNums[pypFuncs.getDay(date) - 1]
+          // const lapse = pypFuncs.monthsDiff(startDate, date, 6)
+          // const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
+          // return newPypNums[pypFuncs.getDay(date) - 1]
         }
         return pypFuncs.pyp(date, pypFunction, options)
       },
