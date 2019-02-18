@@ -81,21 +81,21 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const pyp = [
-              '0-1', // lunes
-              '2-3', // martes
-              '4-5', // miércoles
-              '6-7', // jueves
-              '8-9', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const pyp = [
+            '0-1', // lunes
+            '2-3', // martes
+            '4-5', // miércoles
+            '6-7', // jueves
+            '8-9', // viernes
+          ]
+          return pyp[pypFuncs.getDay(date) - 1]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     motos: {
@@ -175,21 +175,21 @@ module.exports = {
       },
       name: 'Motos',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const pyp = [
-              '0-1', // lunes
-              '2-3', // martes
-              '4-5', // miércoles
-              '6-7', // jueves
-              '8-9', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const pyp = [
+            '0-1', // lunes
+            '2-3', // martes
+            '4-5', // miércoles
+            '6-7', // jueves
+            '8-9', // viernes
+          ]
+          return pyp[pypFuncs.getDay(date) - 1]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

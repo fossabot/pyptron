@@ -112,20 +112,15 @@ function monthsDiff(startDate, endDate, interval = 1) {
 /**
  * Envuelve el algoritmo particular para cada caso de pyp permitiendo abstraer patrones globales,
  * como el algoritmo para excluir días, del algoritmo como tal para cada caso.
+ * @param {String} date La fecha para la cual se desea saber el pyp.
+ * @param {Function} pypFunction Algoritmo para el pyp.
  * @param {Object} options Opciones
- * @param {String} options.date La fecha para la cual se desea saber el pyp.
  * @param {Array} options.excludedDays Días de la semana en los que no aplica el pyp.
  * @param {Boolean} options.skipHolidays Si los días festivos aplica el pyp.
- * @param {Function} options.processingFunction Algoritmo para el pyp.
  * @returns {String} El valor correspondiente al pyp para el día solicitado.
  */
-function pyp(options) {
-  const {
-    date,
-    excludedDays = [],
-    skipHolidays = true,
-    processingFunction,
-  } = options
+function pyp(date, pypFunction, options) {
+  const { excludedDays = [], skipHolidays = true } = options
   const startDate = '2018-01-01'
   if (daysDiff(startDate, date, []) <= 0) {
     throw new Error('Date out of range')
@@ -136,7 +131,7 @@ function pyp(options) {
   if (excludeDays(date, excludedDays, skipHolidays)) {
     return 'NA'
   }
-  return processingFunction(date)
+  return pypFunction(date)
 }
 
 /**

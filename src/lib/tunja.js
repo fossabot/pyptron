@@ -35,17 +35,17 @@ module.exports = {
       },
       name: 'Taxis',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2015-06-01'
-            const startNums = '3-4'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2015-06-01'
+          const startNums = '3-4'
+          const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+          return pypFuncs.rotateByMonth(date, startDate, startNums, pypNums)
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     particulares: {
@@ -100,21 +100,21 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const pyp = [
-              '3-4', // lunes
-              '5-6', // martes
-              '7-8', // miércoles
-              '9-0', // jueves
-              '1-2', // viernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const pyp = [
+            '3-4', // lunes
+            '5-6', // martes
+            '7-8', // miércoles
+            '9-0', // jueves
+            '1-2', // viernes
+          ]
+          return pyp[pypFuncs.getDay(date) - 1]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

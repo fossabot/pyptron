@@ -43,31 +43,31 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
-            const pyp = [
-              [
-                '3-4', // lunes
-                '5-6', // martes
-                '7-8', // miércoles
-                '9-0', // jueves
-                '1-2', // viernes
-              ],
-              [
-                '1-2', // lunes
-                '3-4', // martes
-                '5-6', // miércoles
-                '7-8', // jueves
-                '9-0', // viernes
-              ],
-            ]
-            return pyp[semester][pypFuncs.getDay(date) - 1]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
+          const pyp = [
+            [
+              '3-4', // lunes
+              '5-6', // martes
+              '7-8', // miércoles
+              '9-0', // jueves
+              '1-2', // viernes
+            ],
+            [
+              '1-2', // lunes
+              '3-4', // martes
+              '5-6', // miércoles
+              '7-8', // jueves
+              '9-0', // viernes
+            ],
+          ]
+          return pyp[semester][pypFuncs.getDay(date) - 1]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     motos: {
@@ -111,31 +111,31 @@ module.exports = {
       },
       name: 'Motos',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
-            const pyp = [
-              [
-                '3-4', // lunes
-                '5-6', // martes
-                '7-8', // miércoles
-                '9-0', // jueves
-                '1-2', // viernes
-              ],
-              [
-                '1-2', // lunes
-                '3-4', // martes
-                '5-6', // miércoles
-                '7-8', // jueves
-                '9-0', // viernes
-              ],
-            ]
-            return pyp[semester][pypFuncs.getDay(date) - 1]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
+          const pyp = [
+            [
+              '3-4', // lunes
+              '5-6', // martes
+              '7-8', // miércoles
+              '9-0', // jueves
+              '1-2', // viernes
+            ],
+            [
+              '1-2', // lunes
+              '3-4', // martes
+              '5-6', // miércoles
+              '7-8', // jueves
+              '9-0', // viernes
+            ],
+          ]
+          return pyp[semester][pypFuncs.getDay(date) - 1]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     tpc: {
@@ -162,23 +162,23 @@ module.exports = {
       },
       name: 'Transporte Público de Carga',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-04'
-            const specialDates = ['2018-01-05', '2018-04-12', '2018-04-13']
-            const daysDiff = pypFuncs.daysDiff(
-              startDate,
-              date,
-              [0, 6],
-              true,
-              specialDates
-            )
-            return String(daysDiff % 10)
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-04'
+          const specialDates = ['2018-01-05', '2018-04-12', '2018-04-13']
+          const daysDiff = pypFuncs.daysDiff(
+            startDate,
+            date,
+            [0, 6],
+            true,
+            specialDates
+          )
+          return String(daysDiff % 10)
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

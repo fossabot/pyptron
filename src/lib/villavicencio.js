@@ -57,24 +57,24 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: false,
-          processingFunction() {
-            const startDate = '2017-08-01'
-            const startNums = '9-0'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateBy(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              'years',
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2017-08-01'
+          const startNums = '9-0'
+          const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+          return pypFuncs.rotateBy(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            'years',
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     motos: {
@@ -124,24 +124,24 @@ module.exports = {
       },
       name: 'Motos',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: false,
-          processingFunction() {
-            const startDate = '2017-08-01'
-            const startNums = '9-0'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateBy(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              'years',
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2017-08-01'
+          const startNums = '9-0'
+          const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+          return pypFuncs.rotateBy(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            'years',
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     taxis: {
@@ -206,19 +206,19 @@ module.exports = {
       },
       name: 'Taxis',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: false,
-          processingFunction() {
-            const dateObject = new Date(date)
-            const datesDate = dateObject.getDate()
-            if (datesDate === 31) {
-              return 'NA'
-            }
-            return (datesDate % 10).toString(10)
-          },
-        })
+        }
+        const pypFunction = () => {
+          const dateObject = new Date(date)
+          const datesDate = dateObject.getDate()
+          if (datesDate === 31) {
+            return 'NA'
+          }
+          return (datesDate % 10).toString(10)
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     carga: {
@@ -278,14 +278,12 @@ module.exports = {
       },
       name: 'Transporte de Carga',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: false,
-          processingFunction() {
-            return '0-1-2-3-4-5-6-7-8-9'
-          },
-        })
+        }
+        const pypFunction = () => '0-1-2-3-4-5-6-7-8-9'
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

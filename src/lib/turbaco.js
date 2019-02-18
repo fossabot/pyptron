@@ -27,15 +27,15 @@ module.exports = {
       },
       name: 'Motos',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const pyp = ['0-2-4-5-8', '1-3-5-7-9']
-            return pyp[pypFuncs.getDate(date) % 2]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const pyp = ['0-2-4-5-8', '1-3-5-7-9']
+          return pyp[pypFuncs.getDate(date) % 2]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

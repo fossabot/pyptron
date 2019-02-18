@@ -43,21 +43,21 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const pyp = [
-              '0-1', // lunes
-              '2-3', // martes
-              '4-5', // miércoles
-              '6-7', // jueves
-              '8-9', // iernes
-            ]
-            return pyp[pypFuncs.getDay(date) - 1]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const pyp = [
+            '0-1', // lunes
+            '2-3', // martes
+            '4-5', // miércoles
+            '6-7', // jueves
+            '8-9', // iernes
+          ]
+          return pyp[pypFuncs.getDay(date) - 1]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     tpc: {
@@ -83,23 +83,23 @@ module.exports = {
       },
       name: 'Transporte Público Colectivo',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [],
           skipHolidays: false,
-          processingFunction() {
-            const startDate = '2017-12-02'
-            const pyp = [
-              '1-2', // lunes
-              '0-3', // martes
-              '4-9', // miércoles
-              '5-6', // jueves
-              '7-8', // viernes
-            ]
-            const daysDiff = pypFuncs.daysDiff(startDate, date, []) - 1
-            return pyp[daysDiff % pyp.length]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2017-12-02'
+          const pyp = [
+            '1-2', // lunes
+            '0-3', // martes
+            '4-9', // miércoles
+            '5-6', // jueves
+            '7-8', // viernes
+          ]
+          const daysDiff = pypFuncs.daysDiff(startDate, date, []) - 1
+          return pyp[daysDiff % pyp.length]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     taxis: {
@@ -126,15 +126,15 @@ module.exports = {
       },
       name: 'Taxis',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [],
           skipHolidays: false,
-          processingFunction() {
-            const startDate = '2017-12-01'
-            return String((pypFuncs.daysDiff(startDate, date, []) + 1) % 10)
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2017-12-01'
+          return String((pypFuncs.daysDiff(startDate, date, []) + 1) % 10)
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

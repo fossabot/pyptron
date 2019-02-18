@@ -75,17 +75,17 @@ module.exports = {
       },
       name: 'Ambiental',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-01'
-            const startNums = '9'
-            const pypNums = ['0', '1', '2', '3', '4', '5', '6', '7', '9', '8']
-            return pypFuncs.rotateByDay(date, startDate, startNums, pypNums)
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-01'
+          const startNums = '9'
+          const pypNums = ['0', '1', '2', '3', '4', '5', '6', '7', '9', '8']
+          return pypFuncs.rotateByDay(date, startDate, startNums, pypNums)
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     taxis: {
@@ -148,23 +148,23 @@ module.exports = {
       },
       name: 'Taxis',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-01'
-            const startNums = '7-8'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-01'
+          const startNums = '7-8'
+          const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+          return pypFuncs.rotateByWeek(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     especial: {
@@ -211,23 +211,23 @@ module.exports = {
       },
       name: 'Servicio de Transporte Especial',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-01'
-            const startNums = '7-8'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-01'
+          const startNums = '7-8'
+          const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+          return pypFuncs.rotateByWeek(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     tpc: {
@@ -273,23 +273,23 @@ module.exports = {
       },
       name: 'Transporte Público Colectivo',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-01'
-            const startNums = '5-6'
-            const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-01'
+          const startNums = '5-6'
+          const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+          return pypFuncs.rotateByWeek(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     particulares: {
@@ -378,28 +378,28 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [],
           skipHolidays: true,
-          processingFunction() {
-            const day = pypFuncs.getDay(date)
-            if (
-              pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
-              pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
-            ) {
-              return 'NA'
-            }
-            if (day === 6) {
-              return '0-2-4-6-8'
-            }
-            if (day === 0) {
-              return '1-3-5-7-9'
-            }
-            const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-            return pyp[pypFuncs.getDate(date) % 2]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const day = pypFuncs.getDay(date)
+          if (
+            pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+            pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
+          ) {
+            return 'NA'
+          }
+          if (day === 6) {
+            return '0-2-4-6-8'
+          }
+          if (day === 0) {
+            return '1-3-5-7-9'
+          }
+          const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+          return pyp[pypFuncs.getDate(date) % 2]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     motos: {
@@ -454,28 +454,28 @@ module.exports = {
       },
       name: 'Motos',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [],
           skipHolidays: true,
-          processingFunction() {
-            const day = pypFuncs.getDay(date)
-            if (
-              pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
-              pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
-            ) {
-              return 'NA'
-            }
-            if (day === 6) {
-              return '0-2-4-6-8'
-            }
-            if (day === 0) {
-              return '1-3-5-7-9'
-            }
-            const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-            return pyp[pypFuncs.getDate(date) % 2]
-          },
-        })
+        }
+        const pypFunction = () => {
+          const day = pypFuncs.getDay(date)
+          if (
+            pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+            pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
+          ) {
+            return 'NA'
+          }
+          if (day === 6) {
+            return '0-2-4-6-8'
+          }
+          if (day === 0) {
+            return '1-3-5-7-9'
+          }
+          const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+          return pyp[pypFuncs.getDate(date) % 2]
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

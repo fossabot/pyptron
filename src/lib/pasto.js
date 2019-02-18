@@ -52,23 +52,23 @@ module.exports = {
       },
       name: 'Particulares',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-01'
-            const startNums = '8-9'
-            const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-01'
+          const startNums = '8-9'
+          const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
+          return pypFuncs.rotateByWeek(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
     motos: {
@@ -97,23 +97,23 @@ module.exports = {
       },
       name: 'Motos',
       pyp(date) {
-        return pypFuncs.pyp({
-          date,
+        const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
-          processingFunction() {
-            const startDate = '2018-01-01'
-            const startNums = '8-9'
-            const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
-            return pypFuncs.rotateByWeek(
-              date,
-              startDate,
-              startNums,
-              pypNums,
-              true
-            )
-          },
-        })
+        }
+        const pypFunction = () => {
+          const startDate = '2018-01-01'
+          const startNums = '8-9'
+          const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
+          return pypFuncs.rotateByWeek(
+            date,
+            startDate,
+            startNums,
+            pypNums,
+            true
+          )
+        }
+        return pypFuncs.pyp(date, pypFunction, options)
       },
     },
   },

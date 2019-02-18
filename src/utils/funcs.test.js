@@ -173,16 +173,11 @@ describe('test for holidays', () => {
     it(`should return ${dateCase[1]} for ${dateCase[0]}`, () => {
       times.forEach(time => {
         const pypDate = dateCase[0] + time
-        expect(
-          pyp({
-            date: pypDate,
-            excludedDays: [],
-            skipHolidays: true,
-            processingFunction() {
-              return true
-            },
-          })
-        ).toBe(dateCase[1])
+        const options = {
+          excludedDays: [],
+          skipHolidays: true,
+        }
+        expect(pyp(pypDate, () => true, options)).toBe(dateCase[1])
       })
     })
   })
@@ -203,16 +198,11 @@ describe('test for excluded days', () => {
     it(`should return 'NA' for ${dateCase[0]}`, () => {
       times.forEach(time => {
         const pypDate = dateCase[0] + time
-        expect(
-          pyp({
-            date: pypDate,
-            excludedDays: [0, 6],
-            skipHolidays: true,
-            processingFunction() {
-              return true
-            },
-          })
-        ).toBe(dateCase[1])
+        const options = {
+          excludedDays: [0, 6],
+          skipHolidays: true,
+        }
+        expect(pyp(pypDate, () => true, options)).toBe(dateCase[1])
       })
     })
   })
@@ -225,26 +215,16 @@ describe("test for 'out of range' error", () => {
     const month = d.getMonth()
     const day = d.getDate()
     const aYearFromNow = new Date(year + 1, month, day + 1)
-    expect(() =>
-      pyp({
-        date: aYearFromNow,
-        excludedDays: [],
-        skipHolidays: false,
-        processingFunction() {
-          return true
-        },
-      })
-    ).toThrowError('Date out of range')
-    expect(() =>
-      pyp({
-        date: '2017-12-31',
-        excludedDays: [],
-        skipHolidays: false,
-        processingFunction() {
-          return true
-        },
-      })
-    ).toThrowError('Date out of range')
+    const options = {
+      excludedDays: [],
+      skipHolidays: false,
+    }
+    expect(() => pyp(aYearFromNow, () => true, options)).toThrowError(
+      'Date out of range'
+    )
+    expect(() => pyp('2017-12-31', () => true, options)).toThrowError(
+      'Date out of range'
+    )
   })
 })
 
