@@ -13,7 +13,7 @@ let totalCities = 0
 
 beforeAll(done => {
   readdir(dir, (err, files) => {
-    totalCities = files.filter(file => !file.endsWith('test.js')).length
+    totalCities = files.length
     done()
   })
 })
