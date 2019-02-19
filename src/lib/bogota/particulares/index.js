@@ -56,7 +56,7 @@ module.exports = {
       <li>Día par hábil: placa último dígito par.</li>
       <li>Día impar hábil: placa último dígito impar.</li>
       <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
-      <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+      <li>Domingos no podrán circular vehículos con placas terminadas en número impar.</li>
       <ul>`,
     observations:
       'No aplicará desde el día hábil siguiente al veinticinco (25) de diciembre de cada año, hasta el viernes hábil antes del descanso ordenado por la Ley 51 de 1983 para la festividad correspondiente al seis (6) de enero del año siguiente.',

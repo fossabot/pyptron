@@ -309,7 +309,7 @@ Object {
         <li>Día par hábil: placa último dígito par.</li>
         <li>Día impar hábil: placa último dígito impar.</li>
         <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
-        <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+        <li>Domingos no podrán circular vehículos con placas terminadas en número impar.</li>
         <ul>",
       "vehicleClasses": Array [
         "Motocicletas",
@@ -411,7 +411,7 @@ Object {
       <li>Día par hábil: placa último dígito par.</li>
       <li>Día impar hábil: placa último dígito impar.</li>
       <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
-      <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+      <li>Domingos no podrán circular vehículos con placas terminadas en número impar.</li>
       <ul>",
       "vehicleClasses": Array [
         "Vehículos automotores de servicio particular",
@@ -734,7 +734,7 @@ Object {
         <li>Día par hábil: placa último dígito par.</li>
         <li>Día impar hábil: placa último dígito impar.</li>
         <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
-        <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+        <li>Domingos no podrán circular vehículos con placas terminadas en número impar.</li>
         <ul>",
     "vehicleClasses": Array [
       "Motocicletas",
@@ -836,7 +836,7 @@ Object {
       <li>Día par hábil: placa último dígito par.</li>
       <li>Día impar hábil: placa último dígito impar.</li>
       <li>Sábado no podrán circular vehículos con placas terminadas en número par.</li>
-      <li>Sábado no podrán circular vehículos con placas terminadas en número impar.</li>
+      <li>Domingos no podrán circular vehículos con placas terminadas en número impar.</li>
       <ul>",
     "vehicleClasses": Array [
       "Vehículos automotores de servicio particular",
