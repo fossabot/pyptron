@@ -76,11 +76,6 @@ function getCategories(city) {
   const categories = Object.keys(cityObj.categories).sort()
   categories.forEach(category => {
     const categoryName = cityObj.categories[category].name
-    if (!categoryName) {
-      console.log(category)
-      console.log(cityObj.categories[category])
-      console.log(cityObj.categories[category].name)
-    }
     const categorySlug = slugify(categoryName, { lower: true })
     categoriesMap[categorySlug] = { key: category, name: categoryName }
   })
