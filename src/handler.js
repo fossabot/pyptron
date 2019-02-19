@@ -3,7 +3,7 @@ const { createResponse } = require('./utils/funcs')
 
 exports.pyptron = async event => {
   const { city, category } = event.pathParameters || {}
-  const options = event.queryStringParameters
+  const options = event.queryStringParameters || {}
   switch (event.resource) {
     case '/':
       return cities()
