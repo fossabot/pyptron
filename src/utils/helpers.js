@@ -1,4 +1,5 @@
 const slugify = require('slugify')
+const pypFuncs = require('./funcs')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')
 const bello = require('../lib/bello')
@@ -180,6 +181,18 @@ function getPypInfo(city, date, categories = []) {
       lower: true,
     })
     const { info } = activeCategory
+    info.decrees = info.decrees.map(decree => {
+      const decreeSlug = pypFuncs.buildAssetPath(
+        cityPath,
+        slugify(decree.name, { lower: true })
+      )
+      const decreeExtension = decree.url.split(':')[1]
+      // eslint-disable-next-line no-param-reassign
+      decree.url = decree.url.startsWith('cdn:')
+        ? `${decreeSlug}.${decreeExtension}`
+        : decree.url
+      return decree
+    })
     info.name = activeCategory.name
     info.path = `${cityPath}/${categoryPath}`
     result[category] = info // eslint-disable-line no-param-reassign
