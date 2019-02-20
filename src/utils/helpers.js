@@ -203,7 +203,7 @@ function getPypInfo(city, date, categories = []) {
     })
     const { info } = activeCategory
     info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
-    info.decrees = cdnPathMaker(info.decrees, cityPath)
+    info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
     info.name = activeCategory.name
     info.path = `${cityPath}/${categoryPath}`
     result[category] = info // eslint-disable-line no-param-reassign
