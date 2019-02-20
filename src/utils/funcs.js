@@ -97,6 +97,17 @@ function daysDiff(
 }
 
 /**
+ * Calcula la cantidad de semanas de diferencia entre una fecha inicial y una fecha final.
+ * @param {string} startDate Fecha inicial.
+ * @param {string} endDate Fecha final.
+ * @returns {number} Cantidad de semanas de difencia entre la fecha inicial y la fecha final.
+ */
+function weeksDiff(startDate, endDate) {
+  const daysLapse = daysDiff(startDate, endDate, [])
+  return Math.floor(daysLapse / 7)
+}
+
+/**
  * Devuelve la cantidad de meses entre dos fechas dadas
  * @param {string} startDate Fecha inicial.
  * @param {string} endDate Fecha final.
@@ -354,6 +365,7 @@ function rotateByMonth(
 module.exports = {
   excludeDays,
   daysDiff,
+  weeksDiff,
   monthsDiff,
   pyp,
   getIndex,

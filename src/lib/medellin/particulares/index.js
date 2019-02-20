@@ -48,11 +48,18 @@ module.exports = {
   name: 'Particulares',
   pyp(date) {
     const options = {
-      excludedDays: [0, 6],
+      excludedDays: [0],
       skipHolidays: true,
     }
     const pypFunction = () => {
       // const startDate = '2018-02-05'
+      const dow = pypFuncs.getDay(date)
+      if (dow === 6) {
+        const weeksLapse = pypFuncs.weeksDiff('2019-02-23', date, [])
+        const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
+        const index = pypFuncs.getIndex(weeksLapse, weekendsNums.length)
+        return weekendsNums[index]
+      }
       const pypNums = [
         '6-7-8-9-0-1', // '4-5-6-7', // lunes
         '0-1-2-3-4-5', // '8-9-0-1', // martes
@@ -60,7 +67,7 @@ module.exports = {
         '8-9-0-1-2-3', // '6-7-8-9', // jueves
         '2-3-4-5-6-7', // '0-1-2-3', // viernes
       ]
-      return pypNums[pypFuncs.getDay(date) - 1]
+      return pypNums[dow - 1]
       // const lapse = pypFuncs.monthsDiff(startDate, date, 6)
       // const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
       // return newPypNums[pypFuncs.getDay(date) - 1]

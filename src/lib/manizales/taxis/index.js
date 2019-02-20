@@ -63,8 +63,7 @@ module.exports = {
           ['8', '7'],
           ['0', '9'],
         ]
-        const daysLapse = pypFuncs.daysDiff(startDate, date, [])
-        const weeksLapse = Math.floor(daysLapse / 7)
+        const weeksLapse = pypFuncs.weeksDiff(startDate, date, [])
         // Usamos la función getIndex(index, arrLen) para mantener uniformidad en el código,
         // pero perfectamente podríamos usar:
         //   const index = weeksLapse % pypNums.length;

@@ -75,6 +75,50 @@ const dateCases = [
   //     taxis: '6',
   //   },
   // },
+  /* INICIO TEST AMBIENTAL */
+  {
+    date: '2019-02-23',
+    pypCases: {
+      particulares: '1-3-5-7-9',
+      motos: '1-3-5-7-9',
+    },
+  },
+  {
+    date: '2019-03-09',
+    pypCases: {
+      particulares: '1-3-5-7-9',
+      motos: '1-3-5-7-9',
+    },
+  },
+  {
+    date: '2019-03-23',
+    pypCases: {
+      particulares: '1-3-5-7-9',
+      motos: '1-3-5-7-9',
+    },
+  },
+  {
+    date: '2019-03-02',
+    pypCases: {
+      particulares: '0-2-4-6-8',
+      motos: '0-2-4-6-8',
+    },
+  },
+  {
+    date: '2019-03-16',
+    pypCases: {
+      particulares: '0-2-4-6-8',
+      motos: '0-2-4-6-8',
+    },
+  },
+  {
+    date: '2019-03-30',
+    pypCases: {
+      particulares: '0-2-4-6-8',
+      motos: '0-2-4-6-8',
+    },
+  },
+  /* FIN TEST AMBIENTAl */
   {
     date: '2018-02-01',
     pypCases: {

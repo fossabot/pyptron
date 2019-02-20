@@ -49,11 +49,18 @@ module.exports = {
   name: 'Motos',
   pyp(date) {
     const options = {
-      excludedDays: [0, 6],
+      excludedDays: [0],
       skipHolidays: true,
     }
     const pypFunction = () => {
       // const startDate = '2018-02-05'
+      const dow = pypFuncs.getDay(date)
+      if (dow === 6) {
+        const weeksLapse = pypFuncs.weeksDiff('2019-02-23', date, [])
+        const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
+        const index = pypFuncs.getIndex(weeksLapse, weekendsNums.length)
+        return weekendsNums[index]
+      }
       const pypNums = [
         '4-5-6-7-8-9', // '8-9', // lunes
         '6-7-8-9-0-1', // '0-1', // martes
