@@ -1,6 +1,24 @@
 const pypFuncs = require('../../../utils/funcs')
 
 module.exports = {
+  name: 'Particulares',
+  pyp(date) {
+    const options = {
+      excludedDays: [0, 6],
+      skipHolidays: true,
+    }
+    const pypFunction = () => {
+      if (
+        pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
+        pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
+      ) {
+        return 'NA'
+      }
+      const pyp = ['0-2-4-6-8', '1-3-5-7-9']
+      return pyp[pypFuncs.getDate(date) % 2]
+    }
+    return pypFuncs.pyp(date, pypFunction, options)
+  },
   info: {
     vehicleClasses: ['Vehículos automotores de servicio particular'],
     decrees: [
@@ -38,18 +56,8 @@ module.exports = {
     hours: [
       {
         comment: 'Lunes a viernes',
-        hours: [['6:00', '19:30']],
+        hours: [['6:00', '8:30'], ['15:00', '19:30']],
         days: [1, 2, 3, 4, 5],
-      },
-      {
-        comment: 'Sábados',
-        hours: [['6:30', '18:00']],
-        days: [6],
-      },
-      {
-        comment: 'Domingos',
-        hours: [['6:30', '15:00']],
-        days: [0],
       },
     ],
     scheme: `<ul>
@@ -81,30 +89,5 @@ module.exports = {
     <p>La Secretaría Distrital de Movilidad llevará a cabo un registro de vehículos exceptuados, para efectos de evitar la imposición de comparendos por medios técnicos y tecnológicos y definirá las condiciones necesarias para la inscripción de dichos vehículos. La inscripción en el registro de exceptuados será válida mientras subsistan las condiciones que configuran la excepción y estará sujeta a la verificación y depuración.</p>
     <p>Se prohíbe la expedición de permisos especiales de circulación por parte de las autoridades de tránsito. Los automotores exceptuados podrán circular con la simple demostración de las condiciones señaladas, y en consecuencia no requerirán de la expedición de permiso alguno. En cuanto a los controles por medios tecnológicos, bastará con la inscripción en registro referido en el párrafo anterior.</p>
     `,
-  },
-  name: 'Particulares',
-  pyp(date) {
-    const options = {
-      excludedDays: [],
-      skipHolidays: true,
-    }
-    const pypFunction = () => {
-      const day = pypFuncs.getDay(date)
-      if (
-        pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
-        pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
-      ) {
-        return 'NA'
-      }
-      if (day === 6) {
-        return '0-2-4-6-8'
-      }
-      if (day === 0) {
-        return '1-3-5-7-9'
-      }
-      const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-      return pyp[pypFuncs.getDate(date) % 2]
-    }
-    return pypFuncs.pyp(date, pypFunction, options)
   },
 }
