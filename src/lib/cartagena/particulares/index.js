@@ -6,17 +6,11 @@ module.exports = {
     decrees: [
       {
         name: 'Decreto 1361 del 29 de noviembre de 2018',
-        url: pypFuncs.buildAssetPath(
-          'cartagena',
-          'decreto-1361-del-29-de-noviembre-de-2018.pdf'
-        ),
+        url: 'cdn:pdf',
       },
       {
         name: 'Decreto 1550 del 30 de noviembre de 2017',
-        url: pypFuncs.buildAssetPath(
-          'cartagena',
-          'decreto-1550-del-30-de-noviembre-de-2017.pdf'
-        ),
+        url: 'cdn:pdf',
       },
     ],
     days: [

@@ -6,31 +6,19 @@ module.exports = {
     decrees: [
       {
         name: 'Decreto 872 del 22 de noviembre de 2018',
-        url: pypFuncs.buildAssetPath(
-          'pereira',
-          'decreto-872-del-22-de-noviembre-de-2018.pdf'
-        ),
+        url: 'cdn:pdf',
       },
       {
         name: 'Decreto 241 del 26 de marzo de 2016',
-        url: pypFuncs.buildAssetPath(
-          'pereira',
-          'decreto-241-del-26-de-marzo-de-2016.pdf'
-        ),
+        url: 'cdn:pdf',
       },
       {
         name: 'Decreto 516 del 21 de julio de 2015',
-        url: pypFuncs.buildAssetPath(
-          'pereira',
-          'decreto-516-del-21-de-julio-de-2015.pdf'
-        ),
+        url: 'cdn:pdf',
       },
       {
         name: 'Decreto 193 del 6 de marzo de 2015',
-        url: pypFuncs.buildAssetPath(
-          'pereira',
-          'decreto-193-del-6-de-marzo-de-2015.pdf'
-        ),
+        url: 'cdn:pdf',
       },
     ],
     days: [
@@ -70,10 +58,7 @@ module.exports = {
       <li>Los vehículos que transporten al personal médico, paramédico y asistencial, de las salas de urgencias y cirugías, previa identificación.</li>
       <li>Los vehículos blindados, autorizados como medida de seguridad.</li>
     </ul>`,
-    map: pypFuncs.buildAssetPath(
-      'pereira',
-      'mapa-pico-y-placa-pereira-nuevo.jpg'
-    ),
+    maps: [{ name: 'Mapa pico y placa pereira 2019', url: 'cdn:jpg' }],
   },
   name: 'Motos',
   pyp(date) {

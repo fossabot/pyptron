@@ -5,8 +5,8 @@ module.exports = {
     vehicleClasses: ['Vehículos tipo motocicletas'],
     decrees: [
       {
-        name: 'Decreto 288 de julio de 2017',
-        url: pypFuncs.buildAssetPath('soledad', 'decreto-288-de-2017.pdf'),
+        name: 'Decreto 288 de 2017',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes'],

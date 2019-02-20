@@ -12,10 +12,7 @@ module.exports = {
       },
       {
         name: 'Decreto 1659 de diciembre de 2017',
-        url: pypFuncs.buildAssetPath(
-          'cartagena',
-          'decreto-1659-de-diciembre-de-2017.pdf'
-        ),
+        url: 'cdn:pdf',
       },
     ],
     days: [

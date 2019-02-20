@@ -6,7 +6,7 @@ module.exports = {
     decrees: [
       {
         name: 'Decreto 222 de 2016',
-        url: pypFuncs.buildAssetPath('quibdo', 'decreto-222-de-2016.pdf'),
+        url: 'cdn:pdf',
       },
     ],
     days: [

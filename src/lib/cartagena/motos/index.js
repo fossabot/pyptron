@@ -8,10 +8,7 @@ module.exports = {
     decrees: [
       {
         name: 'Decreto 1035 del 5 de septiembre de 2018',
-        url: pypFuncs.buildAssetPath(
-          'cartagena',
-          'decreto-1035-del-5-de-septiembre-de-2018.pdf'
-        ),
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes.'],

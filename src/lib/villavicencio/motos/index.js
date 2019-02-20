@@ -5,18 +5,12 @@ module.exports = {
     vehicleClasses: ['Motocicletas y motocarros de servicio particular'],
     decrees: [
       {
-        name: 'Decreto 222 de 2018',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-222-del-25-de-julio-de-2018.pdf'
-        ),
+        name: 'Decreto 222 del 25 de julio de 2018',
+        url: 'cdn:pdf',
       },
       {
-        name: 'Decreto 245 de 2017',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-245-del-26-de-julio-de-2017.pdf'
-        ),
+        name: 'Decreto 245 del 26 de julio de 2017',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes'],
@@ -40,10 +34,7 @@ module.exports = {
       <li>Motocicletas de empresas de servicios públicos domiciliarios. Motocicletas destinadas o contratadas porl as Empresas de Servicios Públicos Domiciliarios para el mantenimientos, instalación, y reparación de las redes de servicios públicos, siempre y cuando cuenten con plena y pública identificación, consistente en los logos de la empresa contratante pintados o adheridos de forma permanente, previa autorización de la Secretaría de Movilidad.</li>
       <li>Motocicletas eléctricas. Motocicletas propulsadas exclusivamente por motores eléctricos.</li>
       <ul>`,
-    map: pypFuncs.buildAssetPath(
-      'villavicencio',
-      'mapa-pico-y-placa-villavicencio.jpg'
-    ),
+    maps: [{ name: 'Mapa pico y placa Villavicencio', url: 'cdn:jpg' }],
   },
   name: 'Motos',
   pyp(date) {

@@ -38,18 +38,12 @@ module.exports = {
           'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57155',
       },
       {
-        name: 'Calendario pico y placa Bogotá primer semestre 2018 unificado',
-        url: pypFuncs.buildAssetPath(
-          'bogota',
-          'calendario-pico-y-placa-primer-semestre-2018-unificado.pdf'
-        ),
+        name: 'Calendario pico y placa primer semestre 2018 unificado',
+        url: 'cdn:pdf',
       },
       {
-        name: 'Calendario pico y placa Bogotá segundo semestre 2018 unificado',
-        url: pypFuncs.buildAssetPath(
-          'bogota',
-          'calendario-pico-y-placa-segundo-semestre-2018-unificado.pdf'
-        ),
+        name: 'Calendario pico y placa segundo semestre 2018 unificado',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes hábiles'],

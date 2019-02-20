@@ -10,8 +10,8 @@ module.exports = {
           'http://www.ibague.gov.co/portal/admin/archivos/normatividad/2017/16370-DEC-20170116.pdf',
       },
       {
-        name: 'Decreto 0946 del 31 de octubre de 2018',
-        url: pypFuncs.buildAssetPath('ibague', 'decreto-0946-de-2018.pdf'),
+        name: 'Decreto 0946 de 2018',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Días hábiles de la semana - lunes a viernes.'],

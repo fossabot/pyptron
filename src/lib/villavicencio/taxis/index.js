@@ -7,32 +7,20 @@ module.exports = {
     ],
     decrees: [
       {
-        name: 'Decreto 222 de 2018',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-222-del-25-de-julio-de-2018.pdf'
-        ),
+        name: 'Decreto 222 del 25 de julio de 2018',
+        url: 'cdn:pdf',
       },
       {
-        name: 'Decreto 245 de 2017',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-245-del-26-de-julio-de-2017.pdf'
-        ),
+        name: 'Decreto 245 del 26 de julio de 2017',
+        url: 'cdn:pdf',
       },
       {
-        name: 'Decreto 010 de 2017',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-010-del-24-de-enero-de-2017.pdf'
-        ),
+        name: 'Decreto 010 del 24 de enero de 2017',
+        url: 'cdn:pdf',
       },
       {
-        name: 'Decreto 131 de 2016',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-131-del-26-de-enero-de-2016.pdf'
-        ),
+        name: 'Decreto 131 del 26 de enero de 2016',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes'],

@@ -7,7 +7,7 @@ module.exports = {
     decrees: [
       {
         name: 'Decreto 083 de 2016',
-        url: pypFuncs.buildAssetPath('armenia', 'decreto-083-de-2016.pdf'),
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes hábiles'],

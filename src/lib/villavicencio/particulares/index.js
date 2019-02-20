@@ -5,18 +5,12 @@ module.exports = {
     vehicleClasses: ['Vehículos automotores de servicio particular'],
     decrees: [
       {
-        name: 'Decreto 222 de 2018',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-222-del-25-de-julio-de-2018.pdf'
-        ),
+        name: 'Decreto 222 del 25 de julio de 2018',
+        url: 'cdn:pdf',
       },
       {
-        name: 'Decreto 245 de 2017',
-        url: pypFuncs.buildAssetPath(
-          'villavicencio',
-          'decreto-245-del-26-de-julio-de-2017.pdf'
-        ),
+        name: 'Decreto 245 del 26 de julio de 2017',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a viernes'],
@@ -47,10 +41,7 @@ module.exports = {
       <li>Los vehículos de transporte de carga, tanto de servicio particulares como público, clase camión o camioneta clasificados en el Registro Automotor como estacas, furgón o panel, con capacidad de carga mayor o igual a una (1) tonelada y que posean cabina sencilla, no estarán cobijados por las restricciones contenidas en el presente Decreto.</li>
       <li>Vehículos eléctricos: Automotores propulsados exclusivamente por motores eléctricos.</li>
       <ul>`,
-    map: pypFuncs.buildAssetPath(
-      'villavicencio',
-      'mapa-pico-y-placa-villavicencio.jpg'
-    ),
+    maps: [{ name: 'Mapa pico y placa Villavicencio', url: 'cdn:jpg' }],
   },
   name: 'Particulares',
   pyp(date) {

@@ -8,17 +8,11 @@ module.exports = {
     decrees: [
       {
         name: 'Decreto 60 del 22 de octubre de 2018',
-        url: pypFuncs.buildAssetPath(
-          'ocana',
-          'decreto-60-del-22-de-octubre-de-2018.pdf'
-        ),
+        url: 'cdn:pdf',
       },
       {
-        name: 'Estudio de tráfico pico y placa',
-        url: pypFuncs.buildAssetPath(
-          'ocana',
-          'estudio-de-trafico-pico-y-placa-ocana-enero-2018.pdf'
-        ),
+        name: 'Estudio de tráfico pico y placa enero 2018',
+        url: 'cdn:pdf',
       },
     ],
     days: [

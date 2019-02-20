@@ -7,8 +7,8 @@ module.exports = {
     ],
     decrees: [
       {
-        name: 'decreto 068 de 28 de febrero de 2018',
-        url: pypFuncs.buildAssetPath('santa-marta', 'decreto-068-de-2018.pdf'),
+        name: 'decreto 068 de 2018',
+        url: 'cdn:pdf',
       },
     ],
     days: ['Lunes a sábado'],
