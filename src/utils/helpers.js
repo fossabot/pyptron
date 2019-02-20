@@ -160,6 +160,27 @@ function getPyp(city, date, categories = []) {
     return result
   }, [])
 }
+
+/**
+ * Takes an array of objects with a name and a url property and returns a new array with objects containing the url modified to match the cdn path
+ * @param {Array} array Array of objects each containing name and url properties
+ * @param {String} cityPath Slug of the city
+ * @returns {Object} Same object with url replaced with cdn patn
+ */
+function cdnPathMaker(array, cityPath) {
+  return array.map(object => {
+    const slug = pypFuncs.buildAssetPath(
+      cityPath,
+      slugify(object.name, { lower: true })
+    )
+    const objectExtension = object.url.split(':')[1]
+    // eslint-disable-next-line no-param-reassign
+    object.url = object.url.startsWith('cdn:')
+      ? `${slug}.${objectExtension}`
+      : object.url
+    return object
+  })
+}
 /**
  * Devuelve un objeto conla metainformación para la ciudad solicitada en donde las llaves son el
  * slug de las categorías correspondientes a la ciudad dada ordenada alfabéticamente. Si no se
@@ -181,18 +202,8 @@ function getPypInfo(city, date, categories = []) {
       lower: true,
     })
     const { info } = activeCategory
-    info.decrees = info.decrees.map(decree => {
-      const decreeSlug = pypFuncs.buildAssetPath(
-        cityPath,
-        slugify(decree.name, { lower: true })
-      )
-      const decreeExtension = decree.url.split(':')[1]
-      // eslint-disable-next-line no-param-reassign
-      decree.url = decree.url.startsWith('cdn:')
-        ? `${decreeSlug}.${decreeExtension}`
-        : decree.url
-      return decree
-    })
+    info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
+    info.decrees = cdnPathMaker(info.decrees, cityPath)
     info.name = activeCategory.name
     info.path = `${cityPath}/${categoryPath}`
     result[category] = info // eslint-disable-line no-param-reassign
