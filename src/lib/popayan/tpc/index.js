@@ -1,29 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
 const { daysDiff } = require('../../../utils/dateHelpers')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: [
-      'Transporte Público de servicio de carga con capacidad menor a una y media toneladas',
-    ],
-    decrees: [
-      {
-        name: 'Decreto 20181000000015 del 2 de enero de 2018',
-        url:
-          'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
-      },
-    ],
-    days: ['Lunes a viernes hábiles'],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:00', '19:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Último dígito del número de la placa según el esquema',
-  },
   name: 'Transporte Público de Carga',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

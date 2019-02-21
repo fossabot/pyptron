@@ -1,30 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
 const { monthsDiff } = require('../../../utils/dateHelpers')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Vehículos de Transporte Público Colectivo (TPC)'],
-    decrees: [
-      {
-        name: 'Decreto 0019 del 09 de enero del 2018',
-        url: '',
-      },
-    ],
-    days: [
-      'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:00', '19:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Último dígito del número de la placa',
-    observations:
-      "Aplica para todo el distrito. El Decreto autoriza la movilización de vehículos de servicio público sólo para que realicen el mantenimiento respectivo, por ello deberán portar el tablero colocado en el parabrisas el siguiente aviso: 'vehículo en mantenimiento por pico y placa'",
-  },
   name: 'Transporte Público Colectivo',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

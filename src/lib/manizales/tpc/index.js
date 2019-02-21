@@ -1,30 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
 const { daysDiff } = require('../../../utils/dateHelpers')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Vehículos de Transporte Público Colectivo (TPC)'],
-    decrees: [
-      {
-        name: 'Resolución 298 de 2017',
-        url: '',
-      },
-    ],
-    days: [
-      'Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['6:00', '23:59']],
-        days: [],
-      },
-    ],
-    scheme:
-      'toma como referencia la letra que antecede al número lateral de cada uno de los automotores',
-    observations: '',
-  },
   name: 'Transporte Público Colectivo',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0],

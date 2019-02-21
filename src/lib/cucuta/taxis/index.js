@@ -1,35 +1,26 @@
 const { getWeek } = require('../../../utils/dateHelpers')
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: [
-      'Vehículos de transporte público individual de pasajeros - Taxis',
-    ],
-    decrees: [
-      {
-        name: 'Decretos 0239 del 4 de abril del 2017',
-        url:
-          'http://www.areacucuta.com/wp-content/uploads/2017/04/Decreto-Pico-y-Placa-Placa-y-D%C3%ADa.pdf',
-      },
-      {
-        name: 'Decretos 0330 del 22 de mayo del 2017',
-        url:
-          'http://cucutaonline.com/wp-content/uploads/2017/05/Decreto-0330-pico-placa-modificado.pdf',
-      },
-    ],
-    days: ['Lunes a viernes hábiles'],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:30', '23:00']],
-        days: [],
-      },
-    ],
-    scheme:
-      'Medida de tránsito de RESTRICCIÓN VEHICULAR denominada PLACA – DÍA en la ciudad de San José de Cúcuta para VEHÍCULOS DE SERVICIO PÚBLICO TIPO TAXI, VEHÍCULOS DE PLACA EXTRANJERA (automóviles, motocicletas, camionetas, camiones, volquetas) y VEHÍCULOS DE PLACA NACIONAL (automóviles, motocicletas, camionetas, camiones, volquetes).',
-  },
   name: 'Taxis',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

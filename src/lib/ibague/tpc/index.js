@@ -1,28 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
 const { daysDiff } = require('../../../utils/dateHelpers')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Transporte público colectivo municipal de pasajeros'],
-    decrees: [
-      {
-        name: 'Decreto 0387 del 11 de abril de 2016',
-        url:
-          'http://www.ibague.gov.co/portal/admin/archivos/normatividad/2016/13967-DEC-20160415.pdf',
-      },
-    ],
-    days: ['Todos los días de la semana'],
-    hours: [
-      {
-        comment: 'Todo el día',
-        hours: [[]],
-        days: [],
-      },
-    ],
-    scheme:
-      'Restringe la circulación de Vehículos de Servicio Público de Transporte Colectivo Municipal de Pasajeros, tipo Busetón, Buseta, Microbus, en todo el territorio Urbano de la ciudad de Ibagué, durante las veinticuatro (24) horas de cada día',
-  },
   name: 'Transporte Público Colectivo',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [],

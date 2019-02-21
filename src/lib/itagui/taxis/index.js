@@ -1,20 +1,24 @@
 const medellinTaxis = require('../../medellin/taxis')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: medellinTaxis.info.vehicleClasses,
-    decrees: [
-      {
-        name: 'Decreto 067 del 31 de enero de 2018',
-        url:
-          'https://www.transitoitagui.gov.co/wp-content/uploads/2018/02/DECRETO-067-DEL-31-1-2018-DECRETO-PICO-Y-PLACA.pdf',
-      },
-    ],
-    days: medellinTaxis.info.days,
-    hours: medellinTaxis.info.hours,
-    scheme: medellinTaxis.info.scheme,
-    observations: medellinTaxis.info.observations.replace('Medellín', 'Itagüí'),
-  },
   name: medellinTaxis.name,
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp: medellinTaxis.pyp,
 }

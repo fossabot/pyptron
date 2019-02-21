@@ -1,28 +1,25 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Transporte público individual - taxis'],
-    decrees: [
-      {
-        name: 'Decreto 0116 de 2018',
-        url:
-          'https://www.medellin.gov.co/movilidad/jdownloads/Normas/Normatividad/Decretos%20Municipales/2018/decreto_0116_de_2018.pdf',
-      },
-    ],
-    days: ['Días hábiles de la semana - lunes a viernes.'],
-    hours: [
-      {
-        comment: '',
-        hours: [['6:00', '20:00']],
-        days: [],
-      },
-    ],
-    scheme: 'De acuerdo con el último número de la placa del vehículo',
-    observations:
-      'La rotación de la medida de “Pico y placa” para el transporte público individual (taxis) que circulen en la Jurisdicción de Medellín, seguirá siendo cada dos semanas en el horario comprendido enre las 06:00 y las 20:00 horas durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del jueves 1 de febrero de 2018.',
-  },
   name: 'Taxis',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

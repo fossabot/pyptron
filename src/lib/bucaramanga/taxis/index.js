@@ -1,34 +1,25 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Vehículos de servicio público individual - taxis'],
-    decrees: [
-      {
-        name: 'Resolución 277 del 27 de Abril de 2006',
-        url: '',
-      },
-      {
-        name: 'Resolución 475 del 23 de Junio de 2006',
-        url: '',
-      },
-      {
-        name: 'Resolución 487 del 30 de Junio de 2006',
-        url: '',
-      },
-    ],
-    days: ['Lunes a sábado hábiles'],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:00', '21:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Último dígito numérico de la placa según el esquema',
-    observations: '',
-  },
   name: 'Taxis',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

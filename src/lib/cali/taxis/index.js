@@ -1,39 +1,25 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: [
-      'Vehículos de transporte público individual de pasajeros - Taxis.',
-    ],
-    decrees: [
-      {
-        name: 'Decreto 0801 de 2018',
-        url:
-          'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=32835',
-      },
-      {
-        name: 'Decreto 4112.010.20.0318-28/06/2018 del 28 de junio de 2018',
-        url:
-          'http://www.cali.gov.co/aplicaciones/boletin_publicaciones/imagenes_documentos/documentoId11660.pdf',
-      },
-      {
-        name: 'Decreto 0001 del 4 de enero de 2018',
-        url:
-          'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=25496',
-      },
-    ],
-    days: ['Lunes a domingo'],
-    hours: [
-      {
-        comment: '',
-        hours: [['06:00', '05:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Rotación de acuerdo con el último dígito del número de la placa',
-    observations: '',
-  },
   name: 'Taxis',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [],

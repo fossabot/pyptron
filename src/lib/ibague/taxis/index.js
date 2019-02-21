@@ -1,29 +1,26 @@
 const { daysDiff } = require('../../../utils/dateHelpers')
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Transporte público individual - taxis'],
-    decrees: [
-      {
-        name: 'Decreto 11-0160 del 29 de febrero de 2008',
-        url:
-          'http://www.ibague.gov.co/portal/admin/archivos/normatividad/2008/DECRETO%20160.PDF',
-      },
-    ],
-    days: ['Todos los días de la semana'],
-    hours: [
-      {
-        comment: '',
-        hours: [['6:00', '6:00']],
-        days: [],
-      },
-    ],
-    scheme: 'De acuerdo con el último número de la placa del vehículo',
-    observations:
-      'Las restricciones establecidas para este servicio no se suspenderán en ninguna época del año, ni en festividades de semana santa, mitad o final de año.',
-  },
   name: 'Taxis',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [],

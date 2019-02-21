@@ -1,30 +1,25 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Motocicletas'],
-    decrees: [
-      {
-        name: 'Decreto 0201 del 18 de mayo de 2017',
-        url:
-          'http://www.pasto.gov.co/index.php/decretos/decretos-2017?download=10061:dec_0201_18_may_2017',
-      },
-    ],
-    days: [
-      'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:30', '19:00']],
-        days: [],
-      },
-    ],
-    scheme:
-      'Se restringe el tránsito de vehículos automotores en la ciudad de San Juan de Pasto de acuerdo con el último dígito numérico de la placa del vehículo, sujetándose a los ciclos y dias señalados',
-    observations: '',
-  },
   name: 'Motos',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

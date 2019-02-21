@@ -1,31 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 const { formatDate } = require('../../../utils/dateHelpers')
 
 module.exports = {
-  info: {
-    vehicleClasses: [
-      'Restricción de circulación de motocarros, según el color del mismo',
-    ],
-    decrees: [
-      {
-        name: 'Decreto 288 de 2017',
-        url: 'cdn:pdf',
-      },
-    ],
-    days: ['Todos los días de la semana'],
-    hours: [
-      {
-        comment: 'Todo el día',
-        hours: [[]],
-        days: [],
-      },
-    ],
-    scheme:
-      'En materia de circulación nocturna de motocicletas, ciclomotores, mototriciclos, tricimotos y cuatrimotos, no podrán circular entre las 10 de la noche y las 5:00 de la mañana del día siguiente, de domingo a sábado. Para los motocarros la restricción rige a partir de las 11:00 de la noche.',
-    observations:
-      'En consecuencia, con la medida de ‘pico y color’, se establecen medidas los días 31 de los meses de enero, marzo, julio, agosto, octubre y diciembre la prohibición de circulación.',
-  },
   name: 'Motocarros',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [],

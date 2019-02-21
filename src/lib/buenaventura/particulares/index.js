@@ -1,30 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
 const { monthsDiff } = require('../../../utils/dateHelpers')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Vehículos automotores de servicio particular'],
-    decrees: [
-      {
-        name: 'Decreto 0019 del 09 de enero del 2018',
-        url: '',
-      },
-    ],
-    days: [
-      'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:00', '10:00'], ['17:00', '20:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Último dígito del número de la placa',
-    observations:
-      'Los vehículos de servicio particular no podrán circular desde el kilómetro cinco, es decir, desde el sector del Sena hasta el Centro de la Ciudad y viceversa, de lo contrario serán sancionados por incurrir con la norma',
-  },
   name: 'Particulares',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

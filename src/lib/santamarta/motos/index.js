@@ -1,28 +1,25 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: ['Motocicletas'],
-    decrees: [
-      {
-        name: '',
-        url: '',
-      },
-    ],
-    days: [
-      'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:00', '19:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Último dígito del número de la placa según el esquema',
-    observations: '',
-  },
   name: 'Motos',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [0, 6],

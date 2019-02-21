@@ -1,34 +1,23 @@
 const pypFuncs = require('../../../utils/funcs')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
   info: {
-    vehicleClasses: [
-      'Vehículos de transporte público individual de pasajeros - Taxis',
-    ],
-    decrees: [
-      {
-        name: 'Decreto No. 0201 del 13 de junio de 2016',
-        url:
-          'http://tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/2016-decreto-0201-del-13jun2016.pdf',
-      },
-      {
-        name: 'Decreto 0151 del 22 de marzo 2013',
-        url:
-          'http://www.tunja-boyaca.gov.co/apc-aa-files/63353630666563646636613430366433/decreto-no_0151-del-22mar2013.pdf',
-      },
-    ],
-    days: [
-      'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['7:00', '19:00']],
-        days: [],
-      },
-    ],
-    scheme: 'Último dígito del número de la placa según el esquema',
-    observations: '',
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
   },
   name: 'Taxis',
   pyp(date) {

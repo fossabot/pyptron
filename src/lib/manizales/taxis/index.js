@@ -1,31 +1,26 @@
 const pypFuncs = require('../../../utils/funcs')
 const { formatDate, weeksDiff } = require('../../../utils/dateHelpers')
+const days = require('./info/days')
+const decrees = require('./info/decrees')
+const exceptions = require('./info/exceptions')
+const hours = require('./info/hours')
+const maps = require('./info/maps')
+const observations = require('./info/observations')
+const scheme = require('./info/scheme')
+const vehicleClasses = require('./info/vehicleClasses')
 
 module.exports = {
-  info: {
-    vehicleClasses: [
-      'Vehículos de transporte público individual de pasajeros - Taxis',
-    ],
-    decrees: [
-      {
-        name: 'Resolución 298 de 2017',
-        url: '',
-      },
-    ],
-    days: [
-      'Todos los días de la semana (No se aplicará en los días festivos establecidos por la Ley)',
-    ],
-    hours: [
-      {
-        comment: '',
-        hours: [['4:00', '4:00']],
-        days: [],
-      },
-    ],
-    scheme: 'De acuerdo con el último número de la placa del vehículo',
-    observations: '',
-  },
   name: 'Taxis',
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
   pyp(date) {
     const options = {
       excludedDays: [],
