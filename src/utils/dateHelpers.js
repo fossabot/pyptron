@@ -92,30 +92,30 @@ function daysDiff(
   // Usamos el formato ISO
   const ISOStartDate = ISOString(startDate)
   const ISOEndDate = ISOString(endDate)
-  const cDateObject = new Date(ISOStartDate)
-  const eDateObject = new Date(ISOEndDate)
+  const currentDateObject = new Date(ISOStartDate)
+  const endDateObject = new Date(ISOEndDate)
   let daysLapse = 0
 
-  while (cDateObject <= eDateObject) {
-    if (specialDates.includes(dayjs(cDateObject).format('YYYY-MM-DD'))) {
-      cDateObject.setDate(cDateObject.getDate() + 1)
+  while (currentDateObject <= endDateObject) {
+    if (specialDates.includes(dayjs(currentDateObject).format('YYYY-MM-DD'))) {
+      currentDateObject.setDate(currentDateObject.getDate() + 1)
       continue // eslint-disable-line no-continue
     }
 
     if (skipHolidays) {
-      if (getHoliday(cDateObject)) {
-        cDateObject.setDate(cDateObject.getDate() + 1)
+      if (getHoliday(currentDateObject)) {
+        currentDateObject.setDate(currentDateObject.getDate() + 1)
         continue // eslint-disable-line no-continue
       }
     }
 
-    if (skip.includes(cDateObject.getDay())) {
-      cDateObject.setDate(cDateObject.getDate() + 1)
+    if (skip.includes(currentDateObject.getDay())) {
+      currentDateObject.setDate(currentDateObject.getDate() + 1)
 
       continue // eslint-disable-line no-continue
     }
     daysLapse += 1
-    cDateObject.setDate(cDateObject.getDate() + 1)
+    currentDateObject.setDate(currentDateObject.getDate() + 1)
   }
   return daysLapse
 }
