@@ -7,9 +7,7 @@ const { getHoliday } = require('pascua')
 module.exports = {
   formatDate,
   ISOString,
-  getMonth,
   getWeek,
-  getDate,
   getNthDayOfMonth,
   daysDiff,
   weeksDiff,
@@ -41,15 +39,6 @@ function ISOString(date, timeOffset = '-05:00') {
 }
 
 /**
- * Obtiene el mes de una fecha dada en donde enero = 1 y diciembre = 12.
- * @param {string} date Fecha para la cual se desea obtener el mes.
- * @returns {int} Número del mes de la fecha dada. Enero = 1.
- */
-function getMonth(date) {
-  return new Date(date).getMonth() + 1
-}
-
-/**
  * Obtiene el número de semana en el año para una fecha dada.
  * @param {string} date Fecha para la cual se desea obtener el número de semana.
  * @returns {int} Número de semana del año en que cae la fecha dada.
@@ -57,15 +46,6 @@ function getMonth(date) {
 function getWeek(date) {
   dayjs.extend(weekOfYear)
   return dayjs(date).week()
-}
-
-/**
- * Extrae la fecha (día) de una fecha dada.
- * @param {string} date Fecha para la cual se desea extraer el día de la fecha.
- * @returns {int} El día de la fecha.
- */
-function getDate(date) {
-  return new Date(date).getDate()
 }
 
 /**
