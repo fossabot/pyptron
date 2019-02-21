@@ -90,10 +90,8 @@ function daysDiff(
   // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
   // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
   // Usamos el formato ISO
-  const ISOStartDate =
-    startDate.length === 10 ? `${startDate}T00:00:00.000-05:00` : startDate
-  const ISOEndDate =
-    endDate.length === 10 ? `${endDate}T00:00:00.000-05:00` : endDate
+  const ISOStartDate = ISOString(startDate)
+  const ISOEndDate = ISOString(endDate)
   const cDateObject = new Date(ISOStartDate)
   const eDateObject = new Date(ISOEndDate)
   let daysLapse = 0
