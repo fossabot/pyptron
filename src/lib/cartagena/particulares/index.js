@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { formatDate } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -106,7 +107,7 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+      switch (formatDate(date, 'YYYY-MM-DD')) {
         case '2018-03-02':
           return '9-0'
         default:

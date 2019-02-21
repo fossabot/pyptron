@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { formatDate, getNthDayOfMonth } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -44,17 +45,16 @@ module.exports = {
       if (dateObject.getDay() === 5) {
         const year = dateObject.getFullYear()
         const month = dateObject.getMonth()
-        const secondFriday = pypFuncs.getNthDayOfMonth(year, month, 5, 1)
+        const secondFriday = getNthDayOfMonth(year, month, 5, 1)
         if (
-          pypFuncs.formatDate(dateObject, 'YYMMDD') ===
-          pypFuncs.formatDate(secondFriday, 'YYMMDD')
+          formatDate(dateObject, 'YYMMDD') ===
+          formatDate(secondFriday, 'YYMMDD')
         ) {
           return 'NA'
         }
-        const lastFriday = pypFuncs.getNthDayOfMonth(year, month, 5, -1)
+        const lastFriday = getNthDayOfMonth(year, month, 5, -1)
         if (
-          pypFuncs.formatDate(dateObject, 'YYMMDD') ===
-          pypFuncs.formatDate(lastFriday, 'YYMMDD')
+          formatDate(dateObject, 'YYMMDD') === formatDate(lastFriday, 'YYMMDD')
         ) {
           return 'NA'
         }

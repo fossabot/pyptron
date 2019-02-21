@@ -38,7 +38,7 @@ module.exports = {
       skipHolidays: false,
     }
     const pypFunction = () => {
-      if (pypFuncs.getDate(date) === 30) {
+      if (new Date(date).getDate() === 30) {
         return '0-1-2-3-4-5-6-7-8-9'
       }
       const pyp = [
@@ -48,7 +48,7 @@ module.exports = {
         '6-8', // jueves
         '9-0', // viernes
       ]
-      return pyp[pypFuncs.getDay(date) - 1]
+      return pyp[new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

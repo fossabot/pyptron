@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { daysDiff } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -51,7 +52,7 @@ module.exports = {
       //
       const pypNums = ['H', 'I', 'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
       // La diferencia en días sin tener en cuenta el domingo
-      const daysLapse = pypFuncs.daysDiff(startDate, date, [0]) - 1
+      const daysLapse = daysDiff(startDate, date, [0]) - 1
       const arrOffset = daysLapse % 30
       // Usamos la función getIndex(index, arrLen) para mantener uniformidad en el código, pero
       // perfectamente podríamos usar:

@@ -64,7 +64,7 @@ module.exports = {
         '9-0', // jueves
         '1-2', // viernes
       ]
-      return pyp[pypFuncs.getDay(date) - 1]
+      return pyp[new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

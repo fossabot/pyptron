@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { formatDate, weeksDiff } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -31,9 +32,9 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      const dow = pypFuncs.getDay(date)
+      const dow = new Date(date).getDay()
       if (dow === 6 || dow === 0) {
-        switch (pypFuncs.formatDate(date, 'YYYY-MM-DD')) {
+        switch (formatDate(date, 'YYYY-MM-DD')) {
           case '2018-01-06':
             return '3'
           case '2018-01-07':
@@ -63,7 +64,7 @@ module.exports = {
           ['8', '7'],
           ['0', '9'],
         ]
-        const weeksLapse = pypFuncs.weeksDiff(startDate, date, [])
+        const weeksLapse = weeksDiff(startDate, date, [])
         // Usamos la función getIndex(index, arrLen) para mantener uniformidad en el código,
         // pero perfectamente podríamos usar:
         //   const index = weeksLapse % pypNums.length;

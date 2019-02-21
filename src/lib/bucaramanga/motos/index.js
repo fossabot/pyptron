@@ -85,7 +85,7 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      if (pypFuncs.getDay(date) === 6) {
+      if (new Date(date).getDay() === 6) {
         const startDate = '2018-01-06'
         const startNums = '3-4'
         const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']

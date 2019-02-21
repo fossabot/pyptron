@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { formatDate } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -32,7 +33,7 @@ module.exports = {
     }
     const pypFunction = () => {
       const pyp = ['0-2-4-6-8- naranja', '1-3-5-7-9- azul']
-      switch (pypFuncs.formatDate(date, 'MMDD')) {
+      switch (formatDate(date, 'MMDD')) {
         case '0131':
           return '0-2-4-6-8- naranja'
         case '0331':
@@ -46,7 +47,7 @@ module.exports = {
         case '1231':
           return '1-3-5-7-9- azul'
         default:
-          return pyp[pypFuncs.getDate(date) % 2]
+          return pyp[new Date(date).getDate() % 2]
       }
     }
     return pypFuncs.pyp(date, pypFunction, options)

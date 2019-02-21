@@ -1,3 +1,4 @@
+const { getWeek } = require('../../../utils/dateHelpers')
 const pypFuncs = require('../../../utils/funcs')
 
 module.exports = {
@@ -51,8 +52,8 @@ module.exports = {
           '5', // viernes
         ],
       ]
-      const week = pypFuncs.getWeek(date) % 2
-      return pyp[week][pypFuncs.getDay(date) - 1]
+      const week = getWeek(date) % 2
+      return pyp[week][new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

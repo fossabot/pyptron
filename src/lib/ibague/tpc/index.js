@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { daysDiff } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -36,8 +37,8 @@ module.exports = {
         '5-6', // jueves
         '7-8', // viernes
       ]
-      const daysDiff = pypFuncs.daysDiff(startDate, date, []) - 1
-      return pyp[daysDiff % pyp.length]
+      const daysLapse = daysDiff(startDate, date, []) - 1
+      return pyp[daysLapse % pyp.length]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

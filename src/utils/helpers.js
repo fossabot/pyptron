@@ -1,4 +1,5 @@
 const slugify = require('slugify')
+const { ISOString } = require('./dateHelpers')
 const pypFuncs = require('./funcs')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')
@@ -212,19 +213,6 @@ function getPypInfo(city, date, categories = []) {
 }
 
 /**
- * Agrega la hora y la zona horaria a una cadena de texto que representa la
- * en caso de que no la tenga, esto para que al crear una fecha no se haga sin
- * el formato ISO incluyendo la zona horaria y así evitar problemas de saltos
- * de fecha por esto.
- * @param {string} date Cadena de texto con la fecha.
- * @param {string} timeOffset Desplazamiento de la zona horaria.
- * @returns {string} La fecha con la zona horaria incluida si no la traía.
- */
-function ISOString(date, timeOffset = '-05:00') {
-  return date.length === 10 ? `${date}T00:00:00.000${timeOffset}` : date
-}
-
-/**
  * Devuelve la metainformación y la información correspondiente a la ciudad solicitada para la
  * fecha solicitada. Si no se especifican los días se desean sólo se devuelve la información para un
  * día correspondiente a la fecha solicita, de lo contrario, se devuelve la información de la
@@ -267,5 +255,4 @@ module.exports = {
   getPyp,
   getPypData,
   getPypInfo,
-  ISOString,
 }

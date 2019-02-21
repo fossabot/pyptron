@@ -8,14 +8,8 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      if (
-        pypFuncs.formatDate(date) >= '2018-12-26T00:00:00-05:00' &&
-        pypFuncs.formatDate(date) <= '2019-01-04T00:00:00-05:00'
-      ) {
-        return 'NA'
-      }
       const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-      return pyp[pypFuncs.getDate(date) % 2]
+      return pyp[new Date(date).getDate() % 2]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

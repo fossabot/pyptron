@@ -45,7 +45,7 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      const semester = pypFuncs.getMonth(date) <= 6 ? 0 : 1
+      const semester = new Date(date).getMonth() < 6 ? 0 : 1
       const pyp = [
         [
           '3-4', // lunes
@@ -62,7 +62,7 @@ module.exports = {
           '9-0', // viernes
         ],
       ]
-      return pyp[semester][pypFuncs.getDay(date) - 1]
+      return pyp[semester][new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { weeksDiff } = require('../../../utils/dateHelpers')
 
 module.exports = {
   info: {
@@ -54,9 +55,9 @@ module.exports = {
     }
     const pypFunction = () => {
       // const startDate = '2018-02-05'
-      const dow = pypFuncs.getDay(date)
+      const dow = new Date(date).getDay()
       if (dow === 6) {
-        const weeksLapse = pypFuncs.weeksDiff('2019-02-23', date, [])
+        const weeksLapse = weeksDiff('2019-02-23', date, [])
         const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
         const index = pypFuncs.getIndex(weeksLapse, weekendsNums.length)
         return weekendsNums[index]
@@ -68,10 +69,10 @@ module.exports = {
         '0-1-2-3-4-5', // '4-5', // jueves
         '2-3-4-5-6-7', // '6-7', // viernes
       ]
-      return pypNums[pypFuncs.getDay(date) - 1]
+      return pypNums[new Date(date).getDay() - 1]
       // const lapse = pypFuncs.monthsDiff(startDate, date, 6)
       // const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
-      // return newPypNums[pypFuncs.getDay(date) - 1]
+      // return newPypNums[new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

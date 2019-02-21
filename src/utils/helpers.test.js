@@ -5,7 +5,6 @@ const {
   getPyp,
   getPypData,
   getPypInfo,
-  ISOString,
 } = require('./helpers')
 
 const dir = './src/lib'
@@ -15,15 +14,6 @@ beforeAll(done => {
   readdir(dir, (err, files) => {
     totalCities = files.length
     done()
-  })
-})
-
-describe('test for ISOString', () => {
-  it(`should append the time offset to the date`, () => {
-    expect(ISOString('2018-01-01')).toBe('2018-01-01T00:00:00.000-05:00')
-    expect(ISOString('2018-01-01T00:00:00.000-05:00')).toBe(
-      '2018-01-01T00:00:00.000-05:00'
-    )
   })
 })
 
