@@ -11,7 +11,17 @@ const { weeksDiff } = require('../../../utils/dateHelpers')
 
 module.exports = {
   name: 'Motos',
-  info:{days,decrees,exceptions,hours,maps,observations,scheme,vehicleClasses},  pyp(date) {
+  info: {
+    days,
+    decrees,
+    exceptions,
+    hours,
+    maps,
+    observations,
+    scheme,
+    vehicleClasses,
+  },
+  pyp(date) {
     const options = {
       excludedDays: [0],
       skipHolidays: true,
