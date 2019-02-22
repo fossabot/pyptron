@@ -1,6 +1,6 @@
 const slugify = require('slugify')
 const { ISOString } = require('./dateHelpers')
-const pypFuncs = require('./funcs')
+const { buildAssetPath } = require('./funcs')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')
 const bello = require('../lib/bello')
@@ -170,10 +170,7 @@ function getPyp(city, date, categories = []) {
  */
 function cdnPathMaker(array, cityPath) {
   return array.map(object => {
-    const slug = pypFuncs.buildAssetPath(
-      cityPath,
-      slugify(object.name, { lower: true })
-    )
+    const slug = buildAssetPath(cityPath, slugify(object.name, { lower: true }))
     const objectExtension = object.url.split(':')[1]
     // eslint-disable-next-line no-param-reassign
     object.url = object.url.startsWith('cdn:')
