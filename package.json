@@ -21,7 +21,8 @@
     "sam:deploy": "sam deploy --template-file packaged.yaml --stack-name pyptron --capabilities CAPABILITY_IAM",
     "sam:validate": "sam validate -t template.yaml",
     "outputs": "aws cloudformation describe-stacks --stack-name pyptron --query \"Stacks[].Outputs[]\"",
-    "deploy": "cross-env NODE_ENV=production run-s sam:validate build sam:package sam:deploy"
+    "predeploy": "cross-env NODE_ENV=production npm run build",
+    "deploy": "run-s sam:validate sam:package sam:deploy"
   },
   "bugs": {
     "url": "https://bitbucket.org/archemiro/pyptron/issues",
