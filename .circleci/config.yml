@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.2
 jobs:
   build:
     docker:
@@ -37,8 +35,8 @@ jobs:
           command: npm run test
       - store_artifacts:
           path: coverage
-      - codecov/upload:
-          file: ~/repo/coverage
+      - run:
+          command: npx codecov
   deploy:
     docker:
       - image: circleci/node:8.10
