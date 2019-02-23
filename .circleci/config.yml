@@ -55,18 +55,13 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
-          name: Add ~/.local/bin to PATH
+          name: Intall awscli
           command: |
             echo 'export PATH=/home/circleci/.local/bin:$PATH' >> $BASH_ENV
             source $BASH_ENV
-      - run:
-          name: Intall awscli
-          command: |
             sudo apt-get -y -qq update
-            sudo apt-get -y -qq install python3.4-dev
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            python3.4 get-pip.py --user
-            pip install awscli --upgrade --user
+            sudo apt-get -y -qq install python3 python3-pip
+            pip3 install awscli --upgrade --user
       - run:
           name: Sync S3 assets
           command: npm run sync:assets
@@ -84,11 +79,11 @@ jobs:
       - run:
           name: Install awscli aws-sam-cli
           command: |
+            echo 'export PATH=/home/circleci/.local/bin:$PATH' >> $BASH_ENV
+            source $BASH_ENV
             sudo apt-get -y -qq update
-            sudo apt-get -y -qq install python3.4-dev
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            python3.4 get-pip.py --user
-            pip install awscli aws-sam-cli --upgrade --user
+            sudo apt-get -y -qq install python3 python3-pip
+            pip3 install awscli aws-sam-cli --upgrade --user
       - run: npm run deploy
 
 workflows:
@@ -111,6 +106,7 @@ workflows:
               only: master
       - deploy:
           requires:
+            - sync
             - lint
             - test
           filters:
