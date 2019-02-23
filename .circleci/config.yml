@@ -34,11 +34,11 @@ jobs:
             - v1-dependencies-
       - run:
           name: 'Run Jest and Collect Coverage Reports'
-          command: npm run test:coverage
+          command: npm run test
       - store_artifacts:
           path: coverage
       - codecov/upload:
-          file: coverage
+          file: ~/repo/coverage
   deploy:
     docker:
       - image: circleci/node:8.10

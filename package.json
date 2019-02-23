@@ -11,7 +11,6 @@
     "format": "prettier --write src/**/*.{js,ts,css,less,scss,vue,json,gql,md,yml,yaml}",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --collectCoverage=true",
     "start:server": "sam local start-api --port 3246",
     "start:dev": "run-p build:watch start:server",
     "build": "webpack",
