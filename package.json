@@ -17,12 +17,12 @@
     "build": "webpack",
     "build:watch": "npm run build -- --watch",
     "sync:assets": "aws s3 sync assets/ s3://pyphoy/docs --acl public-read",
-    "sam:package": "sam package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml",
-    "sam:deploy": "sam deploy --template-file packaged.yaml --stack-name pyptron --capabilities CAPABILITY_IAM",
+    "sam:package": "aws cloudformation package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml",
+    "sam:deploy": "aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron --capabilities CAPABILITY_IAM",
     "sam:validate": "sam validate -t template.yaml",
     "outputs": "aws cloudformation describe-stacks --stack-name pyptron --query \"Stacks[].Outputs[]\"",
     "predeploy": "cross-env NODE_ENV=production npm run build",
-    "deploy": "run-s sam:validate sam:package sam:deploy"
+    "deploy": "run-s sam:package sam:deploy"
   },
   "bugs": {
     "url": "https://bitbucket.org/archemiro/pyptron/issues",
