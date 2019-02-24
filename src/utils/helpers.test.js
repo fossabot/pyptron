@@ -56,6 +56,7 @@ describe('Generate pyp data objects', () => {
     const result = getPypData('bogota', date, days)
     expect(result.data.length).toBe(3)
     expect(result.name).toBe('Bogotá')
+    console.log(result)
     expect(result).toMatchSnapshot()
   })
   it('should return data for two categories', () => {
