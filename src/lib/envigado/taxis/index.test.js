@@ -1,5 +1,5 @@
 const { testInfo } = require('../../../utils/testsWrapper')
 
-const city = require('./index')
+const category = require('./index')
 
-testInfo(city)
+testInfo(category)

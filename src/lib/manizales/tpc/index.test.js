@@ -1,6 +1,6 @@
 const { testCases, testInfo } = require('../../../utils/testsWrapper')
 
-const city = require('./index')
+const category = require('./index')
 
 const dateCases = [
   {
@@ -44,5 +44,5 @@ const dateCases = [
     pyp: 'NA',
   },
 ]
-testCases(city, dateCases)
-testInfo(city)
+testCases(category, dateCases)
+testInfo(category)
