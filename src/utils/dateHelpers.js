@@ -106,11 +106,17 @@ function getNthDayOfMonth(year, month, dayOfWeek, index) {
  */
 function daysDiff(startDate, endDate, options = {}) {
   const { skip = [], skipHolidays = false, specialDates = [] } = options
-  // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
-  // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
-  // Usamos el formato ISO
+
   const currentDateObject = newISODate(startDate)
   const endDateObject = newISODate(endDate)
+
+  if (skip.length === 0 && !skipHolidays && specialDates.length === 0) {
+    const millisecondsInADay = 1000 * 60 * 60 * 24
+    return (
+      Math.floor((endDateObject - currentDateObject) / millisecondsInADay) + 1
+    )
+  }
+
   let daysLapse = 0
 
   while (currentDateObject <= endDateObject) {
@@ -134,6 +140,7 @@ function daysDiff(startDate, endDate, options = {}) {
     daysLapse += 1
     currentDateObject.setDate(currentDateObject.getDate() + 1)
   }
+
   return daysLapse
 }
 
