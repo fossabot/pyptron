@@ -1,9 +1,16 @@
-const { ISOString, getNthDayOfMonth, monthsDiff } = require('./dateHelpers')
+const {
+  generateISOString,
+  getNthDayOfMonth,
+  monthsDiff,
+  yearsDiff,
+} = require('./dateHelpers')
 
-describe('test for ISOString', () => {
+describe('test for generateISOString', () => {
   it(`should append the time offset to the date`, () => {
-    expect(ISOString('2018-01-01')).toBe('2018-01-01T00:00:00.000-05:00')
-    expect(ISOString('2018-01-01T00:00:00.000-05:00')).toBe(
+    expect(generateISOString('2018-01-01')).toBe(
+      '2018-01-01T00:00:00.000-05:00'
+    )
+    expect(generateISOString('2018-01-01T00:00:00.000-05:00')).toBe(
       '2018-01-01T00:00:00.000-05:00'
     )
   })
@@ -162,6 +169,7 @@ describe('test for getting nth day of a given month', () => {
 
 describe('Get months difference between two dates according to an interval', () => {
   it('should return the number of months between two dates when no interval given', () => {
+    expect(monthsDiff('2017-12-02', '2018-02-01')).toBe(1)
     expect(monthsDiff('2019-01-01', '2018-01-01')).toBe(-12)
     expect(monthsDiff('2018-01-01', '2018-01-01')).toBe(0)
     expect(monthsDiff('2018-01-01', '2018-01-31')).toBe(0)
@@ -185,5 +193,18 @@ describe('Get months difference between two dates according to an interval', () 
     expect(monthsDiff('2018-01-01', '2018-07-01', 6)).toBe(1)
     expect(monthsDiff('2018-01-01', '2018-12-01', 6)).toBe(1)
     expect(monthsDiff('2018-01-01', '2019-01-01', 6)).toBe(2)
+  })
+})
+
+describe('Get year difference between two dates', () => {
+  it('should return the number of years between two dates', () => {
+    expect(yearsDiff('2019-01-01', '2018-01-01')).toBe(-1)
+    expect(yearsDiff('2019-01-01', '2017-01-01')).toBe(-2)
+    expect(yearsDiff('2018-01-01', '2018-01-01')).toBe(0)
+    expect(yearsDiff('2018-01-01', '2018-01-31')).toBe(0)
+    expect(yearsDiff('2018-01-01', '2018-02-01')).toBe(0)
+    expect(yearsDiff('2018-01-01', '2019-01-01')).toBe(1)
+    expect(yearsDiff('2018-01-01', '2019-02-01')).toBe(1)
+    expect(yearsDiff('2018-01-01', '2020-01-01')).toBe(2)
   })
 })

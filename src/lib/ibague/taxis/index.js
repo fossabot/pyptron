@@ -28,7 +28,7 @@ module.exports = {
     }
     const pypFunction = () => {
       const startDate = '2017-12-01'
-      return String((daysDiff(startDate, date, []) + 1) % 10)
+      return String((daysDiff(startDate, date) + 1) % 10)
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

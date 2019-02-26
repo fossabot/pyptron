@@ -1,51 +1,74 @@
 /* eslint no-use-before-define: 0 */
 
-const dayjs = require('dayjs')
-const weekOfYear = require('dayjs/plugin/weekOfYear')
 const { getHoliday } = require('pascua')
 
 module.exports = {
   formatDate,
-  ISOString,
+  generateISOString,
+  newISODate,
   getWeek,
   getNthDayOfMonth,
   daysDiff,
   weeksDiff,
   monthsDiff,
+  yearsDiff,
+  datesDiff,
 }
 
 /**
- * Da formato el formato deseado a una fecha. Por ejemplo:
- *   formatDate("01/01/2017", "YYYY-MM-DD") // 2017-01-01
- * @param {string} date Fecha a la que se le desea dar formato.
- * @param {string} format Formato que se desea aplicar.
- * @returns {string} La fecha en con el formato solicitado.
+ * Convierte una fecha a una cadena de texto usando el formato YYYY-MM-DD con la fecha local.
+ * @param {String} date Fecha a la que se le desea dar formato.
+ * @returns {String} La fecha en con el formato solicitado.
  */
-function formatDate(date, format) {
-  return dayjs(date).format(format)
+function formatDate(date) {
+  const dateObject = newISODate(date)
+  const day = dateObject.getDate()
+  const month = dateObject.getMonth() + 1
+  const year = dateObject.getFullYear()
+  const paddedDay = day < 10 ? `0${day}` : day
+  const paddedMonth = month < 10 ? `0${month}` : month
+  return `${year}-${paddedMonth}-${paddedDay}`
 }
 
 /**
- * Agrega la hora y la zona horaria a una cadena de texto que representa la
- * en caso de que no la tenga, esto para que al crear una fecha no se haga sin
- * el formato ISO incluyendo la zona horaria y así evitar problemas de saltos
- * de fecha por esto.
- * @param {string} date Cadena de texto con la fecha.
- * @param {string} timeOffset Desplazamiento de la zona horaria.
- * @returns {string} La fecha con la zona horaria incluida si no la traía.
+ * Crea una fecha usando el formato ISO 8601 con la zona horaria de Colombia en caso de que no se indique otra zona horaria.
+ * @param {String} date Cadena de texto con la fecha
+ * @param {String} timeOffset Desplazamiento de la zona horaria.
+ * @returns {Date} La fecha con la zona horaria incluida si no la traía.
  */
-function ISOString(date, timeOffset = '-05:00') {
+function newISODate(date, timeOffset = '-05:00') {
+  if (Object.prototype.toString.call(date) === '[object Date]') {
+    // Devolvemos una copia del objecto para no modificar el original
+    return new Date(date)
+  }
+  return new Date(generateISOString(date, timeOffset))
+}
+
+/**
+ * Agrega la hora y la zona horaria a una cadena de texto que representa la fecha en formato YYYY-DD-MM, esto para que al crear una fecha no se haga sin el formato ISO incluyendo la zona horaria y así evitar problemas de saltos de fecha por esto.
+ * @param {String} date Cadena de texto con la fecha en formato YYYY-MM-DD.
+ * @param {String} timeOffset Desplazamiento de la zona horaria.
+ * @returns {String} La fecha con la zona horaria incluida si no la traía.
+ */
+function generateISOString(date, timeOffset = '-05:00') {
   return date.length === 10 ? `${date}T00:00:00.000${timeOffset}` : date
 }
 
 /**
  * Obtiene el número de semana en el año para una fecha dada.
- * @param {string} date Fecha para la cual se desea obtener el número de semana.
+ * @param {String} date Fecha para la cual se desea obtener el número de semana.
  * @returns {int} Número de semana del año en que cae la fecha dada.
  */
 function getWeek(date) {
-  dayjs.extend(weekOfYear)
-  return dayjs(date).week()
+  const millisecondsInADay = 1000 * 60 * 60 * 24
+  const daysInAWeek = 7
+  const currentDate = new Date(date)
+  const firstDayOfYear = new Date(currentDate.getFullYear(), 0, 1)
+  const daysPassFirstDayOfYear =
+    (currentDate - firstDayOfYear) / millisecondsInADay
+  return Math.ceil(
+    (daysPassFirstDayOfYear + firstDayOfYear.getDay() + 1) / daysInAWeek
+  )
 }
 
 /**
@@ -73,31 +96,25 @@ function getNthDayOfMonth(year, month, dayOfWeek, index) {
 
 /**
  * Calcula la cantidad de días de diferencia entre una fecha inicial y una fecha final. Por defecto, se excluyen los domingos.
- * @param {string} startDate Fecha inicial.
- * @param {string} endDate Fecha final.
- * @param {array} skip Días de la semana que se omiten. 0 = Domingo.
- * @param {boolean} skipHolidays Si se incluyen los festivos en el conteo
- * @param {array} specialDates Fechas especiales que se desean saltar en el conteo.
+ * @param {String} startDate Fecha inicial.
+ * @param {String} endDate Fecha final.
+ * @param {Object} options Días de la semana que se omiten. 0 = Domingo.
+ * @param {Array} options.skip Días de la semana que se omiten. 0 = Domingo.
+ * @param {Boolean} options.skipHolidays Si se incluyen los festivos en el conteo
+ * @param {Array} options.specialDates Fechas especiales que se desean saltar en el conteo.
  * @returns {number} Cantidad de días de difencia entre la fecha inicial y la fecha final.
  */
-function daysDiff(
-  startDate,
-  endDate,
-  skip = [0],
-  skipHolidays = false,
-  specialDates = []
-) {
+function daysDiff(startDate, endDate, options = {}) {
+  const { skip = [], skipHolidays = false, specialDates = [] } = options
   // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
   // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
   // Usamos el formato ISO
-  const ISOStartDate = ISOString(startDate)
-  const ISOEndDate = ISOString(endDate)
-  const currentDateObject = new Date(ISOStartDate)
-  const endDateObject = new Date(ISOEndDate)
+  const currentDateObject = newISODate(startDate)
+  const endDateObject = newISODate(endDate)
   let daysLapse = 0
 
   while (currentDateObject <= endDateObject) {
-    if (specialDates.includes(dayjs(currentDateObject).format('YYYY-MM-DD'))) {
+    if (specialDates.includes(formatDate(currentDateObject))) {
       currentDateObject.setDate(currentDateObject.getDate() + 1)
       continue // eslint-disable-line no-continue
     }
@@ -127,7 +144,7 @@ function daysDiff(
  * @returns {number} Cantidad de semanas de difencia entre la fecha inicial y la fecha final.
  */
 function weeksDiff(startDate, endDate) {
-  const daysLapse = daysDiff(startDate, endDate, [])
+  const daysLapse = daysDiff(startDate, endDate)
   return Math.floor(daysLapse / 7)
 }
 
@@ -139,7 +156,46 @@ function weeksDiff(startDate, endDate) {
  * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
  */
 function monthsDiff(startDate, endDate, interval = 1) {
-  const mDate = dayjs(endDate)
-  const diff = Math.floor(mDate.diff(startDate, 'months') / interval)
-  return diff
+  const d1 = newISODate(startDate)
+  const d2 = newISODate(endDate)
+  let monthsLapse =
+    d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
+  if (d2.getDate() < d1.getDate()) {
+    monthsLapse -= 1
+  }
+  return Math.floor(monthsLapse / interval)
+}
+
+/**
+ * Devuelve la cantidad de meses entre dos fechas dadas
+ * @param {string} startDate Fecha inicial.
+ * @param {string} endDate Fecha final.
+ * @param {int} interval Intervalo de meses para calcular la diferencia.
+ * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
+ */
+function yearsDiff(startDate, endDate) {
+  return monthsDiff(startDate, endDate, 12)
+}
+
+/**
+ * Calcula la cantidad de días de diferencia entre una fecha inicial y una fecha final. Por defecto, se excluyen los domingos.
+ * @param {String} startDate Fecha inicial.
+ * @param {String} endDate Fecha final.
+ * @param {String} period Intervalo que se desea calcular: "days", "weeks", "months"
+ * @returns {Number} La diferencia según el periodo especificado
+ * */
+function datesDiff(startDate, endDate, period) {
+  switch (period) {
+    case 'days':
+      return daysDiff(startDate, endDate)
+    case 'weeks':
+      return weeksDiff(startDate, endDate)
+    case 'months':
+      return monthsDiff(startDate, endDate)
+    case 'years':
+      return yearsDiff(startDate, endDate)
+    default:
+      break
+  }
+  return undefined
 }

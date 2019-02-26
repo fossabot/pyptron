@@ -1,5 +1,5 @@
 const slugify = require('slugify')
-const { ISOString } = require('./dateHelpers')
+const { newISODate } = require('./dateHelpers')
 const { buildAssetPath } = require('./funcs')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')
@@ -226,7 +226,7 @@ function getPypData(city, date, days = 1, categories = []) {
   // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
   // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
   // Usamos el formato ISO
-  const ISODate = ISOString(date)
+  const ISODate = newISODate(date)
   const pypCity = cities[city]
   const currentDate = new Date(ISODate)
   const result = {

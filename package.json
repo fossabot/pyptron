@@ -37,7 +37,6 @@
   },
   "author": "Mauricio Robayo <archemiro@gmail.com> (https://www.archemiro.com)",
   "dependencies": {
-    "dayjs": "^1.8.6",
     "marked": "^0.6.1",
     "pascua": "^1.1.7",
     "slugify": "^1.3.4"

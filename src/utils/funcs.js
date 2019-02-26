@@ -1,7 +1,6 @@
-const dayjs = require('dayjs')
 const { getHoliday } = require('pascua')
 const config = require('../config')
-const { daysDiff, monthsDiff } = require('./dateHelpers')
+const { daysDiff, newISODate, datesDiff } = require('./dateHelpers')
 
 /**
  * Devuelve una respuesta válida para API Gateway consistente por lo menos de un cuerpo (body) y un código de respuesta (statusCode).
@@ -58,10 +57,10 @@ function excludeDays(date, days, holidays = true) {
 function pyp(date, pypFunction, options) {
   const { excludedDays = [], skipHolidays = true } = options
   const startDate = '2018-01-01'
-  if (daysDiff(startDate, date, []) <= 0) {
+  if (datesDiff(startDate, date, 'days') <= 0) {
     throw new Error('Date out of range')
   }
-  if (monthsDiff(Date(), date) >= 12) {
+  if (datesDiff(new Date(), date, 'months') >= 12) {
     throw new Error('Date out of range')
   }
   if (excludeDays(date, excludedDays, skipHolidays)) {
@@ -117,7 +116,7 @@ function arrRotate(arr, offset) {
  */
 function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
   // eslint-disable-next-line no-unmodified-loop-condition
-  let daysLapse = daysDiff(startDate, date, skip)
+  let daysLapse = daysDiff(startDate, date, { skip })
   daysLapse += pypNums.indexOf(startNums) - 1
   return pypNums[daysLapse % pypNums.length]
 }
@@ -142,20 +141,17 @@ function rotateBy(
   reverse = false,
   interval = 1
 ) {
-  const mDate = dayjs(date)
-  const mStartDate = dayjs(startDate)
+  const dateObject = newISODate(date)
+  const startDateObject = newISODate(startDate)
   const pypOffset = pypNums.indexOf(startNums)
-  let lapse = 0
-  if (reverse) {
-    lapse = Math.ceil(mStartDate.diff(date, period) / interval)
-  } else {
-    lapse = Math.ceil(mDate.diff(mStartDate, period) / interval)
-  }
+  const diff = datesDiff(startDateObject, dateObject, period)
+  const lapse = Math.ceil((reverse ? -diff : diff) / interval)
   const pypArray = arrRotate(pypNums, lapse - pypOffset)
-  // La diferencia entre mDate.day() y mStartDate.day() puede ser negativa por lo tanto calculamos
-  // el índice en caso de que sea negativo, en cuyo caso el cálculo se haría de atrás hacia
-  // adelante, siendo -1 el último elemento del array.
-  const index = getIndex(mDate.day() - mStartDate.day(), pypArray.length)
+  // La diferencia entre mDate.day() y mStartDate.day() puede ser negativa por lo tanto calculamos el índice en caso de que sea negativo, en cuyo caso el cálculo se haría de atrás hacia adelante, siendo -1 el último elemento del array.
+  const index = getIndex(
+    dateObject.getDay() - startDateObject.getDay(),
+    pypArray.length
+  )
   return pypArray[index]
 }
 

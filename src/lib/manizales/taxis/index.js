@@ -29,7 +29,7 @@ module.exports = {
     const pypFunction = () => {
       const dow = new Date(date).getDay()
       if (dow === 6 || dow === 0) {
-        switch (formatDate(date, 'YYYY-MM-DD')) {
+        switch (formatDate(date)) {
           case '2018-01-06':
             return '3'
           case '2018-01-07':

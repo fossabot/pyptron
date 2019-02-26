@@ -22,12 +22,13 @@ module.exports = {
     vehicleClasses,
   },
   pyp(date) {
+    const dateObject = new Date(date)
     const options = {
       excludedDays: [0, 6],
       skipHolidays: true,
     }
     const pypFunction = () => {
-      switch (formatDate(date, 'YYYY-MM-DD')) {
+      switch (formatDate(dateObject)) {
         case '2018-03-02':
           return '9-0'
         default:

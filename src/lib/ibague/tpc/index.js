@@ -35,7 +35,7 @@ module.exports = {
         '5-6', // jueves
         '7-8', // viernes
       ]
-      const daysLapse = daysDiff(startDate, date, []) - 1
+      const daysLapse = daysDiff(startDate, date) - 1
       return pyp[daysLapse % pyp.length]
     }
     return pypFuncs.pyp(date, pypFunction, options)
