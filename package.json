@@ -24,10 +24,6 @@
     "predeploy": "cross-env NODE_ENV=production npm run build",
     "deploy": "run-s sam:package sam:deploy"
   },
-  "bugs": {
-    "url": "https://bitbucket.org/archemiro/pyptron/issues",
-    "email": "pyptron@pyphoy.com"
-  },
   "keywords": [
     "Colombia",
     "Pico y placa"
@@ -59,6 +55,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/archemiro/pyptron.git"
+    "url": "git+https://github.com/archemiro/pyptron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/archemiro/pyptron/issues",
+    "email": "pyptron@pyphoy.com"
   }
 }
