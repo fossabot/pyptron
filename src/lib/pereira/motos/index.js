@@ -1,4 +1,4 @@
-const pypFuncs = require('../../../utils/funcs')
+const pypFuncs = require('../../../helpers/globalHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')

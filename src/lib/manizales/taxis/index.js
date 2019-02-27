@@ -1,4 +1,4 @@
-const pypFuncs = require('../../../utils/funcs')
+const pypFuncs = require('../../../helpers/globalHelpers')
 const { formatDate, weeksDiff } = require('../../../helpers/dateHelpers')
 const { getIndex, rotateByWeek } = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')

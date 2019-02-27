@@ -1,7 +1,7 @@
 const { getHoliday } = require('pascua')
 const slugify = require('slugify')
 const config = require('../config')
-const { datesDiff } = require('../helpers/dateHelpers')
+const { datesDiff } = require('./dateHelpers')
 
 /**
  * Devuelve una respuesta válida para API Gateway consistente por lo menos de un cuerpo (body) y un código de respuesta (statusCode).

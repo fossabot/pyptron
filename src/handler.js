@@ -1,5 +1,5 @@
 const { cities, categories } = require('./routes')
-const { createResponse } = require('./utils/funcs')
+const { createResponse } = require('./helpers/globalHelpers')
 
 exports.pyptron = async event => {
   const { city, category } = event.pathParameters || {}

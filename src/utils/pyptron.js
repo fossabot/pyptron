@@ -1,6 +1,6 @@
 const slugify = require('slugify')
 const { newISODate } = require('../helpers/dateHelpers')
-const { cdnPathMaker } = require('./funcs')
+const { cdnPathMaker } = require('../helpers/globalHelpers')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')
 const bello = require('../lib/bello')
