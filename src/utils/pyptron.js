@@ -60,6 +60,15 @@ const cities = {
   turbaco,
   villavicencio,
 }
+
+module.exports = {
+  getCategories,
+  getCities,
+  getPyp,
+  getPypData,
+  getPypInfo,
+}
+
 /**
  * Obtiene las categorías correspondientes a una ciudad dada en donde la llave es el slug ordenado
  * alfabéticamente y el valor es otro objecto que contiene la llave interna para acceder a la
@@ -229,12 +238,4 @@ function getPypData(city, date, days = 1, categories = []) {
     currentDate.setDate(currentDate.getDate() + 1)
   }
   return result
-}
-
-module.exports = {
-  getCategories,
-  getCities,
-  getPyp,
-  getPypData,
-  getPypInfo,
 }

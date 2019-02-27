@@ -1,4 +1,4 @@
-const { testCases, testInfo } = require('../../../utils/testsWrapper')
+const { testCases, testInfo } = require('../../../helpers/testsHelpers')
 
 const category = require('./index')
 
