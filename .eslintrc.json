@@ -4,8 +4,6 @@
     "jest": true
   },
   "rules": {
-    "no-use-before-define": "off",
-    "require-jsdoc": "error",
-    "valid-jsdoc": "error"
+    "no-use-before-define": "off"
   }
 }
