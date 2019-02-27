@@ -1,6 +1,6 @@
 const slugify = require('slugify')
 const { newISODate } = require('../helpers/dateHelpers')
-const { buildAssetPath } = require('./funcs')
+const { cdnPathMaker } = require('./funcs')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')
 const bello = require('../lib/bello')
@@ -164,23 +164,6 @@ function getPyp(city, date, categories = []) {
   }, [])
 }
 
-/**
- * Takes an array of objects with a name and a url property and returns a new array with objects containing the url modified to match the cdn path
- * @param {Array} array Array of objects each containing name and url properties
- * @param {String} cityPath Slug of the city
- * @returns {Object} Same object with url replaced with cdn patn
- */
-function cdnPathMaker(array, cityPath) {
-  return array.map(object => {
-    const slug = buildAssetPath(cityPath, slugify(object.name, { lower: true }))
-    const objectExtension = object.url.split(':')[1]
-    // eslint-disable-next-line no-param-reassign
-    object.url = object.url.startsWith('cdn:')
-      ? `${slug}.${objectExtension}`
-      : object.url
-    return object
-  })
-}
 /**
  * Devuelve un objeto conla metainformación para la ciudad solicitada en donde las llaves son el
  * slug de las categorías correspondientes a la ciudad dada ordenada alfabéticamente. Si no se

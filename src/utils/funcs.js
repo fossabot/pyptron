@@ -1,4 +1,5 @@
 const { getHoliday } = require('pascua')
+const slugify = require('slugify')
 const config = require('../config')
 const { datesDiff } = require('../helpers/dateHelpers')
 
@@ -27,6 +28,24 @@ function createResponse(statusCode, body) {
  */
 function buildAssetPath(city, asset) {
   return `${config.cdn}/${city}/${asset}`
+}
+
+/**
+ * Takes an array of objects with a name and a url property and returns a new array with objects containing the url modified to match the cdn path
+ * @param {Array} array Array of objects each containing name and url properties
+ * @param {String} cityPath Slug of the city
+ * @returns {Object} Same object with url replaced with cdn patn
+ */
+function cdnPathMaker(array, cityPath) {
+  return array.map(object => {
+    const slug = buildAssetPath(cityPath, slugify(object.name, { lower: true }))
+    const objectExtension = object.url.split(':')[1]
+    // eslint-disable-next-line no-param-reassign
+    object.url = object.url.startsWith('cdn:')
+      ? `${slug}.${objectExtension}`
+      : object.url
+    return object
+  })
 }
 
 /**
@@ -73,5 +92,6 @@ module.exports = {
   excludeDays,
   pyp,
   buildAssetPath,
+  cdnPathMaker,
   createResponse,
 }
