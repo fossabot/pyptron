@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
+const { arrRotate } = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -48,7 +49,7 @@ module.exports = {
       const datesDate = dateObject.getDate()
       const weekOfMonth = Math.floor((datesDate - datesWeekDay) / 7)
       const offset = monthsDiffAccu - (weekOfMonth < 0 ? 1 : 0)
-      pypNums = pypFuncs.arrRotate(pypNums, offset < 0 ? 0 : offset)
+      pypNums = arrRotate(pypNums, offset < 0 ? 0 : offset)
 
       return pypNums[datesWeekDay - 1][(weeksOffset + 1) % 2]
     }

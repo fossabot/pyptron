@@ -1,5 +1,6 @@
 const pypFuncs = require('../../../utils/funcs')
 const { formatDate, weeksDiff } = require('../../../helpers/dateHelpers')
+const { getIndex, rotateByWeek } = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -64,14 +65,14 @@ module.exports = {
         // pero perfectamente podríamos usar:
         //   const index = weeksLapse % pypNums.length;
         // Ya que la diferencia de semanas no va a ser negativa nunca.
-        const index = pypFuncs.getIndex(weeksLapse, pypNums.length)
+        const index = getIndex(weeksLapse, pypNums.length)
         const nums = pypNums[index]
         return dow === 6 ? nums[0] : nums[1]
       }
       const startDate = '2018-01-01'
       const startNums = '3-4'
       const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-      return pypFuncs.rotateByWeek(date, startDate, startNums, pypNums, true)
+      return rotateByWeek(date, startDate, startNums, pypNums, true)
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

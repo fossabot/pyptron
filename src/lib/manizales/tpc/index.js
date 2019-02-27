@@ -1,5 +1,6 @@
 const pypFuncs = require('../../../utils/funcs')
 const { daysDiff } = require('../../../helpers/dateHelpers')
+const { getIndex } = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -53,7 +54,7 @@ module.exports = {
       // Usamos la función getIndex(index, arrLen) para mantener uniformidad en el código, pero
       // perfectamente podríamos usar:
       //   const index = (Math.floor(daysLapse / 30) + arrOffset) % pypNums.length;
-      const index = pypFuncs.getIndex(
+      const index = getIndex(
         Math.floor(daysLapse / 30) + arrOffset,
         pypNums.length
       )
