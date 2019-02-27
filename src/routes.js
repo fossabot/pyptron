@@ -1,5 +1,3 @@
-/* eslint no-prototype-builtins: 0 */
-
 const pyptron = require('./controllers/pyptron')
 const { createResponse } = require('./helpers/globalHelpers')
 
@@ -15,7 +13,7 @@ function cities(city, options = {}) {
     return createResponse(200, citiesMap)
   }
   const { date = new Date() } = options
-  if (!citiesMap.hasOwnProperty(city)) {
+  if (!citiesMap[city]) {
     return createResponse(404, {
       error: 'City not found',
       cities: Object.keys(citiesMap),
@@ -32,13 +30,13 @@ function cities(city, options = {}) {
 
 function categories(city, category, options = {}) {
   const { date = new Date(), days = 1 } = options
-  if (!citiesMap.hasOwnProperty(city)) {
+  if (!citiesMap[city]) {
     return createResponse(404, {
       error: 'City not found',
       cities: Object.keys(citiesMap),
     })
   }
-  if (!citiesMap[city].categories.hasOwnProperty(category)) {
+  if (!citiesMap[city].categories[category]) {
     return createResponse(404, {
       error: 'Category not found',
       categories: Object.keys(citiesMap[city].categories),
