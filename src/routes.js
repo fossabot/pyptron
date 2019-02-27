@@ -1,6 +1,6 @@
 /* eslint no-prototype-builtins: 0 */
 
-const pyptron = require('./utils/pyptron')
+const pyptron = require('./controllers/pyptron')
 const { createResponse } = require('./helpers/globalHelpers')
 
 const citiesMap = pyptron.getCities()
