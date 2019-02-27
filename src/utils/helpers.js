@@ -14,6 +14,7 @@ const envigado = require('../lib/envigado')
 const ibague = require('../lib/ibague')
 const itagui = require('../lib/itagui')
 const laestrella = require('../lib/laestrella')
+const malambo = require('../lib/malambo')
 const manizales = require('../lib/manizales')
 const medellin = require('../lib/medellin')
 const ocana = require('../lib/ocana')
@@ -43,6 +44,7 @@ const cities = {
   ibague,
   itagui,
   laestrella,
+  malambo,
   manizales,
   medellin,
   ocana,
