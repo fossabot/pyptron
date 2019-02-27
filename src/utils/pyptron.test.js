@@ -7,7 +7,7 @@ const {
   getPypInfo,
 } = require('./pyptron')
 
-const dir = './src/lib'
+const dir = './src/models'
 let totalCities = 0
 
 beforeAll(done => {
