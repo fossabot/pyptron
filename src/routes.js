@@ -3,9 +3,14 @@
 const pyptron = require('./controllers/pyptron')
 const { createResponse } = require('./helpers/globalHelpers')
 
+module.exports = {
+  cities,
+  categories,
+}
+
 const citiesMap = pyptron.getCities()
 
-const cities = (city, options = {}) => {
+function cities(city, options = {}) {
   if (!city) {
     return createResponse(200, citiesMap)
   }
@@ -25,7 +30,7 @@ const cities = (city, options = {}) => {
   }
 }
 
-const categories = (city, category, options = {}) => {
+function categories(city, category, options = {}) {
   const { date = new Date(), days = 1 } = options
   if (!citiesMap.hasOwnProperty(city)) {
     return createResponse(404, {
@@ -47,9 +52,4 @@ const categories = (city, category, options = {}) => {
   } catch (error) {
     return createResponse(404, { error: error.message })
   }
-}
-
-module.exports = {
-  cities,
-  categories,
 }
