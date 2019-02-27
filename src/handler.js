@@ -1,4 +1,4 @@
-const { cities, categories } = require('./routes')
+const { cities, categories } = require('./controllers')
 const { createResponse } = require('./helpers/globalHelpers')
 
 exports.pyptron = async event => {

@@ -1,5 +1,5 @@
-const pyptron = require('./controllers/pyptron')
-const { createResponse } = require('./helpers/globalHelpers')
+const pyptron = require('./pyptron')
+const { createResponse } = require('../helpers/globalHelpers')
 
 module.exports = {
   cities,
