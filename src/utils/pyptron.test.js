@@ -5,7 +5,7 @@ const {
   getPyp,
   getPypData,
   getPypInfo,
-} = require('./helpers')
+} = require('./pyptron')
 
 const dir = './src/lib'
 let totalCities = 0

@@ -1,5 +1,5 @@
 const { pyptron } = require('./handler')
-const { getCities } = require('./utils/helpers')
+const { getCities } = require('./utils/pyptron')
 
 const citiesMap = getCities()
 const event = {}
