@@ -1,4 +1,4 @@
-const { daysDiff } = require('../../../utils/dateHelpers')
+const { daysDiff } = require('../../../helpers/dateHelpers')
 const pypFuncs = require('../../../utils/funcs')
 const days = require('./info/days')
 const decrees = require('./info/decrees')

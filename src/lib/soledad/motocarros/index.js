@@ -7,7 +7,7 @@ const maps = require('./info/maps')
 const observations = require('./info/observations')
 const scheme = require('./info/scheme')
 const vehicleClasses = require('./info/vehicleClasses')
-const { formatDate } = require('../../../utils/dateHelpers')
+const { formatDate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
   name: 'Motocarros',

@@ -1,5 +1,5 @@
 const slugify = require('slugify')
-const { newISODate } = require('./dateHelpers')
+const { newISODate } = require('../helpers/dateHelpers')
 const { buildAssetPath } = require('./funcs')
 const armenia = require('../lib/armenia')
 const barranquilla = require('../lib/barranquilla')

@@ -1,4 +1,4 @@
-const { getWeek } = require('../../../utils/dateHelpers')
+const { getWeek } = require('../../../helpers/dateHelpers')
 const pypFuncs = require('../../../utils/funcs')
 const days = require('./info/days')
 const decrees = require('./info/decrees')

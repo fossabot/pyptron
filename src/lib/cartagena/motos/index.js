@@ -1,5 +1,5 @@
 const pypFuncs = require('../../../utils/funcs')
-const { getNthDayOfMonth } = require('../../../utils/dateHelpers')
+const { getNthDayOfMonth } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
