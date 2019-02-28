@@ -42,21 +42,6 @@ function moveArrayElementsToTheRight(array, offset) {
 }
 
 /**
- * Rota los elementos de pypNums según la diferencia de días
- * @param {string} date Fecha para la cual se desea saber el valor final tras la rotación.
- * @param {string} startDate Fecha que corresponde con el valor inicial de la rotación.
- * @param {string} startNums Valor inicial en la fecha inicial de los valores que se desean rotar.
- * @param {array} pypNums Valores que se desean rotar.
- * @param {array} skip Días de la semana que se desean saltar en la rotación.
- * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
- */
-function rotateByDay(options) {
-  const { date, startDate, array, skip = [0] } = options
-  const daysLapse = daysDiff(startDate, date, { skip }) - 1
-  return array[daysLapse % array.length]
-}
-
-/**
  * Rota los valores de un array una vez por cada periodo especificado en el argumento period.
  * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
  * @param {string} startDate La fecha en que inicia la rotación.
@@ -86,6 +71,21 @@ function getArrayElementAfterRotating(options) {
     pypArray.length
   )
   return pypArray[index]
+}
+
+/**
+ * Rota los elementos de pypNums según la diferencia de días
+ * @param {string} date Fecha para la cual se desea saber el valor final tras la rotación.
+ * @param {string} startDate Fecha que corresponde con el valor inicial de la rotación.
+ * @param {string} startNums Valor inicial en la fecha inicial de los valores que se desean rotar.
+ * @param {array} pypNums Valores que se desean rotar.
+ * @param {array} skip Días de la semana que se desean saltar en la rotación.
+ * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
+ */
+function rotateByDay(options) {
+  const { date, startDate, array, skip = [0] } = options
+  const daysLapse = daysDiff(startDate, date, { skip }) - 1
+  return array[daysLapse % array.length]
 }
 
 /**
