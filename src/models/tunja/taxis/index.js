@@ -30,7 +30,12 @@ module.exports = {
       const startDate = '2015-06-01'
       const startNums = '3-4'
       const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-      return rotateByMonth(date, startDate, startNums, pypNums)
+      return rotateByMonth({
+        date,
+        startDate,
+        initialElementOfArray: startNums,
+        array: pypNums,
+      })
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

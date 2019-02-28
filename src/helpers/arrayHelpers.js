@@ -50,10 +50,11 @@ function moveArrayElementsToTheRight(array, offset) {
  * @param {array} skip Días de la semana que se desean saltar en la rotación.
  * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
  */
-function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
+function rotateByDay(options) {
+  const { date, startDate, initialElementOfArray, array, skip = [0] } = options
   let daysLapse = daysDiff(startDate, date, { skip })
-  daysLapse += pypNums.indexOf(startNums) - 1
-  return pypNums[daysLapse % pypNums.length]
+  daysLapse += array.indexOf(initialElementOfArray) - 1
+  return array[daysLapse % array.length]
 }
 
 /**
@@ -100,19 +101,20 @@ function getArrayElementAfterRotating(options) {
  * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
-function rotateByWeek(
-  date,
-  startDate,
-  startNums,
-  pypNums,
-  reverse = false,
-  interval = 1
-) {
+function rotateByWeek(options) {
+  const {
+    date,
+    startDate,
+    initialElementOfArray,
+    array,
+    reverse = false,
+    interval = 1,
+  } = options
   return getArrayElementAfterRotating({
     date,
     startDate,
-    initialElementOfArray: startNums,
-    array: pypNums,
+    initialElementOfArray,
+    array,
     period: 'weeks',
     reverse,
     interval,
@@ -129,19 +131,20 @@ function rotateByWeek(
  * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
-function rotateByMonth(
-  date,
-  startDate,
-  startNums,
-  pypNums,
-  reverse = false,
-  interval = 1
-) {
+function rotateByMonth(options) {
+  const {
+    date,
+    startDate,
+    initialElementOfArray,
+    array,
+    reverse = false,
+    interval = 1,
+  } = options
   return getArrayElementAfterRotating({
     date,
     startDate,
-    initialElementOfArray: startNums,
-    array: pypNums,
+    initialElementOfArray,
+    array,
     period: 'months',
     reverse,
     interval,

@@ -30,8 +30,8 @@ describe('Rotate an array', () => {
 
 describe('Rotate by', () => {
   it('should return rotate array by month', () => {
-    const startNums = '3-4'
-    const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+    const initialElementOfArray = '3-4'
+    const array = ['1-2', '3-4', '5-6', '7-8', '9-0']
     const startDate = '2015-06-01'
     const monthCases = [
       {
@@ -52,18 +52,18 @@ describe('Rotate by', () => {
       },
     ]
     monthCases.forEach(monthCase => {
-      const result = rotateByMonth(
-        monthCase.date,
+      const result = rotateByMonth({
+        date: monthCase.date,
         startDate,
-        startNums,
-        pypNums
-      )
+        initialElementOfArray,
+        array,
+      })
       expect(result).toBe(monthCase.result)
     })
   })
   it('should return rotate array by week in reverse', () => {
-    const startNums = '1-2'
-    const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+    const initialElementOfArray = '1-2'
+    const array = ['1-2', '3-4', '5-6', '7-8', '9-0']
     const startDate = '2018-01-08'
     const weekCases = [
       {
@@ -84,13 +84,13 @@ describe('Rotate by', () => {
       },
     ]
     weekCases.forEach(weekCase => {
-      const result = rotateByWeek(
-        weekCase.date,
+      const result = rotateByWeek({
+        date: weekCase.date,
         startDate,
-        startNums,
-        pypNums,
-        true
-      )
+        initialElementOfArray,
+        array,
+        reverse: true,
+      })
       expect(result).toBe(weekCase.result)
     })
   })

@@ -30,7 +30,13 @@ module.exports = {
       const startDate = '2018-01-01'
       const startNums = '7-8'
       const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-      return rotateByWeek(date, startDate, startNums, pypNums, true)
+      return rotateByWeek({
+        date,
+        startDate,
+        initialElementOfArray: startNums,
+        array: pypNums,
+        reverse: true,
+      })
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },
