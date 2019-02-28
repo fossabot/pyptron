@@ -3,7 +3,7 @@ const { daysDiff, newISODate, datesDiff } = require('./dateHelpers')
 module.exports = {
   normalizeArrayIndex,
   moveArrayElementsToTheRight,
-  rotateBy,
+  getArrayElementAfterRotating,
   rotateByDay,
   rotateByWeek,
   rotateByMonth,
@@ -60,28 +60,29 @@ function rotateByDay(date, startDate, startNums, pypNums, skip = [0]) {
  * Rota los valores de un array una vez por cada periodo especificado en el argumento period.
  * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
  * @param {string} startDate La fecha en que inicia la rotación.
- * @param {string} startNums Los valores iniciales para la rotación.
- * @param {array} pypNums Los valores que se van a rotar.
+ * @param {string} initialElementOfArray Los valores iniciales para la rotación.
+ * @param {array} array Los valores que se van a rotar.
  * @param {int} period Period por el cual se va a realizar la rotación ("weeks", "montsh", "days").
  * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
  * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
-function rotateBy(
-  date,
-  startDate,
-  startNums,
-  pypNums,
-  period,
-  reverse = false,
-  interval = 1
-) {
+function getArrayElementAfterRotating(options) {
+  const {
+    date,
+    startDate,
+    initialElementOfArray,
+    array,
+    period,
+    reverse = false,
+    interval = 1,
+  } = options
   const dateObject = newISODate(date)
   const startDateObject = newISODate(startDate)
-  const pypOffset = pypNums.indexOf(startNums)
+  const pypOffset = array.indexOf(initialElementOfArray)
   const diff = datesDiff(startDateObject, dateObject, period)
   const lapse = Math.ceil((reverse ? -diff : diff) / interval)
-  const pypArray = moveArrayElementsToTheRight(pypNums, lapse - pypOffset)
+  const pypArray = moveArrayElementsToTheRight(array, lapse - pypOffset)
   const index = normalizeArrayIndex(
     dateObject.getDay() - startDateObject.getDay(),
     pypArray.length
@@ -107,15 +108,15 @@ function rotateByWeek(
   reverse = false,
   interval = 1
 ) {
-  return rotateBy(
+  return getArrayElementAfterRotating({
     date,
     startDate,
-    startNums,
-    pypNums,
-    'weeks',
+    initialElementOfArray: startNums,
+    array: pypNums,
+    period: 'weeks',
     reverse,
-    interval
-  )
+    interval,
+  })
 }
 
 /**
@@ -136,13 +137,13 @@ function rotateByMonth(
   reverse = false,
   interval = 1
 ) {
-  return rotateBy(
+  return getArrayElementAfterRotating({
     date,
     startDate,
-    startNums,
-    pypNums,
-    'months',
+    initialElementOfArray: startNums,
+    array: pypNums,
+    period: 'months',
     reverse,
-    interval
-  )
+    interval,
+  })
 }
