@@ -1,5 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
-const { getIndex } = require('../../../helpers/arrayHelpers')
+const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -33,7 +33,7 @@ module.exports = {
       if (dow === 6) {
         const weeksLapse = weeksDiff('2019-02-23', date, [])
         const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
-        const index = getIndex(weeksLapse, weekendsNums.length)
+        const index = normalizeArrayIndex(weeksLapse, weekendsNums.length)
         return weekendsNums[index]
       }
       const pypNums = [

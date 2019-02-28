@@ -1,7 +1,7 @@
 const { daysDiff, newISODate, datesDiff } = require('./dateHelpers')
 
 module.exports = {
-  getIndex,
+  normalizeArrayIndex,
   arrRotate,
   rotateBy,
   rotateByDay,
@@ -12,11 +12,11 @@ module.exports = {
 /**
  * Calcula el índice para cuando el valor del índice es mayor al largo del array o en caso de que se tenga un valor negativo para el índice. Si el valor es negativo el valor correspondiente al indice se calcula de atrás hacia adelante. Es decir, -1 equivale al último elemento del array y -array.length equivale al primer elemento del array.
  * @param {int} index Valor para el cual se desea calcular el índice correspondiente en el array.
- * @param {int} arrLen Largo del array.
+ * @param {int} arrayLength Largo del array.
  * @returns {int} El índice - en caso de ser negativo corresponde al indice de atrás hacia adelante.
  */
-function getIndex(index, arrLen) {
-  return ((index % arrLen) + arrLen) % arrLen
+function normalizeArrayIndex(index, arrayLength) {
+  return ((index % arrayLength) + arrayLength) % arrayLength
 }
 
 /**
@@ -82,7 +82,7 @@ function rotateBy(
   const diff = datesDiff(startDateObject, dateObject, period)
   const lapse = Math.ceil((reverse ? -diff : diff) / interval)
   const pypArray = arrRotate(pypNums, lapse - pypOffset)
-  const index = getIndex(
+  const index = normalizeArrayIndex(
     dateObject.getDay() - startDateObject.getDay(),
     pypArray.length
   )
