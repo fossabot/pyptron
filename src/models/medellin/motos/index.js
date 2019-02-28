@@ -45,7 +45,7 @@ module.exports = {
       ]
       return pypNums[new Date(date).getDay() - 1]
       // const lapse = pypFuncs.monthsDiff(startDate, date, 6)
-      // const newPypNums = pypFuncs.arrRotate(pypNums, lapse)
+      // const newPypNums = pypFuncs.moveArrayElementsToTheRight(pypNums, lapse)
       // return newPypNums[new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)

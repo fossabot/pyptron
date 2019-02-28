@@ -1,6 +1,6 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
 const { monthsDiff } = require('../../../helpers/dateHelpers')
-const { arrRotate } = require('../../../helpers/arrayHelpers')
+const { moveArrayElementsToTheRight } = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -31,7 +31,7 @@ module.exports = {
       const startDate = '2018-01-01'
       const pypNums = ['3-4', '5-6', '7-8', '9-0', '1-2']
       const lapse = monthsDiff(startDate, date, 6)
-      const newPypNums = arrRotate(pypNums, lapse)
+      const newPypNums = moveArrayElementsToTheRight(pypNums, lapse)
       return newPypNums[new Date(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)

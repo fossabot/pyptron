@@ -2,7 +2,7 @@ const { daysDiff, newISODate, datesDiff } = require('./dateHelpers')
 
 module.exports = {
   normalizeArrayIndex,
-  arrRotate,
+  moveArrayElementsToTheRight,
   rotateBy,
   rotateByDay,
   rotateByWeek,
@@ -21,22 +21,22 @@ function normalizeArrayIndex(index, arrayLength) {
 
 /**
  * Rota los elementos de un array desplazando sus elementos según la cantidad indicada en el offset de izquierda a derecha. Por ejemplo:
- *   arrRotate([1, 2, 3], 1) // [3, 1, 2]
- *   arrRotate([1, 2, 3], -1) // [2, 3, 1]
- * @param {array} arr El array cuyos elementos se desean rotar.
+ *   moveArrayElementsToTheRight([1, 2, 3], 1) // [3, 1, 2]
+ *   moveArrayElementsToTheRight([1, 2, 3], -1) // [2, 3, 1]
+ * @param {array} array El array cuyos elementos se desean rotar.
  * @param {int} offset Número de elementos que se desea desplazar el array.
  * @returns {array} Un nuevo array con los valores desplazados según el offset.
  */
-function arrRotate(arr, offset) {
-  const arrOffset = offset % arr.length
+function moveArrayElementsToTheRight(array, offset) {
+  const arrOffset = offset % array.length
   let head = []
   let tail = []
   if (arrOffset >= 0) {
-    head = arr.slice(arr.length - arrOffset)
-    tail = arr.slice(0, arr.length - arrOffset)
+    head = array.slice(array.length - arrOffset)
+    tail = array.slice(0, array.length - arrOffset)
   } else {
-    head = arr.slice(-arrOffset)
-    tail = arr.slice(0, -arrOffset)
+    head = array.slice(-arrOffset)
+    tail = array.slice(0, -arrOffset)
   }
   return head.concat(tail)
 }
@@ -81,7 +81,7 @@ function rotateBy(
   const pypOffset = pypNums.indexOf(startNums)
   const diff = datesDiff(startDateObject, dateObject, period)
   const lapse = Math.ceil((reverse ? -diff : diff) / interval)
-  const pypArray = arrRotate(pypNums, lapse - pypOffset)
+  const pypArray = moveArrayElementsToTheRight(pypNums, lapse - pypOffset)
   const index = normalizeArrayIndex(
     dateObject.getDay() - startDateObject.getDay(),
     pypArray.length

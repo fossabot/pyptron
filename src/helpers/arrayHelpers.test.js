@@ -1,4 +1,8 @@
-const { arrRotate, rotateByMonth, rotateByWeek } = require('./arrayHelpers')
+const {
+  moveArrayElementsToTheRight,
+  rotateByMonth,
+  rotateByWeek,
+} = require('./arrayHelpers')
 
 describe('Rotate an array', () => {
   it('should rotate an array according to the offset', () => {
@@ -17,7 +21,9 @@ describe('Rotate an array', () => {
       { offset: -arr.length * 2, result: arr },
     ]
     arrCases.forEach(arrCase => {
-      expect(arrRotate(arr, arrCase.offset)).toEqual(arrCase.result)
+      expect(moveArrayElementsToTheRight(arr, arrCase.offset)).toEqual(
+        arrCase.result
+      )
     })
   })
 })
