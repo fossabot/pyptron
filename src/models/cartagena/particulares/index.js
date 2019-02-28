@@ -36,12 +36,10 @@ module.exports = {
           break
       }
       const startDate = '2017-12-02'
-      const startNums = '1-2'
       const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
       return rotateByMonth({
         date,
         startDate,
-        initialElementOfArray: startNums,
         array: pypNums,
         reverse: true,
         interval: 3,

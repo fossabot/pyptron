@@ -51,9 +51,8 @@ function moveArrayElementsToTheRight(array, offset) {
  * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
  */
 function rotateByDay(options) {
-  const { date, startDate, initialElementOfArray, array, skip = [0] } = options
-  let daysLapse = daysDiff(startDate, date, { skip })
-  daysLapse += array.indexOf(initialElementOfArray) - 1
+  const { date, startDate, array, skip = [0] } = options
+  const daysLapse = daysDiff(startDate, date, { skip }) - 1
   return array[daysLapse % array.length]
 }
 
@@ -72,7 +71,6 @@ function getArrayElementAfterRotating(options) {
   const {
     date,
     startDate,
-    initialElementOfArray,
     array,
     period,
     reverse = false,
@@ -80,10 +78,9 @@ function getArrayElementAfterRotating(options) {
   } = options
   const dateObject = newISODate(date)
   const startDateObject = newISODate(startDate)
-  const pypOffset = array.indexOf(initialElementOfArray)
   const diff = datesDiff(startDateObject, dateObject, period)
   const lapse = Math.ceil((reverse ? -diff : diff) / interval)
-  const pypArray = moveArrayElementsToTheRight(array, lapse - pypOffset)
+  const pypArray = moveArrayElementsToTheRight(array, lapse)
   const index = normalizeArrayIndex(
     dateObject.getDay() - startDateObject.getDay(),
     pypArray.length
@@ -102,18 +99,10 @@ function getArrayElementAfterRotating(options) {
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
 function rotateByWeek(options) {
-  const {
-    date,
-    startDate,
-    initialElementOfArray,
-    array,
-    reverse = false,
-    interval = 1,
-  } = options
+  const { date, startDate, array, reverse = false, interval = 1 } = options
   return getArrayElementAfterRotating({
     date,
     startDate,
-    initialElementOfArray,
     array,
     period: 'weeks',
     reverse,
@@ -132,18 +121,10 @@ function rotateByWeek(options) {
  * @returns {string} El valor de pypNums tras la rotación para la fecha date.
  */
 function rotateByMonth(options) {
-  const {
-    date,
-    startDate,
-    initialElementOfArray,
-    array,
-    reverse = false,
-    interval = 1,
-  } = options
+  const { date, startDate, array, reverse = false, interval = 1 } = options
   return getArrayElementAfterRotating({
     date,
     startDate,
-    initialElementOfArray,
     array,
     period: 'months',
     reverse,

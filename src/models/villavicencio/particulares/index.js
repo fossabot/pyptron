@@ -30,12 +30,10 @@ module.exports = {
     }
     const pypFunction = () => {
       const startDate = '2017-08-01'
-      const startNums = '9-0'
-      const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+      const pypNums = ['9-0', '1-2', '3-4', '5-6', '7-8']
       return getArrayElementAfterRotating({
         date,
         startDate,
-        initialElementOfArray: startNums,
         array: pypNums,
         period: 'years',
         reverse: true,

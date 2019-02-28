@@ -28,12 +28,10 @@ module.exports = {
     }
     const pypFunction = () => {
       const startDate = '2018-01-01'
-      const startNums = '6-7'
-      const pypNums = ['0-1', '2-3', '4-5', '6-7', '8-9']
+      const pypNums = ['6-7', '8-9', '0-1', '2-3', '4-5']
       return rotateByDay({
         date,
         startDate,
-        initialElementOfArray: startNums,
         array: pypNums,
         skip: [],
       })
