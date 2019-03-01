@@ -1,6 +1,6 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
 const { newISODate } = require('../../../helpers/dateHelpers')
-const { formatDate, weeksDiff } = require('../../../helpers/dateHelpers')
+const { formatDate, datesDiff } = require('../../../helpers/dateHelpers')
 const {
   normalizeArrayIndex,
   getArrayElementAfterRotating,
@@ -48,7 +48,11 @@ module.exports = {
           ['8', '7'],
           ['0', '9'],
         ]
-        const weeksLapse = weeksDiff(startDate, date)
+        const weeksLapse = datesDiff({
+          startDate,
+          endDate: date,
+          period: 'weeks',
+        })
         // Usamos la función normalizeArrayIndex(index, arrLen) para mantener uniformidad en el código,
         // pero perfectamente podríamos usar:
         //   const index = weeksLapse % pypNums.length;

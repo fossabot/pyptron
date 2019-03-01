@@ -1,8 +1,7 @@
 const {
   generateISOString,
   getNthDayOfMonth,
-  monthsDiff,
-  yearsDiff,
+  datesDiff,
 } = require('./dateHelpers')
 
 describe('test for generateISOString', () => {
@@ -169,42 +168,223 @@ describe('test for getting nth day of a given month', () => {
 
 describe('Get months difference between two dates according to an interval', () => {
   it('should return the number of months between two dates when no interval given', () => {
-    expect(monthsDiff('2017-12-02', '2018-02-01')).toBe(1)
-    expect(monthsDiff('2019-01-01', '2018-01-01')).toBe(-12)
-    expect(monthsDiff('2018-01-01', '2018-01-01')).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-01-31')).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-02-01')).toBe(1)
-    expect(monthsDiff('2018-01-01', '2019-01-01')).toBe(12)
-    expect(monthsDiff('2018-01-01', '2019-02-01')).toBe(13)
+    expect(
+      datesDiff({
+        startDate: '2017-12-02',
+        endDate: '2018-02-01',
+        period: 'months',
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2019-01-01',
+        endDate: '2018-01-01',
+        period: 'months',
+      })
+    ).toBe(-12)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-01-01',
+        period: 'months',
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-01-31',
+        period: 'months',
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-02-01',
+        period: 'months',
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2019-01-01',
+        period: 'months',
+      })
+    ).toBe(12)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2019-02-01',
+        period: 'months',
+      })
+    ).toBe(13)
   })
   it('should return the number of quarters between two dates when interval is 3', () => {
-    expect(monthsDiff('2018-07-01', '2018-01-01', 3)).toBe(-2)
-    expect(monthsDiff('2018-01-01', '2018-01-01', 3)).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-02-01', 3)).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-03-01', 3)).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-04-01', 3)).toBe(1)
-    expect(monthsDiff('2018-01-01', '2018-07-01', 3)).toBe(2)
-    expect(monthsDiff('2018-01-01', '2018-12-01', 3)).toBe(3)
+    expect(
+      datesDiff({
+        startDate: '2018-07-01',
+        endDate: '2018-01-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(-2)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-01-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-02-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-03-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-04-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-07-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(2)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-12-01',
+        period: 'months',
+        interval: 3,
+      })
+    ).toBe(3)
   })
   it('should return the number of semesters between two dates when interval is 6', () => {
-    expect(monthsDiff('2019-01-01', '2018-01-01', 6)).toBe(-2)
-    expect(monthsDiff('2018-01-01', '2018-01-01', 6)).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-06-01', 6)).toBe(0)
-    expect(monthsDiff('2018-01-01', '2018-07-01', 6)).toBe(1)
-    expect(monthsDiff('2018-01-01', '2018-12-01', 6)).toBe(1)
-    expect(monthsDiff('2018-01-01', '2019-01-01', 6)).toBe(2)
+    expect(
+      datesDiff({
+        startDate: '2019-01-01',
+        endDate: '2018-01-01',
+        period: 'months',
+        interval: 6,
+      })
+    ).toBe(-2)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-01-01',
+        period: 'months',
+        interval: 6,
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-06-01',
+        period: 'months',
+        interval: 6,
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-07-01',
+        period: 'months',
+        interval: 6,
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-12-01',
+        period: 'months',
+        interval: 6,
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2019-01-01',
+        period: 'months',
+        interval: 6,
+      })
+    ).toBe(2)
   })
 })
 
 describe('Get year difference between two dates', () => {
   it('should return the number of years between two dates', () => {
-    expect(yearsDiff('2019-01-01', '2018-01-01')).toBe(-1)
-    expect(yearsDiff('2019-01-01', '2017-01-01')).toBe(-2)
-    expect(yearsDiff('2018-01-01', '2018-01-01')).toBe(0)
-    expect(yearsDiff('2018-01-01', '2018-01-31')).toBe(0)
-    expect(yearsDiff('2018-01-01', '2018-02-01')).toBe(0)
-    expect(yearsDiff('2018-01-01', '2019-01-01')).toBe(1)
-    expect(yearsDiff('2018-01-01', '2019-02-01')).toBe(1)
-    expect(yearsDiff('2018-01-01', '2020-01-01')).toBe(2)
+    expect(
+      datesDiff({
+        startDate: '2019-01-01',
+        endDate: '2018-01-01',
+        period: 'years',
+      })
+    ).toBe(-1)
+    expect(
+      datesDiff({
+        startDate: '2019-01-01',
+        endDate: '2017-01-01',
+        period: 'years',
+      })
+    ).toBe(-2)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-01-01',
+        period: 'years',
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-01-31',
+        period: 'years',
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2018-02-01',
+        period: 'years',
+      })
+    ).toBe(0)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2019-01-01',
+        period: 'years',
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2019-02-01',
+        period: 'years',
+      })
+    ).toBe(1)
+    expect(
+      datesDiff({
+        startDate: '2018-01-01',
+        endDate: '2020-01-01',
+        period: 'years',
+      })
+    ).toBe(2)
   })
 })

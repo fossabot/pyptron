@@ -6,10 +6,6 @@ module.exports = {
   newISODate,
   getWeek,
   getNthDayOfMonth,
-  daysDiff,
-  weeksDiff,
-  monthsDiff,
-  yearsDiff,
   datesDiff,
 }
 
@@ -198,10 +194,22 @@ function yearsDiff(startDate, endDate, interval = 1) {
  * @returns {Number} La diferencia según el periodo especificado
  * */
 function datesDiff(options) {
-  const { startDate, endDate, period, interval } = options
+  const {
+    startDate,
+    endDate,
+    period,
+    interval, // applies only when period is not 'days'
+    skipHolidays = false, // applies only when period is 'days'
+    daysOfWeekToSkip = [], // applies only when period is 'days'
+    specialDatesToSkip = [], // applies only when period is 'days'
+  } = options
   switch (period) {
     case 'days':
-      return daysDiff(startDate, endDate)
+      return daysDiff(startDate, endDate, {
+        skipHolidays,
+        daysOfWeekToSkip,
+        specialDatesToSkip,
+      })
     case 'weeks':
       return weeksDiff(startDate, endDate, interval)
     case 'months':

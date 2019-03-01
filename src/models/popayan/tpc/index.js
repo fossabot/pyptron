@@ -1,5 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
-const { daysDiff } = require('../../../helpers/dateHelpers')
+const { datesDiff } = require('../../../helpers/dateHelpers')
 const info = require('./info')
 
 module.exports = {
@@ -12,11 +12,13 @@ module.exports = {
     }
     const pypFunction = () => {
       const startDate = '2018-01-04'
-      const specialDatesToSkip = ['2018-01-05', '2018-04-12', '2018-04-13']
-      const daysLapse = daysDiff(startDate, date, {
-        daysOfWeekToSkip: [0, 6],
-        skipHolidays: true,
-        specialDatesToSkip,
+      const daysLapse = datesDiff({
+        startDate,
+        endDate: date,
+        period: 'days',
+        daysOfWeekToSkip: options.excludedDays,
+        skipHolidays: options.skipHolidays,
+        specialDatesToSkip: ['2018-01-05', '2018-04-12', '2018-04-13'],
       })
       return String(daysLapse % 10)
     }

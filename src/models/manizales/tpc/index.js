@@ -1,5 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
-const { daysDiff } = require('../../../helpers/dateHelpers')
+const { datesDiff } = require('../../../helpers/dateHelpers')
 const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 const info = require('./info')
 
@@ -33,7 +33,13 @@ module.exports = {
       //
       const pypNums = ['H', 'I', 'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
       // La diferencia en días sin tener en cuenta el domingo
-      const daysLapse = daysDiff(startDate, date, { daysOfWeekToSkip: [0] }) - 1
+      const daysLapse =
+        datesDiff({
+          startDate,
+          endDate: date,
+          period: 'days',
+          daysOfWeekToSkip: [0],
+        }) - 1
       const arrOffset = daysLapse % 30
       // Usamos la función normalizeArrayIndex(index, arrLen) para mantener uniformidad en el código, pero
       // perfectamente podríamos usar:

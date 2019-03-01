@@ -2,7 +2,7 @@ const pypFuncs = require('../../../helpers/globalHelpers')
 const { newISODate } = require('../../../helpers/dateHelpers')
 const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 const info = require('./info')
-const { weeksDiff } = require('../../../helpers/dateHelpers')
+const { datesDiff } = require('../../../helpers/dateHelpers')
 
 module.exports = {
   name: 'Motos',
@@ -16,7 +16,11 @@ module.exports = {
       // const startDate = '2018-02-05'
       const dow = newISODate(date).getDay()
       if (dow === 6) {
-        const weeksLapse = weeksDiff('2019-02-23', date)
+        const weeksLapse = datesDiff({
+          startDate: '2019-02-23',
+          endDate: date,
+          period: 'weeks',
+        })
         const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
         const index = normalizeArrayIndex(weeksLapse, weekendsNums.length)
         return weekendsNums[index]

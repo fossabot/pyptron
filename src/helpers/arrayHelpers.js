@@ -1,4 +1,4 @@
-const { daysDiff, newISODate, datesDiff } = require('./dateHelpers')
+const { newISODate, datesDiff } = require('./dateHelpers')
 
 module.exports = {
   normalizeArrayIndex,
@@ -60,7 +60,13 @@ function getArrayElementAfterRotating(options) {
     daysOfWeekToSkip = [0],
   } = options
   if (period === 'days') {
-    const daysLapse = daysDiff(startDate, date, { daysOfWeekToSkip }) - 1
+    const daysLapse =
+      datesDiff({
+        startDate,
+        endDate: date,
+        period: 'days',
+        daysOfWeekToSkip,
+      }) - 1
     return array[daysLapse % array.length]
   }
   const dateObject = newISODate(date)
