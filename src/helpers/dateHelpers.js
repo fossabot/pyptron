@@ -97,18 +97,26 @@ function getNthDayOfMonth(year, month, dayOfWeek, index) {
  * @param {String} startDate Fecha inicial.
  * @param {String} endDate Fecha final.
  * @param {Object} options Días de la semana que se omiten. 0 = Domingo.
- * @param {Array} options.skip Días de la semana que se omiten. 0 = Domingo.
+ * @param {Array} options.daysOfWeekToSkip Días de la semana que se omiten. 0 = Domingo.
  * @param {Boolean} options.skipHolidays Si se incluyen los festivos en el conteo
- * @param {Array} options.specialDates Fechas especiales que se desean saltar en el conteo.
+ * @param {Array} options.specialDatesToSkip Fechas especiales que se desean saltar en el conteo.
  * @returns {number} Cantidad de días de difencia entre la fecha inicial y la fecha final.
  */
 function daysDiff(startDate, endDate, options = {}) {
-  const { skip = [], skipHolidays = false, specialDates = [] } = options
+  const {
+    skipHolidays = false,
+    daysOfWeekToSkip = [],
+    specialDatesToSkip = [],
+  } = options
 
   const currentDateObject = newISODate(startDate)
   const endDateObject = newISODate(endDate)
 
-  if (skip.length === 0 && !skipHolidays && specialDates.length === 0) {
+  if (
+    daysOfWeekToSkip.length === 0 &&
+    !skipHolidays &&
+    specialDatesToSkip.length === 0
+  ) {
     const millisecondsInADay = 1000 * 60 * 60 * 24
     return (
       Math.floor((endDateObject - currentDateObject) / millisecondsInADay) + 1
@@ -118,7 +126,7 @@ function daysDiff(startDate, endDate, options = {}) {
   let daysLapse = 0
 
   while (currentDateObject <= endDateObject) {
-    if (specialDates.includes(formatDate(currentDateObject))) {
+    if (specialDatesToSkip.includes(formatDate(currentDateObject))) {
       currentDateObject.setDate(currentDateObject.getDate() + 1)
       continue // eslint-disable-line no-continue
     }
@@ -130,7 +138,7 @@ function daysDiff(startDate, endDate, options = {}) {
       }
     }
 
-    if (skip.includes(currentDateObject.getDay())) {
+    if (daysOfWeekToSkip.includes(currentDateObject.getDay())) {
       currentDateObject.setDate(currentDateObject.getDate() + 1)
 
       continue // eslint-disable-line no-continue

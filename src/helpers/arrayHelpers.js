@@ -57,10 +57,10 @@ function getArrayElementAfterRotating(options) {
     period,
     reverse = false,
     interval = 1,
-    skip = [0],
+    daysOfWeekToSkip = [0],
   } = options
   if (period === 'days') {
-    const daysLapse = daysDiff(startDate, date, { skip }) - 1
+    const daysLapse = daysDiff(startDate, date, { daysOfWeekToSkip }) - 1
     return array[daysLapse % array.length]
   }
   const dateObject = newISODate(date)

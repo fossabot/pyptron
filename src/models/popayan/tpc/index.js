@@ -12,11 +12,11 @@ module.exports = {
     }
     const pypFunction = () => {
       const startDate = '2018-01-04'
-      const specialDates = ['2018-01-05', '2018-04-12', '2018-04-13']
+      const specialDatesToSkip = ['2018-01-05', '2018-04-12', '2018-04-13']
       const daysLapse = daysDiff(startDate, date, {
-        skip: [0, 6],
+        daysOfWeekToSkip: [0, 6],
         skipHolidays: true,
-        specialDates,
+        specialDatesToSkip,
       })
       return String(daysLapse % 10)
     }

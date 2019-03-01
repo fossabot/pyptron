@@ -33,7 +33,7 @@ module.exports = {
       //
       const pypNums = ['H', 'I', 'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
       // La diferencia en días sin tener en cuenta el domingo
-      const daysLapse = daysDiff(startDate, date, { skip: [0] }) - 1
+      const daysLapse = daysDiff(startDate, date, { daysOfWeekToSkip: [0] }) - 1
       const arrOffset = daysLapse % 30
       // Usamos la función normalizeArrayIndex(index, arrLen) para mantener uniformidad en el código, pero
       // perfectamente podríamos usar:

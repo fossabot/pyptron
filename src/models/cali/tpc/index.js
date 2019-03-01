@@ -20,7 +20,7 @@ module.exports = {
         startDate,
         array: pypNums,
         period: 'days',
-        skip: [],
+        daysOfWeekToSkip: [],
       })
     }
     return pypFuncs.pyp(date, pypFunction, options)
