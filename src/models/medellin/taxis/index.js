@@ -1,5 +1,6 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
 const { moveArrayElementsToTheRight } = require('../../../helpers/arrayHelpers')
+const { datesDiff, newISODate } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -27,24 +28,26 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      const dateObject = new Date(date)
-      const startDate = new Date('2018-01-01T05:00:00.000Z')
+      const dateObject = newISODate(date)
+      const startDate = newISODate('2018-01-01')
       const millisecondsPerDay = 1000 * 60 * 60 * 24
       const millisecondsDiff = dateObject - startDate
       const daysDiff = millisecondsDiff / millisecondsPerDay
       const weeksOffset = Math.ceil((daysDiff + 1) / 7)
       let pypNums = [['5', '0'], ['6', '1'], ['7', '2'], ['3', '8'], ['4', '9']]
-      if (dateObject >= new Date('2018-05-07T05:00:00.000Z')) {
+      if (dateObject >= newISODate('2018-05-07')) {
         pypNums[2] = ['2', '7']
         pypNums[3] = ['8', '3']
       }
-      if (dateObject >= new Date('2019-01-08T05:00:00.000Z')) {
+      if (dateObject >= newISODate('2019-01-08')) {
         pypNums[0] = ['0', '5']
         pypNums[4] = ['9', '4']
       }
-      const monthsDiff = dateObject.getMonth() - startDate.getMonth()
-      const yearsDiff = dateObject.getFullYear() - startDate.getFullYear()
-      const monthsDiffAccu = monthsDiff + yearsDiff * 12
+      const monthsDiffAccu = datesDiff({
+        startDate,
+        endDate: date,
+        period: 'months',
+      })
       const datesWeekDay = dateObject.getDay()
       const datesDate = dateObject.getDate()
       const weekOfMonth = Math.floor((datesDate - datesWeekDay) / 7)
