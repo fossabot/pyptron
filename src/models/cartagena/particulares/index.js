@@ -1,6 +1,8 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
 const { formatDate } = require('../../../helpers/dateHelpers')
-const { rotateByMonth } = require('../../../helpers/arrayHelpers')
+const {
+  getArrayElementAfterRotating,
+} = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -37,10 +39,11 @@ module.exports = {
       }
       const startDate = '2017-12-02'
       const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-      return rotateByMonth({
+      return getArrayElementAfterRotating({
         date,
         startDate,
         array: pypNums,
+        period: 'months',
         reverse: true,
         interval: 3,
       })

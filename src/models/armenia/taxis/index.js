@@ -1,5 +1,7 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
-const { rotateByWeek } = require('../../../helpers/arrayHelpers')
+const {
+  getArrayElementAfterRotating,
+} = require('../../../helpers/arrayHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -29,9 +31,10 @@ module.exports = {
     const pypFunction = () => {
       const startDate = '2017-12-11'
       const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
-      return rotateByWeek({
+      return getArrayElementAfterRotating({
         date,
         startDate,
+        period: 'weeks',
         array: pypNums,
         reverse: true,
       })

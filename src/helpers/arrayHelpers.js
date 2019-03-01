@@ -5,8 +5,6 @@ module.exports = {
   moveArrayElementsToTheRight,
   getArrayElementAfterRotating,
   rotateByDay,
-  rotateByWeek,
-  rotateByMonth,
 }
 
 /**
@@ -64,13 +62,11 @@ function getArrayElementAfterRotating(options) {
   const dateObject = newISODate(date)
   const startDateObject = newISODate(startDate)
   const diff = datesDiff(startDateObject, dateObject, period)
-  const lapse = Math.ceil((reverse ? -diff : diff) / interval)
-  const pypArray = moveArrayElementsToTheRight(array, lapse)
-  const index = normalizeArrayIndex(
-    dateObject.getDay() - startDateObject.getDay(),
-    pypArray.length
-  )
-  return pypArray[index]
+  const lapse = Math.floor(diff / interval)
+  const daysOffset = dateObject.getDay() - startDateObject.getDay()
+  return array[
+    normalizeArrayIndex((reverse ? lapse : -lapse) + daysOffset, array.length)
+  ]
 }
 
 /**
@@ -86,48 +82,4 @@ function rotateByDay(options) {
   const { date, startDate, array, skip = [0] } = options
   const daysLapse = daysDiff(startDate, date, { skip }) - 1
   return array[daysLapse % array.length]
-}
-
-/**
- * Rota los valores de un array según el número de semana que hayan pasado entre startDate y date.
- * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
- * @param {string} startDate La fecha en que inicia la rotación.
- * @param {string} startNums Los valores iniciales para la rotación.
- * @param {array} pypNums Los valores que se van a rotar.
- * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
- * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
- * @returns {string} El valor de pypNums tras la rotación para la fecha date.
- */
-function rotateByWeek(options) {
-  const { date, startDate, array, reverse = false, interval = 1 } = options
-  return getArrayElementAfterRotating({
-    date,
-    startDate,
-    array,
-    period: 'weeks',
-    reverse,
-    interval,
-  })
-}
-
-/**
- * Rota los valores de un array según el número de meses que hayan pasado entre startDate y date.
- * @param {string} date La fecha para la cual se desea obtener el resultado tras la rotación.
- * @param {string} startDate La fecha en que inicia la rotación.
- * @param {string} startNums Los valores iniciales para la rotación.
- * @param {array} pypNums Los valores que se van a rotar.
- * @param {boolean} reverse Verdadero si se va a rotar desplazándo de derecha a izquierda.
- * @param {int} interval Periodicidad con que se rotan los valores en el lapso de la función.
- * @returns {string} El valor de pypNums tras la rotación para la fecha date.
- */
-function rotateByMonth(options) {
-  const { date, startDate, array, reverse = false, interval = 1 } = options
-  return getArrayElementAfterRotating({
-    date,
-    startDate,
-    array,
-    period: 'months',
-    reverse,
-    interval,
-  })
 }
