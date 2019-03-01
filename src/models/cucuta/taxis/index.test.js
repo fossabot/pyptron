@@ -4,16 +4,16 @@ const category = require('./index')
 
 const dateCases = [
   {
-    date: '2018-04-30', // lunes 30 de abril de 2018
-    pyp: '0',
+    date: '2019-03-01', // Viernes
+    pyp: '4',
   },
   {
-    date: '2018-04-09', // lunes 9 de abril de 2018
+    date: '2019-04-11', // Jueves
+    pyp: '5',
+  },
+  {
+    date: '2019-05-29', // miércoles
     pyp: '1',
-  },
-  {
-    date: '2018-05-16', // miércoles 16 de mayo de 2018
-    pyp: '8',
   },
 ]
 testCases(category, dateCases)

@@ -1,8 +1,10 @@
-module.exports = `Aplica en el cuadrante del centro que encierran las siguientes avenidas y calles:<ul>
-      <li>Diagonal Santander: En sus dos calzadas desde la Glorieta de El Terminal (no incluye la glorieta), hasta llegar al cruce que conduce a la avenida Los Libertadores.</li>
-      <li>Avenida Los Libertadores: Desde el cruce con Diagonal Santander sentido norte-sur (Corponor), hasta la calle 18.</li>
-      <li>Calle 18: Desde la Avenida Los Libertadores hasta la avenida 4.</li>
-      <li>Avenida 4: Desde la calle 17 hasta la calle 18.</li>
-      <li>Avenida 8: Desde la calle 2 hasta la calle 17.</li>
-      <li>Calle 2: Desde la avenida 8 hasta la avenida 7 del barrio El Callejón.</li>
-      <li>Avenida 7: Desde la calle 2 hasta la Glorieta de El Terminal (no incluye la glorieta).</li></ul>`
+module.exports = `Vehículos particulares de placa nacional (automoviles, motocicletas, camionetas, camiones, volquetas) matriculados en los Organismos de Tránsito que hacen parte del área Metropolitana de la ciudad de San José de Cúcuta (Cúcuta, Villa Rosario, Los Patios y El Zulia), de restricción de circulación vehicular denominada pico y placa, an interior del polígono delimitado por las siguiente vías:
+<ul>
+<li>Diagonal Santander desde la Glorieta el Terminal (no se incluye la Glorieta) hasta llegar al cruce que conduce a la Avenida Libertadores (Centro de Negocios Ventura Reservado).</li>
+<li>Avenida Libertadores desde el cruce con Diagonal Santander sentido norte - sur (CORPONOR) hata la calle 15.</li>
+<li>Calle 15 desde la Avenida 10 hasta la Avenida Libertadores.</li>
+<li>Avenida 10 desde la calle 2 hasta la calle 15.</li>
+<li>Calle 2 desde la avenida 10 hasta la avenida 7 del barrio El Callejón.</li>
+<li>Avenida 7 desde la calle 2 hasta la Glorieta el Terminal (no incluye la Glorieta).</li>
+Las vías determinadas como vías perimetrales que encierran el área restringida <strong>no quedan habilitadas</strong> para ser transitadas. Se exceptúa de la restricción la Avenida Libertadores y Diagonal Santander (en sus dos calzadas).
+</ul>`

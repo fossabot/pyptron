@@ -10,8 +10,9 @@ module.exports = `Exceptúense de la medida del Pico y Placa los siguientes veh�
         <li>Coches fúnebres, más no el cortejo funerario.</li>
         <li>Vehículos debidamente acreditados para transporte especial (escolar y turismo).</li>
         <li>Vehículos oficiales al servicio de Magistrados, Jueces, Fiscales y personal de la Veeduría de la Defensoría del Pueblo en ejercicio de sus funciones.</li>
-        <li>Vehículos oficiales al Servicio del Ministerio Público: Procurador Regional, Procuradores Provinciales y Defensor del Pueblo.</li>
-        <li>Vehículos oficiales de: Gerentes Departamentales de la Contraloría de la República, Contralo Departamental del Norte de Santander, Contralor Municipal de Cúcuta, Personero Municipal de Cúcuta, Concejales del Municipio de Cúcuta, Diputados del Departamento Norte de Santander.</li>
+        <li>Particulares de placa nacional y oficiales al servicio de magistrados, jueces y fiscales y personas de la Veeduría de la Defensoría del Pueblo en ejercicio de sus funciones.
+        <li></li>
+        <li></li>
         <li>Vehículos y grúas destinados al control del tráfico en la ciudad de San José de Cúcuta.</li>
         <li>Los vehículos con placa nacional de propiedad de los medios de comunicación que estén debidamente identificados.</li>
       </ul>`
