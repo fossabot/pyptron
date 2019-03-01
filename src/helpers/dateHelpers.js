@@ -57,72 +57,77 @@ function getNthDayOfMonth(year, month, dayOfWeek, index) {
   return date
 }
 
-function daysDiff(startDate, endDate, options = {}) {
-  const {
-    skipHolidays = false,
-    daysOfWeekToSkip = [],
-    specialDatesToSkip = [],
-  } = options
+const datesDiffFunctions = {
+  days(options) {
+    const {
+      startDate,
+      endDate,
+      skipHolidays = false,
+      daysOfWeekToSkip = [],
+      specialDatesToSkip = [],
+    } = options
+    const currentDateObject = newISODate(startDate)
+    const endDateObject = newISODate(endDate)
 
-  const currentDateObject = newISODate(startDate)
-  const endDateObject = newISODate(endDate)
-
-  if (
-    daysOfWeekToSkip.length === 0 &&
-    !skipHolidays &&
-    specialDatesToSkip.length === 0
-  ) {
-    const millisecondsInADay = 1000 * 60 * 60 * 24
-    return (
-      Math.floor((endDateObject - currentDateObject) / millisecondsInADay) + 1
-    )
-  }
-
-  let daysLapse = 0
-
-  while (currentDateObject <= endDateObject) {
-    if (specialDatesToSkip.includes(formatDate(currentDateObject))) {
-      currentDateObject.setDate(currentDateObject.getDate() + 1)
-      continue // eslint-disable-line no-continue
+    if (
+      daysOfWeekToSkip.length === 0 &&
+      !skipHolidays &&
+      specialDatesToSkip.length === 0
+    ) {
+      const millisecondsInADay = 1000 * 60 * 60 * 24
+      return (
+        Math.floor((endDateObject - currentDateObject) / millisecondsInADay) + 1
+      )
     }
 
-    if (skipHolidays) {
-      if (getHoliday(currentDateObject)) {
+    let daysLapse = 0
+
+    while (currentDateObject <= endDateObject) {
+      if (specialDatesToSkip.includes(formatDate(currentDateObject))) {
         currentDateObject.setDate(currentDateObject.getDate() + 1)
         continue // eslint-disable-line no-continue
       }
-    }
 
-    if (daysOfWeekToSkip.includes(currentDateObject.getDay())) {
+      if (skipHolidays) {
+        if (getHoliday(currentDateObject)) {
+          currentDateObject.setDate(currentDateObject.getDate() + 1)
+          continue // eslint-disable-line no-continue
+        }
+      }
+
+      if (daysOfWeekToSkip.includes(currentDateObject.getDay())) {
+        currentDateObject.setDate(currentDateObject.getDate() + 1)
+
+        continue // eslint-disable-line no-continue
+      }
+      daysLapse += 1
       currentDateObject.setDate(currentDateObject.getDate() + 1)
-
-      continue // eslint-disable-line no-continue
     }
-    daysLapse += 1
-    currentDateObject.setDate(currentDateObject.getDate() + 1)
-  }
 
-  return daysLapse
-}
-
-function weeksDiff(startDate, endDate, interval = 1) {
-  const daysLapse = daysDiff(startDate, endDate)
-  return Math.floor(daysLapse / 7 / interval)
-}
-
-function monthsDiff(startDate, endDate, interval = 1) {
-  const d1 = newISODate(startDate)
-  const d2 = newISODate(endDate)
-  let monthsLapse =
-    d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
-  if (d2.getDate() < d1.getDate()) {
-    monthsLapse -= 1
-  }
-  return Math.floor(monthsLapse / interval)
-}
-
-function yearsDiff(startDate, endDate, interval = 1) {
-  return Math.floor(monthsDiff(startDate, endDate, 12) / interval)
+    return daysLapse
+  },
+  weeks(options) {
+    const { startDate, endDate, interval = 1 } = options
+    const daysLapse = this.days({ startDate, endDate })
+    return Math.floor(daysLapse / 7 / interval)
+  },
+  months(options) {
+    const { startDate, endDate, interval = 1 } = options
+    const d1 = newISODate(startDate)
+    const d2 = newISODate(endDate)
+    let monthsLapse =
+      d2.getMonth() - d1.getMonth() + 12 * (d2.getFullYear() - d1.getFullYear())
+    if (d2.getDate() < d1.getDate()) {
+      monthsLapse -= 1
+    }
+    return Math.floor(monthsLapse / interval)
+  },
+  years(options) {
+    const { startDate, endDate, interval = 1 } = options
+    return Math.floor(
+      this.months({ startDate, endDate, interval: 12 }) / interval
+    )
+  },
 }
 
 function datesDiff(options) {
@@ -135,21 +140,13 @@ function datesDiff(options) {
     daysOfWeekToSkip = [], // applies only when period is 'days'
     specialDatesToSkip = [], // applies only when period is 'days'
   } = options
-  switch (period) {
-    case 'days':
-      return daysDiff(startDate, endDate, {
-        skipHolidays,
-        daysOfWeekToSkip,
-        specialDatesToSkip,
-      })
-    case 'weeks':
-      return weeksDiff(startDate, endDate, interval)
-    case 'months':
-      return monthsDiff(startDate, endDate, interval)
-    case 'years':
-      return yearsDiff(startDate, endDate, interval)
-    default:
-      break
-  }
-  return undefined
+
+  return datesDiffFunctions[period]({
+    startDate,
+    endDate,
+    interval,
+    skipHolidays,
+    daysOfWeekToSkip,
+    specialDatesToSkip,
+  })
 }
