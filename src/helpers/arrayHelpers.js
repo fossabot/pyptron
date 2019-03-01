@@ -71,7 +71,10 @@ function getArrayElementAfterRotating(options) {
     period,
     interval,
   })
-  const daysOffset = dateObject.getDay() - startDateObject.getDay()
+  const startDateDay = startDateObject.getDay()
+  const daysOffset =
+    dateObject.getDay() -
+    (startDateDay === 0 || startDateDay === 6 ? 1 : startDateDay)
   return array[
     normalizeArrayIndex((reverse ? diff : -diff) + daysOffset, array.length)
   ]
