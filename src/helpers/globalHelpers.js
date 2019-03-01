@@ -3,6 +3,14 @@ const slugify = require('slugify')
 const config = require('../config')
 const { datesDiff } = require('./dateHelpers')
 
+module.exports = {
+  excludeDays,
+  pyp,
+  buildAssetPath,
+  cdnPathMaker,
+  createResponse,
+}
+
 function createResponse(statusCode, body) {
   return {
     headers: {
@@ -62,12 +70,4 @@ function pyp(date, pypFunction, options) {
     return 'NA'
   }
   return pypFunction(date)
-}
-
-module.exports = {
-  excludeDays,
-  pyp,
-  buildAssetPath,
-  cdnPathMaker,
-  createResponse,
 }
