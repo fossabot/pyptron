@@ -2,27 +2,11 @@ const pypFuncs = require('../../../helpers/globalHelpers')
 const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
-const days = require('./info/days')
-const decrees = require('./info/decrees')
-const exceptions = require('./info/exceptions')
-const hours = require('./info/hours')
-const maps = require('./info/maps')
-const observations = require('./info/observations')
-const scheme = require('./info/scheme')
-const vehicleClasses = require('./info/vehicleClasses')
+const info = require('./info')
 
 module.exports = {
   name: 'Transporte Público Colectivo',
-  info: {
-    days,
-    decrees,
-    exceptions,
-    hours,
-    maps,
-    observations,
-    scheme,
-    vehicleClasses,
-  },
+  info,
   pyp(date) {
     const options = {
       excludedDays: [],

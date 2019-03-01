@@ -1,25 +1,9 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
 const { newISODate } = require('../../../helpers/dateHelpers')
-const days = require('./info/days')
-const decrees = require('./info/decrees')
-const exceptions = require('./info/exceptions')
-const hours = require('./info/hours')
-const maps = require('./info/maps')
-const observations = require('./info/observations')
-const scheme = require('./info/scheme')
-const vehicleClasses = require('./info/vehicleClasses')
+const info = require('./info')
 
 module.exports = {
-  info: {
-    days,
-    decrees,
-    exceptions,
-    hours,
-    maps,
-    observations,
-    scheme,
-    vehicleClasses,
-  },
+  info,
   name: 'Motocarros',
   pyp(date) {
     const options = {
