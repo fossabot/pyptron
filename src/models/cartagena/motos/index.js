@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const { getNthDayOfMonth } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
@@ -27,7 +28,7 @@ module.exports = {
       skipHolidays: false,
     }
     const pypFunction = () => {
-      const dateObject = new Date(date)
+      const dateObject = newISODate(date)
       if (dateObject.getDay() === 5) {
         const year = dateObject.getFullYear()
         const month = dateObject.getMonth()
@@ -45,7 +46,7 @@ module.exports = {
         }
       }
       const pyp = ['1-3-5-7-9', '0-2-4-6-8']
-      return pyp[new Date(date).getDate() % 2]
+      return pyp[newISODate(date).getDate() % 2]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
@@ -29,7 +30,7 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      if (new Date(date).getDay() === 6) {
+      if (newISODate(date).getDay() === 6) {
         const pypNums = ['3-4', '5-6', '7-8', '9-0', '1-2']
         const startDate = '2018-01-06'
         return getArrayElementAfterRotating({

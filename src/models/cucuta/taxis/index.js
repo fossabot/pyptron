@@ -1,4 +1,5 @@
 const { getWeek } = require('../../../helpers/dateHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const pypFuncs = require('../../../helpers/globalHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
@@ -44,7 +45,7 @@ module.exports = {
         ],
       ]
       const week = getWeek(date) % 2
-      return pyp[week][new Date(date).getDay() - 1]
+      return pyp[week][newISODate(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

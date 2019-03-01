@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -27,7 +28,7 @@ module.exports = {
     }
     const pypFunction = () => {
       const pyp = ['0-2-4-6-8', '1-3-5-7-9']
-      return pyp[new Date(date).getDate() % 2]
+      return pyp[newISODate(date).getDate() % 2]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

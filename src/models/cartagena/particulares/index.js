@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const { formatDate } = require('../../../helpers/dateHelpers')
 const {
   getArrayElementAfterRotating,
@@ -25,7 +26,7 @@ module.exports = {
     vehicleClasses,
   },
   pyp(date) {
-    const dateObject = new Date(date)
+    const dateObject = newISODate(date)
     const options = {
       excludedDays: [0, 6],
       skipHolidays: true,

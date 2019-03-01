@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -33,7 +34,7 @@ module.exports = {
         '6-7', // jueves
         '8-9', // viernes
       ]
-      return pyp[new Date(date).getDay() - 1]
+      return pyp[newISODate(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

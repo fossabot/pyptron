@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const { formatDate, weeksDiff } = require('../../../helpers/dateHelpers')
 const {
   normalizeArrayIndex,
@@ -31,7 +32,7 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      const dow = new Date(date).getDay()
+      const dow = newISODate(date).getDay()
       if (dow === 6 || dow === 0) {
         switch (formatDate(date)) {
           case '2018-01-06':

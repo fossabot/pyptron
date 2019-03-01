@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -26,7 +27,7 @@ module.exports = {
       skipHolidays: true,
     }
     const pypFunction = () => {
-      const semester = new Date(date).getMonth() < 6 ? 0 : 1
+      const semester = newISODate(date).getMonth() < 6 ? 0 : 1
       const pyp = [
         [
           '3-4', // lunes
@@ -43,7 +44,7 @@ module.exports = {
           '9-0', // viernes
         ],
       ]
-      return pyp[semester][new Date(date).getDay() - 1]
+      return pyp[semester][newISODate(date).getDay() - 1]
     }
     return pypFuncs.pyp(date, pypFunction, options)
   },

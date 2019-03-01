@@ -1,4 +1,5 @@
 const pypFuncs = require('../../../helpers/globalHelpers')
+const { newISODate } = require('../../../helpers/dateHelpers')
 const days = require('./info/days')
 const decrees = require('./info/decrees')
 const exceptions = require('./info/exceptions')
@@ -26,7 +27,7 @@ module.exports = {
       skipHolidays: false,
     }
     const pypFunction = () => {
-      const dateObject = new Date(date)
+      const dateObject = newISODate(date)
       const datesDate = dateObject.getDate()
       if (datesDate === 31) {
         return 'NA'
