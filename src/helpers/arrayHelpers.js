@@ -4,7 +4,6 @@ module.exports = {
   normalizeArrayIndex,
   moveArrayElementsToTheRight,
   getArrayElementAfterRotating,
-  rotateByDay,
 }
 
 /**
@@ -58,7 +57,12 @@ function getArrayElementAfterRotating(options) {
     period,
     reverse = false,
     interval = 1,
+    skip = [0],
   } = options
+  if (period === 'days') {
+    const daysLapse = daysDiff(startDate, date, { skip }) - 1
+    return array[daysLapse % array.length]
+  }
   const dateObject = newISODate(date)
   const startDateObject = newISODate(startDate)
   const diff = datesDiff({
@@ -71,19 +75,4 @@ function getArrayElementAfterRotating(options) {
   return array[
     normalizeArrayIndex((reverse ? diff : -diff) + daysOffset, array.length)
   ]
-}
-
-/**
- * Rota los elementos de pypNums según la diferencia de días
- * @param {string} date Fecha para la cual se desea saber el valor final tras la rotación.
- * @param {string} startDate Fecha que corresponde con el valor inicial de la rotación.
- * @param {string} startNums Valor inicial en la fecha inicial de los valores que se desean rotar.
- * @param {array} pypNums Valores que se desean rotar.
- * @param {array} skip Días de la semana que se desean saltar en la rotación.
- * @returns {string} Valor de pypNums correspondiente a date tras la rotación de los elementos.
- */
-function rotateByDay(options) {
-  const { date, startDate, array, skip = [0] } = options
-  const daysLapse = daysDiff(startDate, date, { skip }) - 1
-  return array[daysLapse % array.length]
 }
