@@ -148,9 +148,9 @@ function daysDiff(startDate, endDate, options = {}) {
  * @param {string} endDate Fecha final.
  * @returns {number} Cantidad de semanas de difencia entre la fecha inicial y la fecha final.
  */
-function weeksDiff(startDate, endDate) {
+function weeksDiff(startDate, endDate, interval = 1) {
   const daysLapse = daysDiff(startDate, endDate)
-  return Math.floor(daysLapse / 7)
+  return Math.floor(daysLapse / 7 / interval)
 }
 
 /**
@@ -178,8 +178,8 @@ function monthsDiff(startDate, endDate, interval = 1) {
  * @param {int} interval Intervalo de meses para calcular la diferencia.
  * @returns {number} Cantidad de meses de diferencia entre la fecha inicial y la fecha final.
  */
-function yearsDiff(startDate, endDate) {
-  return monthsDiff(startDate, endDate, 12)
+function yearsDiff(startDate, endDate, interval = 1) {
+  return Math.floor(monthsDiff(startDate, endDate, 12) / interval)
 }
 
 /**
@@ -189,16 +189,17 @@ function yearsDiff(startDate, endDate) {
  * @param {String} period Intervalo que se desea calcular: "days", "weeks", "months"
  * @returns {Number} La diferencia según el periodo especificado
  * */
-function datesDiff(startDate, endDate, period) {
+function datesDiff(options) {
+  const { startDate, endDate, period, interval } = options
   switch (period) {
     case 'days':
       return daysDiff(startDate, endDate)
     case 'weeks':
-      return weeksDiff(startDate, endDate)
+      return weeksDiff(startDate, endDate, interval)
     case 'months':
-      return monthsDiff(startDate, endDate)
+      return monthsDiff(startDate, endDate, interval)
     case 'years':
-      return yearsDiff(startDate, endDate)
+      return yearsDiff(startDate, endDate, interval)
     default:
       break
   }

@@ -76,10 +76,22 @@ function excludeDays(date, days, holidays = true) {
 function pyp(date, pypFunction, options) {
   const { excludedDays = [], skipHolidays = true } = options
   const startDate = '2018-01-01'
-  if (datesDiff(startDate, date, 'days') <= 0) {
+  if (
+    datesDiff({
+      startDate,
+      endDate: date,
+      period: 'days',
+    }) <= 0
+  ) {
     throw new Error('Date out of range')
   }
-  if (datesDiff(new Date(), date, 'months') >= 12) {
+  if (
+    datesDiff({
+      startDate: new Date(),
+      endDate: date,
+      period: 'months',
+    }) >= 12
+  ) {
     throw new Error('Date out of range')
   }
   if (excludeDays(date, excludedDays, skipHolidays)) {

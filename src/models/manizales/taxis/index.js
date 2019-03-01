@@ -63,7 +63,7 @@ module.exports = {
           ['8', '7'],
           ['0', '9'],
         ]
-        const weeksLapse = weeksDiff(startDate, date, [])
+        const weeksLapse = weeksDiff(startDate, date)
         // Usamos la función normalizeArrayIndex(index, arrLen) para mantener uniformidad en el código,
         // pero perfectamente podríamos usar:
         //   const index = weeksLapse % pypNums.length;

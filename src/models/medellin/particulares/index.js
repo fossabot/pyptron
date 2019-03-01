@@ -31,7 +31,7 @@ module.exports = {
       // const startDate = '2018-02-05'
       const dow = new Date(date).getDay()
       if (dow === 6) {
-        const weeksLapse = weeksDiff('2019-02-23', date, [])
+        const weeksLapse = weeksDiff('2019-02-23', date)
         const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
         const index = normalizeArrayIndex(weeksLapse, weekendsNums.length)
         return weekendsNums[index]

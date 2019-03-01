@@ -61,11 +61,15 @@ function getArrayElementAfterRotating(options) {
   } = options
   const dateObject = newISODate(date)
   const startDateObject = newISODate(startDate)
-  const diff = datesDiff(startDateObject, dateObject, period)
-  const lapse = Math.floor(diff / interval)
+  const diff = datesDiff({
+    startDate,
+    endDate: date,
+    period,
+    interval,
+  })
   const daysOffset = dateObject.getDay() - startDateObject.getDay()
   return array[
-    normalizeArrayIndex((reverse ? lapse : -lapse) + daysOffset, array.length)
+    normalizeArrayIndex((reverse ? diff : -diff) + daysOffset, array.length)
   ]
 }
 
