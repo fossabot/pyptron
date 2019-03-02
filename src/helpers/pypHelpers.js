@@ -1,8 +1,10 @@
+const slugify = require('slugify')
 const { getHoliday } = require('pascua')
 const { datesDiff } = require('./dateHelpers')
 
 module.exports = {
   pypWrapper,
+  generateMap,
 }
 
 function pypWrapper(date, pypFunction, options) {
@@ -42,4 +44,23 @@ function excludeDays(date, days, holidays = true) {
   return (
     days.includes(dateObject.getDay()) || (holidays && getHoliday(dateObject))
   )
+}
+
+function generateMap(object) {
+  return Object.keys(object)
+    .sort()
+    .reduce((result, elem) => {
+      const elemName = object[elem].name
+      const elemSlug = slugify(elemName, { lower: true })
+      /* eslint-disable no-param-reassign */
+      result[elemSlug] = {
+        name: elemName,
+        key: elem,
+      }
+      if (object[elem].categories) {
+        result[elemSlug].categories = generateMap(object[elem].categories)
+      }
+      /* eslint-enable no-param-reassign */
+      return result
+    }, {})
 }

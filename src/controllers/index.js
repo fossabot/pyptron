@@ -1,14 +1,16 @@
 const pyptron = require('./pyptron')
+const { generateMap } = require('../helpers/pypHelpers')
 const { createResponse } = require('../helpers/globalHelpers')
+const cities = require('../models')
 
 module.exports = {
-  cities,
-  categories,
+  getCities,
+  getCategories,
 }
 
-const citiesMap = pyptron.getCities()
+const citiesMap = generateMap(cities)
 
-function cities(city, options = {}) {
+function getCities(city, options = {}) {
   if (!city) {
     return createResponse(200, citiesMap)
   }
@@ -28,7 +30,7 @@ function cities(city, options = {}) {
   }
 }
 
-function categories(city, category, options = {}) {
+function getCategories(city, category, options = {}) {
   const { date = new Date(), days = 1 } = options
   if (!citiesMap[city]) {
     return createResponse(404, {

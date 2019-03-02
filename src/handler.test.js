@@ -1,7 +1,8 @@
 const { pyptron } = require('./handler')
-const { getCities } = require('./controllers/pyptron')
+const { generateMap } = require('./helpers/pypHelpers')
+const cities = require('./models')
 
-const citiesMap = getCities()
+const citiesMap = generateMap(cities)
 const event = {}
 
 describe('Test API endpoints', () => {
@@ -12,16 +13,16 @@ describe('Test API endpoints', () => {
     expect(response.statusCode).toBe(200)
     expect(JSON.parse(response.body)).toEqual(citiesMap)
   })
-  const cities = Object.keys(citiesMap)
+  const citiesNames = Object.keys(citiesMap)
   it('should return 404 for GET /nonExistingCity', async () => {
     event.resource = '/{city}'
     event.pathParameters = { city: 'nonExistingCity' }
     expect.assertions(2)
     const response = await pyptron(event)
     expect(response.statusCode).toBe(404)
-    expect(JSON.parse(response.body).cities).toEqual(cities)
+    expect(JSON.parse(response.body).cities).toEqual(citiesNames)
   })
-  cities.forEach(city => {
+  citiesNames.forEach(city => {
     it(`should GET /${city}`, async () => {
       expect.assertions(10)
       event.resource = '/{city}'

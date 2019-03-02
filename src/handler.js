@@ -1,4 +1,4 @@
-const { cities, categories } = require('./controllers')
+const { getCities, getCategories } = require('./controllers')
 const { createResponse } = require('./helpers/globalHelpers')
 
 exports.pyptron = async event => {
@@ -6,11 +6,11 @@ exports.pyptron = async event => {
   const options = event.queryStringParameters || {}
   switch (event.resource) {
     case '/':
-      return cities()
+      return getCities()
     case '/{city}':
-      return cities(city, options)
+      return getCities(city, options)
     case '/{city}/{category}':
-      return categories(city, category, options)
+      return getCategories(city, category, options)
     default:
       return createResponse(500, {
         error: 'We do not know what just happened.',

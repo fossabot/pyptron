@@ -63,39 +63,9 @@ const cities = {
 }
 
 module.exports = {
-  getCities,
-  getCategories,
   getPypData,
   getPypInfo,
   getPyp,
-}
-
-function getCities() {
-  return Object.keys(cities)
-    .sort()
-    .reduce((result, city) => {
-      const cityName = cities[city].name
-      const citySlug = slugify(cityName, { lower: true })
-      // eslint-disable-next-line no-param-reassign
-      result[citySlug] = {
-        name: cityName,
-        key: city,
-        categories: getCategories(city),
-      }
-      return result
-    }, {})
-}
-
-function getCategories(city) {
-  const categoriesMap = {}
-  const cityObj = cities[city]
-  const categories = Object.keys(cityObj.categories).sort()
-  categories.forEach(category => {
-    const categoryName = cityObj.categories[category].name
-    const categorySlug = slugify(categoryName, { lower: true })
-    categoriesMap[categorySlug] = { key: category, name: categoryName }
-  })
-  return categoriesMap
 }
 
 function getPyp(city, date, categories = []) {
