@@ -16,13 +16,23 @@ module.exports = {
     if (dateObject.getDay() === 5) {
       const year = dateObject.getFullYear()
       const month = dateObject.getMonth()
-      const secondFriday = getNthDayOfMonth(year, month, 5, 1)
+      const secondFriday = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: 5,
+        index: 1,
+      })
       if (
         dateObject.setHours(0, 0, 0, 0) === secondFriday.setHours(0, 0, 0, 0)
       ) {
         return 'NA'
       }
-      const lastFriday = getNthDayOfMonth(year, month, 5, -1)
+      const lastFriday = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: 5,
+        index: -1,
+      })
       if (dateObject.setHours(0, 0, 0, 0) === lastFriday.setHours(0, 0, 0, 0)) {
         return 'NA'
       }

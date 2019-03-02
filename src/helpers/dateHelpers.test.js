@@ -44,7 +44,12 @@ describe('test for getting nth day of a given month', () => {
       const date = new Date(firstSunday)
       const year = date.getFullYear()
       const month = date.getMonth()
-      const firstSundayDate = getNthDayOfMonth(year, month, days.sunday, 0)
+      const firstSundayDate = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: days.sunday,
+        index: 0,
+      })
       expect(firstSundayDate.toISOString()).toBe(date.toISOString())
     })
   })
@@ -68,7 +73,12 @@ describe('test for getting nth day of a given month', () => {
       const date = new Date(secondFriday)
       const year = date.getFullYear()
       const month = date.getMonth()
-      const secondFridayDate = getNthDayOfMonth(year, month, days.friday, 1)
+      const secondFridayDate = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: days.friday,
+        index: 1,
+      })
       expect(secondFridayDate.toISOString()).toBe(date.toISOString())
     })
   })
@@ -91,7 +101,12 @@ describe('test for getting nth day of a given month', () => {
       const date = new Date(thirdSaturday)
       const year = date.getFullYear()
       const month = date.getMonth()
-      const thirdSaturdayDate = getNthDayOfMonth(year, month, days.saturday, 2)
+      const thirdSaturdayDate = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: days.saturday,
+        index: 2,
+      })
       expect(thirdSaturdayDate.toISOString()).toBe(date.toISOString())
     })
   })
@@ -114,7 +129,12 @@ describe('test for getting nth day of a given month', () => {
       const date = new Date(lastFriday)
       const year = date.getFullYear()
       const month = date.getMonth()
-      const lastFridayDate = getNthDayOfMonth(year, month, days.friday, -1)
+      const lastFridayDate = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: days.friday,
+        index: -1,
+      })
       expect(lastFridayDate.toISOString()).toBe(date.toISOString())
     })
   })
@@ -137,7 +157,12 @@ describe('test for getting nth day of a given month', () => {
       const date = new Date(lastSunday)
       const year = date.getFullYear()
       const month = date.getMonth()
-      const lastFridayDate = getNthDayOfMonth(year, month, days.sunday, -1)
+      const lastFridayDate = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: days.sunday,
+        index: -1,
+      })
       expect(lastFridayDate.toISOString()).toBe(date.toISOString())
     })
   })
@@ -160,7 +185,12 @@ describe('test for getting nth day of a given month', () => {
       const date = new Date(secondLastFriday)
       const year = date.getFullYear()
       const month = date.getMonth()
-      const lastFridayDate = getNthDayOfMonth(year, month, days.sunday, -2)
+      const lastFridayDate = getNthDayOfMonth({
+        year,
+        month,
+        dayOfWeek: days.sunday,
+        index: -2,
+      })
       expect(lastFridayDate.toISOString()).toBe(date.toISOString())
     })
   })

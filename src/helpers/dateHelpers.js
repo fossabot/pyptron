@@ -43,7 +43,8 @@ function getWeek(date) {
   )
 }
 
-function getNthDayOfMonth(year, month, dayOfWeek, index) {
+function getNthDayOfMonth(options) {
+  const { year, month, dayOfWeek, index } = options
   const backwards = index < 0
   const offset = (index + (backwards ? 1 : 0)) * 7
   const date = new Date(
