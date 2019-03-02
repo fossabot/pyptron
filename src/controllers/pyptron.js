@@ -2,65 +2,7 @@ const slugify = require('slugify')
 const { pypWrapper } = require('../helpers/pypHelpers')
 const { newISODate } = require('../helpers/dateHelpers')
 const { cdnPathMaker } = require('../helpers/globalHelpers')
-const armenia = require('../models/armenia')
-const barranquilla = require('../models/barranquilla')
-const bello = require('../models/bello')
-const bogota = require('../models/bogota')
-const bucaramanga = require('../models/bucaramanga')
-const buenaventura = require('../models/buenaventura')
-const cali = require('../models/cali')
-const cartagena = require('../models/cartagena')
-const cucuta = require('../models/cucuta')
-const envigado = require('../models/envigado')
-const ibague = require('../models/ibague')
-const itagui = require('../models/itagui')
-const laestrella = require('../models/laestrella')
-const malambo = require('../models/malambo')
-const manizales = require('../models/manizales')
-const medellin = require('../models/medellin')
-const ocana = require('../models/ocana')
-const pamplona = require('../models/pamplona')
-const pasto = require('../models/pasto')
-const pereira = require('../models/pereira')
-const popayan = require('../models/popayan')
-const quibdo = require('../models/quibdo')
-const sabaneta = require('../models/sabaneta')
-const santamarta = require('../models/santamarta')
-const soledad = require('../models/soledad')
-const tunja = require('../models/tunja')
-const turbaco = require('../models/turbaco')
-const villavicencio = require('../models/villavicencio')
-
-const cities = {
-  armenia,
-  barranquilla,
-  bello,
-  bogota,
-  bucaramanga,
-  buenaventura,
-  cali,
-  cartagena,
-  cucuta,
-  envigado,
-  ibague,
-  itagui,
-  laestrella,
-  malambo,
-  manizales,
-  medellin,
-  ocana,
-  pamplona,
-  pasto,
-  pereira,
-  popayan,
-  quibdo,
-  sabaneta,
-  santamarta,
-  soledad,
-  tunja,
-  turbaco,
-  villavicencio,
-}
+const cities = require('../models')
 
 module.exports = {
   getPypData,
