@@ -1,19 +1,20 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Todos los días de la semana'],
+  decrees: [
+    {
+      name: 'Decreto 0387 del 11 de abril de 2016',
+      url:
+        'http://www.ibague.gov.co/portal/admin/archivos/normatividad/2016/13967-DEC-20160415.pdf',
+    },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: ['Transporte público colectivo municipal de pasajeros'],
 }

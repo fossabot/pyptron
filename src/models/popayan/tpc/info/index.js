@@ -1,19 +1,22 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Lunes a viernes hábiles'],
+  decrees: [
+    {
+      name: 'Decreto 20181000000015 del 2 de enero de 2018',
+      url:
+        'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
+    },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: [
+    'Transporte Público de servicio de carga con capacidad menor a una y media toneladas',
+  ],
 }

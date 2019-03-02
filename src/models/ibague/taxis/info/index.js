@@ -1,19 +1,20 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Todos los días de la semana'],
+  decrees: [
+    {
+      name: 'Decreto 11-0160 del 29 de febrero de 2008',
+      url:
+        'http://www.ibague.gov.co/portal/admin/archivos/normatividad/2008/DECRETO%20160.PDF',
+    },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: '', hours: [['6:00', '6:00']], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: ['Transporte público individual - taxis'],
 }

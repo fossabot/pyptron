@@ -1,19 +1,21 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: [
+    'Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)',
+  ],
+  decrees: [
+    { name: 'Decreto 60 del 22 de octubre de 2018', url: 'cdn:pdf' },
+    { name: 'Estudio de tráfico pico y placa enero 2018', url: 'cdn:pdf' },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: [
+    'Vehículos particulares no matriculados en el municipio de Ocaña',
+  ],
 }

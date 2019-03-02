@@ -1,19 +1,20 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Lunes a domingo'],
+  decrees: [
+    {
+      name: 'Decreto 0001 del 4 de enero de 2018',
+      url:
+        'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=25496',
+    },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: '', hours: [['05:00', '22:00']], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: ['Vehículos de Transporte de Servicio Público Colectivo'],
 }

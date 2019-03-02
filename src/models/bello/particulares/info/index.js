@@ -1,19 +1,27 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Días hábiles de la semana - lunes a viernes.'],
+  decrees: [
+    {
+      name: 'Decreto pico y placa enero de 2017',
+      url:
+        'http://www.bello.gov.co/index.php/component/k2/item/download/219_e570e9fbf71412d35ba571a0635ba25b',
+    },
+    {
+      name: 'Decreto pico y placa febrero de 2018',
+      url:
+        'http://www.bello.gov.co/index.php/component/k2/item/download/941_94bced8a97224f77da7427d07b1da1b1',
+    },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [
+    { comment: '', hours: [['7:00', '8:30'], ['17:30', '19:00']], days: [] },
+  ],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: ['Vehículos particulares y oficiales'],
 }

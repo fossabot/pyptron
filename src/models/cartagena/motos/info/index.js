@@ -1,19 +1,18 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Lunes a viernes.'],
+  decrees: [
+    { name: 'Decreto 1035 del 5 de septiembre de 2018', url: 'cdn:pdf' },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: '', hours: [['5:00', '23:00']], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: [
+    'Vehículos tipo motocicleta de cualquier modalidad y cilindraje, incluyendo cuatrimotos, tricimotos, motocarros y bicicletas con pedalea asistido con motor.',
+  ],
 }

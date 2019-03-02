@@ -1,19 +1,23 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: ['Lunes a viernes'],
+  decrees: [
+    { name: 'Decreto 222 del 25 de julio de 2018', url: 'cdn:pdf' },
+    { name: 'Decreto 245 del 26 de julio de 2017', url: 'cdn:pdf' },
+    { name: 'Decreto 010 del 24 de enero de 2017', url: 'cdn:pdf' },
+    { name: 'Decreto 131 del 26 de enero de 2016', url: 'cdn:pdf' },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [
+    { comment: '', hours: [['6:00', '8:00'], ['17:00', '19:30']], days: [] },
+  ],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: [
+    'Vehículos automotores con capacidad de carga de treinta (30) toneladas o superior',
+  ],
 }

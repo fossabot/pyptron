@@ -1,19 +1,21 @@
-const days = require('./days')
-const decrees = require('./decrees')
 const exceptions = require('./exceptions')
-const hours = require('./hours')
-const maps = require('./maps')
 const observations = require('./observations')
 const scheme = require('./scheme')
-const vehicleClasses = require('./vehicleClasses')
 
 module.exports = {
-  days,
-  decrees,
+  days: [
+    'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
+  ],
+  decrees: [
+    { name: 'Decreto 1483 de diciembre de 2018', url: '' },
+    { name: 'Decreto 1659 de diciembre de 2017', url: 'cdn:pdf' },
+  ],
   exceptions,
-  hours,
-  maps,
+  hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],
+  maps: [],
   observations,
   scheme,
-  vehicleClasses,
+  vehicleClasses: [
+    'Vehículos de transporte público individual de pasajeros - Taxis',
+  ],
 }
