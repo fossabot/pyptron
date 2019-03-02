@@ -5,33 +5,9 @@ const { cdnPathMaker } = require('../helpers/globalHelpers')
 const cities = require('../models')
 
 module.exports = {
-  getPypData,
   getPypInfo,
+  getPypData,
   getPyp,
-}
-
-function getPyp(city, date, categories = []) {
-  const pypCity = cities[city]
-  const cats = categories.length
-    ? categories
-    : Object.keys(pypCity.categories).sort()
-  return cats.reduce((result, category) => {
-    const cityPath = slugify(pypCity.name, { lower: true })
-    const activeCategory = pypCity.categories[category]
-    const categoryPath = slugify(activeCategory.name, {
-      lower: true,
-    })
-    result.push({
-      name: activeCategory.name,
-      path: `${cityPath}/${categoryPath}`,
-      pyp: pypWrapper(date, activeCategory.pypFunction, {
-        excludedDays: activeCategory.excludedDays,
-        skipHolidays: activeCategory.skipHolidays,
-      }),
-      key: category,
-    })
-    return result
-  }, [])
 }
 
 function getPypInfo(city, date, categories = []) {
@@ -77,4 +53,28 @@ function getPypData(city, date, days = 1, categories = []) {
     currentDate.setDate(currentDate.getDate() + 1)
   }
   return result
+}
+
+function getPyp(city, date, categories = []) {
+  const pypCity = cities[city]
+  const cats = categories.length
+    ? categories
+    : Object.keys(pypCity.categories).sort()
+  return cats.reduce((result, category) => {
+    const cityPath = slugify(pypCity.name, { lower: true })
+    const activeCategory = pypCity.categories[category]
+    const categoryPath = slugify(activeCategory.name, {
+      lower: true,
+    })
+    result.push({
+      name: activeCategory.name,
+      path: `${cityPath}/${categoryPath}`,
+      pyp: pypWrapper(date, activeCategory.pypFunction, {
+        excludedDays: activeCategory.excludedDays,
+        skipHolidays: activeCategory.skipHolidays,
+      }),
+      key: category,
+    })
+    return result
+  }, [])
 }
