@@ -32,9 +32,6 @@ function getPypInfo(city, date, categories = []) {
 }
 
 function getPypData(city, date, days = 1, categories = []) {
-  // Si el argumento `date` solo tiene diez caracteres quiere decir que no se ha
-  // indicado la zona horaria por lo que asumimos la zona horario de Colombia.
-  // Usamos el formato ISO
   const ISODate = newISODate(date)
   const pypCity = cities[city]
   const currentDate = new Date(ISODate)
