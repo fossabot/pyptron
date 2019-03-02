@@ -13,7 +13,7 @@ exports.pyptron = async event => {
       return getCategories(city, category, options)
     default:
       return createResponse(500, {
-        error: 'We do not know what just happened.',
+        error: 'Only God knows what just happened.',
       })
   }
 }
