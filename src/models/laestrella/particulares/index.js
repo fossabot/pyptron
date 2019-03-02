@@ -2,7 +2,9 @@ const medellinParticulares = require('../../medellin/particulares')
 const info = require('./info')
 
 module.exports = {
+  skipHolidays: medellinParticulares.skipHolidays,
+  excludedDays: medellinParticulares.excludedDays,
   name: medellinParticulares.name,
   info,
-  pyp: medellinParticulares.pyp,
+  pypFunction: medellinParticulares.pypFunction,
 }

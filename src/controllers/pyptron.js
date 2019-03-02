@@ -1,4 +1,5 @@
 const slugify = require('slugify')
+const { pypWrapper } = require('../helpers/pypHelpers')
 const { newISODate } = require('../helpers/dateHelpers')
 const { cdnPathMaker } = require('../helpers/globalHelpers')
 const armenia = require('../models/armenia')
@@ -111,7 +112,10 @@ function getPyp(city, date, categories = []) {
     result.push({
       name: activeCategory.name,
       path: `${cityPath}/${categoryPath}`,
-      pyp: activeCategory.pyp(date),
+      pyp: pypWrapper(date, activeCategory.pypFunction, {
+        excludedDays: activeCategory.excludedDays,
+        skipHolidays: activeCategory.skipHolidays,
+      }),
       key: category,
     })
     return result

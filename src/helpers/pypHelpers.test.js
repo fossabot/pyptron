@@ -1,4 +1,4 @@
-const { pyp } = require('./globalHelpers')
+const { pypWrapper } = require('./pypHelpers')
 
 describe('test for holidays', () => {
   const times = ['T00:00:00.0000-05:00', 'T23:59:59.999-05:00']
@@ -20,7 +20,7 @@ describe('test for holidays', () => {
           excludedDays: [],
           skipHolidays: true,
         }
-        expect(pyp(pypDate, () => true, options)).toBe(dateCase[1])
+        expect(pypWrapper(pypDate, () => true, options)).toBe(dateCase[1])
       })
     })
   })
@@ -45,7 +45,7 @@ describe('test for excluded days', () => {
           excludedDays: [0, 6],
           skipHolidays: true,
         }
-        expect(pyp(pypDate, () => true, options)).toBe(dateCase[1])
+        expect(pypWrapper(pypDate, () => true, options)).toBe(dateCase[1])
       })
     })
   })
@@ -62,10 +62,10 @@ describe("test for 'out of range' error", () => {
       excludedDays: [],
       skipHolidays: false,
     }
-    expect(() => pyp(aYearFromNow, () => true, options)).toThrowError(
+    expect(() => pypWrapper(aYearFromNow, () => true, options)).toThrowError(
       'Date out of range'
     )
-    expect(() => pyp('2017-12-31', () => true, options)).toThrowError(
+    expect(() => pypWrapper('2017-12-31', () => true, options)).toThrowError(
       'Date out of range'
     )
   })
