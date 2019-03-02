@@ -62,23 +62,11 @@ const cities = {
 }
 
 module.exports = {
-  getCategories,
   getCities,
-  getPyp,
+  getCategories,
   getPypData,
   getPypInfo,
-}
-
-function getCategories(city) {
-  const categoriesMap = {}
-  const cityObj = cities[city]
-  const categories = Object.keys(cityObj.categories).sort()
-  categories.forEach(category => {
-    const categoryName = cityObj.categories[category].name
-    const categorySlug = slugify(categoryName, { lower: true })
-    categoriesMap[categorySlug] = { key: category, name: categoryName }
-  })
-  return categoriesMap
+  getPyp,
 }
 
 function getCities() {
@@ -95,6 +83,18 @@ function getCities() {
       }
       return result
     }, {})
+}
+
+function getCategories(city) {
+  const categoriesMap = {}
+  const cityObj = cities[city]
+  const categories = Object.keys(cityObj.categories).sort()
+  categories.forEach(category => {
+    const categoryName = cityObj.categories[category].name
+    const categorySlug = slugify(categoryName, { lower: true })
+    categoriesMap[categorySlug] = { key: category, name: categoryName }
+  })
+  return categoriesMap
 }
 
 function getPyp(city, date, categories = []) {
