@@ -10,7 +10,8 @@ module.exports = {
   getPyp,
 }
 
-function getPypInfo(city, date, categories = []) {
+function getPypInfo(options) {
+  const { city, categories = [] } = options
   const pypCity = cities[city]
   const cats = categories.length
     ? categories
@@ -31,18 +32,19 @@ function getPypInfo(city, date, categories = []) {
   }, {})
 }
 
-function getPypData(city, date, days = 1, categories = []) {
+function getPypData(options) {
+  const { city, date, days = 1, categories = [] } = options
   const ISODate = newISODate(date)
   const pypCity = cities[city]
   const currentDate = new Date(ISODate)
   const result = {
     name: pypCity.name,
     path: slugify(pypCity.name, { lower: true }),
-    info: getPypInfo(city, currentDate, categories),
+    info: getPypInfo({ city, date: currentDate, categories }),
     data: [],
   }
   for (let i = 0; i < days; i += 1) {
-    const pypData = getPyp(city, currentDate, categories)
+    const pypData = getPyp({ city, date: currentDate, categories })
     result.data.push({
       date: currentDate.toISOString(),
       categories: pypData,
@@ -52,7 +54,8 @@ function getPypData(city, date, days = 1, categories = []) {
   return result
 }
 
-function getPyp(city, date, categories = []) {
+function getPyp(options) {
+  const { city, date, categories = [] } = options
   const pypCity = cities[city]
   const cats = categories.length
     ? categories
