@@ -1,10 +1,10 @@
-const { getPyp, getPypData, getPypInfo } = require('./pyptron')
+const { getPypNumbers, getPypAllData, getPypInfo } = require('./pyptron')
 
 describe('Generate pyp data objects', () => {
   it('should return data for three days for all categories', () => {
     const date = '2018-03-06T00:00:02.000-05:00'
     const days = 3
-    const result = getPypData({ city: 'bogota', date, days })
+    const result = getPypAllData({ city: 'bogota', date, days })
     expect(result.data.length).toBe(3)
     expect(result.name).toBe('Bogotá')
     expect(result.path).toBe('bogota')
@@ -49,7 +49,7 @@ describe('Generate pyp data objects', () => {
     const date = '2018-03-06T00:00:02-05:00'
     const days = 3
     const categories = ['taxis', 'ambiental']
-    const result = getPypData({ city: 'bogota', date, days, categories })
+    const result = getPypAllData({ city: 'bogota', date, days, categories })
     expect(result.data.length).toBe(3)
     expect(result.name).toBe('Bogotá')
     expect(result.data[0].categories.length).toBe(categories.length)
@@ -78,7 +78,7 @@ describe('Generate pyp data objects', () => {
   })
   it('should return pyp data for one date', () => {
     const date = '2018-03-06T00:00:02-05:00'
-    const result = getPyp({ city: 'bogota', date })
+    const result = getPypNumbers({ city: 'bogota', date })
     expect(result).toEqual(
       expect.arrayContaining([
         {

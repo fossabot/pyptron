@@ -1,4 +1,4 @@
-const pyptron = require('./pyptron')
+const { getPypAllData } = require('./pyptron')
 const { generateMap } = require('../helpers/pypHelpers')
 const { createResponse } = require('../helpers/globalHelpers')
 const cities = require('../models')
@@ -23,7 +23,7 @@ function getCities(city, options = {}) {
   }
   const cityKey = citiesMap[city].key
   try {
-    const pypData = pyptron.getPypData({ city: cityKey, date })
+    const pypData = getPypAllData({ city: cityKey, date })
     return createResponse(200, pypData)
   } catch (error) {
     return createResponse(404, { error: error.message })
@@ -47,7 +47,7 @@ function getCategories(city, category, options = {}) {
   const cityKey = citiesMap[city].key
   const categoryKey = citiesMap[city].categories[category].key
   try {
-    const pypData = pyptron.getPypData({
+    const pypData = getPypAllData({
       city: cityKey,
       date,
       days,

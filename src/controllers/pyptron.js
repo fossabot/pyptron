@@ -6,8 +6,8 @@ const cities = require('../models')
 
 module.exports = {
   getPypInfo,
-  getPypData,
-  getPyp,
+  getPypAllData,
+  getPypNumbers,
 }
 
 function getPypInfo(options) {
@@ -32,7 +32,7 @@ function getPypInfo(options) {
   }, {})
 }
 
-function getPypData(options) {
+function getPypAllData(options) {
   const { city, date, days = 1, categories = [] } = options
   const ISODate = newISODate(date)
   const pypCity = cities[city]
@@ -44,7 +44,7 @@ function getPypData(options) {
     data: [],
   }
   for (let i = 0; i < days; i += 1) {
-    const pypData = getPyp({ city, date: currentDate, categories })
+    const pypData = getPypNumbers({ city, date: currentDate, categories })
     result.data.push({
       date: currentDate.toISOString(),
       categories: pypData,
@@ -54,7 +54,7 @@ function getPypData(options) {
   return result
 }
 
-function getPyp(options) {
+function getPypNumbers(options) {
   const { city, date, categories = [] } = options
   const pypCity = cities[city]
   const cats = categories.length
@@ -69,11 +69,11 @@ function getPyp(options) {
     result.push({
       name: activeCategory.name,
       path: `${cityPath}/${categoryPath}`,
+      key: category,
       pyp: pypWrapper(date, activeCategory.pypFunction, {
         excludedDays: activeCategory.excludedDays,
         skipHolidays: activeCategory.skipHolidays,
       }),
-      key: category,
     })
     return result
   }, [])
