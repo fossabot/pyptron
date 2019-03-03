@@ -1,0 +1,5 @@
+- Vehículos vinculados al transporte masivo de pasajeros bien sean articulados o alimentadores.
+- Vehículos de tranporte público colectivo intermunicipal de pasajeros cuyo destino u origen sea el Terminal de Transporte de Bogotá.
+- Vehículos de servicios especiales de transporte de asalariados y escolares debidamente autorizados.
+- Vehículos de carga.
+- Vehículos de servicios especiales de turismo, salvo aquellos a los cuales alude el artículo primero del presente Decreto.

@@ -1,0 +1,1 @@
+Los vehículos de servicio particular no podrán circular desde el kilómetro cinco, es decir, desde el sector del Sena hasta el Centro de la Ciudad y viceversa, de lo contrario serán sancionados por incurrir con la norma
