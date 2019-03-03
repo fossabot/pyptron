@@ -8,11 +8,11 @@ module.exports = {
   skipHolidays: true,
   pypFunction(date) {
     const pyp = [
-      '8-9', // lunes
-      '0-1', // martes
-      '2-3', // miércoles
-      '4-5', // jueves
-      '6-7', // viernes
+      '6-7', // lunes
+      '8-9', // martes
+      '0-1', // miércoles
+      '2-3', // jueves
+      '4-5', // viernes
     ]
     return pyp[newISODate(date).getDay() - 1]
   },
