@@ -47,5 +47,5 @@ module.exports = {
   maps: [],
   observations,
   scheme,
-  vehicleClasses: ['Vehículos automotores de servicio particular'],
+  vehicleClasses: ['Motos de servicio particular'],
 }

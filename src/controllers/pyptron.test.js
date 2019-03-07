@@ -39,7 +39,7 @@ describe('Generate pyp data objects', () => {
             name: expect.any(String),
             path: expect.stringMatching(/[a-z]+\/[a-z]+/),
             key: expect.stringMatching(/[a-z]+/),
-            pyp: expect.stringMatching(/[\d-]+/),
+            pyp: expect.stringMatching(/([\d-]+|NA)/),
           })
         )
       })
