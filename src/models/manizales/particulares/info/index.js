@@ -4,7 +4,10 @@ const scheme = require('./scheme')
 
 module.exports = {
   days: ['Lunes a viernes hábiles'],
-  decrees: [{ name: 'Decreto 0547 de 2017', url: 'cdn:pdf' }],
+  decrees: [
+    { name: 'Decreto 0475 de 2018', url: 'cdn:pdf' },
+    { name: 'Decreto 0547 de 2017', url: 'cdn:pdf' },
+  ],
   exceptions,
   hours: [
     {
