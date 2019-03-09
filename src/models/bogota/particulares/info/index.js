@@ -29,14 +29,14 @@ module.exports = {
   exceptions,
   hours: [
     {
-      comment: 'Domingo',
-      hours: [['6:30', '15:00']],
-      days: [0],
-    },
-    {
       comment: 'Sábado',
       hours: [['6:30', '18:00']],
       days: [6],
+    },
+    {
+      comment: 'Domingo',
+      hours: [['6:30', '15:00']],
+      days: [0],
     },
     {
       comment: 'Lunes a viernes',
