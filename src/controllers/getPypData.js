@@ -5,34 +5,9 @@ const { cdnPathMaker } = require('../helpers/globalHelpers')
 const cities = require('../models')
 
 module.exports = {
-  getPypInfo,
   getPypAllData,
+  getPypInfo,
   getPypNumbers,
-}
-
-function getPypInfo(options) {
-  const { city, categories = [] } = options
-  const pypCity = cities[city]
-  const requestedCategories = categories.length
-    ? categories
-    : Object.keys(pypCity.categories).sort()
-  const cityPath = slugify(pypCity.name, { lower: true })
-
-  return requestedCategories.reduce((result, category) => {
-    const activeCategory = pypCity.categories[category]
-    const categoryPath = slugify(activeCategory.name, {
-      lower: true,
-    })
-
-    const { info } = activeCategory
-    info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
-    info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
-    info.name = activeCategory.name
-    info.path = `${cityPath}/${categoryPath}`
-    result[category] = info // eslint-disable-line no-param-reassign
-
-    return result
-  }, {})
 }
 
 function getPypAllData(options) {
@@ -59,6 +34,31 @@ function getPypAllData(options) {
   }
 
   return allData
+}
+
+function getPypInfo(options) {
+  const { city, categories = [] } = options
+  const pypCity = cities[city]
+  const requestedCategories = categories.length
+    ? categories
+    : Object.keys(pypCity.categories).sort()
+  const cityPath = slugify(pypCity.name, { lower: true })
+
+  return requestedCategories.reduce((result, category) => {
+    const activeCategory = pypCity.categories[category]
+    const categoryPath = slugify(activeCategory.name, {
+      lower: true,
+    })
+
+    const { info } = activeCategory
+    info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
+    info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
+    info.name = activeCategory.name
+    info.path = `${cityPath}/${categoryPath}`
+    result[category] = info // eslint-disable-line no-param-reassign
+
+    return result
+  }, {})
 }
 
 function getPypNumbers(options) {
