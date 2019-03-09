@@ -40,7 +40,7 @@ function getPypAllData(options) {
   const ISODate = newISODate(date)
   const pypCity = cities[city]
   const currentDate = new Date(ISODate)
-  const result = {
+  const allData = {
     name: pypCity.name,
     path: slugify(pypCity.name, { lower: true }),
     info: getPypInfo({ city, date: currentDate, categories }),
@@ -50,7 +50,7 @@ function getPypAllData(options) {
   for (let i = 0; i < days; i += 1) {
     const pypData = getPypNumbers({ city, date: currentDate, categories })
 
-    result.data.push({
+    allData.data.push({
       date: currentDate.toISOString(),
       categories: pypData,
     })
@@ -58,7 +58,7 @@ function getPypAllData(options) {
     currentDate.setDate(currentDate.getDate() + 1)
   }
 
-  return result
+  return allData
 }
 
 function getPypNumbers(options) {
