@@ -69,20 +69,22 @@ function getPypNumbers(options) {
     : Object.keys(pypCity.categories).sort()
   const cityPath = slugify(pypCity.name, { lower: true })
 
-  return requestedCategories.map(category => {
+  const categoriesData = requestedCategories.map(category => {
     const activeCategory = pypCity.categories[category]
+    const { name, pypFunction, excludedDays, skipHolidays } = activeCategory
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
     })
-
     return {
-      name: activeCategory.name,
+      name,
       path: `${cityPath}/${categoryPath}`,
       key: category,
-      pyp: pypWrapper(date, activeCategory.pypFunction, {
-        excludedDays: activeCategory.excludedDays,
-        skipHolidays: activeCategory.skipHolidays,
+      pyp: pypWrapper(date, pypFunction, {
+        excludedDays,
+        skipHolidays,
       }),
     }
   })
+
+  return categoriesData
 }
