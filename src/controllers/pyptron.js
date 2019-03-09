@@ -13,10 +13,10 @@ module.exports = {
 function getPypInfo(options) {
   const { city, categories = [] } = options
   const pypCity = cities[city]
-  const cats = categories.length
+  const requestedCategories = categories.length
     ? categories
     : Object.keys(pypCity.categories).sort()
-  return cats.reduce((result, category) => {
+  return requestedCategories.reduce((result, category) => {
     const cityPath = slugify(pypCity.name, { lower: true })
     const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
@@ -57,10 +57,10 @@ function getPypAllData(options) {
 function getPypNumbers(options) {
   const { city, date, categories = [] } = options
   const pypCity = cities[city]
-  const cats = categories.length
+  const requestedCategories = categories.length
     ? categories
     : Object.keys(pypCity.categories).sort()
-  return cats.reduce((result, category) => {
+  return requestedCategories.reduce((result, category) => {
     const cityPath = slugify(pypCity.name, { lower: true })
     const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
