@@ -61,12 +61,12 @@ function getPypNumbers(options) {
     ? categories
     : Object.keys(pypCity.categories).sort()
   const cityPath = slugify(pypCity.name, { lower: true })
-  return requestedCategories.reduce((result, category) => {
+  return requestedCategories.map(category => {
     const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
     })
-    result.push({
+    return {
       name: activeCategory.name,
       path: `${cityPath}/${categoryPath}`,
       key: category,
@@ -74,7 +74,6 @@ function getPypNumbers(options) {
         excludedDays: activeCategory.excludedDays,
         skipHolidays: activeCategory.skipHolidays,
       }),
-    })
-    return result
-  }, [])
+    }
+  })
 }
