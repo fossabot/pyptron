@@ -16,8 +16,8 @@ function getPypInfo(options) {
   const requestedCategories = categories.length
     ? categories
     : Object.keys(pypCity.categories).sort()
+  const cityPath = slugify(pypCity.name, { lower: true })
   return requestedCategories.reduce((result, category) => {
-    const cityPath = slugify(pypCity.name, { lower: true })
     const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
@@ -60,8 +60,8 @@ function getPypNumbers(options) {
   const requestedCategories = categories.length
     ? categories
     : Object.keys(pypCity.categories).sort()
+  const cityPath = slugify(pypCity.name, { lower: true })
   return requestedCategories.reduce((result, category) => {
-    const cityPath = slugify(pypCity.name, { lower: true })
     const activeCategory = pypCity.categories[category]
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
