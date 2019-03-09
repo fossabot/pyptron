@@ -1,4 +1,4 @@
-const { getPypAllData } = require('./pyptron')
+const { getPypAllData } = require('./getPypData')
 const { generateMap } = require('../helpers/pypHelpers')
 const { createResponse } = require('../helpers/globalHelpers')
 const cities = require('../models')

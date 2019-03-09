@@ -1,4 +1,4 @@
-const { getPypNumbers, getPypAllData, getPypInfo } = require('./pyptron')
+const { getPypNumbers, getPypAllData, getPypInfo } = require('./getPypData')
 
 describe('Generate pyp data objects', () => {
   it('should return data for three days for all categories', () => {
