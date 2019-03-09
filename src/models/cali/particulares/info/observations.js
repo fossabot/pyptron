@@ -1,1 +1,0 @@
-module.exports = `Restringe la circulación de vehículos de servicio particular, servicio oficial y público solo en la modalidad especial, esta última para los vehículos de clase automovil, campero y camioneta hsta de cinco (5) sillas o puestos, es decir, el conductor más cuatro (4) pasajeros.`

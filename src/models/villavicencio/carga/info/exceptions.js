@@ -1,1 +1,0 @@
-module.exports = `La anterior restricción no aplica para la producción agrícola, ganadera, de alientos perecederos, vehículos de emergencia, los que transporten valores, oxígeno hospitalario, los de las fuerzas militares o de policía y de las empresas de servicio públicos domiciliarios.`

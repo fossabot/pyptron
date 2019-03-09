@@ -1,6 +1,6 @@
-const exceptions = require('./exceptions')
-const observations = require('./observations')
-const scheme = require('./scheme')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
+const scheme = require('./scheme.md')
 
 module.exports = {
   days: ['Lunes a viernes hábiles'],
