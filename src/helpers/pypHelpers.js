@@ -5,6 +5,7 @@ const { datesDiff } = require('./dateHelpers')
 module.exports = {
   pypWrapper,
   generateMap,
+  getCategoryEmoji,
 }
 
 function pypWrapper(date, pypFunction, options) {
@@ -46,7 +47,7 @@ function excludeDays(date, days, holidays = true) {
   )
 }
 
-function generateMap(object) {
+function generateMap(object, emoji = false) {
   return Object.keys(object)
     .sort()
     .reduce((result, elem) => {
@@ -58,9 +59,24 @@ function generateMap(object) {
         key: elem,
       }
       if (object[elem].categories) {
-        result[elemSlug].categories = generateMap(object[elem].categories)
+        result[elemSlug].categories = generateMap(object[elem].categories, true)
       }
-      /* eslint-enable no-param-reassign */
+      if (emoji) {
+        result[elemSlug].emoji = getCategoryEmoji(elem)
+      }
       return result
     }, {})
+}
+
+function getCategoryEmoji(category) {
+  const emojis = {
+    taxis: '🚕',
+    particulares: '🚗',
+    tpc: '🚌',
+    motos: '🛵',
+    especial: '🚐',
+    ambiental: '🌻',
+    carga: '🚛',
+  }
+  return emojis[category] || ''
 }

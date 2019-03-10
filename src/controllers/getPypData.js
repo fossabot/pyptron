@@ -1,7 +1,8 @@
 const slugify = require('slugify')
-const { pypWrapper } = require('../helpers/pypHelpers')
+const { pypWrapper, getCategoryEmoji } = require('../helpers/pypHelpers')
 const { newISODate } = require('../helpers/dateHelpers')
 const { cdnPathMaker } = require('../helpers/globalHelpers')
+
 const cities = require('../models')
 
 module.exports = {
@@ -50,10 +51,11 @@ function getPypInfo(options) {
       lower: true,
     })
 
-    const { info } = activeCategory
+    const { info, name } = activeCategory
     info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
     info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
-    info.name = activeCategory.name
+    info.name = name
+    info.emoji = getCategoryEmoji(category)
     info.path = `${cityPath}/${categoryPath}`
     result[category] = info // eslint-disable-line no-param-reassign
 

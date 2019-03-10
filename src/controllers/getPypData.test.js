@@ -14,16 +14,19 @@ describe('Generate pyp data objects', () => {
       'days',
       'decrees',
       'exceptions',
+      'emoji',
       'hours',
       'maps',
+      'name',
       'observations',
+      'path',
       'scheme',
       'vehicleClasses',
-      'name',
-      'path',
     ]
     categories.forEach(category => {
-      expect(Object.keys(result.info[category])).toEqual(categoryKeys)
+      expect(Object.keys(result.info[category])).toEqual(
+        expect.arrayContaining(categoryKeys)
+      )
     })
     const { data } = result
     expect(data.length).toBe(days)
@@ -63,17 +66,20 @@ describe('Generate pyp data objects', () => {
     const categoryKeys = [
       'days',
       'decrees',
+      'emoji',
       'exceptions',
       'hours',
       'maps',
+      'name',
       'observations',
+      'path',
       'scheme',
       'vehicleClasses',
-      'name',
-      'path',
     ]
     Object.keys(result).forEach(category => {
-      expect(Object.keys(result[category])).toEqual(categoryKeys)
+      expect(Object.keys(result[category])).toEqual(
+        expect.arrayContaining(categoryKeys)
+      )
     })
   })
   it('should return pyp data for one date', () => {
