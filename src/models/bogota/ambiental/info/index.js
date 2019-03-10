@@ -44,7 +44,7 @@ module.exports = {
     },
     {
       comment: 'Transporte de Carga más de dos toneladas',
-      hours: [['6:00', '8:00']],
+      hours: [['6:00', '10:00']],
       days: [],
     },
   ],

@@ -12,6 +12,9 @@ module.exports = {
     if (dateObject < newISODate('2019-03-08')) {
       return 'NA'
     }
+    if (dateObject > newISODate('2019-03-10')) {
+      return 'NA'
+    }
     if (dayOfWeek === 6) {
       return '1-3-5-7-9'
     }
