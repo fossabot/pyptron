@@ -14,11 +14,11 @@ module.exports = {
 function getPypAllData(options) {
   const { city, date, days = 1, categories = [] } = options
   const ISODate = newISODate(date)
-  const pypCity = cities[city]
+  const { name } = cities[city]
   const currentDate = new Date(ISODate)
   const allData = {
-    name: pypCity.name,
-    path: slugify(pypCity.name, { lower: true }),
+    name,
+    path: slugify(name, { lower: true }),
     info: getPypInfo({ city, date: currentDate, categories }),
     data: [],
   }
@@ -71,17 +71,17 @@ function getPypNumbers(options) {
     : Object.keys(pypCity.categories).sort()
   const cityPath = slugify(pypCity.name, { lower: true })
 
-  const categoriesData = requestedCategories.map(category => {
-    const activeCategory = pypCity.categories[category]
+  const categoriesData = requestedCategories.map(key => {
+    const activeCategory = pypCity.categories[key]
     const { name, pypFunction, excludedDays, skipHolidays } = activeCategory
     const categoryPath = slugify(activeCategory.name, {
       lower: true,
     })
     return {
+      key,
       name,
       path: `${cityPath}/${categoryPath}`,
-      key: category,
-      emoji: getCategoryEmoji(category),
+      emoji: getCategoryEmoji(key),
       pyp: pypWrapper(date, pypFunction, {
         excludedDays,
         skipHolidays,
