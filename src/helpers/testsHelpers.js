@@ -23,7 +23,7 @@ exports.testInfo = category => {
       expect(category.name.length).toBeGreaterThan(0)
     })
     it(`Should return scheme info of ${category.name}`, () => {
-      expect(typeof info.scheme).toBe('string')
+      expect(typeof info.scheme).toEqual(expect.anything())
     })
     it(`Should return decrees info for ${category.name}`, () => {
       const { decrees } = info

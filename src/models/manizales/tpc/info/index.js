@@ -1,6 +1,5 @@
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const scheme = require('./scheme.md')
 
 module.exports = {
   days: [
@@ -14,6 +13,6 @@ module.exports = {
   hours: [{ comment: '', hours: [['6:00', '23:59']], days: [] }],
   maps: [],
   observations,
-  scheme,
+  scheme: 'Letra que antecede al número lateral',
   vehicleClasses: ['Vehículos de Transporte Público Colectivo (TPC)'],
 }

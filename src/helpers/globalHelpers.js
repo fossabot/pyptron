@@ -5,6 +5,10 @@ module.exports = {
   buildAssetPath,
   cdnPathMaker,
   createResponse,
+  licensePlateScheme: {
+    lastNumber: 0,
+    firstNumber: 1,
+  },
 }
 
 function createResponse(statusCode, body) {

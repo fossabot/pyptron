@@ -1,6 +1,6 @@
+const { licensePlateScheme } = require('../../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const scheme = require('./scheme.md')
 
 module.exports = {
   days: [
@@ -16,6 +16,6 @@ module.exports = {
   hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
   maps: [{ name: 'Mapa pico y placa Pereira 2019', url: 'cdn:jpg' }],
   observations,
-  scheme,
+  scheme: licensePlateScheme.firstNumber,
   vehicleClasses: ['Motocicletas'],
 }

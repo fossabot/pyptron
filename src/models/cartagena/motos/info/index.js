@@ -1,6 +1,6 @@
+const { licensePlateScheme } = require('../../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const scheme = require('./scheme.md')
 
 module.exports = {
   days: ['Lunes a viernes.'],
@@ -11,7 +11,7 @@ module.exports = {
   hours: [{ comment: '', hours: [['5:00', '23:00']], days: [] }],
   maps: [],
   observations,
-  scheme,
+  scheme: licensePlateScheme.lastNumber,
   vehicleClasses: [
     'Vehículos tipo motocicleta de cualquier modalidad y cilindraje, incluyendo cuatrimotos, tricimotos, motocarros y bicicletas con pedalea asistido con motor.',
   ],

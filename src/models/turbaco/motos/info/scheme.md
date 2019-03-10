@@ -1,1 +1,0 @@
-Restricción de circulación para Motos, motocarros, moto triciclos, cuatrimotos y similares de lunes a viernes los días pares solo podrán circular los vehículos cuya placa tengan el último digito par, los impares sólo saldrán los vehículos con placa impar.

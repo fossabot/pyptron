@@ -1,1 +1,0 @@
-El ‘pico y placa’ contempla restricciones en la movilidad para vehículos particulares de placa Nacional (automóviles, motocicletas, camionetas, camiones, volquetes) matriculados en Cúcuta, Villa del Rosario, Los Patios y El Zulia
