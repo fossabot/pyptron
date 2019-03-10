@@ -50,21 +50,21 @@ function excludeDays(date, days, holidays = true) {
 function generateMap(object, emoji = false) {
   return Object.keys(object)
     .sort()
-    .reduce((result, elem) => {
-      const elemName = object[elem].name
-      const elemSlug = slugify(elemName, { lower: true })
+    .reduce((map, key) => {
+      const { name } = object[key]
+      const slug = slugify(name, { lower: true })
       /* eslint-disable no-param-reassign */
-      result[elemSlug] = {
-        name: elemName,
-        key: elem,
+      map[slug] = {
+        name,
+        key,
       }
-      if (object[elem].categories) {
-        result[elemSlug].categories = generateMap(object[elem].categories, true)
+      if (object[key].categories) {
+        map[slug].categories = generateMap(object[key].categories, true)
       }
       if (emoji) {
-        result[elemSlug].emoji = getCategoryEmoji(elem)
+        map[slug].emoji = getCategoryEmoji(key)
       }
-      return result
+      return map
     }, {})
 }
 

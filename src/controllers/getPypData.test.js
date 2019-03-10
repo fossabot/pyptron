@@ -89,6 +89,7 @@ describe('Generate pyp data objects', () => {
       expect.arrayContaining([
         {
           name: expect.any(String),
+          emoji: expect.any(String),
           path: expect.stringMatching(/[a-z]+\/[a-z]+/),
           key: expect.stringMatching(/[a-z]+/),
           pyp: expect.stringMatching(/[\d-]+/),

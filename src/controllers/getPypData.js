@@ -81,6 +81,7 @@ function getPypNumbers(options) {
       name,
       path: `${cityPath}/${categoryPath}`,
       key: category,
+      emoji: getCategoryEmoji(category),
       pyp: pypWrapper(date, pypFunction, {
         excludedDays,
         skipHolidays,
