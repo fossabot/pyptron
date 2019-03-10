@@ -1,1 +1,12 @@
-La rotación de la medida de “Pico y placa” para toda la ciudad de Medellín, que restringe la circulación de vehículos particules y oficiales, quedará rigiendo durante los periodos comprendidos entre las 07:00 y las 08:30 horas y entre las 17:30 y las 19:00 horas, durante los días hábiles de la semana por grupos de vehículos, según el último número de su placa, a partir del lunes 5 de febrero de 2018.
+Aplica para todos los municipios del Área Metropolitana del Valle de Aburrá:
+
+- Medellín
+- Bello
+- Itagüí
+- Envigado
+- Caldas
+- Copacabana
+- La Estrella
+- Girardota
+- Sabaneta
+- Barbosa
