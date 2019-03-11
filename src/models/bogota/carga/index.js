@@ -1,10 +1,10 @@
 const info = require('./info')
 
 module.exports = {
-  name: 'Ambiental',
+  name: 'Transporte de Carga',
   info,
-  excludedDays: [0],
-  skipHolidays: true,
+  excludedDays: [],
+  skipHolidays: false,
   pypFunction() {
     return '0-1-2-3-4-5-6-7-8-9'
     // const startDate = '2018-01-01'

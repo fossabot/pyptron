@@ -3,10 +3,7 @@ const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
 module.exports = {
-  days: [
-    'Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)',
-    'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
-  ],
+  days: ['Todos los días'],
   decrees: [
     {
       name: 'Decreto 060 de 2019',
@@ -33,17 +30,7 @@ module.exports = {
   exceptions,
   hours: [
     {
-      comment: 'Transporte Público Colectivo',
-      hours: [['6:00', '10:00']],
-      days: [],
-    },
-    {
-      comment: 'Transporte de Carga más de cinco toneladas',
-      hours: [['9:00', '10:00']],
-      days: [],
-    },
-    {
-      comment: 'Transporte de Carga más de dos toneladas',
+      comment: '',
       hours: [['6:00', '10:00']],
       days: [],
     },
@@ -56,8 +43,5 @@ module.exports = {
   ],
   observations,
   scheme: licensePlateScheme.lastNumber,
-  vehicleClasses: [
-    'Vehículos de Transporte Público Colectivo de pasajeros',
-    'Vehículos de Transporte de Carga',
-  ],
+  vehicleClasses: ['Vehículos de Transporte de Carga de más de dos toneladas'],
 }

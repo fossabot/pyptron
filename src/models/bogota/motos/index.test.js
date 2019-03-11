@@ -9,7 +9,7 @@ const dateCases = [
   },
   {
     date: '2019-03-08', // miércoles 16 de mayo de 2018
-    pyp: '0-2-4-6-8',
+    pyp: 'NA',
   },
   {
     date: '2019-03-11', // miércoles 16 de mayo de 2018

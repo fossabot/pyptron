@@ -51,7 +51,7 @@ describe('Generate pyp data objects', () => {
   it('should return data for two categories', () => {
     const date = '2018-03-06T00:00:02-05:00'
     const days = 3
-    const categories = ['taxis', 'ambiental']
+    const categories = ['taxis', 'tpc']
     const result = getPypAllData({ city: 'bogota', date, days, categories })
     expect(result.data.length).toBe(3)
     expect(result.name).toBe('Bogotá')
