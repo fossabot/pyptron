@@ -5,7 +5,7 @@ const { datesDiff } = require('./dateHelpers')
 module.exports = {
   pypWrapper,
   generateMap,
-  getCategoryEmoji,
+  getCategoryMetainfo,
 }
 
 function pypWrapper(date, pypFunction, options) {
@@ -47,36 +47,43 @@ function excludeDays(date, days, holidays = true) {
   )
 }
 
-function generateMap(object, emoji = false) {
+function generateMap(object) {
   return Object.keys(object)
     .sort()
     .reduce((map, key) => {
-      const { name } = object[key]
-      const slug = slugify(name, { lower: true })
-      /* eslint-disable no-param-reassign */
-      map[slug] = {
-        name,
-        key,
-      }
       if (object[key].categories) {
-        map[slug].categories = generateMap(object[key].categories, true)
+        const { name } = object[key]
+        const slug = slugify(name, { lower: true })
+        // eslint-disable-next-line no-param-reassign
+        map[slug] = {
+          key,
+          name,
+          categories: generateMap(object[key].categories),
+        }
+        return map
       }
-      if (emoji) {
-        map[slug].emoji = getCategoryEmoji(key)
+      const { name, emoji } = getCategoryMetainfo(key)
+      const slug = slugify(name, { lower: true })
+      // eslint-disable-next-line no-param-reassign
+      map[slug] = {
+        key,
+        name,
+        emoji,
       }
       return map
     }, {})
 }
 
-function getCategoryEmoji(category) {
-  const emojis = {
-    taxis: '🚕',
-    particulares: '🚗',
-    tpc: '🚌',
-    motos: '🛵',
-    especial: '🚐',
-    ambiental: '🌻',
-    carga: '🚛',
+function getCategoryMetainfo(category) {
+  const metainfo = {
+    taxis: { emoji: '🚕', name: 'Taxis' },
+    particulares: { emoji: '🚗', name: 'Particulares' },
+    tpc: { emoji: '🚌', name: 'Transporte Público Colectivo' },
+    motos: { emoji: '🛵', name: 'Motos' },
+    motocarros: { emoji: '', name: 'Motocarros' },
+    especial: { emoji: '🚐', name: 'Servicio de Transporte Especial' },
+    ambiental: { emoji: '🌻', name: 'Ambiental' },
+    carga: { emoji: '🚛', name: 'Transporte de carga' },
   }
-  return emojis[category] || ''
+  return metainfo[category] || ''
 }

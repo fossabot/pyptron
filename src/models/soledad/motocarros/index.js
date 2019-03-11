@@ -3,7 +3,6 @@ const info = require('./info')
 const { formatDate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  name: 'Motocarros',
   info,
   excludedDays: [],
   skipHolidays: false,

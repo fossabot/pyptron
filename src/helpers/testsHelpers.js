@@ -1,31 +1,18 @@
 exports.testInfo = category => {
-  describe(`'pyp' should be a function for ${category.name}`, () => {
+  describe(`'pyp' should be a function for ${category}`, () => {
     it('should be a function', () => {
       expect(typeof category.pypFunction).toBe('function')
     })
   })
-  describe(`Test for category object elements`, () => {
-    it(`should return 'name' for ${category.name}`, () => {
-      expect(typeof category.name).toBe('string')
-      expect(category.name.length).toBeGreaterThan(0)
-    })
-  })
-  describe(`Test for ${category.name} info`, () => {
-    it(`Should return a string for the name of ${category.name}`, () => {
-      expect(typeof category.name).toBe('string')
-      expect(category.name.length).toBeGreaterThan(0)
-    })
+  describe(`Test for ${category} info`, () => {
     const { info } = category
-    it(`Should return an array for 'vehicleClasses' of ${
-      category.name
-    }`, () => {
+    it(`Should return an array for 'vehicleClasses' of ${category}`, () => {
       expect(Array.isArray(info.vehicleClasses)).toBe(true)
-      expect(category.name.length).toBeGreaterThan(0)
     })
-    it(`Should return scheme info of ${category.name}`, () => {
+    it(`Should return scheme info of ${category}`, () => {
       expect(typeof info.scheme).toEqual(expect.anything())
     })
-    it(`Should return decrees info for ${category.name}`, () => {
+    it(`Should return decrees info for ${category}`, () => {
       const { decrees } = info
       expect(Array.isArray(decrees)).toBe(true)
       decrees.forEach(decree => {
@@ -33,7 +20,7 @@ exports.testInfo = category => {
         expect(typeof decree.url).toBe('string')
       })
     })
-    it(`Should return hours info for ${category.name}`, () => {
+    it(`Should return hours info for ${category}`, () => {
       const { hours } = info
       expect(Array.isArray(hours)).toBe(true)
       hours.forEach(hour => {

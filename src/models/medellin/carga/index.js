@@ -4,7 +4,6 @@ const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 const info = require('./info')
 
 module.exports = {
-  name: 'Transporte de Carga',
   info,
   excludedDays: [0],
   skipHolidays: true,

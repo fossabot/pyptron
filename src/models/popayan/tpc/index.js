@@ -2,7 +2,6 @@ const { datesDiff } = require('../../../helpers/dateHelpers')
 const info = require('./info')
 
 module.exports = {
-  name: 'Transporte Público de Carga',
   info,
   excludedDays: [0, 6],
   skipHolidays: true,

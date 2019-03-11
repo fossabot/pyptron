@@ -4,7 +4,6 @@ const {
 const info = require('./info')
 
 module.exports = {
-  name: 'Transporte Público Colectivo',
   info,
   excludedDays: [0, 6],
   skipHolidays: true,

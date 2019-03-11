@@ -3,7 +3,6 @@ const { getNthDayOfMonth } = require('../../../helpers/dateHelpers')
 const info = require('./info')
 
 module.exports = {
-  name: 'Motos',
   info,
   excludedDays: [0, 6],
   skipHolidays: false,

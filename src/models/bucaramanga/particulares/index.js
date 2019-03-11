@@ -5,7 +5,6 @@ const {
 const info = require('./info')
 
 module.exports = {
-  name: 'Particulares',
   info,
   excludedDays: [0],
   skipHolidays: true,

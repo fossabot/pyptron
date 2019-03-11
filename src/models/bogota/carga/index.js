@@ -1,7 +1,6 @@
 const info = require('./info')
 
 module.exports = {
-  name: 'Transporte de Carga',
   info,
   excludedDays: [],
   skipHolidays: false,

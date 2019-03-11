@@ -3,7 +3,6 @@ const info = require('./info')
 
 module.exports = {
   info,
-  name: 'Motocarros',
   excludedDays: [0, 6],
   skipHolidays: false,
   pypFunction(date) {

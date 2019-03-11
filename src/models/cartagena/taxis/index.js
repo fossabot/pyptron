@@ -2,7 +2,6 @@ const { newISODate } = require('../../../helpers/dateHelpers')
 const info = require('./info')
 
 module.exports = {
-  name: 'Taxis',
   info,
   excludedDays: [0, 6],
   skipHolidays: false,

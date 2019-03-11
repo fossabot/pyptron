@@ -1,5 +1,5 @@
 const slugify = require('slugify')
-const { pypWrapper, getCategoryEmoji } = require('../helpers/pypHelpers')
+const { pypWrapper, getCategoryMetainfo } = require('../helpers/pypHelpers')
 const { newISODate } = require('../helpers/dateHelpers')
 const { cdnPathMaker } = require('../helpers/globalHelpers')
 
@@ -47,15 +47,15 @@ function getPypInfo(options) {
 
   return requestedCategories.reduce((result, category) => {
     const activeCategory = pypCity.categories[category]
-    const categoryPath = slugify(activeCategory.name, {
+    const { name, emoji } = getCategoryMetainfo(category)
+    const { info } = activeCategory
+    const categoryPath = slugify(name, {
       lower: true,
     })
-
-    const { info, name } = activeCategory
     info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
     info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
     info.name = name
-    info.emoji = getCategoryEmoji(category)
+    info.emoji = emoji
     info.path = `${cityPath}/${categoryPath}`
     result[category] = info // eslint-disable-line no-param-reassign
 
@@ -73,15 +73,16 @@ function getPypNumbers(options) {
 
   const categoriesData = requestedCategories.map(key => {
     const activeCategory = pypCity.categories[key]
-    const { name, pypFunction, excludedDays, skipHolidays } = activeCategory
-    const categoryPath = slugify(activeCategory.name, {
+    const { pypFunction, excludedDays, skipHolidays } = activeCategory
+    const { name, emoji } = getCategoryMetainfo(key)
+    const categoryPath = slugify(name, {
       lower: true,
     })
     return {
       key,
       name,
       path: `${cityPath}/${categoryPath}`,
-      emoji: getCategoryEmoji(key),
+      emoji,
       pyp: pypWrapper(date, pypFunction, {
         excludedDays,
         skipHolidays,
