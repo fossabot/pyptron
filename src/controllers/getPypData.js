@@ -19,6 +19,7 @@ function getPypAllData(options) {
   const allData = {
     name,
     path: slugify(name, { lower: true }),
+    messages: cities[city].messages || [],
     info: getPypInfo({ city, date: currentDate, categories }),
     data: [],
   }
