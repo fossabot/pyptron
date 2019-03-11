@@ -53,6 +53,7 @@ function getPypInfo(options) {
     const categoryPath = slugify(name, {
       lower: true,
     })
+    info.messages = activeCategory.messages || []
     info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
     info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
     info.name = name
