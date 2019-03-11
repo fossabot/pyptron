@@ -12,7 +12,7 @@ module.exports = {
     },
   ],
   exceptions,
-  hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
+  hours: [{ comment: '', hours: [[]], days: [] }],
   maps: [],
   observations,
   scheme: licensePlateScheme.lastNumber,
