@@ -1,4 +1,4 @@
-**Restricción transitoria para vehículos de transporte de carga**: Restringir la circulación de vehículos de carga de más de dos toneladas, de lunes a viernes, entre las 6:00 y las 8:00, en el siguiente polígono:
+Restringir la circulación de vehículos de carga de más de dos toneladas en el siguiente polígono:
 
 - Límite sur: Autopista sur.
 - Límite norte: Avenida Centenario (Calle 13).
