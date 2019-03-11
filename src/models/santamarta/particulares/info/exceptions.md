@@ -7,9 +7,9 @@ Exceptúense de las prohibiciones por Pico y Placa las siguientes categorías de
 - Vehículos de los secretarios, Directores, Jefes de Oficina de la Alcaldía Distrital que se encuentren en el ejercicio de sus funciones.
 - Vehículos de los Directores, Generales o Presidentes de las entidades Descentralizadas Distritales.
 - Vehículos de autoridades judiciales, automotores de uso exclusivo de jueces y magistrados con jurisdicción y asiento permanente en la ciudad.
-- Vehículos de organismo de control Procuraduría (Regional y Provincial), Contraloría (Departamenteal y Distrital), Personería y Defensoría del PUeblo.
+- Vehículos de organismo de control Procuraduría (Regional y Provincial), Contraloría (Departamenteal y Distrital), Personería y Defensoría del Pueblo.
 - Vehículos de uso exclusivo de los Concejales del Distrito de Santa Marta y Diputados del Departamento del Magdalena.
-- Vehículos gúnebres, carrozas gúnebres destinados y/o adecuados técnicamente para el traslado de féretros.
+- Vehículos fúnebres, carrozas fúnebres destinados y/o adecuados técnicamente para el traslado de féretros.
 - Vehículos de emergencia. Automotores debidamente identificados e iluminados dispuestos para movilizar personas afectadas en salud, prevenir o atender desastres y/o calamidades, o actividades policiales, debidamente registrados como tal con las normas y características que exige la actividad para l acual se matricules y los automotores propiedad de las empresas que prestan atención médica domiciliaria debidamente identificados, solo cuando en ellos se desplace personal médico en servicio.
 - Vehículos particulares adapatados para el servicio de personas con discapacidad cuya condición motora, sensorial o mental limite o restrinja de manera permanente su movilidad, siempre y cuando se utilicen como medio de trasporte de estas personas. La condición de discapacidad permanente que limita la movilidad debe ser claramente acreeditada con la certificación médica correspondiente, expedida por la EPS.
 - Vehículos destinados al control del tráfico, automotores tipo grúa y aquellos destinados al control del tráfico en el Distrito de Santa Marta.
