@@ -37,7 +37,7 @@ module.exports = {
   ],
   maps: [
     {
-      name: 'Pico y placa ambiental carga dos toneladas',
+      name: 'Pico y placa ambiental carga dos toneladas nuevo',
       url: 'cdn:jpg',
     },
   ],
