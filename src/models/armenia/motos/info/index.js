@@ -23,7 +23,7 @@ module.exports = {
   ],
   maps: [],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: licensePlateScheme.firstNumber,
   vehicleClasses: [
     'Vehículos automotores particulares de dos tiempos tipo motocicleta, mototriciclos, cuatrimotos y motocarros',
   ],
