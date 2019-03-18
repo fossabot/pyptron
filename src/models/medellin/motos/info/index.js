@@ -15,12 +15,13 @@ module.exports = {
   hours: [
     {
       comment: 'Modelos posteriores a 1996',
-      hours: [['7:00', '8:30'], ['17:30', '19:00']],
+      hours: [['5:00', '10:00'], ['16:00', '20:00']],
+
       days: [],
     },
     {
       comment: 'Modelos anteriores o iguales a 1996',
-      hours: [['5:00', '8:30'], ['16:30', '21:00']],
+      hours: [['5:00', '21:00']],
       days: [],
     },
   ],
