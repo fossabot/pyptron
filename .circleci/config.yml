@@ -39,9 +39,7 @@ jobs:
           command: npx codecov
   deploy:
     docker:
-      - image: circleci/node:8.10
-        environment:
-          - AWS_DEFAULT_REGION=us-east-1
+      - image: circleci/python:3.6.8-node
     working_directory: ~/repo
     steps:
       - checkout
@@ -51,10 +49,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
-          name: Install awscli aws-sam-cli
-          command: |
-            sudo apt-get install python3 python3-pip -y
-            sudo pip3 install awscli --upgrade
+          name: Install awscli - aws-sam-cli
+          command: sudo pip install --upgrade awscli aws-sam-cli
       - run: npm run sync:assets
       - run: npm run deploy
 
