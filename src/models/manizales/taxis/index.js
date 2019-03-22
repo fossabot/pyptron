@@ -1,13 +1,29 @@
+const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 const { formatDate, datesDiff } = require('../../../helpers/dateHelpers')
 const {
   normalizeArrayIndex,
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
-const info = require('./info')
 
 module.exports = {
-  info,
+  days: [
+    'Todos los días de la semana (No se aplicará en los días festivos establecidos por la Ley)',
+  ],
+  decrees: [
+    { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
+    { name: 'Resolución 298 de 2017', url: '' },
+  ],
+  exceptions,
+  hours: [{ comment: '', hours: [['4:00', '4:00']], days: [] }],
+  maps: [],
+  observations,
+  scheme: licensePlateScheme.lastNumber,
+  vehicleClasses: [
+    'Vehículos de transporte público individual de pasajeros - Taxis',
+  ],
   excludedDays: [],
   skipHolidays: true,
   pypFunction(date) {

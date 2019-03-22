@@ -1,7 +1,15 @@
-const info = require('./info')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
 
 module.exports = {
-  info,
+  days: [''],
+  decrees: [{ name: '', url: '' }],
+  exceptions,
+  hours: [{ comment: '', hours: [[]], days: [] }],
+  maps: [],
+  observations,
+  scheme: '',
+  vehicleClasses: ['Motocicletas'],
   excludedDays: [],
   skipHolidays: true,
   messages: [

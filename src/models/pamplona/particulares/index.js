@@ -1,8 +1,19 @@
+const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
-const info = require('./info')
 
 module.exports = {
-  info,
+  days: ['Lunes a viernes hábiles'],
+  decrees: [],
+  exceptions,
+  hours: [{ comment: '', hours: [['8:00', '18:00']], days: [] }],
+  maps: [],
+  observations,
+  scheme: licensePlateScheme.lastNumber,
+  vehicleClasses: [
+    'Vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi)',
+  ],
   excludedDays: [0, 6],
   skipHolidays: true,
   pypFunction(date) {

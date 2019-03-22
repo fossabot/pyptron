@@ -1,8 +1,17 @@
+const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
-const info = require('./info')
 
 module.exports = {
-  info,
+  days: ['Lunes a viernes'],
+  decrees: [{ name: 'Decreto 288 de 2017', url: 'cdn:pdf' }],
+  exceptions,
+  hours: [{ comment: '', hours: [['5:00', '22:00']], days: [] }],
+  maps: [],
+  observations,
+  scheme: licensePlateScheme.lastNumber,
+  vehicleClasses: ['Vehículos tipo motocicletas'],
   excludedDays: [0, 6],
   skipHolidays: false,
   pypFunction(date) {

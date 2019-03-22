@@ -49,16 +49,27 @@ function getPypInfo(options) {
   return requestedCategories.reduce((result, category) => {
     const activeCategory = pypCity.categories[category]
     const { name, emoji } = getCategoryMetainfo(category)
-    const { info } = activeCategory
     const categoryPath = slugify(name, {
       lower: true,
     })
-    info.messages = activeCategory.messages || []
-    info.maps = info.maps ? cdnPathMaker(info.maps, cityPath) : []
-    info.decrees = info.decrees ? cdnPathMaker(info.decrees, cityPath) : []
-    info.name = name
-    info.emoji = emoji
-    info.path = `${cityPath}/${categoryPath}`
+    const info = {
+      days: activeCategory.days,
+      decrees: activeCategory.decrees
+        ? cdnPathMaker(activeCategory.decrees, cityPath)
+        : [],
+      emoji,
+      exceptions: activeCategory.exceptions,
+      hours: activeCategory.hours,
+      maps: activeCategory.maps
+        ? cdnPathMaker(activeCategory.maps, cityPath)
+        : [],
+      messages: activeCategory.messages || [],
+      name,
+      observations: activeCategory.observations,
+      path: `${cityPath}/${categoryPath}`,
+      scheme: activeCategory.scheme,
+      vehicleClasses: activeCategory.vehicleClasses,
+    }
     result[category] = info // eslint-disable-line no-param-reassign
 
     return result

@@ -1,10 +1,25 @@
+const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
 const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
-const info = require('./info')
 
 module.exports = {
-  info,
+  days: ['Lunes a domingo'],
+  decrees: [
+    {
+      name: 'Decreto 0001 del 4 de enero de 2018',
+      url:
+        'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2  info,lTipo=descargas  info,lFuncion=descargar  info,idFile=25496',
+    },
+  ],
+  exceptions,
+  hours: [{ comment: '', hours: [['05:00', '22:00']], days: [] }],
+  maps: [],
+  observations,
+  scheme: licensePlateScheme.lastNumber,
+  vehicleClasses: ['Vehículos de Transporte de Servicio Público Colectivo'],
   excludedDays: [],
   skipHolidays: false,
   pypFunction(date) {

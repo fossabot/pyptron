@@ -1,10 +1,30 @@
+const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const exceptions = require('./exceptions.md')
+const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 const { datesDiff } = require('../../../helpers/dateHelpers')
 const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
-const info = require('./info')
 
 module.exports = {
-  info,
+  days: ['Días hábiles de la semana - lunes a viernes.'],
+  decrees: [{ name: '', url: '' }],
+  exceptions,
+  hours: [
+    {
+      comment: 'Modelos posteriores a 2009',
+      hours: [['7:00', '8:30'], ['17:30', '19:00']],
+      days: [],
+    },
+    {
+      comment: 'Modelos anteriores o iguales a 2009',
+      hours: [['5:00', '8:30'], ['16:30', '21:00']],
+      days: [],
+    },
+  ],
+  maps: [],
+  observations,
+  scheme: licensePlateScheme.lastNumber,
+  vehicleClasses: ['Camiones y volquetas'],
   excludedDays: [0],
   skipHolidays: true,
   pypFunction(date) {
