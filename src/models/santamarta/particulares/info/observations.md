@@ -1,0 +1,1 @@
+Aplica a los vehículos automotores particualres que circules dentro del área delimitada por el siguiente anillo víal: Carrera 1a, Batallón Córdoba, Cerro Ziruma, Troncal del Caribe, Via Alterna de jurisdicción del Distrito Turístico, Cultural e Histórico de Santa Marta, independientemente del lugar en donde estén matriculados los mismos.

@@ -12,7 +12,7 @@ module.exports = {
   ],
   exceptions,
   hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
-  maps: [],
+  maps: [{ name: 'Mapa pico y placa santa marta', url: 'cdn:jpg' }],
   observations,
   scheme: licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos automotores de servicio particular'],
