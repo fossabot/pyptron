@@ -30,17 +30,17 @@ jobs:
             - v1-dependencies-
       - run:
           name: Linter
-          command: npm run lint -- --format junit -o coverage/junit/js-lint-results.xml
+          command: npm run lint -- --format junit -o reports/junit/js-lint-results.xml
       - run:
           name: Test suite
-          command: npm run test:coverage -- --ci
+          command: npm run test:ci
           environment:
             TZ: 'America/Bogota'
-            JEST_JUNIT_OUTPUT: 'coverage/junit/js-test-results.xml'
+            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
       - store_artifacts:
-          path: coverage
+          path: reports/junit
       - store_test_results:
-          path: coverage/junit
+          path: reports/junit
       - run: npx codecov
   deploy:
     docker:
