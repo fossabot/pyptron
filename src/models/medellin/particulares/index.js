@@ -27,7 +27,7 @@ module.exports = {
       days: [],
     },
   ],
-  maps: [],
+  maps: [{ name: 'Mapa pico y placa Medellín 2019', url: 'cdn:jpg' }],
   observations,
   scheme: licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos particulares y oficiales'],
