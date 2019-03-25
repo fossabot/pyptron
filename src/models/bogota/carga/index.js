@@ -3,7 +3,6 @@ const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
 module.exports = {
-  days: ['Todos los días'],
   decrees: [
     {
       name: 'Decreto 060 de 2019',

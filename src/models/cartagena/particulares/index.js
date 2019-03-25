@@ -8,9 +8,6 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
-  ],
   decrees: [
     { name: 'Decreto 1361 del 29 de noviembre de 2018', url: 'cdn:pdf' },
     { name: 'Decreto 1550 del 30 de noviembre de 2017', url: 'cdn:pdf' },

@@ -6,9 +6,6 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a sábado (No se aplicará en los días festivos establecidos por la Ley)',
-  ],
   decrees: [
     {
       name: 'Decreto 660 del 27 de agosto de 2001',

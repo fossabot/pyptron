@@ -6,7 +6,6 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: ['Lunes a domingo'],
   decrees: [
     {
       name: 'Decreto 0801 de 2018',

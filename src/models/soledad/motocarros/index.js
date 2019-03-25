@@ -5,7 +5,6 @@ const { newISODate } = require('../../../helpers/dateHelpers')
 const { formatDate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Todos los días de la semana'],
   decrees: [{ name: 'Decreto 288 de 2017', url: 'cdn:pdf' }],
   exceptions,
   hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],

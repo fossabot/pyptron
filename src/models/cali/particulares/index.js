@@ -6,9 +6,6 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a viernes hábiles (no aplica sábados, domingos y feriados establecidos por la ley o cuando excepcionalmente lo establezca la autoridad competente).',
-  ],
   decrees: [
     {
       name: 'Decreto 0801 de 2018',

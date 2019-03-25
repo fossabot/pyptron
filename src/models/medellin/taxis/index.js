@@ -5,7 +5,6 @@ const { moveArrayElementsToTheRight } = require('../../../helpers/arrayHelpers')
 const { datesDiff, newISODate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Días hábiles de la semana - lunes a viernes.'],
   decrees: [
     {
       name: 'Decreto 0116 de 2018',

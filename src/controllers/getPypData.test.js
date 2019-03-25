@@ -10,7 +10,6 @@ describe('Generate pyp data objects', () => {
     expect(result.name).toBe('Bogotá')
     expect(result.path).toBe('bogota')
     const categoryKeys = [
-      'days',
       'decrees',
       'exceptions',
       'excludedDays',

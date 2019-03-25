@@ -5,7 +5,6 @@ const { newISODate } = require('../../../helpers/dateHelpers')
 const { getNthDayOfMonth } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Lunes a viernes.'],
   decrees: [
     { name: 'Decreto 1035 del 5 de septiembre de 2018', url: 'cdn:pdf' },
   ],

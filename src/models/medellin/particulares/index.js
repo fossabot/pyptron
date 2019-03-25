@@ -6,7 +6,6 @@ const { datesDiff } = require('../../../helpers/dateHelpers')
 const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: ['Días hábiles de la semana - lunes a viernes.'],
   decrees: [
     {
       name: 'Decreto 0116 de 2018',

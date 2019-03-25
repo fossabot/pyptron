@@ -4,9 +4,6 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a viernes (no se aplicará en los días festivos establecidos por la Ley)',
-  ],
   decrees: [
     { name: 'Decreto 60 del 22 de octubre de 2018', url: 'cdn:pdf' },
     { name: 'Estudio de tráfico pico y placa enero 2018', url: 'cdn:pdf' },

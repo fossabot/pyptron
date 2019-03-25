@@ -6,9 +6,6 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a viernes (No se aplicará en los días festivos establecidos por la Ley)',
-  ],
   decrees: [
     { name: 'Decreto 0205 de 2009', url: 'cdn:pdf' },
     {

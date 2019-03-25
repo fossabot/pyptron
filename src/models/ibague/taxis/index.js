@@ -4,7 +4,6 @@ const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Todos los días de la semana'],
   decrees: [
     {
       name: 'Decreto 11-0160 del 29 de febrero de 2008',

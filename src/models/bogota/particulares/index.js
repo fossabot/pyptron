@@ -4,7 +4,6 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Lunes a viernes hábiles'],
   decrees: [
     {
       name: 'Decreto 515 del 22 de Noviembre de 2016',
