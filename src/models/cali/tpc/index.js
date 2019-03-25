@@ -11,7 +11,7 @@ module.exports = {
     {
       name: 'Decreto 0001 del 4 de enero de 2018',
       url:
-        'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2  info,lTipo=descargas  info,lFuncion=descargar  info,idFile=25496',
+        'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=25496',
     },
   ],
   exceptions,
