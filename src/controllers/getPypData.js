@@ -6,102 +6,55 @@ const { cdnPathMaker } = require('../helpers/globalHelpers')
 const cities = require('../models')
 
 module.exports = {
-  getPypAllData,
-  getPypInfo,
-  getPypNumbers,
+  getPypData,
 }
 
-function getPypAllData(options) {
-  const { city, date, days = 1, categories = [] } = options
+function getPypData(options) {
+  const { city, date, days = 1 } = options
+  const cityObject = cities[city]
+  const { categories = Object.keys(cityObject.categories) } = options
   const ISODate = newISODate(date)
-  const { name } = cities[city]
   const currentDate = new Date(ISODate)
-  const allData = {
+  const { name, messages } = cityObject
+  const cityPath = slugify(name, { lower: true })
+  return {
+    categories: categories.reduce((categoriesObject, categoryKey) => {
+      const categoryObject = cityObject.categories[categoryKey]
+      const { name: categoryName, emoji } = getCategoryMetainfo(categoryKey)
+      const { pypFunction, excludedDays, skipHolidays } = categoryObject
+      const categoryPath = slugify(categoryName, {
+        lower: true,
+      })
+      // eslint-disable-next-line no-param-reassign
+      categoriesObject[categoryKey] = {
+        ...categoryObject,
+        decrees: categoryObject.decrees
+          ? cdnPathMaker(categoryObject.decrees, cityPath)
+          : [],
+        emoji,
+        key: categoryKey,
+        map: categoryObject.map
+          ? cdnPathMaker(categoryObject.maps, cityPath)
+          : [],
+        messages: categoryObject.messages || [],
+        name: categoryName,
+        path: `${cityPath}/${categoryPath}`,
+        pypNumbers: [],
+      }
+      for (let i = 0; i < days; i += 1) {
+        categoriesObject[categoryKey].pypNumbers.push({
+          date: currentDate.toISOString(),
+          numbers: pypWrapper(currentDate, pypFunction, {
+            excludedDays,
+            skipHolidays,
+          }),
+        })
+        currentDate.setDate(currentDate.getDate() + 1)
+      }
+      return categoriesObject
+    }, {}),
+    messages: messages || [],
     name,
-    path: slugify(name, { lower: true }),
-    messages: cities[city].messages || [],
-    info: getPypInfo({ city, categories }),
-    data: [],
+    path: cityPath,
   }
-
-  for (let i = 0; i < days; i += 1) {
-    const pypData = getPypNumbers({ city, date: currentDate, categories })
-
-    allData.data.push({
-      date: currentDate.toISOString(),
-      categories: pypData,
-    })
-
-    currentDate.setDate(currentDate.getDate() + 1)
-  }
-
-  return allData
-}
-
-function getPypInfo(options) {
-  const { city, categories = [] } = options
-  const pypCity = cities[city]
-  const requestedCategories = categories.length
-    ? categories
-    : Object.keys(pypCity.categories).sort()
-  const cityPath = slugify(pypCity.name, { lower: true })
-
-  return requestedCategories.reduce((result, category) => {
-    const activeCategory = pypCity.categories[category]
-    const { name, emoji } = getCategoryMetainfo(category)
-    const categoryPath = slugify(name, {
-      lower: true,
-    })
-    const info = {
-      days: activeCategory.days,
-      decrees: activeCategory.decrees
-        ? cdnPathMaker(activeCategory.decrees, cityPath)
-        : [],
-      emoji,
-      exceptions: activeCategory.exceptions,
-      hours: activeCategory.hours,
-      maps: activeCategory.maps
-        ? cdnPathMaker(activeCategory.maps, cityPath)
-        : [],
-      messages: activeCategory.messages || [],
-      name,
-      observations: activeCategory.observations,
-      path: `${cityPath}/${categoryPath}`,
-      scheme: activeCategory.scheme,
-      vehicleClasses: activeCategory.vehicleClasses,
-    }
-    result[category] = info // eslint-disable-line no-param-reassign
-
-    return result
-  }, {})
-}
-
-function getPypNumbers(options) {
-  const { city, date, categories = [] } = options
-  const pypCity = cities[city]
-  const requestedCategories = categories.length
-    ? categories
-    : Object.keys(pypCity.categories).sort()
-  const cityPath = slugify(pypCity.name, { lower: true })
-
-  const categoriesData = requestedCategories.map(key => {
-    const activeCategory = pypCity.categories[key]
-    const { pypFunction, excludedDays, skipHolidays } = activeCategory
-    const { name, emoji } = getCategoryMetainfo(key)
-    const categoryPath = slugify(name, {
-      lower: true,
-    })
-    return {
-      key,
-      name,
-      path: `${cityPath}/${categoryPath}`,
-      emoji,
-      pyp: pypWrapper(date, pypFunction, {
-        excludedDays,
-        skipHolidays,
-      }),
-    }
-  })
-
-  return categoriesData
 }
