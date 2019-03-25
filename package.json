@@ -3,7 +3,6 @@
   "version": "0.0.0-development",
   "description": "Librería para el pico y placa en Colombia",
   "private": true,
-  "main": "src/api",
   "license": "MIT",
   "homepage": "https://www.pyphoy.com",
   "scripts": {
