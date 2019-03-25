@@ -20,7 +20,7 @@ function getPypAllData(options) {
     name,
     path: slugify(name, { lower: true }),
     messages: cities[city].messages || [],
-    info: getPypInfo({ city, date: currentDate, categories }),
+    info: getPypInfo({ city, categories }),
     data: [],
   }
 
