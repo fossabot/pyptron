@@ -23,7 +23,7 @@
     "sam:package": "aws cloudformation package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml",
     "sam:deploy": "aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron-alfa --capabilities CAPABILITY_IAM",
     "sam:validate": "sam validate -t template.yaml",
-    "outputs": "aws cloudformation describe-stacks --stack-name pyptron --query \"Stacks[].Outputs[]\"",
+    "outputs": "aws cloudformation describe-stacks --stack-name pyptron-alfa --query \"Stacks[].Outputs[]\"",
     "predeploy": "cross-env NODE_ENV=production npm run build",
     "deploy": "run-s sam:package sam:deploy"
   },
