@@ -21,6 +21,6 @@ module.exports = {
   excludedDays: [0, 6],
   skipHolidays: true,
   pypFunction() {
-    return 'NA'
+    return []
   },
 }

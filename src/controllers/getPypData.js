@@ -39,10 +39,10 @@ function getPypData(options) {
         messages: categoryObject.messages || [],
         name: categoryName,
         path: `${cityPath}/${categoryPath}`,
-        pypNumbers: [],
+        pyp: [],
       }
       for (let i = 0; i < days; i += 1) {
-        categoriesObject[categoryKey].pypNumbers.push({
+        categoriesObject[categoryKey].pyp.push({
           date: currentDate.toISOString(),
           numbers: pypWrapper(currentDate, pypFunction, {
             excludedDays,

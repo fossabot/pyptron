@@ -32,7 +32,7 @@ module.exports = {
       if (
         dateObject.setHours(0, 0, 0, 0) === secondFriday.setHours(0, 0, 0, 0)
       ) {
-        return '0-1-2-3-4-5-6-7-8-9'
+        return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
       const lastFriday = getNthDayOfMonth({
         year,
@@ -41,10 +41,10 @@ module.exports = {
         index: -1,
       })
       if (dateObject.setHours(0, 0, 0, 0) === lastFriday.setHours(0, 0, 0, 0)) {
-        return '0-1-2-3-4-5-6-7-8-9'
+        return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
     }
-    const pyp = ['1-3-5-7-9', '0-2-4-6-8']
+    const pyp = [[1, 3, 5, 7, 9], [0, 2, 4, 6, 8]]
     return pyp[newISODate(date).getDate() % 2]
   },
 }

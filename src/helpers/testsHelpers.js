@@ -53,7 +53,7 @@ exports.testCases = (category, dateCases) => {
         it(`should return '${pypNum}' for '${
           category.name
         }' @${pypDate}`, () => {
-          expect(category.pypFunction(pypDate)).toBe(pypNum)
+          expect(category.pypFunction(pypDate)).toEqual(pypNum)
         })
       })
     })

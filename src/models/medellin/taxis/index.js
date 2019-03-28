@@ -27,14 +27,14 @@ module.exports = {
     const millisecondsDiff = dateObject - startDate
     const daysDiff = millisecondsDiff / millisecondsPerDay
     const weeksOffset = Math.ceil((daysDiff + 1) / 7)
-    let pypNums = [['5', '0'], ['6', '1'], ['7', '2'], ['3', '8'], ['4', '9']]
+    let pypNums = [[[5], [0]], [[6], [1]], [[7], [2]], [[3], [8]], [[4], [9]]]
     if (dateObject >= newISODate('2018-05-07')) {
-      pypNums[2] = ['2', '7']
-      pypNums[3] = ['8', '3']
+      pypNums[2] = [[2], [7]]
+      pypNums[3] = [[8], [3]]
     }
     if (dateObject >= newISODate('2019-01-08')) {
-      pypNums[0] = ['0', '5']
-      pypNums[4] = ['9', '4']
+      pypNums[0] = [[0], [5]]
+      pypNums[4] = [[9], [4]]
     }
     const monthsDiffAccu = datesDiff({
       startDate,

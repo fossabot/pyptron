@@ -36,7 +36,18 @@ module.exports = {
     //    10  11  12  13  14  15  16  17  18  19
     //    20  21  22  23  24  25  26  27  28  30
     //
-    const pypNums = ['H', 'I', 'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
+    const pypNums = [
+      ['H'],
+      ['I'],
+      ['J'],
+      ['A'],
+      ['B'],
+      ['C'],
+      ['D'],
+      ['E'],
+      ['F'],
+      ['G'],
+    ]
     // La diferencia en días sin tener en cuenta el domingo
     const daysLapse =
       datesDiff({

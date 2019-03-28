@@ -70,11 +70,11 @@ describe('Test API endpoints', () => {
         expect(typeof pypData.categories).toBe('object')
         const currentCategory =
           pypData.categories[citiesMap[city].categories[category].key]
-        expect(currentCategory.pypNumbers.length).toBe(1)
-        expect(currentCategory.pypNumbers[0].date.substring(0, 10)).toBe(
+        expect(currentCategory.pyp.length).toBe(1)
+        expect(currentCategory.pyp[0].date.substring(0, 10)).toBe(
           currentDate.toISOString().substring(0, 10)
         )
-        expect(typeof currentCategory.pypNumbers[0].numbers).toBe('string')
+        expect(Array.isArray(currentCategory.pyp[0].numbers)).toBe(true)
       })
       const date = '2018-10-22'
       it(`should GET /${city}/${category}?date=${date}`, async () => {
@@ -92,29 +92,32 @@ describe('Test API endpoints', () => {
         expect(typeof pypData.categories).toBe('object')
         const currentCategory =
           pypData.categories[citiesMap[city].categories[category].key]
-        expect(currentCategory.pypNumbers.length).toBe(1)
-        expect(currentCategory.pypNumbers[0].date).toBe(`${date}T05:00:00.000Z`)
-        expect(typeof currentCategory.pypNumbers[0].numbers).toBe('string')
+        expect(currentCategory.pyp.length).toBe(1)
+        expect(currentCategory.pyp[0].date).toBe(`${date}T05:00:00.000Z`)
+        expect(Array.isArray(currentCategory.pyp[0].numbers)).toBe(true)
       })
       const days = 5
       it(`should GET /${city}/${category}?date=${date}&days=${days}`, async () => {
-        expect.assertions(8)
         event.resource = '/{city}/{category}'
         event.pathParameters = { city, category }
         event.queryStringParameters = { date, days }
         const response = await pyptron(event)
-        expect(response.statusCode).toBe(200)
         const pypData = JSON.parse(response.body)
+        const currentCategory =
+          pypData.categories[citiesMap[city].categories[category].key]
+        expect.assertions(8 + currentCategory.pyp[0].numbers.length)
+        expect(response.statusCode).toBe(200)
         expect(typeof pypData.name).toBe('string')
         expect(pypData.name.length).toBeGreaterThan(0)
         // Debe tener un propiedad path igual a la ruta solicitada
         expect(pypData.path).toBe(`${city}`)
         expect(typeof pypData.categories).toBe('object')
-        const currentCategory =
-          pypData.categories[citiesMap[city].categories[category].key]
-        expect(currentCategory.pypNumbers.length).toBe(days)
-        expect(currentCategory.pypNumbers[0].date).toBe(`${date}T05:00:00.000Z`)
-        expect(typeof currentCategory.pypNumbers[0].numbers).toBe('string')
+        expect(currentCategory.pyp.length).toBe(days)
+        expect(currentCategory.pyp[0].date).toBe(`${date}T05:00:00.000Z`)
+        expect(Array.isArray(currentCategory.pyp[0].numbers)).toBe(true)
+        currentCategory.pyp[0].numbers.forEach(number => {
+          expect(String(number)).toEqual(expect.stringMatching(/^[A-J0-9]$/))
+        })
       })
     })
   })

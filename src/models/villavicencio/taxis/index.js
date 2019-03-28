@@ -24,8 +24,8 @@ module.exports = {
     const dateObject = newISODate(date)
     const datesDate = dateObject.getDate()
     if (datesDate === 31) {
-      return 'NA'
+      return []
     }
-    return (datesDate % 10).toString(10)
+    return [datesDate % 10]
   },
 }

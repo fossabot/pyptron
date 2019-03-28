@@ -32,7 +32,7 @@ function pypWrapper(date, pypFunction, options) {
   }
 
   if (excludeDays(date, excludedDays, skipHolidays)) {
-    return 'NA'
+    return []
   }
 
   return pypFunction(date)

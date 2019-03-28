@@ -21,8 +21,6 @@ module.exports = {
   skipHolidays: false,
   pypFunction(date) {
     const startDate = '2017-12-01'
-    return String(
-      (datesDiff({ startDate, endDate: date, period: 'days' }) + 1) % 10
-    )
+    return [(datesDiff({ startDate, endDate: date, period: 'days' }) + 1) % 10]
   },
 }

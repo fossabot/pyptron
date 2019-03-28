@@ -41,16 +41,16 @@ module.exports = {
         endDate: date,
         period: 'weeks',
       })
-      const weekendsNums = ['1-3-5-7-9', '0-2-4-6-8']
+      const weekendsNums = [[1, 3, 5, 7, 9], [0, 2, 4, 6, 8]]
       const index = normalizeArrayIndex(weeksLapse, weekendsNums.length)
       return weekendsNums[index]
     }
     const pypNums = [
-      '6-7-8-9-0-1', // '4-5-6-7', // lunes
-      '0-1-2-3-4-5', // '8-9-0-1', // martes
-      '4-5-6-7-8-9', // '2-3-4-5', // miércoles
-      '8-9-0-1-2-3', // '6-7-8-9', // jueves
-      '2-3-4-5-6-7', // '0-1-2-3', // viernes
+      [6, 7, 8, 9, 0, 1], // '4-5-6-7', // lunes
+      [0, 1, 2, 3, 4, 5], // '8-9-0-1', // martes
+      [4, 5, 6, 7, 8, 9], // '2-3-4-5', // miércoles
+      [8, 9, 0, 1, 2, 3], // '6-7-8-9', // jueves
+      [2, 3, 4, 5, 6, 7], // '0-1-2-3', // viernes
     ]
     return pypNums[dow - 1]
     // const lapse = pypFuncs.monthsDiff(startDate, date, 6)

@@ -20,7 +20,7 @@ module.exports = {
   skipHolidays: false,
   pypFunction(date) {
     const startDate = '2017-08-01'
-    const pypNums = ['9-0', '1-2', '3-4', '5-6', '7-8']
+    const pypNums = [[9, 0], [1, 2], [3, 4], [5, 6], [7, 8]]
     return getArrayElementAfterRotating({
       date,
       startDate,

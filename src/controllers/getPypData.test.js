@@ -20,7 +20,7 @@ describe('Generate pyp data objects', () => {
       'name',
       'observations',
       'path',
-      'pypNumbers',
+      'pyp',
       'scheme',
       'skipHolidays',
       'vehicleClasses',
@@ -29,15 +29,15 @@ describe('Generate pyp data objects', () => {
       expect(Object.keys(result.categories[category])).toEqual(
         expect.arrayContaining(categoryKeys)
       )
-      const { pypNumbers } = result.categories[category]
-      expect(pypNumbers.length).toBe(days)
-      pypNumbers.forEach(elem => {
+      const { pyp } = result.categories[category]
+      expect(pyp.length).toBe(days)
+      pyp.forEach(elem => {
         expect(elem.date).toEqual(
           expect.stringMatching(
             /20\d{2}-[0-1]\d{1}-[0-3]\d{1}T\d{2}:\d{2}:\d{2}.\d{3}Z/
           )
         )
-        expect(elem.numbers).toEqual(expect.stringMatching(/([\d-]+|NA)/))
+        expect(Array.isArray(elem.numbers)).toBe(true)
       })
     })
   })

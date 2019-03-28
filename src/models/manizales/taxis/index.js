@@ -28,15 +28,15 @@ module.exports = {
     if (dow === 6 || dow === 0) {
       switch (formatDate(date)) {
         case '2018-01-06':
-          return '3'
+          return [3]
         case '2018-01-07':
-          return '4'
+          return [4]
         case '2018-01-13':
-          return 'NA'
+          return []
         case '2018-12-29':
-          return '5'
+          return [5]
         case '2018-12-30':
-          return '6'
+          return [6]
         default:
           break
       }
@@ -45,16 +45,16 @@ module.exports = {
       // El primer número de la secuencia corresponde al sábado y el segundo número al
       // domingo.
       const pypNums = [
-        ['1', '2'],
-        ['3', '4'],
-        ['5', '6'],
-        ['7', '8'],
-        ['9', '0'],
-        ['2', '1'],
-        ['4', '3'],
-        ['6', '5'],
-        ['8', '7'],
-        ['0', '9'],
+        [[1], [2]],
+        [[3], [4]],
+        [[5], [6]],
+        [[7], [8]],
+        [[9], [0]],
+        [[2], [1]],
+        [[4], [3]],
+        [[6], [5]],
+        [[8], [7]],
+        [[0], [9]],
       ]
       const weeksLapse = datesDiff({
         startDate,
@@ -70,7 +70,7 @@ module.exports = {
       return dow === 6 ? nums[0] : nums[1]
     }
     const startDate = '2018-01-01'
-    const pypNums = ['3-4', '5-6', '7-8', '9-0', '1-2']
+    const pypNums = [[3, 4], [5, 6], [7, 8], [9, 0], [1, 2]]
     return getArrayElementAfterRotating({
       date,
       startDate,
