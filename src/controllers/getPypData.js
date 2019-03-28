@@ -14,7 +14,6 @@ function getPypData(options) {
   const cityObject = cities[city]
   const { categories = Object.keys(cityObject.categories) } = options
   const ISODate = newISODate(date)
-  const currentDate = new Date(ISODate)
   const { name, messages } = cityObject
   const cityPath = slugify(name, { lower: true })
   return {
@@ -33,7 +32,7 @@ function getPypData(options) {
           : [],
         emoji,
         key: categoryKey,
-        map: categoryObject.map
+        maps: categoryObject.maps
           ? cdnPathMaker(categoryObject.maps, cityPath)
           : [],
         messages: categoryObject.messages || [],
@@ -41,6 +40,7 @@ function getPypData(options) {
         path: `${cityPath}/${categoryPath}`,
         pyp: [],
       }
+      const currentDate = new Date(ISODate)
       for (let i = 0; i < days; i += 1) {
         categoriesObject[categoryKey].pyp.push({
           date: currentDate.toISOString(),
