@@ -51,4 +51,13 @@ describe('Generate pyp data objects', () => {
     expect(result.categories.taxis.name).toBe('Taxis')
     expect(result.categories.taxis.path).toBe('bogota/taxis')
   })
+  it('should return 30 days when days is bigger than 30', () => {
+    const date = '2018-03-06T00:00:02-05:00'
+    const days = 35
+    const maxDays = 30
+    const result = getPypData({ city: 'bogota', date, days })
+    Object.keys(result.categories).forEach(category => {
+      expect(result.categories[category].pyp.length).toBe(maxDays)
+    })
+  })
 })
