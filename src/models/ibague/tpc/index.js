@@ -20,7 +20,7 @@ module.exports = {
   excludedDays: [],
   skipHolidays: false,
   pypFunction(date) {
-    const startDate = '2017-12-02'
+    const startDate = '2016-04-10'
     const pyp = [
       [1, 2], // lunes
       [0, 3], // martes
