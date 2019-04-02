@@ -1,6 +1,7 @@
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
+const zones = require('./zones.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 const { formatDate } = require('../../../helpers/dateHelpers')
 
@@ -35,4 +36,5 @@ module.exports = {
         return pyp[newISODate(date).getDate() % 2]
     }
   },
+  zones,
 }
