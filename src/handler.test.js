@@ -24,7 +24,7 @@ describe('Test API endpoints', () => {
   })
   citiesNames.forEach(city => {
     it(`should GET /${city}`, async () => {
-      expect.assertions(10)
+      expect.assertions(8)
       event.resource = '/{city}'
       event.pathParameters = { city }
       const response = await pyptron(event)
@@ -35,14 +35,14 @@ describe('Test API endpoints', () => {
       expect(typeof pypData.name).toBe('string')
       expect(pypData.name.length).toBeGreaterThan(0)
       // Debe tener un propiedad path igual a la ruta solicitada
-      expect(typeof pypData.path).toBe('string')
-      expect(pypData.path.length).toBeGreaterThan(0)
       expect(pypData.path).toBe(`${city}`)
       // Debe tener un propiedad info
-      expect(typeof pypData.info).toBe('object')
+      expect(typeof pypData.categories).toBe('object')
       // Debe tener una propiedad data
-      expect(typeof pypData.data).toBe('object')
-      expect(pypData.data.length).toBe(1)
+      expect(typeof pypData.categories).toBe('object')
+      expect(Object.keys(pypData.categories).length).toBe(
+        Object.keys(citiesMap[city].categories).length
+      )
     })
     const categories = Object.keys(citiesMap[city].categories)
     categories.forEach(category => {
@@ -56,7 +56,7 @@ describe('Test API endpoints', () => {
       })
       const currentDate = new Date()
       it(`should GET /${city}/${category}`, async () => {
-        expect.assertions(10)
+        expect.assertions(8)
         event.resource = '/{city}/{category}'
         event.pathParameters = { city, category }
         event.queryStringParameters = { currentDate }
@@ -66,21 +66,19 @@ describe('Test API endpoints', () => {
         expect(typeof pypData.name).toBe('string')
         expect(pypData.name.length).toBeGreaterThan(0)
         // Debe tener un propiedad path igual a la ruta solicitada
-        expect(typeof pypData.path).toBe('string')
-        expect(pypData.path.length).toBeGreaterThan(0)
         expect(pypData.path).toBe(`${city}`)
-        // Debe tener un propiedad info
-        expect(typeof pypData.info).toBe('object')
-        // Debe tener una propiedad data
-        expect(typeof pypData.data).toBe('object')
-        expect(pypData.data[0].date.substring(0, 10)).toBe(
+        expect(typeof pypData.categories).toBe('object')
+        const currentCategory =
+          pypData.categories[citiesMap[city].categories[category].key]
+        expect(currentCategory.pyp.length).toBe(1)
+        expect(currentCategory.pyp[0].date.substring(0, 10)).toBe(
           currentDate.toISOString().substring(0, 10)
         )
-        expect(pypData.data.length).toBe(1)
+        expect(Array.isArray(currentCategory.pyp[0].numbers)).toBe(true)
       })
       const date = '2018-10-22'
       it(`should GET /${city}/${category}?date=${date}`, async () => {
-        expect.assertions(10)
+        expect.assertions(8)
         event.resource = '/{city}/{category}'
         event.pathParameters = { city, category }
         event.queryStringParameters = { date }
@@ -90,37 +88,36 @@ describe('Test API endpoints', () => {
         expect(typeof pypData.name).toBe('string')
         expect(pypData.name.length).toBeGreaterThan(0)
         // Debe tener un propiedad path igual a la ruta solicitada
-        expect(typeof pypData.path).toBe('string')
-        expect(pypData.path.length).toBeGreaterThan(0)
         expect(pypData.path).toBe(`${city}`)
-        // Debe tener un propiedad info
-        expect(typeof pypData.info).toBe('object')
-        // Debe tener una propiedad data
-        expect(typeof pypData.data).toBe('object')
-        expect(pypData.data[0].date).toBe(`${date}T05:00:00.000Z`)
-        expect(pypData.data.length).toBe(1)
+        expect(typeof pypData.categories).toBe('object')
+        const currentCategory =
+          pypData.categories[citiesMap[city].categories[category].key]
+        expect(currentCategory.pyp.length).toBe(1)
+        expect(currentCategory.pyp[0].date).toBe(`${date}T05:00:00.000Z`)
+        expect(Array.isArray(currentCategory.pyp[0].numbers)).toBe(true)
       })
       const days = 5
       it(`should GET /${city}/${category}?date=${date}&days=${days}`, async () => {
-        expect.assertions(10)
         event.resource = '/{city}/{category}'
         event.pathParameters = { city, category }
         event.queryStringParameters = { date, days }
         const response = await pyptron(event)
-        expect(response.statusCode).toBe(200)
         const pypData = JSON.parse(response.body)
+        const currentCategory =
+          pypData.categories[citiesMap[city].categories[category].key]
+        expect.assertions(8 + currentCategory.pyp[0].numbers.length)
+        expect(response.statusCode).toBe(200)
         expect(typeof pypData.name).toBe('string')
         expect(pypData.name.length).toBeGreaterThan(0)
         // Debe tener un propiedad path igual a la ruta solicitada
-        expect(typeof pypData.path).toBe('string')
-        expect(pypData.path.length).toBeGreaterThan(0)
         expect(pypData.path).toBe(`${city}`)
-        // Debe tener un propiedad info
-        expect(typeof pypData.info).toBe('object')
-        // Debe tener una propiedad data
-        expect(typeof pypData.data).toBe('object')
-        expect(pypData.data[0].date).toBe(`${date}T05:00:00.000Z`)
-        expect(pypData.data.length).toBe(days)
+        expect(typeof pypData.categories).toBe('object')
+        expect(currentCategory.pyp.length).toBe(days)
+        expect(currentCategory.pyp[0].date).toBe(`${date}T05:00:00.000Z`)
+        expect(Array.isArray(currentCategory.pyp[0].numbers)).toBe(true)
+        currentCategory.pyp[0].numbers.forEach(number => {
+          expect(String(number)).toEqual(expect.stringMatching(/^[A-J0-9]$/))
+        })
       })
     })
   })

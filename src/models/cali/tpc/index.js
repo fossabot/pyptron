@@ -6,12 +6,11 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: ['Lunes a domingo'],
   decrees: [
     {
       name: 'Decreto 0001 del 4 de enero de 2018',
       url:
-        'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2  info,lTipo=descargas  info,lFuncion=descargar  info,idFile=25496',
+        'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=25496',
     },
   ],
   exceptions,
@@ -24,7 +23,7 @@ module.exports = {
   skipHolidays: false,
   pypFunction(date) {
     const startDate = '2018-01-01'
-    const pypNums = ['6-7', '8-9', '0-1', '2-3', '4-5']
+    const pypNums = [[6, 7], [8, 9], [0, 1], [2, 3], [4, 5]]
     return getArrayElementAfterRotating({
       date,
       startDate,

@@ -11,7 +11,6 @@ module.exports = {
 function pypWrapper(date, pypFunction, options) {
   const { excludedDays = [], skipHolidays = true } = options
   const startDate = '2018-01-01'
-
   if (
     datesDiff({
       startDate,
@@ -33,7 +32,7 @@ function pypWrapper(date, pypFunction, options) {
   }
 
   if (excludeDays(date, excludedDays, skipHolidays)) {
-    return 'NA'
+    return []
   }
 
   return pypFunction(date)

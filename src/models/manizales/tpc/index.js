@@ -4,9 +4,6 @@ const { datesDiff } = require('../../../helpers/dateHelpers')
 const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a sábado (No se aplicará en los días domingos y festivos establecidos por la Ley)',
-  ],
   decrees: [
     { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
     { name: 'Resolución 298 de 2017', url: '' },
@@ -39,7 +36,18 @@ module.exports = {
     //    10  11  12  13  14  15  16  17  18  19
     //    20  21  22  23  24  25  26  27  28  30
     //
-    const pypNums = ['H', 'I', 'J', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
+    const pypNums = [
+      ['H'],
+      ['I'],
+      ['J'],
+      ['A'],
+      ['B'],
+      ['C'],
+      ['D'],
+      ['E'],
+      ['F'],
+      ['G'],
+    ]
     // La diferencia en días sin tener en cuenta el domingo
     const daysLapse =
       datesDiff({

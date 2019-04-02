@@ -47,14 +47,14 @@ describe('Generate pyp object maps of global info with the slug and the key', ()
 describe('test for holidays', () => {
   const times = ['T00:00:00.0000-05:00', 'T23:59:59.999-05:00']
   const dateCases = [
-    ['2019-01-01', 'NA'],
+    ['2019-01-01', []],
     ['2019-01-02', true],
     ['2018-03-18', true],
-    ['2018-03-19', 'NA'],
-    ['2018-07-20', 'NA'],
-    ['2018-08-07', 'NA'],
-    ['2018-12-25', 'NA'],
-    ['2018-12-25', 'NA'],
+    ['2018-03-19', []],
+    ['2018-07-20', []],
+    ['2018-08-07', []],
+    ['2018-12-25', []],
+    ['2018-12-25', []],
   ]
   dateCases.forEach(dateCase => {
     it(`should return ${dateCase[1]} for ${dateCase[0]}`, () => {
@@ -64,7 +64,7 @@ describe('test for holidays', () => {
           excludedDays: [],
           skipHolidays: true,
         }
-        expect(pypWrapper(pypDate, () => true, options)).toBe(dateCase[1])
+        expect(pypWrapper(pypDate, () => true, options)).toEqual(dateCase[1])
       })
     })
   })
@@ -78,18 +78,18 @@ describe('test for excluded days', () => {
     ['2018-08-01', true], // miércoles
     ['2018-08-02', true], // jueves
     ['2018-08-03', true], // viernes
-    ['2018-08-04', 'NA'], // sábado
-    ['2018-08-05', 'NA'], // domingo
+    ['2018-08-04', []], // sábado
+    ['2018-08-05', []], // domingo
   ]
   dateCases.forEach(dateCase => {
-    it(`should return 'NA' for ${dateCase[0]}`, () => {
+    it(`should return [] for ${dateCase[0]}`, () => {
       times.forEach(time => {
         const pypDate = dateCase[0] + time
         const options = {
           excludedDays: [0, 6],
           skipHolidays: true,
         }
-        expect(pypWrapper(pypDate, () => true, options)).toBe(dateCase[1])
+        expect(pypWrapper(pypDate, () => true, options)).toEqual(dateCase[1])
       })
     })
   })

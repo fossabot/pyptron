@@ -6,7 +6,6 @@ const {
 } = require('../../../helpers/arrayHelpers')
 
 module.exports = {
-  days: ['Lunes a sábado hábiles'],
   decrees: [
     { name: 'Resolución 277 del 27 de Abril de 2006', url: '' },
     { name: 'Resolución 475 del 23 de Junio de 2006', url: '' },
@@ -22,7 +21,7 @@ module.exports = {
   skipHolidays: true,
   pypFunction(date) {
     const startDate = '2018-01-08'
-    const pypNums = ['1-2', '3-4', '5-6', '7-8', '9-0']
+    const pypNums = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 0]]
     return getArrayElementAfterRotating({
       date,
       startDate,

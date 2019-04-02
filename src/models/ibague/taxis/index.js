@@ -4,7 +4,6 @@ const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Todos los días de la semana'],
   decrees: [
     {
       name: 'Decreto 11-0160 del 29 de febrero de 2008',
@@ -22,8 +21,6 @@ module.exports = {
   skipHolidays: false,
   pypFunction(date) {
     const startDate = '2017-12-01'
-    return String(
-      (datesDiff({ startDate, endDate: date, period: 'days' }) + 1) % 10
-    )
+    return [(datesDiff({ startDate, endDate: date, period: 'days' }) + 1) % 10]
   },
 }

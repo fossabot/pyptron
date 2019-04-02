@@ -4,9 +4,6 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: [
-    'Lunes a viernes hábiles (No se aplicará en los días festivos establecidos por la Ley)',
-  ],
   decrees: [
     { name: 'Decreto 349 de 2017', url: 'cdn:pdf' },
     { name: 'Decreto 070 de 2018', url: 'cdn:pdf' },
@@ -21,11 +18,11 @@ module.exports = {
   skipHolidays: true,
   pypFunction(date) {
     const pyp = [
-      '6-7', // lunes
-      '8-9', // martes
-      '0-1', // miércoles
-      '2-3', // jueves
-      '4-5', // viernes
+      [6, 7], // lunes
+      [8, 9], // martes
+      [0, 1], // miércoles
+      [2, 3], // jueves
+      [4, 5], // viernes
     ]
     return pyp[newISODate(date).getDay() - 1]
   },

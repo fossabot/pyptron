@@ -5,7 +5,6 @@ const { getWeek } = require('../../../helpers/dateHelpers')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
-  days: ['Lunes a viernes hábiles'],
   decrees: [
     { name: 'Decreto 0300 de 2019', url: 'cdn:pdf' },
     { name: 'Decreto 0221 de 2019', url: 'cdn:pdf' },
@@ -36,20 +35,20 @@ module.exports = {
     const pyp = [
       // semanas impares 1 y 3
       [
-        '3', // lunes
-        '2', // martes
-        '1', // miércoles
-        '9', // jueves
-        '0', // viernes
+        [3], // lunes
+        [2], // martes
+        [1], // miércoles
+        [9], // jueves
+        [0], // viernes
       ],
 
       // semanas pares 2 y 4
       [
-        '8', // lunes
-        '7', // martes
-        '6', // miércoles
-        '5', // jueves
-        '4', // viernes
+        [8], // lunes
+        [7], // martes
+        [6], // miércoles
+        [5], // jueves
+        [4], // viernes
       ],
     ]
     const week = getWeek(date) % 2
