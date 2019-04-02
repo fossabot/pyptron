@@ -7,12 +7,7 @@ const tpc = require('./tpc')
 
 module.exports = {
   name: 'Bogotá',
-  messages: [
-    {
-      message: '2019-03-28: No hay Pico y Placa extendido en Bogotá.',
-      url: 'https://twitter.com/Bogota/status/1111391898197991424',
-    },
-  ],
+  messages: [],
   categories: {
     carga,
     especial,
