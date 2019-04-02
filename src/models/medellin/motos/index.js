@@ -22,8 +22,8 @@ module.exports = {
     const startDate = '2018-02-05'
     const dateObject = newISODate(date)
     const formatedDate = formatDate(dateObject)
+    const dow = dateObject.getDay()
     if (formatedDate >= '2019-02-23' && formatedDate <= '2019-04-06') {
-      const dow = dateObject.getDay()
       if (dow === 6) {
         const weeksLapse = datesDiff({
           startDate: '2019-02-23',
@@ -41,7 +41,7 @@ module.exports = {
         [0, 1, 2, 3, 4, 5], // jueves
         [2, 3, 4, 5, 6, 7], // viernes
       ]
-      return pypNums[newISODate(date).getDay() - 1]
+      return pypNums[dow - 1]
     }
     const pypNums = [
       [8, 9], // lunes
@@ -57,6 +57,6 @@ module.exports = {
       period: 'months',
     })
     const newPypNums = moveArrayElementsToTheRight(pypNums, lapse)
-    return newPypNums[newISODate(date).getDay() - 1]
+    return dow > 5 ? [] : newPypNums[dow - 1]
   },
 }
