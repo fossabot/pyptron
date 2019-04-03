@@ -1,6 +1,7 @@
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
+const zones = require('./zones.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
 module.exports = {
@@ -17,13 +18,8 @@ module.exports = {
     if (newISODate(date).getDate() === 30) {
       return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     }
-    const pyp = [
-      [1, 3], // lunes
-      [2, 4], // martes
-      [5, 7], // miércoles
-      [6, 8], // jueves
-      [9, 0], // viernes
-    ]
+    const pyp = [[1, 3], [2, 4], [5, 7], [6, 8], [9, 0]]
     return pyp[newISODate(date).getDay() - 1]
   },
+  zones,
 }
