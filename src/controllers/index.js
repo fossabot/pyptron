@@ -15,7 +15,7 @@ function getCities(city, options = {}) {
     return createResponse(200, citiesMap)
   }
   const { date = new Date() } = options
-  if (!citiesMap[city]) {
+  if (!(city in citiesMap)) {
     return createResponse(404, {
       error: 'City not found',
       cities: Object.keys(citiesMap),
@@ -32,13 +32,13 @@ function getCities(city, options = {}) {
 
 function getCategories(city, category, options = {}) {
   const { date = new Date(), days = 1 } = options
-  if (!citiesMap[city]) {
+  if (!(city in citiesMap)) {
     return createResponse(404, {
       error: 'City not found',
       cities: Object.keys(citiesMap),
     })
   }
-  if (!citiesMap[city].categories[category]) {
+  if (!(category in citiesMap[city].categories)) {
     return createResponse(404, {
       error: 'Category not found',
       categories: Object.keys(citiesMap[city].categories),

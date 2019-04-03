@@ -77,6 +77,7 @@ module.exports = {
       period: 'months',
     })
     const newPypNums = moveArrayElementsToTheRight(pypNums, lapse)
-    return dow > 5 ? [] : newPypNums[dow - 1]
+    const index = dow - 1
+    return index in newPypNums ? newPypNums[index] : []
   },
 }
