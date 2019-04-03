@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -6,7 +7,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Resolución 108 de 2018',
@@ -67,4 +68,4 @@ module.exports = {
       interval: 3,
     })
   },
-}
+})

@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const particulares = require('../particulares')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -12,7 +13,7 @@ const {
   moveArrayElementsToTheRight,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   ...particulares,
   exceptions,
   observations,
@@ -60,4 +61,4 @@ module.exports = {
     const index = dow - 1
     return index in newPypNums ? newPypNums[index] : []
   },
-}
+})

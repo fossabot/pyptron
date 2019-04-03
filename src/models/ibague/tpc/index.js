@@ -1,9 +1,10 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto 0387 del 11 de abril de 2016',
@@ -32,4 +33,4 @@ module.exports = {
       datesDiff({ startDate, endDate: date, period: 'days' }) - 1
     return pyp[daysLapse % pyp.length]
   },
-}
+})

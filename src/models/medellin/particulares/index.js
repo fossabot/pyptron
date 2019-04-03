@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
@@ -11,7 +12,7 @@ const {
   moveArrayElementsToTheRight,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto 0116 de 2018',
@@ -80,4 +81,4 @@ module.exports = {
     const index = dow - 1
     return index in newPypNums ? newPypNums[index] : []
   },
-}
+})

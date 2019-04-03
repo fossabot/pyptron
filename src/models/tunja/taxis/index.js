@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -5,7 +6,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto No. 0201 del 13 de junio de 2016',
@@ -38,4 +39,4 @@ module.exports = {
       period: 'months',
     })
   },
-}
+})

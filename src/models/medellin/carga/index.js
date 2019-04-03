@@ -1,8 +1,9 @@
+const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const particulares = require('../particulares')
 
-module.exports = {
+module.exports = new Category({
   ...particulares,
   decrees: [{ name: '', url: '' }],
   exceptions,
@@ -18,4 +19,4 @@ module.exports = {
   ],
   observations,
   vehicleClasses: ['Camiones y volquetas'],
-}
+})

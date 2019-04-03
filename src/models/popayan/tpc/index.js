@@ -1,8 +1,9 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto 20181000000015 del 2 de enero de 2018',
@@ -23,4 +24,4 @@ module.exports = {
   pypFunction() {
     return []
   },
-}
+})

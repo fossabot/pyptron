@@ -1,9 +1,10 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Decreto 083 de 2016', url: 'cdn:pdf' },
     { name: 'Decreto 059 de 2019', url: 'cdn:pdf' },
@@ -33,4 +34,4 @@ module.exports = {
     ]
     return pyp[newISODate(date).getDay() - 1]
   },
-}
+})

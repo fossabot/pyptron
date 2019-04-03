@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -8,7 +9,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
     { name: 'Resolución 298 de 2017', url: '' },
@@ -79,4 +80,4 @@ module.exports = {
       reverse: true,
     })
   },
-}
+})

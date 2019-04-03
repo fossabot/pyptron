@@ -1,9 +1,10 @@
+const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/dateHelpers')
 const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
     { name: 'Resolución 298 de 2017', url: '' },
@@ -66,4 +67,4 @@ module.exports = {
     )
     return pypNums[index]
   },
-}
+})

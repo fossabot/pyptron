@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -5,7 +6,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Decreto 043 de 2019', url: 'cdn:pdf' },
     { name: 'decreto 068 de 2018', url: 'cdn:pdf' },
@@ -30,4 +31,4 @@ module.exports = {
       array: pypNums,
     })
   },
-}
+})

@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -5,7 +6,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Resolución 277 del 27 de Abril de 2006', url: '' },
     { name: 'Resolución 475 del 23 de Junio de 2006', url: '' },
@@ -30,4 +31,4 @@ module.exports = {
       reverse: true,
     })
   },
-}
+})

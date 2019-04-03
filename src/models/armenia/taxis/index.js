@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -5,7 +6,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [{ name: 'Decreto 083 de 2016', url: 'cdn:pdf' }],
   exceptions,
   hours: [{ comment: '', hours: [['7:30', '19:30']], days: [] }],
@@ -28,4 +29,4 @@ module.exports = {
       reverse: true,
     })
   },
-}
+})

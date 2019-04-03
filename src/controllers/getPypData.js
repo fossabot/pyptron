@@ -1,5 +1,5 @@
 const slugify = require('slugify')
-const { pypWrapper, getCategoryMetainfo } = require('../helpers/pypHelpers')
+const { getCategoryMetainfo } = require('../helpers/pypHelpers')
 const { newISODate } = require('../helpers/dateHelpers')
 const { cdnPathMaker } = require('../helpers/globalHelpers')
 
@@ -60,7 +60,7 @@ function getPypNums(options) {
   const {
     date,
     days,
-    categoryObject: { pypFunction, excludedDays, skipHolidays },
+    categoryObject: { pyp },
   } = options
   const maxDays = 30
   const currentDate = new Date(date)
@@ -71,10 +71,7 @@ function getPypNums(options) {
   for (let i = 0; i < totalDays; i += 1) {
     pypNumbers.push({
       date: currentDate.toISOString(),
-      numbers: pypWrapper(currentDate, pypFunction, {
-        excludedDays,
-        skipHolidays,
-      }),
+      numbers: pyp(currentDate),
     })
     currentDate.setDate(currentDate.getDate() + 1)
   }

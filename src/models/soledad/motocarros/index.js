@@ -1,10 +1,11 @@
+const Category = require('../../../classes/category')
 const motos = require('../motos')
 const observations = require('./observations.md')
 const zones = require('./zones.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 const { formatDate } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   ...motos,
   hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],
   observations,
@@ -32,4 +33,4 @@ module.exports = {
     }
   },
   zones,
-}
+})

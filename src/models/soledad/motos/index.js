@@ -1,10 +1,11 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const zones = require('./zones.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [{ name: 'Decreto 288 de 2017', url: 'cdn:pdf' }],
   exceptions,
   hours: [{ comment: '', hours: [['5:00', '22:00']], days: [] }],
@@ -22,4 +23,4 @@ module.exports = {
     return pyp[newISODate(date).getDay() - 1]
   },
   zones,
-}
+})

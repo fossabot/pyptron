@@ -1,9 +1,10 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto 11-0160 del 29 de febrero de 2008',
@@ -23,4 +24,4 @@ module.exports = {
     const startDate = '2017-12-01'
     return [(datesDiff({ startDate, endDate: date, period: 'days' }) + 1) % 10]
   },
-}
+})

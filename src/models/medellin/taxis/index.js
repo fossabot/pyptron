@@ -1,10 +1,11 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { moveArrayElementsToTheRight } = require('../../../helpers/arrayHelpers')
 const { datesDiff, newISODate } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto 0116 de 2018',
@@ -48,4 +49,4 @@ module.exports = {
     pypNums = moveArrayElementsToTheRight(pypNums, offset < 0 ? 0 : offset)
     return pypNums[datesWeekDay - 1][(weeksOffset + 1) % 2]
   },
-}
+})

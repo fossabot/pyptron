@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -5,7 +6,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Decreto 222 del 25 de julio de 2018', url: 'cdn:pdf' },
     { name: 'Decreto 245 del 26 de julio de 2017', url: 'cdn:pdf' },
@@ -29,4 +30,4 @@ module.exports = {
       reverse: true,
     })
   },
-}
+})

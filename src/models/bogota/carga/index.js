@@ -1,8 +1,9 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     {
       name: 'Decreto 060 de 2019',
@@ -50,4 +51,4 @@ module.exports = {
     //   period: 'days',
     // })
   },
-}
+})

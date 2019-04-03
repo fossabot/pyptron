@@ -1,3 +1,4 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
@@ -7,7 +8,7 @@ const {
   getArrayElementAfterRotating,
 } = require('../../../helpers/arrayHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Decreto 1361 del 29 de noviembre de 2018', url: 'cdn:pdf' },
     { name: 'Decreto 1550 del 30 de noviembre de 2017', url: 'cdn:pdf' },
@@ -41,4 +42,4 @@ module.exports = {
       interval: 3,
     })
   },
-}
+})

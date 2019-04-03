@@ -1,10 +1,11 @@
+const Category = require('../../../classes/category')
 const { licensePlateScheme } = require('../../../helpers/globalHelpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/dateHelpers')
 const { getNthDayOfMonth } = require('../../../helpers/dateHelpers')
 
-module.exports = {
+module.exports = new Category({
   decrees: [
     { name: 'Decreto 1035 del 5 de septiembre de 2018', url: 'cdn:pdf' },
   ],
@@ -47,4 +48,4 @@ module.exports = {
     const pyp = [[1, 3, 5, 7, 9], [0, 2, 4, 6, 8]]
     return pyp[newISODate(date).getDate() % 2]
   },
-}
+})

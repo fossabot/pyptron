@@ -1,7 +1,8 @@
+const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
-module.exports = {
+module.exports = new Category({
   decrees: [{ name: '', url: '' }],
   exceptions,
   hours: [{ comment: '', hours: [[]], days: [] }],
@@ -20,4 +21,4 @@ module.exports = {
   pypFunction() {
     return []
   },
-}
+})
