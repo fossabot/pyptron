@@ -1,5 +1,5 @@
 const { getCities, getCategories } = require('./controllers')
-const { createResponse } = require('./helpers/globalHelpers')
+const { createResponse } = require('./helpers/global-helpers')
 
 exports.pyptron = async event => {
   const { city, category } = event.pathParameters || {}

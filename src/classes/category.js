@@ -1,5 +1,5 @@
 const { getHoliday } = require('pascua')
-const { datesDiff, newISODate } = require('../helpers/dateHelpers')
+const { datesDiff, newISODate } = require('../helpers/date-helpers')
 
 module.exports = class Category {
   constructor(options) {

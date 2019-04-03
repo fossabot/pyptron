@@ -1,4 +1,4 @@
-const { getPypData } = require('./getPypData')
+const { getPypData } = require('./get-pyp-data')
 
 describe('Generate pyp data objects', () => {
   it('should return data for three days for all categories', () => {

@@ -1,8 +1,8 @@
 const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { datesDiff } = require('../../../helpers/dateHelpers')
-const { normalizeArrayIndex } = require('../../../helpers/arrayHelpers')
+const { datesDiff } = require('../../../helpers/date-helpers')
+const { normalizeArrayIndex } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
   decrees: [

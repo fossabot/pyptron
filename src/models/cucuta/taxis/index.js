@@ -1,9 +1,9 @@
 const Category = require('../../../classes/category')
-const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const { licensePlateScheme } = require('../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { getWeek } = require('../../../helpers/dateHelpers')
-const { newISODate } = require('../../../helpers/dateHelpers')
+const { getWeek } = require('../../../helpers/date-helpers')
+const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
   decrees: [

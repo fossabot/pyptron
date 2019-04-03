@@ -1,5 +1,5 @@
 const Category = require('../../../classes/category')
-const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const { licensePlateScheme } = require('../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 

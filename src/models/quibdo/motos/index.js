@@ -1,8 +1,8 @@
 const Category = require('../../../classes/category')
-const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const { licensePlateScheme } = require('../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { newISODate } = require('../../../helpers/dateHelpers')
+const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
   decrees: [{ name: 'Decreto 222 de 2016', url: 'cdn:pdf' }],

@@ -2,7 +2,7 @@ const {
   generateISOString,
   getNthDayOfMonth,
   datesDiff,
-} = require('./dateHelpers')
+} = require('./date-helpers')
 
 describe('test for generateISOString', () => {
   it(`should append the time offset to the date`, () => {

@@ -1,6 +1,6 @@
-const { getPypData } = require('./getPypData')
-const { generateMap } = require('../helpers/pypHelpers')
-const { createResponse } = require('../helpers/globalHelpers')
+const { getPypData } = require('./get-pyp-data')
+const { generateMap } = require('../helpers/pyp-helpers')
+const { createResponse } = require('../helpers/global-helpers')
 const cities = require('../models')
 
 module.exports = {

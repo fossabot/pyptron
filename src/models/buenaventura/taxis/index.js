@@ -1,10 +1,10 @@
 const Category = require('../../../classes/category')
-const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const { licensePlateScheme } = require('../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const {
   getArrayElementAfterRotating,
-} = require('../../../helpers/arrayHelpers')
+} = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
   decrees: [{ name: 'Decreto 0019 del 09 de enero del 2018', url: '' }],

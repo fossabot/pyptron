@@ -1,7 +1,7 @@
 const {
   moveArrayElementsToTheRight,
   getArrayElementAfterRotating,
-} = require('./arrayHelpers')
+} = require('./array-helpers')
 
 describe('Rotate an array', () => {
   it('should rotate an array according to the offset', () => {

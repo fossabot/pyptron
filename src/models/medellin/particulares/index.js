@@ -1,16 +1,16 @@
 const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const { licensePlateScheme } = require('../../../helpers/global-helpers')
 const {
   newISODate,
   formatDate,
   datesDiff,
-} = require('../../../helpers/dateHelpers')
+} = require('../../../helpers/date-helpers')
 const {
   normalizeArrayIndex,
   moveArrayElementsToTheRight,
-} = require('../../../helpers/arrayHelpers')
+} = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
   decrees: [

@@ -1,5 +1,5 @@
 const { pyptron } = require('./handler')
-const { generateMap } = require('./helpers/pypHelpers')
+const { generateMap } = require('./helpers/pyp-helpers')
 const cities = require('./models')
 
 const citiesMap = generateMap(cities)

@@ -1,9 +1,11 @@
 const Category = require('../../../classes/category')
-const { licensePlateScheme } = require('../../../helpers/globalHelpers')
+const { licensePlateScheme } = require('../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { moveArrayElementsToTheRight } = require('../../../helpers/arrayHelpers')
-const { datesDiff, newISODate } = require('../../../helpers/dateHelpers')
+const {
+  moveArrayElementsToTheRight,
+} = require('../../../helpers/array-helpers')
+const { datesDiff, newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
   decrees: [

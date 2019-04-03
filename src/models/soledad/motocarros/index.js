@@ -2,8 +2,8 @@ const Category = require('../../../classes/category')
 const motos = require('../motos')
 const observations = require('./observations.md')
 const zones = require('./zones.md')
-const { newISODate } = require('../../../helpers/dateHelpers')
-const { formatDate } = require('../../../helpers/dateHelpers')
+const { newISODate } = require('../../../helpers/date-helpers')
+const { formatDate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
   ...motos,

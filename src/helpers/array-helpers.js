@@ -1,4 +1,4 @@
-const { newISODate, datesDiff } = require('./dateHelpers')
+const { newISODate, datesDiff } = require('./date-helpers')
 
 module.exports = {
   normalizeArrayIndex,

@@ -1,7 +1,7 @@
 const slugify = require('slugify')
-const { getCategoryMetainfo } = require('../helpers/pypHelpers')
-const { newISODate } = require('../helpers/dateHelpers')
-const { cdnPathMaker } = require('../helpers/globalHelpers')
+const { getCategoryMetainfo } = require('../helpers/pyp-helpers')
+const { newISODate } = require('../helpers/date-helpers')
+const { cdnPathMaker } = require('../helpers/global-helpers')
 
 const cities = require('../models')
 

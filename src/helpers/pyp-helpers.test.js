@@ -1,5 +1,5 @@
 const { readdir } = require('fs')
-const { generateMap } = require('./pypHelpers')
+const { generateMap } = require('./pyp-helpers')
 const cities = require('../models')
 
 const dir = './src/models'
