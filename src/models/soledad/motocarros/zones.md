@@ -1,4 +1,4 @@
-Que da prohibido a todo tipo de vehículo circular y/o transitar en el carril exclusivo del Sistema Integral de Transporte Masivo "TRANSMETRO", incluyendo la plataforma operativa de ésta, savlo excepción legal o reglamentaria.
+Queda prohibido a todo tipo de vehículo circular y/o transitar en el carril exclusivo del Sistema Integral de Transporte Masivo "TRANSMETRO", incluyendo la plataforma operativa de ésta, savlo excepción legal o reglamentaria.
 
 Queda prohibida la circulación y/o tránsito de vehículos tipo motocicleta, motocicle, ciclomotor, mototriciclo, tricimoto, cuatrimoto, motocarros y de tracción animal, en la jurisdicción del municipio de Soledad, así:
 
