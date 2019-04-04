@@ -13,6 +13,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('particulares'),
   decrees: [
     {
       name: 'Decreto 0116 de 2018',

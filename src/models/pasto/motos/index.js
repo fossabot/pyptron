@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [
     {
       name: 'Decreto 0201 del 18 de mayo de 2017',

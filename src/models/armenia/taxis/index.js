@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [{ name: 'Decreto 083 de 2016', url: 'cdn:pdf' }],
   exceptions,
   hours: [{ comment: '', hours: [['7:30', '19:30']], days: [] }],

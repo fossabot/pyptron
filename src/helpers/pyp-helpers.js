@@ -2,7 +2,6 @@ const slugify = require('slugify')
 
 module.exports = {
   generateMap,
-  getCategoryMetainfo,
 }
 
 function generateMap(object) {
@@ -20,7 +19,8 @@ function generateMap(object) {
         }
         return map
       }
-      const { name, emoji } = getCategoryMetainfo(key)
+      // console.log(key, object[key].name)
+      const { name, emoji } = object[key]
       const slug = slugify(name, { lower: true })
       // eslint-disable-next-line no-param-reassign
       map[slug] = {
@@ -30,18 +30,4 @@ function generateMap(object) {
       }
       return map
     }, {})
-}
-
-function getCategoryMetainfo(category) {
-  const metainfo = {
-    taxis: { emoji: '🚕', name: 'Taxis' },
-    particulares: { emoji: '🚗', name: 'Particulares' },
-    tpc: { emoji: '🚌', name: 'Transporte Público Colectivo' },
-    motos: { emoji: '🛵', name: 'Motos' },
-    motocarros: { emoji: '', name: 'Motocarros' },
-    especial: { emoji: '🚐', name: 'Servicio de Transporte Especial' },
-    ambiental: { emoji: '🌻', name: 'Ambiental' },
-    carga: { emoji: '🚛', name: 'Transporte de carga' },
-  }
-  return metainfo[category] || ''
 }

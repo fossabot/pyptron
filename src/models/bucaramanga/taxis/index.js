@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     { name: 'Resolución 277 del 27 de Abril de 2006', url: '' },
     { name: 'Resolución 475 del 23 de Junio de 2006', url: '' },

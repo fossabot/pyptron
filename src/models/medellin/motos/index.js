@@ -15,6 +15,7 @@ const {
 
 module.exports = new Category({
   ...particulares,
+  ...Category.getCategoryMetainfo('motos'),
   exceptions,
   observations,
   scheme: licensePlateScheme.firstNumber,

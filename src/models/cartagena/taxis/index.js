@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     {
       name: 'Decreto 1483 de diciembre de 2018',

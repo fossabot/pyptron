@@ -8,6 +8,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [
     {
       name: 'Resolución 108 de 2018',

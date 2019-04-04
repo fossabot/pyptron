@@ -10,6 +10,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
     { name: 'Resolución 298 de 2017', url: '' },

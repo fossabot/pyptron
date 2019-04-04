@@ -3,6 +3,7 @@ const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [{ name: '', url: '' }],
   exceptions,
   hours: [{ comment: '', hours: [[]], days: [] }],

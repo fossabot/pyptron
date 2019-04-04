@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('tpc'),
   decrees: [
     {
       name: 'Decreto 0387 del 11 de abril de 2016',

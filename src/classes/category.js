@@ -4,12 +4,15 @@ const { datesDiff, newISODate } = require('../helpers/date-helpers')
 module.exports = class Category {
   constructor(options) {
     this.decrees = options.decrees
+    this.emoji = options.emoji
     this.exceptions = options.exceptions
     this.excludedDays = options.excludedDays
     this.getPyp = this.getPyp.bind(this)
     this.getPypNums = this.getPypNums.bind(this)
     this.hours = options.hours
+    this.key = options.key
     this.maps = options.maps
+    this.name = options.name
     this.observations = options.observations
     this.pypFunction = options.pypFunction
     this.scheme = options.scheme
@@ -66,5 +69,23 @@ module.exports = class Category {
     }
 
     return this.pypFunction(dateObject)
+  }
+
+  static getCategoryMetainfo(category) {
+    const metainfo = {
+      taxis: { key: 'taxis', emoji: '🚕', name: 'Taxis' },
+      particulares: { key: 'particulares', emoji: '🚗', name: 'Particulares' },
+      tpc: { key: 'tpc', emoji: '🚌', name: 'Transporte Público Colectivo' },
+      motos: { key: 'motos', emoji: '🛵', name: 'Motos' },
+      motocarros: { key: 'motocarros', emoji: '', name: 'Motocarros' },
+      especial: {
+        key: 'especial',
+        emoji: '🚐',
+        name: 'Servicio de Transporte Especial',
+      },
+      ambiental: { key: 'ambiental', emoji: '🌻', name: 'Ambiental' },
+      carga: { key: 'carga', emoji: '🚛', name: 'Transporte de carga' },
+    }
+    return category ? metainfo[category] : metainfo
   }
 }

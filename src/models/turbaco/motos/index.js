@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [{ name: 'Decreto 035', url: '' }],
   exceptions,
   hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],

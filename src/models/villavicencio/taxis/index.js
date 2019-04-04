@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     { name: 'Decreto 222 del 25 de julio de 2018', url: 'cdn:pdf' },
     { name: 'Decreto 245 del 26 de julio de 2017', url: 'cdn:pdf' },

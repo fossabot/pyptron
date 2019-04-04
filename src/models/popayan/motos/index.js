@@ -4,6 +4,7 @@ const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [
     {
       name: 'Decreto 20181000000015 del 2 de enero de 2018',

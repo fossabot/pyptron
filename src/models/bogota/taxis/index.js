@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     {
       name: 'Decreto 660 del 27 de agosto de 2001',

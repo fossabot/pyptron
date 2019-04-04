@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('especial'),
   decrees: [
     {
       name: 'Decreto 248 del 14 de junio de 2016',

@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('particulares'),
   decrees: [{ name: 'Decreto 222 de 2016', url: 'cdn:pdf' }],
   exceptions,
   hours: [{ comment: '', hours: [['7:30', '19:30']], days: [] }],

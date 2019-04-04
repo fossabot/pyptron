@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('particulares'),
   decrees: [
     { name: 'Decreto 349 de 2017', url: 'cdn:pdf' },
     { name: 'Decreto 070 de 2018', url: 'cdn:pdf' },

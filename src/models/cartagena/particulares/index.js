@@ -9,6 +9,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('particulares'),
   decrees: [
     { name: 'Decreto 1361 del 29 de noviembre de 2018', url: 'cdn:pdf' },
     { name: 'Decreto 1550 del 30 de noviembre de 2017', url: 'cdn:pdf' },

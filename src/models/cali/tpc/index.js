@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('tpc'),
   decrees: [
     {
       name: 'Decreto 0001 del 4 de enero de 2018',

@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('tpc'),
   decrees: [
     {
       name: 'Decreto 444 de 2014',

@@ -8,6 +8,7 @@ const {
 const { datesDiff, newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     {
       name: 'Decreto 0116 de 2018',

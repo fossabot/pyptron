@@ -1,5 +1,4 @@
 const slugify = require('slugify')
-const { getCategoryMetainfo } = require('../helpers/pyp-helpers')
 const { cdnPathMaker } = require('../helpers/global-helpers')
 
 module.exports = class City {
@@ -12,8 +11,7 @@ module.exports = class City {
     this.categories = {}
     Object.keys(categories).forEach(categoryKey => {
       const categoryObject = categories[categoryKey]
-      const { name: categoryName, emoji } = getCategoryMetainfo(categoryKey)
-      const categoryPath = slugify(categoryName, {
+      const categoryPath = slugify(categoryObject.name, {
         lower: true,
       })
 
@@ -22,13 +20,10 @@ module.exports = class City {
         decrees: categoryObject.decrees
           ? cdnPathMaker(categoryObject.decrees, cityPath)
           : [],
-        emoji,
-        key: categoryKey,
         maps: categoryObject.maps
           ? cdnPathMaker(categoryObject.maps, cityPath)
           : [],
         messages: categoryObject.messages || [],
-        name: categoryName,
         path: `${cityPath}/${categoryPath}`,
         pyp: categoryObject.pyp,
       }

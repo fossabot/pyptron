@@ -5,6 +5,7 @@ const { datesDiff } = require('../../../helpers/date-helpers')
 const { normalizeArrayIndex } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('tpc'),
   decrees: [
     { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
     { name: 'Resolución 298 de 2017', url: '' },

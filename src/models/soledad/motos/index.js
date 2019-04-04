@@ -6,6 +6,7 @@ const zones = require('./zones.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [{ name: 'Decreto 288 de 2017', url: 'cdn:pdf' }],
   exceptions,
   hours: [{ comment: '', hours: [['5:00', '22:00']], days: [] }],

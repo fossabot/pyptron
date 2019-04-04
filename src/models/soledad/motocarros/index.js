@@ -7,6 +7,7 @@ const { formatDate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
   ...motos,
+  ...Category.getCategoryMetainfo('motocarros'),
   hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],
   observations,
   vehicleClasses: [

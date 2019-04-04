@@ -5,6 +5,7 @@ const particulares = require('../particulares')
 
 module.exports = new Category({
   ...particulares,
+  ...Category.getCategoryMetainfo('carga'),
   decrees: [{ name: '', url: '' }],
   exceptions,
   hours: [

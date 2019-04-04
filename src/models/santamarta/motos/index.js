@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [{ name: '', url: '' }],
   exceptions,
   hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],

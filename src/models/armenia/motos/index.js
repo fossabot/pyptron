@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('motos'),
   decrees: [
     { name: 'Decreto 083 de 2016', url: 'cdn:pdf' },
     { name: 'Decreto 059 de 2019', url: 'cdn:pdf' },

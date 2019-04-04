@@ -1,13 +1,47 @@
+const Category = require('../classes/category')
+
 exports.testInfo = category => {
-  describe(`Test for ${category} info`, () => {
-    const { decrees, hours, scheme, vehicleClasses } = category
-    it(`Should return an array for 'vehicleClasses' of ${category}`, () => {
+  describe(`Test for ${category.name} info`, () => {
+    const {
+      key,
+      name,
+      emoji,
+      decrees,
+      hours,
+      scheme,
+      vehicleClasses,
+    } = category
+    it(`Should return a key for ${category.name}`, () => {
+      expect(
+        Object.values(Category.getCategoryMetainfo())
+          .map(value => value.key)
+          .includes(key)
+      ).toBe(true)
+    })
+    it(`Should return an emoji for ${category.name}`, () => {
+      expect(
+        Object.values(Category.getCategoryMetainfo())
+          .map(value => value.emoji)
+          .includes(emoji)
+      ).toBe(true)
+    })
+    it(`Should return a name for ${category.name}`, () => {
+      expect(
+        Object.values(Category.getCategoryMetainfo())
+          .map(value => value.name)
+          .includes(name)
+      ).toBe(true)
+    })
+
+    it(`Should return an array for 'vehicleClasses' of ${
+      category.name
+    }`, () => {
       expect(Array.isArray(vehicleClasses)).toBe(true)
     })
-    it(`Should return scheme info of ${category}`, () => {
+    it(`Should return scheme info of ${category.name}`, () => {
       expect(typeof scheme).toEqual(expect.anything())
     })
-    it(`Should return decrees info for ${category}`, () => {
+    it(`Should return decrees info for ${category.name}`, () => {
       expect(Array.isArray(decrees)).toBe(true)
       decrees.forEach(decree => {
         expect(typeof decree.name).toBe('string')

@@ -6,6 +6,7 @@ const { getWeek } = require('../../../helpers/date-helpers')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     { name: 'Decreto 0300 de 2019', url: 'cdn:pdf' },
     { name: 'Decreto 0221 de 2019', url: 'cdn:pdf' },

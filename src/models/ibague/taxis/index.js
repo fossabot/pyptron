@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { datesDiff } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('taxis'),
   decrees: [
     {
       name: 'Decreto 11-0160 del 29 de febrero de 2008',

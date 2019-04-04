@@ -7,6 +7,7 @@ const {
 } = require('../../../helpers/array-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('particulares'),
   decrees: [{ name: 'Decreto 0019 del 09 de enero del 2018', url: '' }],
   exceptions,
   hours: [

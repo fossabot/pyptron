@@ -5,6 +5,7 @@ const observations = require('./observations.md')
 const { newISODate } = require('../../../helpers/date-helpers')
 
 module.exports = new Category({
+  ...Category.getCategoryMetainfo('particulares'),
   decrees: [
     { name: 'Decreto 60 del 22 de octubre de 2018', url: 'cdn:pdf' },
     { name: 'Estudio de tráfico pico y placa enero 2018', url: 'cdn:pdf' },
