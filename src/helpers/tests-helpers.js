@@ -1,9 +1,4 @@
 exports.testInfo = category => {
-  describe(`'pyp' should be a function for ${category}`, () => {
-    it('should be a function', () => {
-      expect(typeof category.pyp).toBe('function')
-    })
-  })
   describe(`Test for ${category} info`, () => {
     const { decrees, hours, scheme, vehicleClasses } = category
     it(`Should return an array for 'vehicleClasses' of ${category}`, () => {
@@ -53,7 +48,7 @@ exports.testCases = (category, dateCases) => {
         it(`should return '${pypNum}' for '${
           category.name
         }' @${pypDate}`, () => {
-          expect(category.pyp(pypDate)).toEqual(pypNum)
+          expect(category.getPypNums(pypDate)).toEqual(pypNum)
         })
       })
     })

@@ -6,11 +6,11 @@ module.exports = class Category {
     this.decrees = options.decrees
     this.exceptions = options.exceptions
     this.excludedDays = options.excludedDays
+    this.getPyp = this.getPyp.bind(this)
     this.getPypNums = this.getPypNums.bind(this)
     this.hours = options.hours
     this.maps = options.maps
     this.observations = options.observations
-    this.pyp = this.pyp.bind(this)
     this.pypFunction = options.pypFunction
     this.scheme = options.scheme
     this.skipHolidays = options.skipHolidays
@@ -18,7 +18,7 @@ module.exports = class Category {
     this.zones = options.zones
   }
 
-  getPypNums(options) {
+  getPyp(options) {
     const { date, days } = options
     const maxDays = 30
     const currentDate = new Date(date)
@@ -29,14 +29,14 @@ module.exports = class Category {
     for (let i = 0; i < totalDays; i += 1) {
       pypNumbers.push({
         date: currentDate.toISOString(),
-        numbers: this.pyp(currentDate),
+        numbers: this.getPypNums(currentDate),
       })
       currentDate.setDate(currentDate.getDate() + 1)
     }
     return pypNumbers
   }
 
-  pyp(date) {
+  getPypNums(date) {
     const dateObject = newISODate(date)
     const startDate = '2018-01-01'
     if (

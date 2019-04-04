@@ -19,7 +19,7 @@ function getPypData(options) {
       // eslint-disable-next-line no-param-reassign
       categoriesObject[categoryKey] = {
         ...categoryObject,
-        pyp: categoryObject.getPypNums({
+        pyp: categoryObject.getPyp({
           date: ISODate,
           days,
         }),
