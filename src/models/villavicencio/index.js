@@ -1,9 +1,10 @@
+const City = require('../../classes/city')
 const carga = require('./carga')
 const motos = require('./motos')
 const particulares = require('./particulares')
 const taxis = require('./taxis')
 
-module.exports = {
+module.exports = new City({
   name: 'Villavicencio',
   categories: {
     carga,
@@ -11,4 +12,4 @@ module.exports = {
     particulares,
     taxis,
   },
-}
+})

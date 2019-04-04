@@ -1,7 +1,4 @@
-const slugify = require('slugify')
-const { getCategoryMetainfo } = require('../helpers/pyp-helpers')
 const { newISODate } = require('../helpers/date-helpers')
-const { cdnPathMaker } = require('../helpers/global-helpers')
 
 const cities = require('../models')
 
@@ -15,31 +12,14 @@ function getPypData(options) {
   const cityObject = cities[city]
   const { categories = Object.keys(cityObject.categories) } = options
   const ISODate = newISODate(date)
-  const { name, messages } = cityObject
-  const cityPath = slugify(name, { lower: true })
 
   return {
+    ...cityObject,
     categories: categories.reduce((categoriesObject, categoryKey) => {
       const categoryObject = cityObject.categories[categoryKey]
-      const { name: categoryName, emoji } = getCategoryMetainfo(categoryKey)
-      const categoryPath = slugify(categoryName, {
-        lower: true,
-      })
-
       // eslint-disable-next-line no-param-reassign
       categoriesObject[categoryKey] = {
         ...categoryObject,
-        decrees: categoryObject.decrees
-          ? cdnPathMaker(categoryObject.decrees, cityPath)
-          : [],
-        emoji,
-        key: categoryKey,
-        maps: categoryObject.maps
-          ? cdnPathMaker(categoryObject.maps, cityPath)
-          : [],
-        messages: categoryObject.messages || [],
-        name: categoryName,
-        path: `${cityPath}/${categoryPath}`,
         pyp: getPypNums({
           date: ISODate,
           days,
@@ -49,10 +29,6 @@ function getPypData(options) {
 
       return categoriesObject
     }, {}),
-
-    messages: messages || [],
-    name,
-    path: cityPath,
   }
 }
 
