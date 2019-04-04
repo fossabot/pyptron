@@ -6,6 +6,7 @@ module.exports = class Category {
     this.decrees = options.decrees
     this.exceptions = options.exceptions
     this.excludedDays = options.excludedDays
+    this.getPypNums = this.getPypNums.bind(this)
     this.hours = options.hours
     this.maps = options.maps
     this.observations = options.observations
@@ -15,6 +16,24 @@ module.exports = class Category {
     this.skipHolidays = options.skipHolidays
     this.vehicleClasses = options.vehicleClasses
     this.zones = options.zones
+  }
+
+  getPypNums(options) {
+    const { date, days } = options
+    const maxDays = 30
+    const currentDate = new Date(date)
+    const totalDays = days > maxDays ? maxDays : days
+
+    const pypNumbers = []
+
+    for (let i = 0; i < totalDays; i += 1) {
+      pypNumbers.push({
+        date: currentDate.toISOString(),
+        numbers: this.pyp(currentDate),
+      })
+      currentDate.setDate(currentDate.getDate() + 1)
+    }
+    return pypNumbers
   }
 
   pyp(date) {

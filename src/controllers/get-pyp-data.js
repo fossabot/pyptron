@@ -4,7 +4,6 @@ const cities = require('../models')
 
 module.exports = {
   getPypData,
-  getPypNums,
 }
 
 function getPypData(options) {
@@ -20,36 +19,13 @@ function getPypData(options) {
       // eslint-disable-next-line no-param-reassign
       categoriesObject[categoryKey] = {
         ...categoryObject,
-        pyp: getPypNums({
+        pyp: categoryObject.getPypNums({
           date: ISODate,
           days,
-          categoryObject,
         }),
       }
 
       return categoriesObject
     }, {}),
   }
-}
-
-function getPypNums(options) {
-  const {
-    date,
-    days,
-    categoryObject: { pyp },
-  } = options
-  const maxDays = 30
-  const currentDate = new Date(date)
-  const totalDays = days > maxDays ? maxDays : days
-
-  const pypNumbers = []
-
-  for (let i = 0; i < totalDays; i += 1) {
-    pypNumbers.push({
-      date: currentDate.toISOString(),
-      numbers: pyp(currentDate),
-    })
-    currentDate.setDate(currentDate.getDate() + 1)
-  }
-  return pypNumbers
 }
