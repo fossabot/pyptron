@@ -3,16 +3,18 @@ const { createResponse } = require('../helpers/global-helpers')
 const cities = require('../models')
 
 module.exports = {
-  getCities,
-  getCategories,
+  getCitiesMap,
+  getCityData,
+  getCityCategoriesData,
 }
 
 const citiesMap = generateMap(cities)
 
-function getCities(city, options = {}) {
-  if (!city) {
-    return createResponse(200, citiesMap)
-  }
+function getCitiesMap() {
+  return createResponse(200, citiesMap)
+}
+
+function getCityData(city, options = {}) {
   const { date = new Date() } = options
   if (!(city in citiesMap)) {
     return createResponse(404, {
@@ -29,7 +31,7 @@ function getCities(city, options = {}) {
   }
 }
 
-function getCategories(city, category, options = {}) {
+function getCityCategoriesData(city, category, options = {}) {
   const { date = new Date(), days = 1 } = options
   if (!(city in citiesMap)) {
     return createResponse(404, {
