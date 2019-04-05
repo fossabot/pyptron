@@ -21,11 +21,14 @@
     "build:watch": "npm run build -- --watch",
     "sync:assets": "aws s3 sync assets/ s3://pyphoy/docs --acl public-read",
     "sam:package": "aws cloudformation package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml",
+    "sam:deploy:dev": "aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron-beta-dev --capabilities CAPABILITY_IAM",
     "sam:deploy": "aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron-beta --capabilities CAPABILITY_IAM",
     "sam:validate": "sam validate -t template.yaml",
     "outputs": "aws cloudformation describe-stacks --stack-name pyptron-beta --query \"Stacks[].Outputs[]\"",
+    "outputs:dev": "aws cloudformation describe-stacks --stack-name pyptron-beta-dev --query \"Stacks[].Outputs[]\"",
     "predeploy": "cross-env NODE_ENV=production npm run build",
-    "deploy": "run-s sam:package sam:deploy"
+    "deploy": "run-s sam:package sam:deploy",
+    "deploy:dev": "run-s sam:package sam:deploy:dev"
   },
   "keywords": [
     "Colombia",
