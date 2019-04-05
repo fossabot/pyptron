@@ -1,4 +1,3 @@
-const { getPypData } = require('./get-pyp-data')
 const { generateMap } = require('../helpers/pyp-helpers')
 const { createResponse } = require('../helpers/global-helpers')
 const cities = require('../models')
@@ -23,7 +22,7 @@ function getCities(city, options = {}) {
   }
   const cityKey = citiesMap[city].key
   try {
-    const pypData = getPypData({ city: cityKey, date })
+    const pypData = cities[cityKey].getPypData({ date })
     return createResponse(200, pypData)
   } catch (error) {
     return createResponse(404, { error: error.message })
@@ -47,8 +46,7 @@ function getCategories(city, category, options = {}) {
   const cityKey = citiesMap[city].key
   const categoryKey = citiesMap[city].categories[category].key
   try {
-    const pypData = getPypData({
-      city: cityKey,
+    const pypData = cities[cityKey].getPypData({
       date,
       days,
       categories: [categoryKey],
