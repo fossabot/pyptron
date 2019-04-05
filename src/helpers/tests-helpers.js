@@ -79,7 +79,7 @@ exports.testCases = (category, dateCases) => {
       // horaria.
       times.forEach(time => {
         const pypDate = `${dateCase.date}${time}`
-        it(`should return '${pypNum}' for '${
+        it(`should return '${JSON.stringify(pypNum)}' for '${
           category.name
         }' @${pypDate}`, () => {
           expect(category.getPypNums(pypDate)).toEqual(pypNum)
