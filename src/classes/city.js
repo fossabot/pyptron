@@ -31,29 +31,32 @@ module.exports = class City {
   }
 
   getPypData(options = {}) {
-    const {
-      categories = Object.keys(this.categories),
-      date = new Date(),
-      days = 1,
-    } = options
+    const { categories, date = new Date(), days = 1 } = options
+    const requestedCategories =
+      !categories || !categories.length
+        ? Object.keys(this.categories)
+        : categories
     const ISODate = newISODate(date)
     return {
       name: this.name,
       messages: this.messages,
       path: this.path,
-      categories: categories.reduce((categoriesObject, categoryKey) => {
-        const categoryObject = this.categories[categoryKey]
-        // eslint-disable-next-line no-param-reassign
-        categoriesObject[categoryKey] = {
-          ...categoryObject,
-          pyp: categoryObject.getPyp({
-            date: ISODate,
-            days,
-          }),
-        }
+      categories: requestedCategories.reduce(
+        (categoriesObject, categoryKey) => {
+          const categoryObject = this.categories[categoryKey]
+          // eslint-disable-next-line no-param-reassign
+          categoriesObject[categoryKey] = {
+            ...categoryObject,
+            pyp: categoryObject.getPyp({
+              date: ISODate,
+              days,
+            }),
+          }
 
-        return categoriesObject
-      }, {}),
+          return categoriesObject
+        },
+        {}
+      ),
     }
   }
 }
