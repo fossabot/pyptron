@@ -8,26 +8,7 @@ module.exports = class City {
     this.name = name
     this.messages = messages
     this.path = slugify(this.name, { lower: true })
-    this.categories = {}
-    Object.keys(categories).forEach(categoryKey => {
-      const categoryObject = categories[categoryKey]
-      const categoryPath = slugify(categoryObject.name, {
-        lower: true,
-      })
-
-      this.categories[categoryKey] = {
-        ...categoryObject,
-        decrees: categoryObject.decrees
-          ? cdnPathMaker(categoryObject.decrees, this.path)
-          : [],
-        maps: categoryObject.maps
-          ? cdnPathMaker(categoryObject.maps, this.path)
-          : [],
-        messages: categoryObject.messages || [],
-        path: `${this.path}/${categoryPath}`,
-        pyp: categoryObject.pyp,
-      }
-    })
+    this.categories = categories
   }
 
   getPypData(options = {}) {
@@ -44,9 +25,22 @@ module.exports = class City {
       categories: requestedCategories.reduce(
         (categoriesObject, categoryKey) => {
           const categoryObject = this.categories[categoryKey]
+          const categoryPath = slugify(categoryObject.name, {
+            lower: true,
+          })
+
           // eslint-disable-next-line no-param-reassign
           categoriesObject[categoryKey] = {
             ...categoryObject,
+            decrees: categoryObject.decrees
+              ? cdnPathMaker(categoryObject.decrees, this.path)
+              : [],
+            maps: categoryObject.maps
+              ? cdnPathMaker(categoryObject.maps, this.path)
+              : [],
+            messages: categoryObject.messages || [],
+            path: `${this.path}/${categoryPath}`,
+
             pyp: categoryObject.getPyp({
               date: ISODate,
               days,
