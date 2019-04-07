@@ -19,7 +19,7 @@ module.exports = new Category({
   exceptions,
   observations,
   scheme: licensePlateScheme.firstNumber,
-  vehicleClasses: ['Motos de dos y cuatro tiempos'],
+  vehicleClasses: ['Motos de dos tiempos'],
   pypFunction(date) {
     const startDate = '2018-02-05'
     const dateObject = newISODate(date)
