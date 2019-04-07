@@ -12,6 +12,7 @@ module.exports = class Category {
     this.hours = options.hours
     this.key = options.key
     this.maps = options.maps
+    this.messages = options.messages
     this.name = options.name
     this.observations = options.observations
     this.pypFunction = options.pypFunction
