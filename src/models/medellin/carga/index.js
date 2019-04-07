@@ -1,23 +1,25 @@
 const Category = require('../../../classes/category')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const particulares = require('../particulares')
 
 module.exports = new Category({
-  ...particulares,
   ...Category.getCategoryMetainfo('carga'),
   decrees: [{ name: '', url: '' }],
   exceptions,
-  hours: [
+  hours: [{ comment: '', hours: [[]], days: [] }],
+  maps: [],
+  observations,
+  scheme: '',
+  vehicleClasses: ['Vehículos de carga'],
+  excludedDays: [],
+  skipHolidays: true,
+  messages: [
     {
-      ...particulares.hours[0],
-      comment: 'Modelos posteriores a 2009',
-    },
-    {
-      ...particulares.hours[1],
-      comment: 'Modelos anteriores o iguales a 2009',
+      message:
+        'No hay medidas de restricción por Pico y placa para vehículos de carga en Medellín.',
     },
   ],
-  observations,
-  vehicleClasses: ['Camiones y volquetas'],
+  pypFunction() {
+    return []
+  },
 })

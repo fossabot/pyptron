@@ -24,13 +24,8 @@ module.exports = new Category({
   exceptions,
   hours: [
     {
-      comment: 'Modelos posteriores a 1996',
+      comment: '',
       hours: [['7:00', '8:30'], ['17:30', '19:00']],
-      days: [],
-    },
-    {
-      comment: 'Modelos anteriores o iguales a 1996',
-      hours: [['5:00', '8:30'], ['16:30', '21:00']],
       days: [],
     },
   ],
@@ -38,7 +33,7 @@ module.exports = new Category({
   observations,
   scheme: licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos particulares y oficiales'],
-  excludedDays: [0],
+  excludedDays: [0, 6],
   skipHolidays: true,
   pypFunction(date) {
     const startDate = '2018-02-05'
