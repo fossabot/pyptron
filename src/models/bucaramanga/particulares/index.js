@@ -1,10 +1,7 @@
 const Category = require('../../../classes/category')
-const motos = require('../motos')
+const pyp190407 = require('./190407')
 
 module.exports = new Category({
-  ...motos,
-  ...Category.getCategoryMetainfo('particulares'),
-  vehicleClasses: [
-    'Vehículos de toda clase de servicio particular y público (excepto servicio tipo taxi)',
-  ],
+  key: 'particulares',
+  pypData: [pyp190407],
 })

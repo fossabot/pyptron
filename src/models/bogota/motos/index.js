@@ -1,25 +1,13 @@
 const Category = require('../../../classes/category')
-const exceptions = require('./exceptions.md')
-const observations = require('./observations.md')
+const pyp190407 = require('./190407')
 
 module.exports = new Category({
-  ...Category.getCategoryMetainfo('motos'),
-  decrees: [{ name: '', url: '' }],
-  exceptions,
-  hours: [{ comment: '', hours: [[]], days: [] }],
-  maps: [],
-  observations,
-  scheme: '',
-  vehicleClasses: ['Motocicletas'],
-  excludedDays: [],
-  skipHolidays: true,
+  key: 'motos',
   messages: [
     {
       message:
         'No hay medidas de restricción por Pico y placa para motos en Bogotá.',
     },
   ],
-  pypFunction() {
-    return []
-  },
+  pypData: [pyp190407],
 })

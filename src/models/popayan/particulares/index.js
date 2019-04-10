@@ -1,26 +1,7 @@
 const Category = require('../../../classes/category')
-const { licensePlateScheme } = require('../../../helpers/global-helpers')
-const exceptions = require('./exceptions.md')
-const observations = require('./observations.md')
+const pyp190407 = require('./190407')
 
 module.exports = new Category({
-  ...Category.getCategoryMetainfo('particulares'),
-  decrees: [
-    {
-      name: 'Decreto 20181000000015 del 2 de enero de 2018',
-      url:
-        'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
-    },
-  ],
-  exceptions,
-  hours: [{ comment: '', hours: [[]], days: [] }],
-  maps: [],
-  observations,
-  scheme: licensePlateScheme.lastNumber,
-  vehicleClasses: ['Vehículos automotores de servicio particular'],
-  excludedDays: [0, 6],
-  skipHolidays: true,
-  pypFunction() {
-    return []
-  },
+  key: 'particulares',
+  pypData: [pyp190407],
 })
