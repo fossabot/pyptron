@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const {
@@ -16,7 +15,7 @@ module.exports = new PypData({
   hours: [{ comment: '', hours: [['6:30', '19:30']], days: [] }],
   maps: [{ name: 'Mapa pico y placa Villavicencio', url: 'cdn:jpg' }],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos automotores de servicio particular'],
   excludedDays: [0, 6],
   skipHolidays: false,

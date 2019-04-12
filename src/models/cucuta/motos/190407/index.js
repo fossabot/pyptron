@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { newISODate } = require('../../../../helpers/date-helpers')
@@ -35,7 +34,7 @@ module.exports = new PypData({
   ],
   maps: [{ name: 'Mapa pico y placa Cúcuta 2019', url: 'cdn:jpg' }],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: [
     'Vehículos automotores particulares de dos tiempos tipo motocicleta, mototriciclos, cuatrimotos y motocarros',
   ],

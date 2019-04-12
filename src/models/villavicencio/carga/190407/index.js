@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
@@ -17,7 +16,7 @@ module.exports = new PypData({
   ],
   maps: [],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: [
     'Vehículos automotores con capacidad de carga de treinta (30) toneladas o superior',
   ],

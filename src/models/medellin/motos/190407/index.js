@@ -2,7 +2,6 @@ const PypData = require('../../../../classes/pyp-data')
 const particulares = require('../../particulares/190407')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const {
   newISODate,
   formatDate,
@@ -18,7 +17,7 @@ module.exports = new PypData({
   ...particulares,
   exceptions,
   observations,
-  scheme: licensePlateScheme.firstNumber,
+  scheme: PypData.licensePlateScheme.firstNumber,
   vehicleClasses: ['Motos de dos tiempos'],
   pypFunction(date) {
     const startDate = '2018-02-05'

@@ -1,7 +1,6 @@
 const PypData = require('../../../../classes/pyp-data')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const { newISODate, datesDiff } = require('../../../../helpers/date-helpers')
 const {
   moveArrayElementsToTheRight,
@@ -26,7 +25,7 @@ module.exports = new PypData({
   ],
   maps: [{ name: 'Mapa pico y placa Medellín 2019', url: 'cdn:jpg' }],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos particulares y oficiales'],
   excludedDays: [0, 6],
   skipHolidays: true,

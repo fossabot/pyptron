@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
@@ -37,7 +36,7 @@ module.exports = new PypData({
     },
   ],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos de Transporte de Carga de más de dos toneladas'],
   excludedDays: [],
   skipHolidays: false,

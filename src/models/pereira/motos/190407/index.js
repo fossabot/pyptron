@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { newISODate } = require('../../../../helpers/date-helpers')
@@ -16,7 +15,7 @@ module.exports = new PypData({
   hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
   maps: [{ name: 'Mapa pico y placa Pereira 2019', url: 'cdn:jpg' }],
   observations,
-  scheme: licensePlateScheme.firstNumber,
+  scheme: PypData.licensePlateScheme.firstNumber,
   vehicleClasses: ['Motocicletas'],
   excludedDays: [0, 6],
   skipHolidays: true,

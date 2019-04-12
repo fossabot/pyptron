@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 
@@ -16,7 +15,7 @@ module.exports = new PypData({
   hours: [{ comment: '', hours: [[]], days: [] }],
   maps: [],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Motocicletas particulares'],
   excludedDays: [0, 6],
   skipHolidays: true,

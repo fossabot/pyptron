@@ -1,5 +1,4 @@
 const PypData = require('../../../../classes/pyp-data')
-const { licensePlateScheme } = require('../../../../helpers/global-helpers')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { datesDiff } = require('../../../../helpers/date-helpers')
@@ -17,7 +16,7 @@ module.exports = new PypData({
   hours: [{ comment: '', hours: [['6:00', '6:00']], days: [] }],
   maps: [],
   observations,
-  scheme: licensePlateScheme.lastNumber,
+  scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Transporte público individual - taxis'],
   excludedDays: [],
   skipHolidays: false,

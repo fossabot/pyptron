@@ -50,4 +50,8 @@ module.exports = class PypData {
 
     return this.pypFunction(dateObject)
   }
+
+  static get licensePlateScheme() {
+    return { lastNumber: 0, firstNumber: 1 }
+  }
 }
