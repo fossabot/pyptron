@@ -53,6 +53,13 @@ module.exports = class Category {
       const currentPypData = sortedPypData.find(pypData => {
         return formatDate(currentDate) >= pypData.startDate
       })
+      if (!currentPypData) {
+        throw new Error(
+          `No tenemos información disponible antes de ${
+            sortedPypData[sortedPypData.length - 1].startDate
+          }.`
+        )
+      }
       const {
         decrees,
         exceptions,
