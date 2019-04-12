@@ -63,7 +63,7 @@ module.exports = class Category {
         exceptions,
         excludedDays,
         hours,
-        maps: maps ? cdnPathMaker(currentPypData.maps, cityPath) : [],
+        maps: maps ? cdnPathMaker(maps, cityPath) : [],
         observations,
         scheme,
         skipHolidays,
