@@ -23,7 +23,6 @@ const expectedData = {
 
 const expectedCategory = {
   emoji: expect.any(String),
-  key: expect.any(String),
   messages: expect.any(Array),
   name: expect.any(String),
   path: expect.any(String),

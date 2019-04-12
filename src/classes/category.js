@@ -4,24 +4,10 @@ const { cdnPathMaker } = require('../helpers/global-helpers')
 
 module.exports = class Category {
   constructor(options) {
-    const metainfo = {
-      taxis: { emoji: '🚕', name: 'Taxis' },
-      particulares: { emoji: '🚗', name: 'Particulares' },
-      tpc: { emoji: '🚌', name: 'Transporte Público Colectivo' },
-      motos: { emoji: '🛵', name: 'Motos' },
-      motocarros: { emoji: '', name: 'Motocarros' },
-      especial: {
-        emoji: '🚐',
-        name: 'Servicio de Transporte Especial',
-      },
-      ambiental: { emoji: '🌻', name: 'Ambiental' },
-      carga: { emoji: '🚛', name: 'Transporte de carga' },
-    }
-    this.emoji = metainfo[options.key].emoji
+    this.emoji = options.emoji
     this.getPypData = this.getPypData.bind(this)
-    this.key = options.key
     this.messages = options.messages || []
-    this.name = metainfo[options.key].name
+    this.name = options.name
     this.pypData = options.pypData
   }
 
@@ -90,16 +76,19 @@ module.exports = class Category {
     return result
   }
 
-  static get categoryKey() {
+  static get metainfo() {
     return {
-      taxis: 'taxis',
-      particulares: 'particulares',
-      tpc: 'tpc',
-      motos: 'motos',
-      motocarros: 'motocarros',
-      especial: 'especial',
-      ambiental: 'ambiental',
-      carga: 'carga',
+      taxis: { emoji: '🚕', name: 'Taxis' },
+      particulares: { emoji: '🚗', name: 'Particulares' },
+      tpc: { emoji: '🚌', name: 'Transporte Público Colectivo' },
+      motos: { emoji: '🛵', name: 'Motos' },
+      motocarros: { emoji: '', name: 'Motocarros' },
+      especial: {
+        emoji: '🚐',
+        name: 'Servicio de Transporte Especial',
+      },
+      ambiental: { emoji: '🌻', name: 'Ambiental' },
+      carga: { emoji: '🚛', name: 'Transporte de carga' },
     }
   }
 }
