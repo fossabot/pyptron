@@ -59,11 +59,11 @@ module.exports = class Category {
 
       result.data.push({
         date: currentDate.toISOString(),
-        decrees: decrees ? cdnPathMaker(decrees, categoryPath) : [],
+        decrees: decrees ? cdnPathMaker(decrees, cityPath) : [],
         exceptions,
         excludedDays,
         hours,
-        maps: maps ? cdnPathMaker(currentPypData.maps, categoryPath) : [],
+        maps: maps ? cdnPathMaker(currentPypData.maps, cityPath) : [],
         observations,
         scheme,
         skipHolidays,
