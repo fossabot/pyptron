@@ -1,39 +1,76 @@
 version: 2.1
-jobs:
-  build:
+executors:
+  node-8:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/repo
+  python3-node:
+    docker:
+      - image: circleci/python:3.6.8-node
+commands:
+  install-awscli:
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+  deploy:
+    parameters:
+      stage:
+        type: string
+    steps:
+      - install-awscli
+      - run:
+          name: Cloudformation package
+          command: aws cloudformation package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml
+      - run:
+          name: Cloudformation deploy
+          command: aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron-beta-<< parameters.stage >> --capabilities CAPABILITY_IAM
+jobs:
+  install:
+    executor: node-8
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - v1.0.1-dependencies-{{ checksum "package-lock.json" }}
+            - v1.0.1-dependencies-
       - run: npm install
-      - run: npm run build
       - save_cache:
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v1.0.1-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-  test:
-    docker:
-      - image: circleci/node:8.10
-    working_directory: ~/repo
+  build:
+    executor: node-8
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - v1.0.1-dependencies-{{ checksum "package-lock.json" }}
+            - v1.0.1-dependencies-
+      - run: npm install
+      - run:
+          name: Build dist for production
+          command: npm run build
+          environment:
+            NODE_ENV: production
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+            - assets
+  test:
+    executor: node-8
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1.0.1-dependencies-{{ checksum "package-lock.json" }}
+            - v1.0.1-dependencies-
       - run:
           name: Linter
           command: npm run lint -- --format junit -o reports/junit/js-lint-results.xml
       - run:
           name: Test suite
-          command: npm run test:ci
+          command: npm run test -- --ci --coverage --reporters=default --reporters=jest-junit
           environment:
             TZ: 'America/Bogota'
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
@@ -41,35 +78,91 @@ jobs:
           path: reports/junit
       - store_test_results:
           path: reports/junit
-      - run: npx codecov
-  deploy:
-    docker:
-      - image: circleci/python:3.6.8-node
-    working_directory: ~/repo
+      - persist_to_workspace:
+          root: .
+          paths:
+            - coverage
+  coverage:
+    executor: node-8
+    steps:
+      - attach_workspace:
+          at: coverage
+      - run:
+          name: Upload coverage result to codecov
+          command: npx codecov
+  sync-assets:
+    executor: python3-node
+    steps:
+      - attach_workspace:
+          at: assets
+      - install-awscli
+      - run:
+          name: Sync S3 assets
+          command: aws s3 sync assets/ s3://pyphoy/docs --acl public-read
+  sam-validate:
+    executor: python3-node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+      - install-awscli
       - run:
-          name: Install awscli - aws-sam-cli
-          command: sudo pip install --upgrade awscli aws-sam-cli
-      - run: npm run sync:assets
-      - run: npm run deploy
+          name: Install aws-sam-cli
+          command: sudo pip install aws-sam-cli
+      - run:
+          name: Validate SAM template.yaml
+          command: sam validate
+  deploy-dev:
+    executor: python3-node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - deploy:
+          stage: dev
+  deploy-prod:
+    executor: python3-node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - deploy:
+          stage: prod
 
 workflows:
-  version: 2
   build_test_and_deploy:
     jobs:
-      - build
+      - install
+      - build:
+          requires:
+            - install
       - test:
           requires:
-            - build
-      - deploy:
+            - install
+      - sam-validate:
+          requires:
+            - install
+      - coverage:
           requires:
             - test
+      - deploy-dev:
+          requires:
+            - build
+            - test
+            - sam-validate
+          filters:
+            branches:
+              ignore: master
+      - sync-assets:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
+      - deploy-prod:
+          requires:
+            - build
+            - test
+            - sam-validate
           filters:
             branches:
               only: master
