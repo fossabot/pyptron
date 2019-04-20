@@ -1,23 +1,23 @@
 version: 2.1
 executors:
-  node-8:
+  node-aws-lambda:
     docker:
       - image: circleci/node:8.10
   python3-node:
     docker:
       - image: circleci/python:3.6.8-node
 commands:
-  install-awscli:
-    steps:
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
   deploy:
     parameters:
       stage:
         type: string
     steps:
-      - install-awscli
+      - run:
+          name: Install awscli aws-sam-cli
+          command: sudo pip install awscli aws-sam-cli
+      - run:
+          name: Validate SAM template.yaml
+          command: sam validate
       - run:
           name: Cloudformation package
           command: aws cloudformation package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml
@@ -26,7 +26,7 @@ commands:
           command: aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron-beta-<< parameters.stage >> --capabilities CAPABILITY_IAM
 jobs:
   install:
-    executor: node-8
+    executor: node-aws-lambda
     steps:
       - checkout
       - restore_cache:
@@ -39,14 +39,13 @@ jobs:
           paths:
             - node_modules
   build:
-    executor: node-8
+    executor: node-aws-lambda
     steps:
       - checkout
       - restore_cache:
           keys:
             - v1.0.1-dependencies-{{ checksum "package-lock.json" }}
             - v1.0.1-dependencies-
-      - run: npm install
       - run:
           name: Build dist for production
           command: npm run build
@@ -57,8 +56,9 @@ jobs:
           paths:
             - dist
             - assets
-  test:
-    executor: node-8
+            - template.yaml
+  lint:
+    executor: node-aws-lambda
     steps:
       - checkout
       - restore_cache:
@@ -68,25 +68,33 @@ jobs:
       - run:
           name: Linter
           command: npm run lint -- --format junit -o reports/junit/js-lint-results.xml
+      - store_test_results:
+          path: reports/junit/js-lint-results.xml
+  test:
+    executor: node-aws-lambda
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1.0.1-dependencies-{{ checksum "package-lock.json" }}
+            - v1.0.1-dependencies-
       - run:
           name: Test suite
           command: npm run test -- --ci --coverage --reporters=default --reporters=jest-junit
           environment:
             TZ: 'America/Bogota'
             JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
-      - store_artifacts:
-          path: reports/junit
       - store_test_results:
-          path: reports/junit
+          path: reports/junit/js-test-results.xml
       - persist_to_workspace:
           root: .
           paths:
             - coverage
   coverage:
-    executor: node-8
+    executor: node-aws-lambda
     steps:
       - attach_workspace:
-          at: coverage
+          at: .
       - run:
           name: Upload coverage result to codecov
           command: npx codecov
@@ -94,36 +102,25 @@ jobs:
     executor: python3-node
     steps:
       - attach_workspace:
-          at: assets
-      - install-awscli
+          at: .
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
       - run:
           name: Sync S3 assets
           command: aws s3 sync assets/ s3://pyphoy/docs --acl public-read
-  sam-validate:
-    executor: python3-node
-    steps:
-      - checkout
-      - install-awscli
-      - run:
-          name: Install aws-sam-cli
-          command: sudo pip install aws-sam-cli
-      - run:
-          name: Validate SAM template.yaml
-          command: sam validate
   deploy-dev:
     executor: python3-node
     steps:
-      - checkout
       - attach_workspace:
-          at: dist
+          at: .
       - deploy:
           stage: dev
   deploy-prod:
     executor: python3-node
     steps:
-      - checkout
       - attach_workspace:
-          at: dist
+          at: .
       - deploy:
           stage: prod
 
@@ -134,10 +131,10 @@ workflows:
       - build:
           requires:
             - install
-      - test:
+      - lint:
           requires:
             - install
-      - sam-validate:
+      - test:
           requires:
             - install
       - coverage:
@@ -146,14 +143,15 @@ workflows:
       - deploy-dev:
           requires:
             - build
+            - lint
             - test
-            - sam-validate
           filters:
             branches:
               ignore: master
       - sync-assets:
           requires:
             - build
+            - lint
             - test
           filters:
             branches:
@@ -161,8 +159,8 @@ workflows:
       - deploy-prod:
           requires:
             - build
+            - lint
             - test
-            - sam-validate
           filters:
             branches:
               only: master
