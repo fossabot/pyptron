@@ -1,7 +1,9 @@
 const PypData = require('../../../../classes/pyp-data')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
-const { newISODate } = require('../../../../helpers/date-helpers')
+const {
+  getArrayElementAfterRotating,
+} = require('../../../../helpers/array-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
@@ -24,7 +26,12 @@ module.exports = new PypData({
   excludedDays: [0, 6],
   skipHolidays: false,
   pypFunction(date) {
-    const pypNums = [[3, 4], [5, 6], [7, 8], [9, 0], [1, 2]]
-    return pypNums[newISODate(date).getDay() - 1]
+    return getArrayElementAfterRotating({
+      date,
+      startDate: '2019-03-01',
+      array: [[1, 2], [3, 4], [5, 6], [7, 8], [9, 0]],
+      period: 'months',
+      reverse: true,
+    })
   },
 })
