@@ -54,5 +54,8 @@
   "bugs": {
     "url": "https://github.com/archemiro/pyptron/issues",
     "email": "pyptron@pyphoy.com"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
