@@ -1,9 +1,8 @@
-const { pyptron } = require('./pyptron')
+const { getCityData } = require('./pyptron')
 const { generateMap } = require('./helpers/pyp-helpers')
 const cities = require('./models')
 
 const citiesMap = generateMap(cities)
-const event = {}
 
 const expectedData = {
   date: expect.stringMatching(
@@ -29,160 +28,101 @@ const expectedCategory = {
   data: expect.arrayContaining([expectedData]),
 }
 
-describe('Test API endpoints', () => {
-  it('should GET / (citiesMap)', async () => {
-    event.resource = '/'
-    expect.assertions(2)
-    const response = await pyptron(event)
-    expect(response.statusCode).toBe(200)
-    expect(JSON.parse(response.body)).toEqual(citiesMap)
+const citiesNames = Object.keys(citiesMap)
+it('should throw an error when an unkown city is requested.', () => {
+  const city = 'nonExistingCity'
+  expect(() => getCityData(city)).toThrow('City not found')
+})
+citiesNames.forEach(city => {
+  it(`should return info for ${city}`, () => {
+    const pypData = getCityData(city)
+    // Debe tener una propiedad nombre de tipo texto
+    expect(typeof pypData.name).toBe('string')
+    expect(pypData.name.length).toBeGreaterThan(0)
+    // Debe tener un propiedad path igual a la ruta solicitada
+    expect(pypData.path).toBe(`${city}`)
+    // Debe tener un propiedad info
+    expect(typeof pypData.categories).toBe('object')
+    // Debe tener una propiedad data
+    expect(typeof pypData.categories).toBe('object')
+    expect(Object.keys(pypData.categories).length).toBe(
+      Object.keys(citiesMap[city].categories).length
+    )
   })
-  const citiesNames = Object.keys(citiesMap)
-  it('should return 404 for GET /nonExistingCity', async () => {
-    event.resource = '/{city}'
-    event.pathParameters = { city: 'nonExistingCity' }
-    expect.assertions(2)
-    const response = await pyptron(event)
-    expect(response.statusCode).toBe(404)
-    expect(JSON.parse(response.body).cities).toEqual(citiesNames)
-  })
-  citiesNames.forEach(city => {
-    it(`should GET /${city}`, async () => {
-      expect.assertions(8)
-      event.resource = '/{city}'
-      event.pathParameters = { city }
-      const response = await pyptron(event)
-      expect(response.statusCode).toBe(200)
-      expect(response.headers['Content-Type']).toBe('application/json')
-      const pypData = JSON.parse(response.body)
-      // Debe tener una propiedad nombre de tipo texto
-      expect(typeof pypData.name).toBe('string')
-      expect(pypData.name.length).toBeGreaterThan(0)
-      // Debe tener un propiedad path igual a la ruta solicitada
+  const categories = Object.keys(citiesMap[city].categories)
+  categories.forEach(category => {
+    it(`should throw an error for a non existing category`, () => {
+      const response = () =>
+        getCityData(city, { category: 'nonExistingCategory' })
+      expect(response).toThrow('Category not found')
+    })
+    it(`should return info for ${city}/${category}`, () => {
+      const pypData = getCityData(city, { category, date: new Date() })
+      const currentCategory =
+        pypData.categories[citiesMap[city].categories[category].key]
+      expect(pypData.name).toBe(citiesMap[city].name)
       expect(pypData.path).toBe(`${city}`)
-      // Debe tener un propiedad info
-      expect(typeof pypData.categories).toBe('object')
-      // Debe tener una propiedad data
-      expect(typeof pypData.categories).toBe('object')
-      expect(Object.keys(pypData.categories).length).toBe(
-        Object.keys(citiesMap[city].categories).length
+      expect(Array.isArray(pypData.messages)).toBe(true)
+      expect(currentCategory).toEqual(expect.objectContaining(expectedCategory))
+      expect(currentCategory.data.length).toBe(1)
+    })
+    const date = '2019-04-22'
+    it(`should return info for ${city} ${category} ${date}`, () => {
+      const pypData = getCityData(city, { category, date })
+      const currentCategory =
+        pypData.categories[citiesMap[city].categories[category].key]
+      expect(pypData.name).toBe(citiesMap[city].name)
+      expect(pypData.path).toBe(`${city}`)
+      expect(Array.isArray(pypData.messages)).toBe(true)
+      expect(currentCategory).toEqual(expect.objectContaining(expectedCategory))
+      expect(currentCategory.data.length).toBe(1)
+      expect(currentCategory.data).toEqual(
+        expect.arrayContaining([
+          {
+            ...expectedData,
+            date: `${date}T05:00:00.000Z`,
+          },
+        ])
       )
     })
-    const categories = Object.keys(citiesMap[city].categories)
-    categories.forEach(category => {
-      it(`should return 404 for GET /${city}/nonExistingCategory`, async () => {
-        expect.assertions(2)
-        event.resource = '/{city}/{category}'
-        event.pathParameters = { city, category: 'nonExistingCategory' }
-        const response = await pyptron(event)
-        expect(response.statusCode).toBe(404)
-        expect(JSON.parse(response.body).categories).toEqual(categories)
-      })
-      const currentDate = new Date()
-      it(`should GET /${city}/${category}`, async () => {
-        event.resource = '/{city}/{category}'
-        event.pathParameters = { city, category }
-        event.queryStringParameters = { currentDate }
-        const response = await pyptron(event)
-        const pypData = JSON.parse(response.body)
-        const currentCategory =
-          pypData.categories[citiesMap[city].categories[category].key]
-        expect.assertions(6)
-        expect(response.statusCode).toBe(200)
-        expect(pypData.name).toBe(citiesMap[city].name)
-        expect(pypData.path).toBe(`${city}`)
-        expect(Array.isArray(pypData.messages)).toBe(true)
-        expect(currentCategory).toEqual(
-          expect.objectContaining(expectedCategory)
-        )
-        expect(currentCategory.data.length).toBe(1)
-      })
-      const date = '2019-04-22'
-      it(`should GET /${city}/${category}?date=${date}`, async () => {
-        event.resource = '/{city}/{category}'
-        event.pathParameters = { city, category }
-        event.queryStringParameters = { date }
-        const response = await pyptron(event)
-        const pypData = JSON.parse(response.body)
-        const currentCategory =
-          pypData.categories[citiesMap[city].categories[category].key]
-        expect.assertions(7)
-        expect(response.statusCode).toBe(200)
-        expect(pypData.name).toBe(citiesMap[city].name)
-        expect(pypData.path).toBe(`${city}`)
-        expect(Array.isArray(pypData.messages)).toBe(true)
-        expect(currentCategory).toEqual(
-          expect.objectContaining(expectedCategory)
-        )
-        expect(currentCategory.data.length).toBe(1)
-        expect(currentCategory.data).toEqual(
-          expect.arrayContaining([
-            {
-              ...expectedData,
-              date: `${date}T05:00:00.000Z`,
-            },
-          ])
-        )
-      })
-      describe('should get route with query strings', () => {
-        const days = 5
-        it(`should GET /${city}/${category}?date=${date}&days=${days}`, async () => {
-          event.resource = '/{city}/{category}'
-          event.pathParameters = { city, category }
-          event.queryStringParameters = { date, days }
-          const response = await pyptron(event)
-          const pypData = JSON.parse(response.body)
-          const currentCategory =
-            pypData.categories[citiesMap[city].categories[category].key]
-          expect.assertions(7)
-          expect(response.statusCode).toBe(200)
-          expect(pypData.name).toBe(citiesMap[city].name)
-          expect(pypData.path).toBe(`${city}`)
-          expect(Array.isArray(pypData.messages)).toBe(true)
-          expect(currentCategory).toEqual(
-            expect.objectContaining(expectedCategory)
-          )
-          expect(currentCategory.data.length).toBe(days)
-          expect(currentCategory.data).toEqual(
-            expect.arrayContaining([
-              {
-                ...expectedData,
-                date: `${date}T05:00:00.000Z`,
-              },
-            ])
-          )
-        })
-      })
-      describe('should get route with query strings', () => {
-        const days = 35
-        const maxDays = 30
-        it(`should return ${maxDays} days when more than ${maxDays} days requested`, async () => {
-          event.resource = '/{city}/{category}'
-          event.pathParameters = { city, category }
-          event.queryStringParameters = { date, days }
-          const response = await pyptron(event)
-          const pypData = JSON.parse(response.body)
-          const currentCategory =
-            pypData.categories[citiesMap[city].categories[category].key]
-          expect.assertions(7)
-          expect(response.statusCode).toBe(200)
-          expect(pypData.name).toBe(citiesMap[city].name)
-          expect(pypData.path).toBe(`${city}`)
-          expect(Array.isArray(pypData.messages)).toBe(true)
-          expect(currentCategory).toEqual(
-            expect.objectContaining(expectedCategory)
-          )
-          expect(currentCategory.data.length).toBe(maxDays)
-          expect(currentCategory.data).toEqual(
-            expect.arrayContaining([
-              {
-                ...expectedData,
-                date: `${date}T05:00:00.000Z`,
-              },
-            ])
-          )
-        })
-      })
+    it(`should return n number of days for ${city} ${category} ${date}`, () => {
+      const days = 5
+      const pypData = getCityData(city, { category, date, days })
+      const currentCategory =
+        pypData.categories[citiesMap[city].categories[category].key]
+      expect(pypData.name).toBe(citiesMap[city].name)
+      expect(pypData.path).toBe(`${city}`)
+      expect(Array.isArray(pypData.messages)).toBe(true)
+      expect(currentCategory).toEqual(expect.objectContaining(expectedCategory))
+      expect(currentCategory.data.length).toBe(days)
+      expect(currentCategory.data).toEqual(
+        expect.arrayContaining([
+          {
+            ...expectedData,
+            date: `${date}T05:00:00.000Z`,
+          },
+        ])
+      )
+    })
+    it(`should return 30 days when more than 30 days requested`, () => {
+      const days = 35
+      const maxDays = 30
+      const pypData = getCityData(city, { category, date, days })
+      const currentCategory =
+        pypData.categories[citiesMap[city].categories[category].key]
+      expect(pypData.name).toBe(citiesMap[city].name)
+      expect(pypData.path).toBe(`${city}`)
+      expect(Array.isArray(pypData.messages)).toBe(true)
+      expect(currentCategory).toEqual(expect.objectContaining(expectedCategory))
+      expect(currentCategory.data.length).toBe(maxDays)
+      expect(currentCategory.data).toEqual(
+        expect.arrayContaining([
+          {
+            ...expectedData,
+            date: `${date}T05:00:00.000Z`,
+          },
+        ])
+      )
     })
   })
 })
