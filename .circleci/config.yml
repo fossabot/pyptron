@@ -6,24 +6,6 @@ executors:
   python3-node:
     docker:
       - image: circleci/python:3.6.8-node
-commands:
-  deploy:
-    parameters:
-      stage:
-        type: string
-    steps:
-      - run:
-          name: Install awscli aws-sam-cli
-          command: sudo pip install awscli aws-sam-cli
-      - run:
-          name: Validate SAM template.yaml
-          command: sam validate
-      - run:
-          name: Cloudformation package
-          command: aws cloudformation package --template-file template.yaml --s3-bucket pyptron --output-template-file packaged.yaml
-      - run:
-          name: Cloudformation deploy
-          command: aws cloudformation deploy --template-file packaged.yaml --stack-name pyptron-beta-<< parameters.stage >> --capabilities CAPABILITY_IAM
 jobs:
   install:
     executor: node-aws-lambda
@@ -109,21 +91,6 @@ jobs:
       - run:
           name: Sync S3 assets
           command: aws s3 sync assets/ s3://pyphoy/docs --acl public-read
-  deploy-dev:
-    executor: python3-node
-    steps:
-      - attach_workspace:
-          at: .
-      - deploy:
-          stage: dev
-  deploy-prod:
-    executor: python3-node
-    steps:
-      - attach_workspace:
-          at: .
-      - deploy:
-          stage: prod
-
 workflows:
   build_test_and_deploy:
     jobs:
@@ -140,23 +107,7 @@ workflows:
       - coverage:
           requires:
             - test
-      - deploy-dev:
-          requires:
-            - build
-            - lint
-            - test
-          filters:
-            branches:
-              ignore: master
       - sync-assets:
-          requires:
-            - build
-            - lint
-            - test
-          filters:
-            branches:
-              only: master
-      - deploy-prod:
           requires:
             - build
             - lint
