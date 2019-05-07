@@ -22,7 +22,7 @@ module.exports = {
   target: 'node',
   output: {
     path: `${process.cwd()}/dist`,
-    filename: 'handler.js',
+    filename: 'pyptron.js',
     libraryTarget: 'commonjs2',
   },
 }

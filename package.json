@@ -2,6 +2,7 @@
   "name": "pyptron",
   "version": "0.0.0-development",
   "description": "Librería para el pico y placa en Colombia",
+  "main": "dist/pyptron.js",
   "engines": {
     "node": ">=8.10.0"
   },
