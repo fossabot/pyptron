@@ -18,7 +18,7 @@ module.exports = {
       },
     ],
   },
-  entry: ['./src/handler.js'],
+  entry: ['./src/pyptron.js'],
   target: 'node',
   output: {
     path: `${process.cwd()}/dist`,
