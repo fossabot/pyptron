@@ -3,6 +3,9 @@
   "version": "0.0.0-development",
   "description": "Librería para el pico y placa en Colombia",
   "main": "dist/pyptron.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=8.10.0"
   },
