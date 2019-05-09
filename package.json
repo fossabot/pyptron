@@ -1,6 +1,6 @@
 {
   "name": "@picoyplaca/pyptron",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Librería para el pico y placa en Colombia",
   "main": "dist/pyptron.js",
   "publishConfig": {
