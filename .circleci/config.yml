@@ -90,7 +90,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Sync S3 assets
-          command: aws s3 sync assets/ s3://pyphoy/docs --acl public-read
+          command: aws s3 sync assets/ s3://pyphoy/docs
   release:
     executor: node-aws-lambda
     steps:
