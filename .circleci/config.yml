@@ -91,6 +91,17 @@ jobs:
       - run:
           name: Sync S3 assets
           command: aws s3 sync assets/ s3://pyphoy/docs --acl public-read
+  release:
+    executor: node-aws-lambda
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1.0.1-dependencies-{{ checksum "package-lock.json" }}
+            - v1.0.1-dependencies-
+      - attach_workspace:
+          at: .
+      - run: npx semantic-release
 workflows:
   build_test_and_deploy:
     jobs:
@@ -108,6 +119,14 @@ workflows:
           requires:
             - test
       - sync-assets:
+          requires:
+            - build
+            - lint
+            - test
+          filters:
+            branches:
+              only: master
+      - release:
           requires:
             - build
             - lint
