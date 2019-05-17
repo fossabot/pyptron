@@ -75,6 +75,7 @@ jobs:
   coverage:
     executor: node-aws-lambda
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:
