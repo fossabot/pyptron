@@ -1,7 +1,7 @@
 const Category = require('../../../classes/category')
-const pyp190407 = require('./190407')
+const pyp180101 = require('./180101')
 
 module.exports = new Category({
   ...Category.metainfo.taxis,
-  pypData: [pyp190407],
+  pypData: [pyp180101],
 })

@@ -7,7 +7,7 @@ const {
 const { datesDiff, newISODate } = require('../../../../helpers/date-helpers')
 
 module.exports = new PypData({
-  startDate: '2019-04-07',
+  startDate: '2018-01-01',
   decrees: [
     {
       name: 'Decreto 0116 de 2018',
@@ -38,6 +38,9 @@ module.exports = new PypData({
     if (dateObject >= newISODate('2019-01-08')) {
       pypNums[0] = [[0], [5]]
       pypNums[4] = [[9], [4]]
+    }
+    if (dateObject >= newISODate('2019-05-08')) {
+      pypNums[2] = [[7], [2]]
     }
     const monthsDiffAccu = datesDiff({
       startDate,
