@@ -2,7 +2,7 @@ Exceptúense de las prohibiciones por Pico y Placa las siguientes categorías de
 
 - Vehículos utilizados por la caravana presidencial.
 - Vehículos de servicio diplomático o consular. Automotores identificados con las placas especiales por el Ministerio de Relaciones Exteriores.
-- Vehículos de organismos de seguridad del Estado, los automotores que pertenezcan o hagan parte de las Fuerzas Armadas de Colombia, Polocía Nacional, Agencia Nacional de Inteligencia, Cuerpo Técnico de Investigación de la Fiscalía General de la Nación, INPEC, Fiscalia General de la Nación y los que ejerzan fucniones legales de Policía Nacional.
+- Vehículos de organismos de seguridad del Estado, los automotores que pertenezcan o hagan parte de las Fuerzas Armadas de Colombia, Policía Nacional, Agencia Nacional de Inteligencia, Cuerpo Técnico de Investigación de la Fiscalía General de la Nación, INPEC, Fiscalia General de la Nación y los que ejerzan fucniones legales de Policía Nacional.
 - Vehículos de entidades oficiales, gobernación del Magdalena, Alcaldía de Santa Marta, autoridades de tránsito.
 - Vehículos de los secretarios, Directores, Jefes de Oficina de la Alcaldía Distrital que se encuentren en el ejercicio de sus funciones.
 - Vehículos de los Directores, Generales o Presidentes de las entidades Descentralizadas Distritales.

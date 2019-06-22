@@ -1,6 +1,6 @@
 Exceptúese de la restricción a la circulación por Pico y Placa, los siguientes vehículos automotores de registro particular, por medio de los cuales se realiza alguna de las suguientes actividades, o se transporta personas cumpliendo misiones y que se encuentres debidamente identificados y certificados, dadas las obligaciones y responsabilidades que para cada una se facultan:
 
-- De polocía, fuerzas militares, organismos de seguridad o escoltas y perdiodistas.
+- De policía, fuerzas militares, organismos de seguridad o escoltas y perdiodistas.
 - Des servicios públicos domiciliarios (acueducto, telefonía, energía, gas y recolectores de basura.
 - Motocicletas.
 - De distribución de bienes y alimentos.
