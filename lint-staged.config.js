@@ -8,5 +8,4 @@ module.exports = {
     'prettier --write',
     'git add',
   ],
-  ignore: ['dist', '.vscode'],
 }
