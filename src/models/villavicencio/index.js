@@ -6,13 +6,7 @@ const taxis = require('./taxis')
 
 module.exports = new City({
   name: 'Villavicencio',
-  messages: [
-    {
-      message:
-        'Entre el 26 de junio y el 3 de julio se levanta temporalmente la medida del pico y placa en el centro de la ciudad.',
-      url: 'https://twitter.com/WilmarBarbosa/status/1142121584955678726',
-    },
-  ],
+  messages: [],
   categories: {
     carga,
     motos,
