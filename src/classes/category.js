@@ -40,9 +40,7 @@ module.exports = class Category {
       })
       if (!currentPypData) {
         throw new Error(
-          `No tenemos información disponible antes de ${
-            sortedPypData[sortedPypData.length - 1].startDate
-          }.`
+          `No tenemos información disponible antes de ${sortedPypData[sortedPypData.length - 1].startDate}.`
         )
       }
       const {
