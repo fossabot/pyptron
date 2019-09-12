@@ -1,6 +1,6 @@
 const PypData = require('../../../../classes/pyp-data')
-const exceptions = require('./exceptions.md')
-const observations = require('./observations.md')
+const exceptions = require('../190407/exceptions.md')
+const observations = require('../190407/observations.md')
 const { datesDiff } = require('../../../../helpers/date-helpers')
 const { normalizeArrayIndex } = require('../../../../helpers/array-helpers')
 
@@ -8,7 +8,7 @@ module.exports = new PypData({
   startDate: '2019-08-01',
   decrees: [
     {
-      name: 'Decreto 4112.010.20.0532 del 29 de julio de 2019',
+      name: 'Decreto 0532 del 29 de julio de 2019',
       url: 'cdn:pdf',
     },
     {
