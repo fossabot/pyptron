@@ -17,8 +17,15 @@ module.exports = class Category {
     const ISODate = newISODate(date)
     const currentDate = new Date(ISODate)
     const totalDays = days > maxDays ? maxDays : days
-    const pypArray = this.pypData
-    const sortedPypData = pypArray.sort((a, b) => a.startDate < b.startDate)
+    const sortedPypData = this.pypData.sort((a, b) => {
+      if (a.startDate < b.startDate) {
+        return 1
+      }
+      if (a.startDate > b.startDate) {
+        return -1
+      }
+      return 0
+    })
     const categoryPath = slugify(this.name, {
       lower: true,
     })
