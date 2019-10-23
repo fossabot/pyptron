@@ -4,5 +4,5 @@ const pyp191022 = require('./191022')
 
 module.exports = new Category({
   ...Category.metainfo.particulares,
-  pypData: [pyp191022, pyp190407],
+  pypData: [pyp190407, pyp191022],
 })
