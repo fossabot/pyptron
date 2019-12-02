@@ -2,10 +2,10 @@ const PypData = require('../../../../classes/pyp-data')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { newISODate } = require('../../../../helpers/date-helpers')
-const { formatDate } = require('../../../../helpers/date-helpers')
-const {
-  getArrayElementAfterRotating,
-} = require('../../../../helpers/array-helpers')
+// const { formatDate } = require('../../../../helpers/date-helpers')
+// const {
+//   getArrayElementAfterRotating,
+// } = require('../../../../helpers/array-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
@@ -23,23 +23,33 @@ module.exports = new PypData({
   vehicleClasses: ['Vehículos automotores de servicio particular'],
   excludedDays: [0, 6],
   skipHolidays: true,
+  // pypFunction(date) {
+  //   const dateObject = newISODate(date)
+  //   switch (formatDate(dateObject)) {
+  //     case '2018-03-02':
+  //       return [9, 0]
+  //     default:
+  //       break
+  //   }
+  //   const startDate = '2017-12-02'
+  //   const pypNums = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 0]]
+  //   return getArrayElementAfterRotating({
+  //     date,
+  //     startDate,
+  //     array: pypNums,
+  //     period: 'months',
+  //     reverse: true,
+  //     interval: 3,
+  //   })
+  // },
   pypFunction(date) {
-    const dateObject = newISODate(date)
-    switch (formatDate(dateObject)) {
-      case '2018-03-02':
-        return [9, 0]
-      default:
-        break
-    }
-    const startDate = '2017-12-02'
-    const pypNums = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 0]]
-    return getArrayElementAfterRotating({
-      date,
-      startDate,
-      array: pypNums,
-      period: 'months',
-      reverse: true,
-      interval: 3,
-    })
+    const pyp = [
+      [5, 6], // lunes
+      [7, 8], // martes
+      [9, 0], // miércoles
+      [1, 2], // jueves
+      [3, 4], // viernes
+    ]
+    return pyp[newISODate(date).getDay() - 1]
   },
 })
