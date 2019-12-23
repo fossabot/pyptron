@@ -2,6 +2,7 @@ const {
   generateISOString,
   getNthDayOfMonth,
   datesDiff,
+  rangeInclude,
 } = require('./date-helpers')
 
 describe('test for generateISOString', () => {
@@ -15,6 +16,47 @@ describe('test for generateISOString', () => {
   })
 })
 
+describe('test if a date is between a range', () => {
+  it('returns true for a date between the given range', () => {
+    expect(
+      rangeInclude({
+        date: '2019-12-01',
+        startDate: '2019-12-01',
+        endDate: '2019-12-30',
+      })
+    ).toBe(true)
+    expect(
+      rangeInclude({
+        startDate: '2019-12-01',
+        endDate: '2019-12-30',
+        date: '2019-12-30',
+      })
+    ).toBe(true)
+  })
+  it('returns false for a date outside the range', () => {
+    expect(
+      rangeInclude({
+        startDate: '2019-11-29',
+        endDate: '2019-11-29',
+        date: '2019-11-30',
+      })
+    ).toBe(false)
+    expect(
+      rangeInclude({
+        date: '2019-11-30',
+        startDate: '2019-12-01',
+        endDate: '2019-12-01',
+      })
+    ).toBe(false)
+    expect(
+      rangeInclude({
+        startDate: '2019-12-01',
+        endDate: '2019-12-30',
+        date: '2020-12-01',
+      })
+    ).toBe(false)
+  })
+})
 describe('test for getting nth day of a given month', () => {
   const days = {
     sunday: 0,

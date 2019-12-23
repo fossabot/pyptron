@@ -2,6 +2,7 @@ const { getHoliday } = require('pascua')
 
 module.exports = {
   formatDate,
+  rangeInclude,
   generateISOString,
   newISODate,
   getWeek,
@@ -17,6 +18,11 @@ function formatDate(date) {
   const paddedDay = day < 10 ? `0${day}` : day
   const paddedMonth = month < 10 ? `0${month}` : month
   return `${year}-${paddedMonth}-${paddedDay}`
+}
+
+function rangeInclude({ startDate, endDate, date }) {
+  const isoDate = formatDate(date)
+  return isoDate >= formatDate(startDate) && isoDate <= formatDate(endDate)
 }
 
 function newISODate(date, timeOffset = '-05:00') {
