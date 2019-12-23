@@ -6,6 +6,11 @@ const { newISODate } = require('../../../../helpers/date-helpers')
 module.exports = new PypData({
   startDate: '2019-04-07',
   decrees: [
+    {
+      name: 'decreto 508 de 2019',
+      url:
+        'https://www.santamarta.gov.co/sites/default/files/decreto_508_de_4_dic_2019.pdf',
+    },
     { name: 'Decreto 349 de 2017', url: 'cdn:pdf' },
     { name: 'Decreto 070 de 2018', url: 'cdn:pdf' },
   ],
