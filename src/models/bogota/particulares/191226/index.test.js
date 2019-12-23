@@ -4,12 +4,16 @@ const category = require('./')
 
 const dateCases = [
   {
-    date: '2018-04-09', // lunes 9 de abril de 2018
-    pyp: [1, 3, 5, 7, 9],
+    date: '2019-12-26',
+    pyp: [],
   },
   {
-    date: '2018-05-16', // miércoles 16 de mayo de 2018
-    pyp: [0, 2, 4, 6, 8],
+    date: '2020-01-03',
+    pyp: [],
+  },
+  {
+    date: '2020-01-07',
+    pyp: [1, 3, 5, 7, 9],
   },
 ]
 testCases(category, dateCases)
