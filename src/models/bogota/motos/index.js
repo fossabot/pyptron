@@ -10,4 +10,5 @@ module.exports = new Category({
     },
   ],
   pypData: [pyp190407],
+  decrees: [{ name: '', url: '' }],
 })

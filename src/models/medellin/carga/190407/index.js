@@ -4,7 +4,6 @@ const observations = require('./observations.md')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [{ name: '', url: '' }],
   exceptions,
   hours: [{ comment: '', hours: [[]], days: [] }],
   maps: [],

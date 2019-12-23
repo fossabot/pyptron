@@ -5,10 +5,6 @@ const { newISODate } = require('../../../../helpers/date-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    { name: 'Decreto 60 del 22 de octubre de 2018', url: 'cdn:pdf' },
-    { name: 'Estudio de tráfico pico y placa enero 2018', url: 'cdn:pdf' },
-  ],
   exceptions,
   hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
   maps: [],

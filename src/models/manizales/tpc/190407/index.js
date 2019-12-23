@@ -6,10 +6,6 @@ const { normalizeArrayIndex } = require('../../../../helpers/array-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
-    { name: 'Resolución 298 de 2017', url: '' },
-  ],
   exceptions,
   hours: [{ comment: '', hours: [['6:00', '23:59']], days: [] }],
   maps: [],

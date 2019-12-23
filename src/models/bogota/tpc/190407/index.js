@@ -7,20 +7,6 @@ const {
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    {
-      name: 'Decreto 444 de 2014',
-      url: 'http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59702',
-    },
-    {
-      name: 'Calendario pico y placa primer semestre 2018 unificado',
-      url: 'cdn:pdf',
-    },
-    {
-      name: 'Calendario pico y placa segundo semestre 2018 unificado',
-      url: 'cdn:pdf',
-    },
-  ],
   exceptions,
   hours: [{ comment: 'Todo el día', hours: [[]], days: [] }],
   maps: [],
@@ -31,7 +17,13 @@ module.exports = new PypData({
   skipHolidays: true,
   pypFunction(date) {
     const startDate = '2018-01-01'
-    const pypNums = [[5, 6], [7, 8], [9, 0], [1, 2], [3, 4]]
+    const pypNums = [
+      [5, 6],
+      [7, 8],
+      [9, 0],
+      [1, 2],
+      [3, 4],
+    ]
     return getArrayElementAfterRotating({
       date,
       startDate,

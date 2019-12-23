@@ -9,6 +9,7 @@ module.exports = class Category {
     this.messages = options.messages || []
     this.name = options.name
     this.pypData = options.pypData
+    this.decrees = options.decrees
   }
 
   getPypData(options) {
@@ -30,13 +31,16 @@ module.exports = class Category {
       lower: true,
     })
 
-    const { emoji, key, name, messages } = this
+    const { emoji, key, name, messages, decrees } = this
 
     const result = {
       emoji,
       key,
       messages,
       name,
+      decrees: decrees
+        ? cdnPathMaker(decrees, cityPath)
+        : [{ name: '', url: '' }],
       path: `${cityPath}/${categoryPath}`,
       data: [],
     }
@@ -47,11 +51,12 @@ module.exports = class Category {
       })
       if (!currentPypData) {
         throw new Error(
-          `No tenemos información disponible antes de ${sortedPypData[sortedPypData.length - 1].startDate}.`
+          `No tenemos información disponible antes de ${
+            sortedPypData[sortedPypData.length - 1].startDate
+          }.`
         )
       }
       const {
-        decrees,
         exceptions,
         excludedDays,
         hours,
@@ -64,7 +69,6 @@ module.exports = class Category {
 
       result.data.push({
         date: currentDate.toISOString(),
-        decrees: decrees ? cdnPathMaker(decrees, cityPath) : [],
         exceptions,
         excludedDays,
         hours,

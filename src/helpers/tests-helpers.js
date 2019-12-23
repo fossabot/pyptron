@@ -1,19 +1,12 @@
 exports.testInfo = category => {
   describe(`Test info`, () => {
-    const { decrees, hours, scheme, vehicleClasses } = category
+    const { hours, scheme, vehicleClasses } = category
 
     it(`Should return an array for 'vehicleClasses'`, () => {
       expect(Array.isArray(vehicleClasses)).toBe(true)
     })
     it(`Should return scheme`, () => {
       expect(typeof scheme).toEqual(expect.anything())
-    })
-    it(`Should return decrees `, () => {
-      expect(Array.isArray(decrees)).toBe(true)
-      decrees.forEach(decree => {
-        expect(typeof decree.name).toBe('string')
-        expect(typeof decree.url).toBe('string')
-      })
     })
     it(`Should return hours`, () => {
       expect(Array.isArray(hours)).toBe(true)

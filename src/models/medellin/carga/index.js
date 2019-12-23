@@ -6,4 +6,5 @@ const pyp191102 = require('./191102')
 module.exports = new Category({
   ...Category.metainfo.carga,
   pypData: [pyp190407, pyp190930, pyp191102],
+  decrees: [{ name: '', url: '' }],
 })

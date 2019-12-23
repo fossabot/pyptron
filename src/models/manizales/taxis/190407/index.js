@@ -10,10 +10,6 @@ const {
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    { name: 'Resolución 308 de 2019', url: 'cdn:pdf' },
-    { name: 'Resolución 298 de 2017', url: '' },
-  ],
   exceptions,
   hours: [{ comment: '', hours: [['4:00', '4:00']], days: [] }],
   maps: [],
@@ -71,7 +67,13 @@ module.exports = new PypData({
       return dow === 6 ? nums[0] : nums[1]
     }
     const startDate = '2018-01-01'
-    const pypNums = [[3, 4], [5, 6], [7, 8], [9, 0], [1, 2]]
+    const pypNums = [
+      [3, 4],
+      [5, 6],
+      [7, 8],
+      [9, 0],
+      [1, 2],
+    ]
     return getArrayElementAfterRotating({
       date,
       startDate,

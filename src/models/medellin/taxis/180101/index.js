@@ -8,13 +8,6 @@ const { datesDiff, newISODate } = require('../../../../helpers/date-helpers')
 
 module.exports = new PypData({
   startDate: '2018-01-01',
-  decrees: [
-    {
-      name: 'Decreto 0116 de 2018',
-      url:
-        'https://www.medellin.gov.co/movilidad/jdownloads/Normas/Normatividad/Decretos%20Municipales/2018/decreto_0116_de_2018.pdf',
-    },
-  ],
   exceptions,
   hours: [{ comment: '', hours: [['6:00', '20:00']], days: [] }],
   maps: [],
@@ -30,7 +23,13 @@ module.exports = new PypData({
     const millisecondsDiff = dateObject - startDate
     const daysDiff = millisecondsDiff / millisecondsPerDay
     const weeksOffset = Math.ceil((daysDiff + 1) / 7)
-    let pypNums = [[[5], [0]], [[6], [1]], [[7], [2]], [[3], [8]], [[4], [9]]]
+    let pypNums = [
+      [[5], [0]],
+      [[6], [1]],
+      [[7], [2]],
+      [[3], [8]],
+      [[4], [9]],
+    ]
     if (dateObject >= newISODate('2018-05-07')) {
       pypNums[2] = [[2], [7]]
       pypNums[3] = [[8], [3]]

@@ -8,7 +8,6 @@ const expectedData = {
   date: expect.stringMatching(
     /20[0-9]{2}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z/
   ),
-  decrees: expect.any(Array),
   exceptions: expect.any(String),
   excludedDays: expect.any(Array),
   hours: expect.any(Array),
@@ -26,6 +25,7 @@ const expectedCategory = {
   name: expect.any(String),
   path: expect.any(String),
   data: expect.arrayContaining([expectedData]),
+  decrees: expect.any(Array),
 }
 
 const citiesNames = Object.keys(citiesMap)
@@ -63,6 +63,11 @@ citiesNames.forEach(city => {
       expect(pypData.name).toBe(citiesMap[city].name)
       expect(pypData.path).toBe(`${city}`)
       expect(Array.isArray(pypData.messages)).toBe(true)
+      expect(Array.isArray(currentCategory.decrees)).toBe(true)
+      currentCategory.decrees.forEach(decree => {
+        expect(typeof decree.name).toBe('string')
+        expect(typeof decree.url).toBe('string')
+      })
       expect(currentCategory).toEqual(expect.objectContaining(expectedCategory))
       expect(currentCategory.data.length).toBe(1)
     })

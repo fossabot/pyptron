@@ -5,7 +5,6 @@ const { newISODate } = require('../../../../helpers/date-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [],
   exceptions,
   hours: [{ comment: '', hours: [['8:00', '18:00']], days: [] }],
   maps: [],

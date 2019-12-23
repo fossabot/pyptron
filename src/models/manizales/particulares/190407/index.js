@@ -5,15 +5,15 @@ const { newISODate } = require('../../../../helpers/date-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    { name: 'Decreto 0475 de 2018', url: 'cdn:pdf' },
-    { name: 'Decreto 0547 de 2017', url: 'cdn:pdf' },
-  ],
   exceptions,
   hours: [
     {
       comment: '',
-      hours: [['6:30', '8:30'], ['11:30', '14:30'], ['17:30', '19:30']],
+      hours: [
+        ['6:30', '8:30'],
+        ['11:30', '14:30'],
+        ['17:30', '19:30'],
+      ],
       days: [],
     },
   ],

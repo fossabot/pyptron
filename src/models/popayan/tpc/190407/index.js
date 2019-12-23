@@ -4,13 +4,6 @@ const observations = require('./observations.md')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    {
-      name: 'Decreto 20181000000015 del 2 de enero de 2018',
-      url:
-        'https://www.popayan.gov.co/sites/default/files/decreto_20181000000015_02012018.pdf',
-    },
-  ],
   exceptions,
   hours: [{ comment: '', hours: [[]], days: [] }],
   maps: [],

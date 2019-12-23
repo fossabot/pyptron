@@ -9,13 +9,16 @@ const { newISODate } = require('../../../../helpers/date-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
-  decrees: [
-    { name: 'Decreto 1361 del 29 de noviembre de 2018', url: 'cdn:pdf' },
-    { name: 'Decreto 1550 del 30 de noviembre de 2017', url: 'cdn:pdf' },
-  ],
   exceptions,
   hours: [
-    { comment: '', hours: [['7:00', '10:00'], ['17:00', '20:00']], days: [] },
+    {
+      comment: '',
+      hours: [
+        ['7:00', '10:00'],
+        ['17:00', '20:00'],
+      ],
+      days: [],
+    },
   ],
   maps: [],
   observations,
