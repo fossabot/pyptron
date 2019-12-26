@@ -2,10 +2,10 @@ const PypData = require('../../../../classes/pyp-data')
 const exceptions = require('./exceptions.md')
 const observations = require('./observations.md')
 const { newISODate } = require('../../../../helpers/date-helpers')
-// const { formatDate } = require('../../../../helpers/date-helpers')
-// const {
-//   getArrayElementAfterRotating,
-// } = require('../../../../helpers/array-helpers')
+const { formatDate } = require('../../../../helpers/date-helpers')
+const {
+  moveArrayElementsToTheRight,
+} = require('../../../../helpers/array-helpers')
 
 module.exports = new PypData({
   startDate: '2019-04-07',
@@ -46,13 +46,16 @@ module.exports = new PypData({
   //   })
   // },
   pypFunction(date) {
-    const pyp = [
+    let pyp = [
       [5, 6], // lunes
       [7, 8], // martes
       [9, 0], // miércoles
       [1, 2], // jueves
       [3, 4], // viernes
     ]
+    if (formatDate(date) > '2020-01-03') {
+      pyp = moveArrayElementsToTheRight(pyp, -1)
+    }
     return pyp[newISODate(date).getDay() - 1]
   },
 })

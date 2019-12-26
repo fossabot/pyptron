@@ -67,6 +67,14 @@ const dateCases = [
     date: '2019-12-02',
     pyp: [5, 6],
   },
+  {
+    date: '2020-01-03',
+    pyp: [3, 4],
+  },
+  {
+    date: '2020-01-07',
+    pyp: [9, 0],
+  },
 ]
 testCases(category, dateCases)
 testInfo(category)
