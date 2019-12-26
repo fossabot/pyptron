@@ -71,7 +71,7 @@ citiesNames.forEach(city => {
       expect(currentCategory).toEqual(expect.objectContaining(expectedCategory))
       expect(currentCategory.data.length).toBe(1)
     })
-    const date = '2019-04-22'
+    const date = '2019-11-22'
     it(`should return info for ${city} ${category} ${date}`, () => {
       const pypData = getCityData(city, { category, date })
       const currentCategory =

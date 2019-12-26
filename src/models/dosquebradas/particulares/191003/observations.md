@@ -1,0 +1,4 @@
+- Se excluyen de dicha restricción las vías nacionales que atraviesan el Municipio de Dosquebradas.
+- La restricción dispuesta no regirá durante los días festivos establecidos por la ley y cuando excepcionalmente lo establezca el Alcalde Municipal de Dosquebradas.
+- La restricción aplicará para todo el Municipio de Dosquebradas.
+- Los vehículos de transporte de carga, tanto de servicio particular como público, entre ellos los vehículos clase camioneta, clasificados en el registro automotor como de estacas, furgón, panel, platón y pick up que posean cabina sencilla, no estarán cobijados por las restricciones.

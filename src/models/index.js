@@ -6,6 +6,7 @@ const buenaventura = require('./buenaventura')
 const cali = require('./cali')
 const cartagena = require('./cartagena')
 const cucuta = require('./cucuta')
+const dosquebradas = require('./dosquebradas')
 const ibague = require('./ibague')
 const malambo = require('./malambo')
 const manizales = require('./manizales')
@@ -31,6 +32,7 @@ module.exports = {
   cali,
   cartagena,
   cucuta,
+  dosquebradas,
   ibague,
   malambo,
   manizales,
