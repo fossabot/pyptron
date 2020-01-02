@@ -1,9 +1,10 @@
 const Category = require('../../../classes/category')
 const pyp190407 = require('./190407')
+const pyp200101 = require('./200101')
 
 module.exports = new Category({
   ...Category.metainfo.particulares,
-  pypData: [pyp190407],
+  pypData: [pyp190407, pyp200101],
   decrees: [
     {
       name: 'Decreto 0801 de 2018',
