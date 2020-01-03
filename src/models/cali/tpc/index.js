@@ -1,10 +1,9 @@
 const Category = require('../../../classes/category')
 const pyp190407 = require('./190407')
-const pyp200101 = require('./200101')
 
 module.exports = new Category({
   ...Category.metainfo.tpc,
-  pypData: [pyp190407, pyp200101],
+  pypData: [pyp190407],
   decrees: [
     {
       name: 'Decreto 0001 del 4 de enero de 2018',
