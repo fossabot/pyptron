@@ -15,11 +15,11 @@ module.exports = new PypData({
   skipHolidays: true,
   pypFunction(date) {
     const pyp = [
-      [1, 2, 3, 4], // lunes
-      [5, 6, 7, 8], // martes
-      [9, 0, 1, 2], // miércoles
-      [3, 4, 5, 6], // jueves
-      [7, 8, 9, 0], // viernes
+      [1, 2, 3, 4],
+      [5, 6, 7, 8],
+      [9, 0, 1, 2],
+      [3, 4, 5, 6],
+      [7, 8, 9, 0],
     ]
     return pyp[newISODate(date).getDay() - 1]
   },
