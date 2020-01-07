@@ -53,7 +53,16 @@ module.exports = new PypData({
       [1, 2],
       [3, 4],
     ]
-    if (formatDate(date) > '2020-01-03') {
+    if (formatDate(date) >= '2020-01-07') {
+      pyp = moveArrayElementsToTheRight(pyp, -1)
+    }
+    if (formatDate(date) >= '2020-04-06') {
+      pyp = moveArrayElementsToTheRight(pyp, -1)
+    }
+    if (formatDate(date) >= '2020-07-06') {
+      pyp = moveArrayElementsToTheRight(pyp, -1)
+    }
+    if (formatDate(date) >= '2020-10-05') {
       pyp = moveArrayElementsToTheRight(pyp, -1)
     }
     return pyp[newISODate(date).getDay() - 1]
