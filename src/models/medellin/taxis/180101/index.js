@@ -41,6 +41,10 @@ module.exports = new PypData({
     if (dateObject >= newISODate('2019-05-08')) {
       pypNums[2] = [[7], [2]]
     }
+    if (dateObject >= newISODate('2020-01-01')) {
+      pypNums[4] = [[4], [9]]
+    }
+
     const monthsDiffAccu = datesDiff({
       startDate,
       endDate: date,
