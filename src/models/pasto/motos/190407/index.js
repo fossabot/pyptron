@@ -9,7 +9,9 @@ module.exports = new PypData({
   startDate: '2019-04-07',
   exceptions,
   hours: [{ comment: '', hours: [['7:30', '19:00']], days: [] }],
-  maps: [],
+  maps: [
+    { name: 'Anillo de restricción vial para motocicletas', url: 'cdn:jpg' },
+  ],
   observations,
   scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Motocicletas'],
