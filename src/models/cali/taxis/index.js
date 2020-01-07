@@ -2,10 +2,11 @@ const Category = require('../../../classes/category')
 const pyp190407 = require('./190407')
 const pyp190801 = require('./190801')
 const pyp190910 = require('./190910')
+const pyp200101 = require('./200101')
 
 module.exports = new Category({
   ...Category.metainfo.taxis,
-  pypData: [pyp190407, pyp190801, pyp190910],
+  pypData: [pyp190407, pyp190801, pyp190910, pyp200101],
   decrees: [
     {
       name: 'Decreto 0570 del 10 de septiembre de 2019',

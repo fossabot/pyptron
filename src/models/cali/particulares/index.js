@@ -5,14 +5,6 @@ const pyp200101 = require('./200101')
 module.exports = new Category({
   ...Category.metainfo.particulares,
   pypData: [pyp190407, pyp200101],
-  messages: [
-    {
-      message:
-        'En la actualidad, no rige medida de pico y placa en Santiago de Cali',
-      url:
-        'https://www.cali.gov.co/movilidad/publicaciones/151255/en-la-actualidad-no-rige-medida-de-pico-y-placa-en-santiago-de-cali/',
-    },
-  ],
   decrees: [
     {
       name: 'Decreto 0801 de 2018',
