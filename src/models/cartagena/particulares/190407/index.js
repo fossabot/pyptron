@@ -47,11 +47,11 @@ module.exports = new PypData({
   // },
   pypFunction(date) {
     let pyp = [
-      [5, 6], // lunes
-      [7, 8], // martes
-      [9, 0], // miércoles
-      [1, 2], // jueves
-      [3, 4], // viernes
+      [5, 6],
+      [7, 8],
+      [9, 0],
+      [1, 2],
+      [3, 4],
     ]
     if (formatDate(date) > '2020-01-03') {
       pyp = moveArrayElementsToTheRight(pyp, -1)
