@@ -7,7 +7,7 @@ module.exports = new PypData({
   startDate: '2019-04-07',
   exceptions,
   hours: [{ comment: '', hours: [['7:00', '19:00']], days: [] }],
-  maps: [{ name: 'Mapa pico y placa santa marta', url: 'cdn:jpg' }],
+  maps: [{ name: 'Mapa pico y placa santa marta 2', url: 'cdn:jpg' }],
   observations,
   scheme: PypData.licensePlateScheme.lastNumber,
   vehicleClasses: ['Vehículos automotores de servicio particular'],
