@@ -9,6 +9,11 @@ module.exports = new Category({
   pypData: [pyp190407, pyp190801, pyp190910, pyp200101],
   decrees: [
     {
+      name: 'Decreto primer semestre de 2020',
+      url:
+        'https://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=43453',
+    },
+    {
       name: 'Decreto 0570 del 10 de septiembre de 2019',
       url:
         'https://serviciosdetransito.com/images/documentos/2019/Decreto-0570-de-2019-pico-y-placa-taxis.pdf',

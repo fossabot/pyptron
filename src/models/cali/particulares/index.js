@@ -7,6 +7,11 @@ module.exports = new Category({
   pypData: [pyp190407, pyp200101],
   decrees: [
     {
+      name: 'Decreto primer semestre de 2020',
+      url:
+        'https://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=43453',
+    },
+    {
       name: 'Decreto 0801 de 2018',
       url:
         'http://www.cali.gov.co/movilidad/loader.php?lServicio=Tools2&lTipo=descargas&lFuncion=descargar&idFile=32835',
