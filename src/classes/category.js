@@ -46,9 +46,9 @@ module.exports = class Category {
     }
 
     for (let i = 0; i < totalDays; i += 1) {
-      const currentPypData = sortedPypData.find(pypData => {
-        return formatDate(currentDate) >= pypData.startDate
-      })
+      const currentPypData = sortedPypData.find(
+        pypData => formatDate(currentDate) >= pypData.startDate
+      )
       if (!currentPypData) {
         throw new Error(
           `No tenemos información disponible antes de ${
