@@ -6,6 +6,11 @@ module.exports = new Category({
   pypData: [pyp190407],
   decrees: [
     {
+      name: 'Decreto 2000 del 8 de julio de 2019',
+      url:
+        'https://www.pasto.gov.co/index.php/decretos/decretos-2019?download=14705:dec_0200_08_jul_2019',
+    },
+    {
       name: 'Decreto 0184 del 8 de junio de 2018',
       url:
         'https://www.pasto.gov.co/index.php/decretos/decretos-2018?download=12087:dec-0184-08-jun-2018',
