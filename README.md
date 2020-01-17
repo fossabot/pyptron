@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/picoyplaca/pyptron.svg?style=svg)](https://circleci.com/gh/picoyplaca/pyptron)
 [![codecov](https://codecov.io/gh/picoyplaca/pyptron/branch/master/graph/badge.svg)](https://codecov.io/gh/picoyplaca/pyptron)
 [![Greenkeeper badge](https://badges.greenkeeper.io/picoyplaca/pyptron.svg)](https://greenkeeper.io/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpicoyplaca%2Fpyptron.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpicoyplaca%2Fpyptron?ref=badge_shield)
 
 Modulo para calcular el Pico y Placa en las distintas ciudades de Colombia.
 
@@ -59,3 +60,6 @@ Las opciones no son requeridas y se pueden incluir cualquiera de las siguientes.
 ## Licencia
 
 [MIT](LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpicoyplaca%2Fpyptron.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpicoyplaca%2Fpyptron?ref=badge_large)
